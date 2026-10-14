@@ -1,0 +1,30 @@
+[
+  {
+    "path": "third_party/RoboTwin",
+    "remote": "",
+    "commit": "",
+    "local_changes": "",
+    "note": "Vendored working tree, including local modifications; original license files retained."
+  },
+  {
+    "path": "third_party/BEHAVIOR-1K-isaac6",
+    "remote": "",
+    "commit": "",
+    "local_changes": "",
+    "note": "Vendored working tree, including local modifications; original license files retained."
+  },
+  {
+    "path": "third_party/BEHAVIOR-1K",
+    "remote": "https://github.com/StanfordVL/BEHAVIOR-1K.git",
+    "commit": "b1979916ec1549b10a4e65e630bc6504a9af1b00",
+    "local_changes": "",
+    "note": "Vendored working tree, including local modifications; original license files retained."
+  },
+  {
+    "path": "third_party/LiLa-WAM",
+    "remote": "https://github.com/teee000/LiLa-WAM.git",
+    "commit": "339860f65d5cde9e229c037b672889bc4f70497c",
+    "local_changes": "M models/model_runner.py\n?? models/__pycache__/",
+    "note": "Vendored working tree, including local modifications; original license files retained."
+  }
+]

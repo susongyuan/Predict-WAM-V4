@@ -1,0 +1,119 @@
+# task1_manip_v3: Task 1 WAM MANIPULATION executor, v2 recipe continued for one more epoch.
+# PRE-REGISTERED 2026-09-26 18:55 CST, before any v3 result. Development training only (train split, 180 demos).
+#
+# Evidence (outputs/validation/task1_manip_admission_20260926/v2_final/summary.json, same 05:33 gate, K=8, final only):
+#  - ADMITTED: pick up from(can_of_soda,floors), place in(can_of_soda,trash_can) (gripper events 0.83 / 0.78, acting-arm
+#    reach 0.78 / 0.855); v1 -> v2 fixed the gripper copycat and the under-reach.
+#  - NOT admitted: pick up from(trash_can,floors) only on the idle LEFT arm MAE rule (dMAE +0.00607 > floor 0.00577).
+#    Split (CPU, rows.json): the excess is on the 160 anchors where the demo left arm is static (dMAE +0.0072, predicted
+#    idle intent 0.063 rad; v1 0.033) -> spurious idle-arm motion, a real small bias (a hold+noise model would pass).
+#    place on(trash_can,floors) (not in the program): left-arm reach 0.42 < 0.5.
+# Change vs v2: NONE except initialisation = v2 checkpoint_final.pt (step 8000, SHA pinned below) and a fresh cosine
+#   lr 2e-5 -> 5e-6 over 8000 steps (~1.05 epoch; v1+v2+v3 ~2.8 epochs). Same mask (positions_no_gripper), same motion +
+#   gripper-event weighted sampling, same data, seed, validation. No new knobs: one more epoch is the least-assumption
+#   step and is also condition C of the GE-Act switch rule (docs/ge_act2_feasibility_20260926.md).
+# ADMISSION (pre-registered): the SAME gate.json, K=8, checkpoint_final (step 8000 of this run) ONLY. If this run is
+#   paused for simulator work (SIGTERM -> checkpoint_last) and resumed with --resume into a *_part2 run directory, the
+#   admission candidate is the resumed run's checkpoint_final at global step 8000. The first dev closed loop needs the
+#   three program contracts admitted (pick trash_can, pick can, place in); place on is reported only.
+# Launch: P2_TASK_ID=1 NAME=task1_manip_v3_20260926 CONFIG=configs/lilawam_task001_multiview_manip_v3_train.yaml \
+#   INIT=outputs/training/task1_manip_v2_20260926/checkpoint_final.pt scripts/run_train_unit.sh
+common:
+  action_dim: 23
+  state_dim: 61
+  action_chunk_size: 32
+  proprio_len: 1
+  num_inference_steps: 10
+  action_execution_horizon: 1
+dataset:
+  task_id: 1                        # must equal P2_TASK_ID (harness/task_profile.py); checked by the trainer
+  root: data/behavior-1k/2026-challenge-demos
+  stats_path: data/behavior-1k/2026-challenge-demos/train_stats_task001.json
+  skill_segments: data/behavior-1k/2026-challenge-demos/skill_segments_task001.json
+  vtt_dir: data/skill_vtt_task001
+  camera: observation.rgb.zed_link_camera_0
+  image_size: [224, 224]
+  frame_stride: 2
+  future_frame_offset: 32
+  scope: manipulation
+  in_segment: true                 # real [start,end), never gap-filled segment padding
+  cond_mode: contract_proto
+  contract_targets: data/skill_vtt_task001/contract_targets.json
+  contract_targets_sha256: e385d458e88059441923ab21bb24c9df7a72bb6fdc962cdd8116ba372b13d8f2
+  skip_unsupported_contracts: true  # 6 rare annotation variants (<5 train segments) are skipped and logged
+  instance_vtt_prob: 0.0           # frozen shared train-only contract prototypes
+model:
+  views:                            # order = view index; head must be first (view_emb[0] = stage3 path)
+    - observation.rgb.zed_link_camera_0
+    - observation.rgb.left_realsense_link_camera_0
+    - observation.rgb.right_realsense_link_camera_0
+  num_registers: 2
+  use_task_cond: true
+  proprio_mask: positions_no_gripper  # velocities + finger openings zeroed (32 of 61 dims kept); gripper copycat fix
+  vision_encoder:
+    checkpoint_path: models/dinov3-vitl16-pretrain-lvd1689m
+    repo_id: facebook/dinov3-vitl16-pretrain-lvd1689m
+    revision: ea8dc2863c51be0a264bab82070e3e8836b02d51
+    feat_layers: [-12, -8, -4]
+    include_cls_register: true
+    fusion_mode: concat
+    concat:
+      proj_type: linear
+      pre_norm: true
+      out_dim: null
+  future_feat:
+    enabled: true
+    target_layer: -4
+    num_decoder_layers: 4
+    num_heads: 4
+  action_expert:
+    depth: 12
+    hidden_size: 768
+    num_heads: 8
+    vlm_adapter_num_queries: 64
+    adapter_depth: 4
+training:
+  init_from_sha256: 2eef750126787bfecb5c406f759cad279e597bbaae626fd5f0cb56e36699acfa  # v2 checkpoint_final.pt (step 8000)
+  motion_weighting:
+    power: 1.0
+    clip: [0.5, 6.0]
+    gripper_event_weight: 4.0
+  seed: 20260921
+  batch_size: 32
+  grad_accum_steps: 1
+  samples_per_epoch: 256000
+  max_steps: 8000
+  schedule_steps: 8000
+  learning_rate: 0.00002
+  lr_min: 0.000005
+  weight_decay: 0.01
+  betas: [0.9, 0.99]
+  grad_clip_norm: 1.0
+  time_sampler: logit_normal
+  time_mu: 0.0
+  time_sigma: 1.0
+  use_vel_weight: false
+  vel_weight_alpha: 0.2
+  vel_weight_sigma: 0.01
+  lambda_future_feat: 0.5
+  save_every: 1000
+  validate_every: 1000
+  validation_samples: 512
+  checkpoint_metric: upper_body_mae  # (4*trunk + 7*left_arm + 7*right_arm) / 18; not flow MSE
+  validation_seed: 0               # fixed eval noise/timesteps/sampler RNG
+inference:
+  smooth_actions: false
+  smooth_sigma: 1.0
+system:
+  cpu_threads: 8
+  cuda_memory_fraction: 0.70
+  duty_cycle: 0.8                  # GPU busy fraction; keeps average utilization below the 85% ceiling
+  gpu_util_target: 85              # sleep doubles while the 20 s nvidia-smi average exceeds this
+  min_sleep_s: 0.0
+  vram_abort_mib: 15300
+  ram_abort_percent: 85
+manifest:
+  stage: "development Task-1 (picking_up_trash) multi-view manipulation executor v3 (v2 recipe, +1 epoch from v2 final)"
+  task_id: 1
+  derived_from_config: configs/lilawam_task001_multiview_manip_v2_train.yaml
+  offline_admission: "pre-registered K=8 gate per Task-1 contract (upper-body intent cosine, motion ratio, MAE vs copy-hold within the K8 noise floor; grippers graded separately by sign agreement); gate.json written before results"

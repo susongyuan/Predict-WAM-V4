@@ -1,0 +1,76 @@
+common:
+  action_dim: 23
+  state_dim: 61
+  action_chunk_size: 32
+  proprio_len: 1
+  num_inference_steps: 10
+  action_execution_horizon: 1
+dataset:
+  root: data/behavior-1k/2026-challenge-demos
+  stats_path: data/behavior-1k/2026-challenge-demos/train_stats_task013.json
+  skill_segments: data/behavior-1k/2026-challenge-demos/skill_segments_task013.json
+  vtt_dir: data/skill_vtt_task013
+  camera: observation.rgb.zed_link_camera_0
+  image_size: [224, 224]
+  frame_stride: 2
+  future_frame_offset: 32
+  cond_mode: skill_proto      # skill_proto | task_level | none
+  instance_vtt_prob: 0.2      # train only: use the segment's own VTT instead of the class prototype
+model:
+  num_registers: 2
+  use_task_cond: true
+  vision_encoder:
+    checkpoint_path: models/dinov3-vitl16-pretrain-lvd1689m
+    repo_id: facebook/dinov3-vitl16-pretrain-lvd1689m
+    revision: ea8dc2863c51be0a264bab82070e3e8836b02d51
+    feat_layers: [-12, -8, -4]
+    include_cls_register: true
+    fusion_mode: concat
+    concat:
+      proj_type: linear
+      pre_norm: true
+      out_dim: null
+  future_feat:
+    enabled: true
+    target_layer: -4
+    num_decoder_layers: 4
+    num_heads: 4
+  action_expert:
+    depth: 12
+    hidden_size: 768
+    num_heads: 8
+    vlm_adapter_num_queries: 64
+    adapter_depth: 4
+training:
+  seed: 20260921
+  batch_size: 32
+  grad_accum_steps: 1
+  samples_per_epoch: 320000   # ~10k optimizer steps per "epoch" (random subsample of ~1.7M anchors)
+  max_steps: 50000
+  schedule_steps: 50000
+  learning_rate: 0.0002
+  lr_min: 0.00004
+  weight_decay: 0.01
+  betas: [0.9, 0.99]
+  grad_clip_norm: 1.0
+  time_sampler: logit_normal
+  time_mu: 0.0
+  time_sigma: 1.0
+  use_vel_weight: false
+  vel_weight_alpha: 0.2
+  vel_weight_sigma: 0.01
+  lambda_future_feat: 0.5
+  save_every: 1000
+  validate_every: 1000
+  validation_samples: 256
+inference:
+  smooth_actions: false
+  smooth_sigma: 1.0
+system:
+  cpu_threads: 4
+  cuda_memory_fraction: 0.60   # torch cap ~9.8 GiB of 16 GiB
+  duty_cycle: 0.75             # target GPU busy fraction
+  gpu_util_target: 80          # sleep more if 20 s average nvidia-smi util exceeds this
+  min_sleep_s: 0.02
+  vram_abort_mib: 13312
+  ram_abort_percent: 82

@@ -1,0 +1,11 @@
+{
+ "task_id": 0,
+ "task": "turning_on_radio",
+ "source": "configs/task000_skill_program.json top_program (178/180 train demos); budgets are conservative fallbacks above the train medians",
+ "program": [
+  {"skill": "move to", "objects": ["radio"], "budget_frames": 1000},
+  {"skill": "pick up from", "objects": ["radio", "coffee_table"], "budget_frames": 1200},
+  {"skill": "press", "objects": ["radio"], "budget_frames": 600},
+  {"skill": "place on", "objects": ["radio", "coffee_table"], "budget_frames": 700}
+ ]
+}

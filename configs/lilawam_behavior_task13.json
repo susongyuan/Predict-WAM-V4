@@ -1,0 +1,23 @@
+{
+  "status": "offline_data_contract_only_not_a_training_config",
+  "dataset_root": "data/behavior-1k/2026-challenge-demos",
+  "task_id": 13,
+  "dataset_revision": "4f50b44796641a4d526a19d9aeadc8aa51e2f2c2",
+  "split_file": "split_task_013.json",
+  "normalization_file": "train_stats_task013.json",
+  "normalization_key": "behavior1k",
+  "state_dim": 61,
+  "action_dim": 23,
+  "fps": 30,
+  "state_indices": [0],
+  "action_chunk_size": 32,
+  "future_frame_offset": 32,
+  "episode_tail_policy": "exclude_anchors_without_full_action_chunk_and_future_frame",
+  "camera_keys": [
+    "observation.rgb.zed_link_camera_0",
+    "observation.rgb.left_realsense_link_camera_0",
+    "observation.rgb.right_realsense_link_camera_0"
+  ],
+  "rgb_decode": "not_implemented_timestamp_references_only",
+  "resource_limits": {"cpu_threads": 2, "memory_max_bytes": 2147483648, "gpu": false}
+}

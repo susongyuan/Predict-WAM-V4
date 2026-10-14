@@ -1,0 +1,120 @@
+# Independent Task90 WAM executor adaptation; not the locked Task0 continuation.
+# Architecture/loss/optimizer are unchanged from the accepted V3 micro16 recipe.
+common:
+  action_dim: 23
+  state_dim: 61
+  action_chunk_size: 32
+  proprio_len: 7
+  num_inference_steps: 10
+  action_execution_horizon: 8
+dataset:
+  task_id: 90
+  task_name: composting_waste
+  revision: 4f50b44796641a4d526a19d9aeadc8aa51e2f2c2
+  root: data/behavior-1k/2026-challenge-demos
+  split_path: data/behavior-1k/2026-challenge-demos/split_task_090.json
+  stats_path: data/behavior-1k/2026-challenge-demos/train_stats_task090.json
+  skill_segments: data/behavior-1k/2026-challenge-demos/skill_segments_task090.json
+  lowdim_cache: data/lowdim_cache_task090
+  vtt_dir: data/skill_vtt_task090
+  camera: observation.rgb.zed_link_camera_0
+  image_size: [224, 224]
+  frame_stride: 2
+  future_frame_offset: 32
+  scope: manipulation
+  in_segment: true
+  cond_mode: contract_proto
+  contract_targets: data/skill_vtt_task090/contract_targets.json
+  # Generated from TRAIN Task90 only; pinned before the first optimizer update for deployment compatibility.
+  contract_targets_sha256: d883607e9c275a9e844fe428c1c5939ebfeae57e1aa31a52ff69f3677c2626c5
+  skip_unsupported_contracts: true
+  instance_vtt_prob: 0.0
+  feature_cache: data/dino_cache_task090
+model:
+  views:
+    - observation.rgb.zed_link_camera_0
+    - observation.rgb.left_realsense_link_camera_0
+    - observation.rgb.right_realsense_link_camera_0
+  num_registers: 2
+  use_task_cond: true
+  proprio_mask: positions_no_gripper
+  vision_encoder:
+    checkpoint_path: models/dinov3-vitl16-pretrain-lvd1689m
+    repo_id: facebook/dinov3-vitl16-pretrain-lvd1689m
+    revision: ea8dc2863c51be0a264bab82070e3e8836b02d51
+    feat_layers: [-12, -8, -4]
+    include_cls_register: true
+    fusion_mode: concat
+    concat:
+      proj_type: linear
+      pre_norm: true
+      out_dim: null
+  future_feat:
+    enabled: true
+    target_layer: -4
+    num_decoder_layers: 4
+    num_heads: 4
+  action_expert:
+    depth: 12
+    hidden_size: 768
+    num_heads: 8
+    vlm_adapter_num_queries: 64
+    adapter_depth: 4
+  v3:
+    proprio_lags: [4, 8, 16, 32, 64]
+    memory_lags: [8, 32]
+    stats_path: data/behavior-1k/2026-challenge-demos/wam_v3_stats_task090.json
+    phase_hidden: 512
+training:
+  init_from: outputs/training/task0_v3_30k_20260929_s025000/checkpoint_step_025000.pt
+  init_from_sha256: 1d345c8ac3153ad4b82acf3d175c87cfd65010c17cb506210696fc9c71ff1dde
+  initialization_step: 25000
+  seed: 20260921
+  validation_seed: 0
+  batch_size: 16
+  grad_accum_steps: 2
+  samples_per_epoch: 128000
+  max_steps: 50000
+  schedule_steps: 50000
+  learning_rate: 0.00005
+  lr_min: 0.000005
+  warmup_steps: 2000
+  weight_decay: 0.01
+  betas: [0.9, 0.99]
+  grad_clip_norm: 1.0
+  time_mu: 0.0
+  time_sigma: 1.0
+  motion_weighting:
+    power: 1.0
+    clip: [0.5, 6.0]
+    gripper_event_weight: 4.0
+  auxiliary_loss:
+    future: 0.5
+    gate_kl: 0.05
+    phase_ce: 0.02
+    log_dist: 0.01
+  save_every: 5000
+  validate_every: 5000
+  validation_samples: 512
+  fine_validation_samples: 256
+  checkpoint_metric: fine_eef_m
+inference:
+  samples: 1
+  smooth_actions: false
+  smooth_sigma: 1.0
+system:
+  cpu_threads: 8
+  cuda_memory_fraction: 0.70
+  duty_cycle: 0.8
+  gpu_util_target: 85
+  min_sleep_s: 0.0
+  vram_abort_mib: 15300
+  ram_abort_percent: 85
+manifest:
+  task_id: 90
+  stage: Task90 independent 50k WAM executor adaptation
+  initialization: Existing Task0 25k V3 weights only; fresh Task90 optimizer and schedule from zero
+  early_stopping: false
+  checkpoint_rule: Fixed validation K1 active-hand terminal FK error; offline proxy only
+  scope: WAM manipulation executor only; high-level system and base policy are not trained
+  physical_evaluation: Main session serial evaluation every 5k; navigation assistance disclosed separately

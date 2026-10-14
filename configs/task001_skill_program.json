@@ -1,0 +1,215 @@
+{
+ "task_id": 1,
+ "task": "picking_up_trash",
+ "source": "180 train annotations only (validation excluded); objects canonicalized by harness.vtt_monitor.canonical_object",
+ "skills": [
+  {
+   "skill": "move to",
+   "objects": [
+    "can_of_soda"
+   ],
+   "count": 540,
+   "median_frames": 328,
+   "median_position": 5,
+   "skill_type": "navigation"
+  },
+  {
+   "skill": "pick up from",
+   "objects": [
+    "can_of_soda",
+    "floors"
+   ],
+   "count": 536,
+   "median_frames": 419,
+   "median_position": 6,
+   "skill_type": "uncoordinated"
+  },
+  {
+   "skill": "place in",
+   "objects": [
+    "can_of_soda",
+    "trash_can"
+   ],
+   "count": 535,
+   "median_frames": 212,
+   "median_position": 7,
+   "skill_type": "coordinated"
+  },
+  {
+   "skill": "move to",
+   "objects": [
+    "trash_can"
+   ],
+   "count": 180,
+   "median_frames": 471,
+   "median_position": 0,
+   "skill_type": "navigation"
+  },
+  {
+   "skill": "pick up from",
+   "objects": [
+    "trash_can",
+    "floors"
+   ],
+   "count": 180,
+   "median_frames": 566,
+   "median_position": 1,
+   "skill_type": "uncoordinated"
+  },
+  {
+   "skill": "place on",
+   "objects": [
+    "trash_can",
+    "floors"
+   ],
+   "count": 178,
+   "median_frames": 335,
+   "median_position": 11,
+   "skill_type": "uncoordinated"
+  },
+  {
+   "skill": "place in",
+   "objects": [
+    "can_of_soda",
+    "floors"
+   ],
+   "count": 5,
+   "median_frames": 185,
+   "median_position": 10,
+   "skill_type": "coordinated"
+  },
+  {
+   "skill": "pick up from",
+   "objects": [
+    "can_of_soda",
+    "trash_can"
+   ],
+   "count": 3,
+   "median_frames": 448,
+   "median_position": 9,
+   "skill_type": "uncoordinated"
+  },
+  {
+   "skill": "place on",
+   "objects": [
+    "can_of_soda",
+    "trash_can"
+   ],
+   "count": 1,
+   "median_frames": 356,
+   "median_position": 11,
+   "skill_type": "uncoordinated"
+  },
+  {
+   "skill": "place on",
+   "objects": [
+    "can_of_soda",
+    "floors"
+   ],
+   "count": 1,
+   "median_frames": 355,
+   "median_position": 11,
+   "skill_type": "uncoordinated"
+  },
+  {
+   "skill": "pick up from",
+   "objects": [
+    "can_of_soda",
+    "can_of_soda"
+   ],
+   "count": 1,
+   "median_frames": 119,
+   "median_position": 9,
+   "skill_type": "uncoordinated"
+  }
+ ],
+ "top_program": [
+  {
+   "skill": "move to",
+   "objects": [
+    "trash_can"
+   ]
+  },
+  {
+   "skill": "pick up from",
+   "objects": [
+    "trash_can",
+    "floors"
+   ]
+  },
+  {
+   "skill": "move to",
+   "objects": [
+    "can_of_soda"
+   ]
+  },
+  {
+   "skill": "pick up from",
+   "objects": [
+    "can_of_soda",
+    "floors"
+   ]
+  },
+  {
+   "skill": "place in",
+   "objects": [
+    "can_of_soda",
+    "trash_can"
+   ]
+  },
+  {
+   "skill": "move to",
+   "objects": [
+    "can_of_soda"
+   ]
+  },
+  {
+   "skill": "pick up from",
+   "objects": [
+    "can_of_soda",
+    "floors"
+   ]
+  },
+  {
+   "skill": "place in",
+   "objects": [
+    "can_of_soda",
+    "trash_can"
+   ]
+  },
+  {
+   "skill": "move to",
+   "objects": [
+    "can_of_soda"
+   ]
+  },
+  {
+   "skill": "pick up from",
+   "objects": [
+    "can_of_soda",
+    "floors"
+   ]
+  },
+  {
+   "skill": "place in",
+   "objects": [
+    "can_of_soda",
+    "trash_can"
+   ]
+  },
+  {
+   "skill": "place on",
+   "objects": [
+    "trash_can",
+    "floors"
+   ]
+  }
+ ],
+ "top_program_count": 170,
+ "skill_classes": {
+  "move to": 0,
+  "pick up from": 1,
+  "place in": 2,
+  "place on": 3
+ }
+}

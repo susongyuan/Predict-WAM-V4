@@ -1,0 +1,65 @@
+{
+  "status": "verified_actual_experiments",
+  "time": "2026-10-13T23:22:28+08:00",
+  "comparison_table": [
+    {
+      "model": "V2原80k",
+      "checkpoint_step": 80000,
+      "successes": 0,
+      "tests": 5,
+      "success_fraction": "0/5",
+      "success_rate": 0.0,
+      "mean_score": 1.6,
+      "mean_task_progress": 0.05333333333333334,
+      "scores": [
+        0,
+        0,
+        0,
+        0,
+        8
+      ]
+    },
+    {
+      "model": "Future16 V4",
+      "checkpoint_step": 130000,
+      "successes": 0,
+      "tests": 5,
+      "success_fraction": "0/5",
+      "success_rate": 0.0,
+      "mean_score": 0.0,
+      "mean_task_progress": 0.0,
+      "scores": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "model": "Future16 V4",
+      "checkpoint_step": 127500,
+      "successes": 0,
+      "tests": 5,
+      "success_fraction": "0/5",
+      "success_rate": 0.0,
+      "mean_score": 0.0,
+      "mean_task_progress": 0.0,
+      "scores": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "limitations": [
+    "Fixed five scenes per checkpoint; no generalization or isolated causal attribution.",
+    "Synthetic batch throughput excludes data IO; actual training timings are separate.",
+    "Batch changed from 4 to 23 after 5000 updates; sample budget changed explicitly.",
+    "Swap exhaustion confirmed; historical CPU memory growth root cause not established."
+  ],
+  "extra_physical_trials": 0,
+  "further_training_launched": false
+}

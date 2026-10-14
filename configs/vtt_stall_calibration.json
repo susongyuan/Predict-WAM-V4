@@ -1,0 +1,21 @@
+{
+ "format": "vtt-stall-calibration-v1",
+ "rule": "stall_steps per skill class = p95 of the longest no-progress plateau (stall_delta 0.02) over TRAIN demonstration segments, capped at the class max_steps; replaces the provisional median_frames//3 clock which failed 22% of validation demonstrations (28% train)",
+ "source": {
+  "audit": "outputs/validation/vtt_closure_demo_audit_20260923/report.json",
+  "audit_sha256": "6ae0b9c5178ef902be6edda0c3d51c81060bf5bdd7a366fd26b05a1506bf62d4",
+  "split_used_for_calibration": "train",
+  "validation_false_failure_rate": {
+   "deployed": 0.22,
+   "proposed": 0.05
+  }
+ },
+ "per_class_stall_steps": {
+  "pick up from": 520,
+  "place in": 470,
+  "close lid": 611,
+  "open door": 628,
+  "open lid": 1140,
+  "push to": 860
+ }
+}

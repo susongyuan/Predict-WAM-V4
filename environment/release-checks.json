@@ -1,0 +1,11 @@
+{
+  "parsed_python_files": 757,
+  "syntax_errors": [],
+  "potential_secret_files": [],
+  "clean_machine_reproduction": false,
+  "cpu_tests": {
+    "command": "python -m unittest scripts.test_wam_precision_v4",
+    "passed": 16,
+    "failed": 0
+  }
+}

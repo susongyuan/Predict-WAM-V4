@@ -1,0 +1,56 @@
+{
+ "format": "motion-stall-calibration-v1",
+ "window_steps": 300,
+ "state_dims": "trunk_qpos(53:57)+arm_left_qpos(3:10)+arm_right_qpos(28:35), L1 per-step joint motion summed over the window",
+ "rule": "a manipulation contract is 'stalled' only if VTT progress has not improved for stall_steps AND the upper-body joint path over the last window_steps is below eps; eps = 0.25 x p01 of the TRAIN demos' minimum windowed path (demos never go below p01 by construction margin)",
+ "source": {
+  "segments": "data/behavior-1k/2026-challenge-demos/skill_segments_task013.json",
+  "segments_sha256": "4cf4e36eb675ec1de85a43303ae5f388e232c8d83f014f56ff83d7a1e12e8cff",
+  "split": "train",
+  "lowdim": "data/lowdim_cache"
+ },
+ "per_skill": {
+  "open lid": {
+   "n_segments": 180,
+   "min_window_path_p01": 0.7246,
+   "min_window_path_p05": 1.0137,
+   "min_window_path_median": 1.8805,
+   "eps": 0.1812
+  },
+  "open door": {
+   "n_segments": 178,
+   "min_window_path_p01": 0.9976,
+   "min_window_path_p05": 1.2201,
+   "min_window_path_median": 2.1978,
+   "eps": 0.2494
+  },
+  "pick up from": {
+   "n_segments": 510,
+   "min_window_path_p01": 0.5902,
+   "min_window_path_p05": 0.8078,
+   "min_window_path_median": 2.1321,
+   "eps": 0.1475
+  },
+  "place in": {
+   "n_segments": 362,
+   "min_window_path_p01": 0.3836,
+   "min_window_path_p05": 0.5416,
+   "min_window_path_median": 2.3516,
+   "eps": 0.0959
+  },
+  "close lid": {
+   "n_segments": 180,
+   "min_window_path_p01": 0.1585,
+   "min_window_path_p05": 0.1987,
+   "min_window_path_median": 0.6177,
+   "eps": 0.0396
+  },
+  "push to": {
+   "n_segments": 38,
+   "min_window_path_p01": 0.7034,
+   "min_window_path_p05": 0.7618,
+   "min_window_path_median": 1.2768,
+   "eps": 0.1759
+  }
+ }
+}

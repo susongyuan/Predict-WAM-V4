@@ -1,0 +1,9 @@
+{
+  "format": "robotwin-task-definition-v1",
+  "task": "put_bottles_dustbin",
+  "targets": ["bottle_1", "bottle_2", "bottle_3"],
+  "predicates": ["inside", "released", "stable"],
+  "max_recoveries": 2,
+  "max_age_s": 30.0,
+  "robot_version": "aloha-agilex-native14"
+}

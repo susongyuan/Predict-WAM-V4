@@ -1,0 +1,311 @@
+{
+ "task_id": 13,
+ "task": "loading_the_car",
+ "source": "180 train annotations only (validation excluded)",
+ "skills": [
+  {
+   "skill": "move to",
+   "objects": [
+    "car"
+   ],
+   "count": 503,
+   "median_frames": 2493,
+   "median_position": 6,
+   "skill_type": "navigation"
+  },
+  {
+   "skill": "move to",
+   "objects": [
+    "toy_box"
+   ],
+   "count": 214,
+   "median_frames": 1766,
+   "median_position": 4,
+   "skill_type": "navigation"
+  },
+  {
+   "skill": "open lid",
+   "objects": [
+    "car"
+   ],
+   "count": 180,
+   "median_frames": 2060,
+   "median_position": 1,
+   "skill_type": "coordinated"
+  },
+  {
+   "skill": "move to",
+   "objects": [
+    "door"
+   ],
+   "count": 180,
+   "median_frames": 830,
+   "median_position": 2,
+   "skill_type": "navigation"
+  },
+  {
+   "skill": "open door",
+   "objects": [
+    "door"
+   ],
+   "count": 180,
+   "median_frames": 567,
+   "median_position": 3,
+   "skill_type": "uncoordinated"
+  },
+  {
+   "skill": "pick up from",
+   "objects": [
+    "toy_box",
+    "floors"
+   ],
+   "count": 180,
+   "median_frames": 940,
+   "median_position": 5,
+   "skill_type": "coordinated"
+  },
+  {
+   "skill": "place in",
+   "objects": [
+    "toy_box",
+    "car"
+   ],
+   "count": 180,
+   "median_frames": 357,
+   "median_position": 7,
+   "skill_type": "coordinated"
+  },
+  {
+   "skill": "pick up from",
+   "objects": [
+    "digital",
+    "coffee_table"
+   ],
+   "count": 180,
+   "median_frames": 570,
+   "median_position": 9,
+   "skill_type": "uncoordinated"
+  },
+  {
+   "skill": "pick up from",
+   "objects": [
+    "tennis",
+    "coffee_table"
+   ],
+   "count": 180,
+   "median_frames": 714,
+   "median_position": 11,
+   "skill_type": "uncoordinated"
+  },
+  {
+   "skill": "place in",
+   "objects": [
+    "tennis",
+    "car"
+   ],
+   "count": 180,
+   "median_frames": 391,
+   "median_position": 13,
+   "skill_type": "uncoordinated"
+  },
+  {
+   "skill": "close lid",
+   "objects": [
+    "car"
+   ],
+   "count": 180,
+   "median_frames": 1030,
+   "median_position": 15,
+   "skill_type": "uncoordinated"
+  },
+  {
+   "skill": "place in",
+   "objects": [
+    "digital",
+    "toy_box"
+   ],
+   "count": 179,
+   "median_frames": 405,
+   "median_position": 14,
+   "skill_type": "uncoordinated"
+  },
+  {
+   "skill": "move to",
+   "objects": [
+    "digital"
+   ],
+   "count": 171,
+   "median_frames": 2256,
+   "median_position": 8,
+   "skill_type": "navigation"
+  },
+  {
+   "skill": "move to",
+   "objects": [
+    "tennis"
+   ],
+   "count": 156,
+   "median_frames": 910,
+   "median_position": 10,
+   "skill_type": "navigation"
+  },
+  {
+   "skill": "push to",
+   "objects": [
+    "digital",
+    "coffee_table"
+   ],
+   "count": 31,
+   "median_frames": 812,
+   "median_position": 9,
+   "skill_type": "uncoordinated"
+  },
+  {
+   "skill": "push to",
+   "objects": [
+    "tennis",
+    "coffee_table"
+   ],
+   "count": 7,
+   "median_frames": 870,
+   "median_position": 11,
+   "skill_type": "uncoordinated"
+  },
+  {
+   "skill": "push to",
+   "objects": [
+    "door",
+    ""
+   ],
+   "count": 1,
+   "median_frames": 132,
+   "median_position": 5,
+   "skill_type": "uncoordinated"
+  },
+  {
+   "skill": "place in",
+   "objects": [
+    "digital",
+    "car"
+   ],
+   "count": 1,
+   "median_frames": 262,
+   "median_position": 15,
+   "skill_type": "uncoordinated"
+  }
+ ],
+ "top_program": [
+  {
+   "skill": "move to",
+   "objects": [
+    "car"
+   ]
+  },
+  {
+   "skill": "open lid",
+   "objects": [
+    "car"
+   ]
+  },
+  {
+   "skill": "move to",
+   "objects": [
+    "door"
+   ]
+  },
+  {
+   "skill": "open door",
+   "objects": [
+    "door"
+   ]
+  },
+  {
+   "skill": "move to",
+   "objects": [
+    "toy_box"
+   ]
+  },
+  {
+   "skill": "pick up from",
+   "objects": [
+    "toy_box",
+    "floors"
+   ]
+  },
+  {
+   "skill": "move to",
+   "objects": [
+    "car"
+   ]
+  },
+  {
+   "skill": "place in",
+   "objects": [
+    "toy_box",
+    "car"
+   ]
+  },
+  {
+   "skill": "move to",
+   "objects": [
+    "digital"
+   ]
+  },
+  {
+   "skill": "pick up from",
+   "objects": [
+    "digital",
+    "coffee_table"
+   ]
+  },
+  {
+   "skill": "move to",
+   "objects": [
+    "tennis"
+   ]
+  },
+  {
+   "skill": "pick up from",
+   "objects": [
+    "tennis",
+    "coffee_table"
+   ]
+  },
+  {
+   "skill": "move to",
+   "objects": [
+    "car"
+   ]
+  },
+  {
+   "skill": "place in",
+   "objects": [
+    "tennis",
+    "car"
+   ]
+  },
+  {
+   "skill": "place in",
+   "objects": [
+    "digital",
+    "toy_box"
+   ]
+  },
+  {
+   "skill": "close lid",
+   "objects": [
+    "car"
+   ]
+  }
+ ],
+ "top_program_count": 61,
+ "skill_classes": {
+  "move to": 0,
+  "pick up from": 1,
+  "place in": 2,
+  "close lid": 3,
+  "open door": 4,
+  "open lid": 5,
+  "push to": 6
+ }
+}

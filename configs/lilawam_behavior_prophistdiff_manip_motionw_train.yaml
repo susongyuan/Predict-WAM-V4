@@ -1,0 +1,112 @@
+# stage8 (PREPARED, not yet run): stage7b + motion-weighted chunk sampling. Evidence (2026-09-25): from the exact demo
+# state at the open-lid segment start (handoff N=759, train ep 2603) stage7b's first chunk moved the right shoulder 0.11 rad
+# vs the demo's 0.57 rad (~19%), i.e. rare fast reaches are underfit even on training data; from N=900 (arm already under
+# the lid) the same model opened the lid to 1.86 rad. Only change vs stage7b: WeightedRandomSampler over train anchors with
+# weight = clip((m/median m)^power, clip), m = ||a[t+31, upper] - q_t|| (scripts/train_lilawam_behavior.py
+# motion_sampling_weights). Initialised from stage7b best (step 3500).
+# stage7b: manipulation-only adaptation with EXPLICIT proprio-history difference tokens (head camera only).
+# stage7 (raw min-max history tokens) was stopped at step 1514: no gain by step 1000-1500, because 8-64 frame
+# joint changes are ~0.005 of the min-max token scale. stage7b feeds token j = clip((s_t - s_{t-lag})/std_lag, +-5)
+# with train-only per-lag std (data/behavior-1k/2026-challenge-demos/train_stats_task013_prophist.json), i.e. the
+# same standardized-difference form as the low-dim probe. Token 0 stays the min-max current state (stage3 pathway).
+# Evidence: outputs/validation/openlid_predictability_probe_20260924/report.json (low-dim MLP: +position history
+# -26% vs hold, -17% vs constant-velocity copy; the single-frame positions-only WAM ties hold).
+# proprio tokens = 61D states at t-[0,8,16,32,64] frames (30 Hz), clamped to episode frame 0; positions_only mask
+# still zeroes every velocity group (base copycat guard). Same data split/exclusions/condition/actions/lr as stage5/6.
+# Launch (GPU exclusive, no simulator):
+#   NAME=stage7b_prophistdiff_manip_20260924 CONFIG=configs/lilawam_behavior_prophistdiff_manip_train.yaml \
+#   INIT=outputs/training/stage3_contract_posonly_20260922/checkpoint_best.pt scripts/run_train_unit.sh
+common:
+  action_dim: 23
+  state_dim: 61
+  action_chunk_size: 32
+  proprio_len: 5
+  num_inference_steps: 10
+  action_execution_horizon: 1
+dataset:
+  root: data/behavior-1k/2026-challenge-demos
+  stats_path: data/behavior-1k/2026-challenge-demos/train_stats_task013.json
+  skill_segments: data/behavior-1k/2026-challenge-demos/skill_segments_task013.json
+  vtt_dir: data/skill_vtt_task013
+  camera: observation.rgb.zed_link_camera_0
+  image_size: [224, 224]
+  frame_stride: 2
+  future_frame_offset: 32
+  scope: manipulation
+  in_segment: true                 # real [start,end), never gap-filled segment padding
+  cond_mode: contract_proto
+  contract_targets: data/skill_vtt_task013/contract_targets.json
+  contract_targets_sha256: 52033ba9df3f1090afb29a511102245f883ec58d26d439ea5b20b5fdb32648ae
+  skip_unsupported_contracts: true  # explicit exclusions and anchor counts are saved in the training log
+  instance_vtt_prob: 0.0           # frozen shared train-only contract prototypes
+model:
+  proprio_lags: [0, 8, 16, 32, 64]   # frames; lag 0 = current (stage3 pathway, pos-emb row 0)
+  proprio_history_stats: data/behavior-1k/2026-challenge-demos/train_stats_task013_prophist.json  # sha256 6526e804...21b4
+  num_registers: 2
+  use_task_cond: true
+  proprio_mask: positions_only      # base/arm/gripper/trunk velocities zeroed (36 of 61 dims kept)
+  vision_encoder:
+    checkpoint_path: models/dinov3-vitl16-pretrain-lvd1689m
+    repo_id: facebook/dinov3-vitl16-pretrain-lvd1689m
+    revision: ea8dc2863c51be0a264bab82070e3e8836b02d51
+    feat_layers: [-12, -8, -4]
+    include_cls_register: true
+    fusion_mode: concat
+    concat:
+      proj_type: linear
+      pre_norm: true
+      out_dim: null
+  future_feat:
+    enabled: true
+    target_layer: -4
+    num_decoder_layers: 4
+    num_heads: 4
+  action_expert:
+    depth: 12
+    hidden_size: 768
+    num_heads: 8
+    vlm_adapter_num_queries: 64
+    adapter_depth: 4
+training:
+  init_from_sha256: d8fee64948da0481c00d9aaaf8c26f2154f1c2b65516de9d86007245c3c47693
+  motion_weighting:
+    power: 1.0
+    clip: [0.5, 6.0]
+  seed: 20260921
+  batch_size: 32
+  grad_accum_steps: 1
+  samples_per_epoch: 192000
+  max_steps: 4000
+  schedule_steps: 4000
+  learning_rate: 0.00002
+  lr_min: 0.000005
+  weight_decay: 0.01
+  betas: [0.9, 0.99]
+  grad_clip_norm: 1.0
+  time_sampler: logit_normal
+  time_mu: 0.0
+  time_sigma: 1.0
+  use_vel_weight: false
+  vel_weight_alpha: 0.2
+  vel_weight_sigma: 0.01
+  lambda_future_feat: 0.5
+  save_every: 500
+  validate_every: 500
+  validation_samples: 256
+  checkpoint_metric: upper_body_mae  # (4*trunk + 7*left_arm + 7*right_arm) / 18; not flow MSE
+  validation_seed: 0               # fixed eval noise/timesteps/sampler RNG (same as stage5 default)
+inference:
+  smooth_actions: false
+  smooth_sigma: 1.0
+system:
+  cpu_threads: 8
+  cuda_memory_fraction: 0.70
+  duty_cycle: 1.0
+  gpu_util_target: 100
+  min_sleep_s: 0.0
+  vram_abort_mib: 15300
+  ram_abort_percent: 90
+manifest:
+  stage: development explicit proprio-history-difference (head only) manipulation-only adaptation
+  derived_from_config: configs/lilawam_behavior_multiview_manip_train.yaml (views removed, proprio history added)
+  offline_admission: "docs/evaluation_protocol.md section 12 (stage5 pre-registered gate: 20 validation x 10 fraction x K8, 18D MAE >=5% below source, no arm worse by >5%)"

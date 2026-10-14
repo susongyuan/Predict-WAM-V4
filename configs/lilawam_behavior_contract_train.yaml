@@ -1,0 +1,82 @@
+# Adapt existing weights; always use a new --run-name and:
+# --init-from outputs/training/stage1_skillproto/checkpoint_best.pt
+common:
+  action_dim: 23
+  state_dim: 61
+  action_chunk_size: 32
+  proprio_len: 1
+  num_inference_steps: 10
+  action_execution_horizon: 1
+dataset:
+  root: data/behavior-1k/2026-challenge-demos
+  stats_path: data/behavior-1k/2026-challenge-demos/train_stats_task013.json
+  skill_segments: data/behavior-1k/2026-challenge-demos/skill_segments_task013.json
+  vtt_dir: data/skill_vtt_task013
+  camera: observation.rgb.zed_link_camera_0
+  image_size: [224, 224]
+  frame_stride: 2
+  future_frame_offset: 32
+  cond_mode: contract_proto
+  contract_targets: data/skill_vtt_task013/contract_targets.json
+  contract_targets_sha256: 52033ba9df3f1090afb29a511102245f883ec58d26d439ea5b20b5fdb32648ae
+  skip_unsupported_contracts: true  # explicit exclusions and anchor counts are saved in the training log
+  instance_vtt_prob: 0.2           # training segment VTT; validation always uses train-only means
+model:
+  num_registers: 2
+  use_task_cond: true
+  vision_encoder:
+    checkpoint_path: models/dinov3-vitl16-pretrain-lvd1689m
+    repo_id: facebook/dinov3-vitl16-pretrain-lvd1689m
+    revision: ea8dc2863c51be0a264bab82070e3e8836b02d51
+    feat_layers: [-12, -8, -4]
+    include_cls_register: true
+    fusion_mode: concat
+    concat:
+      proj_type: linear
+      pre_norm: true
+      out_dim: null
+  future_feat:
+    enabled: true
+    target_layer: -4
+    num_decoder_layers: 4
+    num_heads: 4
+  action_expert:
+    depth: 12
+    hidden_size: 768
+    num_heads: 8
+    vlm_adapter_num_queries: 64
+    adapter_depth: 4
+training:
+  init_from_sha256: 7435fb4bc96764f50014954f2e47a3d8c3a96a39d3a12564f48135d01ea1bccf
+  seed: 20260921
+  batch_size: 32
+  grad_accum_steps: 1
+  samples_per_epoch: 192000
+  max_steps: 6000
+  schedule_steps: 6000
+  learning_rate: 0.00004
+  lr_min: 0.00001
+  weight_decay: 0.01
+  betas: [0.9, 0.99]
+  grad_clip_norm: 1.0
+  time_sampler: logit_normal
+  time_mu: 0.0
+  time_sigma: 1.0
+  use_vel_weight: false
+  vel_weight_alpha: 0.2
+  vel_weight_sigma: 0.01
+  lambda_future_feat: 0.5
+  save_every: 500
+  validate_every: 500
+  validation_samples: 256
+inference:
+  smooth_actions: false
+  smooth_sigma: 1.0
+system:
+  cpu_threads: 8
+  cuda_memory_fraction: 0.70
+  duty_cycle: 1.0
+  gpu_util_target: 100
+  min_sleep_s: 0.0
+  vram_abort_mib: 15300
+  ram_abort_percent: 90

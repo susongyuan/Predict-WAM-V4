@@ -1,0 +1,6 @@
+{
+  "scenario_id": "synthetic_example_only_set_episode_before_use",
+  "episode": null,
+  "private_intent": "I want the blue mug, not the red mug.",
+  "answerable": true
+}

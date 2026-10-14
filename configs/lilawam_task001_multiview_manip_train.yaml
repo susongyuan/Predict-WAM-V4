@@ -1,0 +1,126 @@
+# task1_manip: Task 1 (picking_up_trash) WAM MANIPULATION executor, three views (head + left wrist + right wrist).
+# PRE-REGISTERED 2026-09-26 ~04:40 CST, before any Task-1 training or admission result. Development training only.
+#
+# Derived from configs/lilawam_behavior_multiview_manip_train.yaml (stage6). Kept unchanged, with reasons:
+#  - 3 views through the SHARED stage3 adapter + view_emb (MultiViewVLAModel): at pick start the can is not visible in
+#    the head camera but is centred in the grasping wrist camera (progress.md 2026-09-25 19:46), so wrists are required.
+#  - proprio_mask positions_only (velocity copycat fix), absolute 23D actions (delta gave no gain on Task 13).
+#  - contract_proto conditioning, frozen train-only object-level VTT means (instance_vtt_prob 0).
+#  - scope manipulation + real [start,end) bounds (pre-manipulation annotation gaps are negligible, median 1 frame).
+#  - lr 2e-5 -> 5e-6 cosine, batch 32, AdamW, frozen DINOv3, head-only future-feature target (lambda 0.5),
+#    upper-body (18D) MAE checkpoint selection, fixed validation_seed 0, seed 20260921, validate/save every 500.
+# Changed, with reasons:
+#  - dataset.task_id 1 + Task-1 stats/segments/VTT/contract targets (the trainer refuses a mismatch with P2_TASK_ID;
+#    run_train_unit.sh now passes P2_TASK_ID into the systemd unit). Normalization = Task-1 train stats.
+#  - init from stage6 best (multi-view Task-13 manipulation weights, SHA pinned below). Lead decision 2026-09-26:
+#    Task-1 navigation/docking is a separate perception-driven controller, so this WAM executes only the contracts
+#    pick up from(trash_can,floors), pick up from(can_of_soda,floors), place in(can_of_soda,trash_can),
+#    place on(trash_can,floors) (plus 423 anchors of the 5-segment annotation variant place in(can_of_soda,floors)).
+#  - max_steps = schedule_steps = 5000, sized from anchors and measured speed: CPU dry-check 2026-09-26 found 244,379
+#    train anchors (pick can 115,520 / pick trash_can 47,525 / place in 51,395 / place on 29,516 / variant 423) and
+#    29,455 validation anchors; 5000 x 32 = 160k samples = 0.65 epoch. stage6 measured 1.10 s/step (batch 32, 3 views,
+#    ~99.5% GPU util); here duty_cycle 0.8 keeps the GPU under the standing 85% utilization ceiling -> ~1.38 s/step
+#    -> ~115 min + 10 validations x ~37 s + startup ~= 2.0 h GPU budget.
+#  - validation_samples 512 (stage6: 256; ~37 s per validation): steadier best-checkpoint selection and per-hand
+#    gripper open/close sign agreement (logged at every validation; reported, never used for selection).
+#  - ram_abort_percent 85 (stage6: 90), gpu_util_target 85, duty_cycle 0.8 (stage6: 1.0 / 100): 85% resource ceiling.
+# Offline admission is separate (K=8, fixed validation anchors per contract, gate file written before results;
+# scripts/check_task1_manip_admission.py). Nothing here is closed-loop or task success.
+# Launch (GPU exclusive; never with a simulator; take /tmp/project2_gpu.lock first):
+#   P2_TASK_ID=1 NAME=task1_manip_mv_20260926 CONFIG=configs/lilawam_task001_multiview_manip_train.yaml \
+#   INIT=outputs/training/stage6_multiview_manip_20260924/checkpoint_best.pt scripts/run_train_unit.sh
+common:
+  action_dim: 23
+  state_dim: 61
+  action_chunk_size: 32
+  proprio_len: 1
+  num_inference_steps: 10
+  action_execution_horizon: 1
+dataset:
+  task_id: 1                        # must equal P2_TASK_ID (harness/task_profile.py); checked by the trainer
+  root: data/behavior-1k/2026-challenge-demos
+  stats_path: data/behavior-1k/2026-challenge-demos/train_stats_task001.json
+  skill_segments: data/behavior-1k/2026-challenge-demos/skill_segments_task001.json
+  vtt_dir: data/skill_vtt_task001
+  camera: observation.rgb.zed_link_camera_0
+  image_size: [224, 224]
+  frame_stride: 2
+  future_frame_offset: 32
+  scope: manipulation
+  in_segment: true                 # real [start,end), never gap-filled segment padding
+  cond_mode: contract_proto
+  contract_targets: data/skill_vtt_task001/contract_targets.json
+  contract_targets_sha256: e385d458e88059441923ab21bb24c9df7a72bb6fdc962cdd8116ba372b13d8f2
+  skip_unsupported_contracts: true  # 6 rare annotation variants (<5 train segments) are skipped and logged
+  instance_vtt_prob: 0.0           # frozen shared train-only contract prototypes
+model:
+  views:                            # order = view index; head must be first (view_emb[0] = stage3 path)
+    - observation.rgb.zed_link_camera_0
+    - observation.rgb.left_realsense_link_camera_0
+    - observation.rgb.right_realsense_link_camera_0
+  num_registers: 2
+  use_task_cond: true
+  proprio_mask: positions_only      # base/arm/gripper/trunk velocities zeroed (36 of 61 dims kept)
+  vision_encoder:
+    checkpoint_path: models/dinov3-vitl16-pretrain-lvd1689m
+    repo_id: facebook/dinov3-vitl16-pretrain-lvd1689m
+    revision: ea8dc2863c51be0a264bab82070e3e8836b02d51
+    feat_layers: [-12, -8, -4]
+    include_cls_register: true
+    fusion_mode: concat
+    concat:
+      proj_type: linear
+      pre_norm: true
+      out_dim: null
+  future_feat:
+    enabled: true
+    target_layer: -4
+    num_decoder_layers: 4
+    num_heads: 4
+  action_expert:
+    depth: 12
+    hidden_size: 768
+    num_heads: 8
+    vlm_adapter_num_queries: 64
+    adapter_depth: 4
+training:
+  init_from_sha256: 2570bbba8dc32a5f93cb2aca7777262d8cbd21ce5008af6e2ac89e52a7c2a4d4  # stage6 checkpoint_best.pt (step 2000)
+  seed: 20260921
+  batch_size: 32
+  grad_accum_steps: 1
+  samples_per_epoch: 160000
+  max_steps: 5000
+  schedule_steps: 5000
+  learning_rate: 0.00002
+  lr_min: 0.000005
+  weight_decay: 0.01
+  betas: [0.9, 0.99]
+  grad_clip_norm: 1.0
+  time_sampler: logit_normal
+  time_mu: 0.0
+  time_sigma: 1.0
+  use_vel_weight: false
+  vel_weight_alpha: 0.2
+  vel_weight_sigma: 0.01
+  lambda_future_feat: 0.5
+  save_every: 500
+  validate_every: 500
+  validation_samples: 512
+  checkpoint_metric: upper_body_mae  # (4*trunk + 7*left_arm + 7*right_arm) / 18; not flow MSE
+  validation_seed: 0               # fixed eval noise/timesteps/sampler RNG
+inference:
+  smooth_actions: false
+  smooth_sigma: 1.0
+system:
+  cpu_threads: 8
+  cuda_memory_fraction: 0.70
+  duty_cycle: 0.8                  # GPU busy fraction; keeps average utilization below the 85% ceiling
+  gpu_util_target: 85              # sleep doubles while the 20 s nvidia-smi average exceeds this
+  min_sleep_s: 0.0
+  vram_abort_mib: 15300
+  ram_abort_percent: 85
+manifest:
+  stage: "development Task-1 (picking_up_trash) multi-view (head + wrists) manipulation executor"
+  task_id: 1
+  derived_from_config: configs/lilawam_behavior_multiview_manip_train.yaml
+  offline_admission: "pre-registered K=8 gate per Task-1 contract (upper-body intent cosine, motion ratio, MAE vs copy-hold within the K8 noise floor; grippers graded separately by sign agreement); gate.json written before results"

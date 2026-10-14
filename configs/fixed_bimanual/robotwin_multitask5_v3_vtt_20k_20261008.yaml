@@ -1,0 +1,93 @@
+common:
+  action_dim: 14
+  state_dim: 14
+  action_chunk_size: 32
+  proprio_len: 7
+  num_inference_steps: 10
+  action_execution_horizon: 8
+dataset:
+  image_size:
+  - 224
+  - 224
+  frame_stride: 1
+  future_frame_offset: 32
+  cond_mode: train_task_vtt
+  task_config: demo_clean
+model:
+  views:
+  - observation.rgb.zed_link_camera_0
+  - observation.rgb.left_realsense_link_camera_0
+  - observation.rgb.right_realsense_link_camera_0
+  num_registers: 2
+  use_task_cond: true
+  proprio_mask: native_all14
+  vision_encoder:
+    checkpoint_path: models/dinov3-vitl16-pretrain-lvd1689m
+    feat_layers:
+    - -12
+    - -8
+    - -4
+    include_cls_register: true
+    fusion_mode: concat
+    concat:
+      proj_type: linear
+      pre_norm: true
+      out_dim: null
+  future_feat:
+    enabled: true
+    target_layer: -4
+    num_decoder_layers: 4
+    num_heads: 4
+  action_expert:
+    depth: 12
+    hidden_size: 768
+    num_heads: 8
+    vlm_adapter_num_queries: 64
+    adapter_depth: 4
+  v3:
+    proprio_lags:
+    - 2
+    - 4
+    - 8
+    - 16
+    - 32
+    memory_lags:
+    - 4
+    - 16
+    stats_path: temporal_stats.json
+    phase_hidden: 512
+training:
+  init_from: /home/user/Robotic/project2/outputs/runs/put_bottles_dustbin/wam_30k_20261007/train/checkpoint_step_030000.pt
+  init_from_sha256: 4e43872026f1d0132b1d41cfae5d7c22fb5eb9d85f9eee517577bfbb73671f20
+  seed: 20261008
+  validation_seed: 20261008
+  batch_size: 16
+  grad_accum_steps: 2
+  max_steps: 20000
+  schedule_steps: 20000
+  learning_rate: 5.0e-05
+  lr_min: 5.0e-06
+  warmup_steps: 1000
+  weight_decay: 0.01
+  betas:
+  - 0.9
+  - 0.99
+  grad_clip_norm: 1.0
+  time_mu: 0.0
+  time_sigma: 1.0
+  auxiliary_loss:
+    future: 0.5
+    gate_kl: 0.0
+    phase_ce: 0.0
+    log_dist: 0.0
+  save_every: 5000
+  resume_save_every: 1000
+  validate_every: 5000
+  validation_samples: 32
+  sampler_epoch_batches: 128
+system:
+  cpu_threads: 8
+  cpu_abort_percent: 85
+  ram_abort_percent: 85
+  vram_abort_mib: 15300
+  cuda_memory_fraction: 0.85

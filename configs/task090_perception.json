@@ -1,0 +1,125 @@
+{
+  "task_id": 90,
+  "split": "train",
+  "annotation_author": "assistant; not a human annotator",
+  "calibration_id": "task090-assistant-appearance-e9bd208c9008",
+  "source_manifest_sha256": "974b14c546910042607d8e1b677f6440a2facd90851759efa60eebcedbe13c6c",
+  "annotations_sha256": "e9bd208c9008ca129657f457e308e3bf6a8aa910a7f22399a6880d7550e1d5a4",
+  "classes": {
+    "half": {
+      "physical_category": "half_banana",
+      "hsv_boxes": [
+        [
+          [
+            16,
+            111,
+            137
+          ],
+          [
+            31,
+            210,
+            255
+          ]
+        ]
+      ],
+      "area_px_720": [
+        74,
+        6895
+      ],
+      "aspect_h_over_w": [
+        0.2814814814814815,
+        2.1511627906976742
+      ],
+      "fill_min": 0.21668761785040855,
+      "annotation_count": 2,
+      "fit_pixel_count": 630
+    },
+    "half_pomegranate": {
+      "physical_category": "half_pomegranate",
+      "hsv_boxes": [
+        [
+          [
+            0,
+            154,
+            163
+          ],
+          [
+            7,
+            235,
+            245
+          ]
+        ],
+        [
+          [
+            177,
+            154,
+            163
+          ],
+          [
+            179,
+            235,
+            245
+          ]
+        ]
+      ],
+      "area_px_720": [
+        165,
+        2822
+      ],
+      "aspect_h_over_w": [
+        0.2608695652173913,
+        2.1875
+      ],
+      "fill_min": 0.2957142857142857,
+      "annotation_count": 2,
+      "fit_pixel_count": 520
+    },
+    "trash_can": {
+      "physical_category": "trash_can",
+      "hsv_boxes": [
+        [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            179,
+            255,
+            65
+          ]
+        ]
+      ],
+      "area_px_720": [
+        4801,
+        60015
+      ],
+      "aspect_h_over_w": [
+        0.3630769230769231,
+        2.269230769230769
+      ],
+      "fill_min": 0.3477618426770969,
+      "annotation_count": 1,
+      "fit_pixel_count": 1889
+    }
+  },
+  "max_candidates_per_class": 8,
+  "depth_max_m": 6.0,
+  "min_depth_pixels": 6,
+  "min_depth_fraction": 0.7,
+  "metric_threshold_note": "Depth gates are conservative sensor hygiene, not fitted metric object calibration.",
+  "fit_method": "2/98 percentile HSV on assistant pixel ROIs plus [3,18,18] margin; black V only; finite component gates from labelled boxes.",
+  "point_semantics": "observed_surface_sample",
+  "metric_calibration_admitted": false,
+  "grasp_reference_valid": false,
+  "relations_admitted": false,
+  "unsupported": [
+    "furniture_sink",
+    "floors",
+    "countertop",
+    "object_hand_tracks",
+    "relations"
+  ],
+  "runtime_fixed_roi": false,
+  "accuracy_validated": false
+}

@@ -1,0 +1,207 @@
+{
+ "task_id": 13,
+ "source": "top training program, median segment durations",
+ "total_frames": 20275,
+ "schedule": [
+  [
+   0,
+   "move to"
+  ],
+  [
+   2493,
+   "open lid"
+  ],
+  [
+   4553,
+   "move to"
+  ],
+  [
+   5383,
+   "open door"
+  ],
+  [
+   5950,
+   "move to"
+  ],
+  [
+   7716,
+   "pick up from"
+  ],
+  [
+   8656,
+   "move to"
+  ],
+  [
+   11149,
+   "place in"
+  ],
+  [
+   11506,
+   "move to"
+  ],
+  [
+   13762,
+   "pick up from"
+  ],
+  [
+   14332,
+   "move to"
+  ],
+  [
+   15242,
+   "pick up from"
+  ],
+  [
+   15956,
+   "move to"
+  ],
+  [
+   18449,
+   "place in"
+  ],
+  [
+   18840,
+   "place in"
+  ],
+  [
+   19245,
+   "close lid"
+  ]
+ ],
+ "program": [
+  {
+   "start_step": 0,
+   "skill": "move to",
+   "objects": [
+    "car"
+   ],
+   "budget_frames": 2493
+  },
+  {
+   "start_step": 2493,
+   "skill": "open lid",
+   "objects": [
+    "car"
+   ],
+   "budget_frames": 2060
+  },
+  {
+   "start_step": 4553,
+   "skill": "move to",
+   "objects": [
+    "door"
+   ],
+   "budget_frames": 830
+  },
+  {
+   "start_step": 5383,
+   "skill": "open door",
+   "objects": [
+    "door"
+   ],
+   "budget_frames": 567
+  },
+  {
+   "start_step": 5950,
+   "skill": "move to",
+   "objects": [
+    "toy_box"
+   ],
+   "budget_frames": 1766
+  },
+  {
+   "start_step": 7716,
+   "skill": "pick up from",
+   "objects": [
+    "toy_box",
+    "floors"
+   ],
+   "budget_frames": 940
+  },
+  {
+   "start_step": 8656,
+   "skill": "move to",
+   "objects": [
+    "car"
+   ],
+   "budget_frames": 2493
+  },
+  {
+   "start_step": 11149,
+   "skill": "place in",
+   "objects": [
+    "toy_box",
+    "car"
+   ],
+   "budget_frames": 357
+  },
+  {
+   "start_step": 11506,
+   "skill": "move to",
+   "objects": [
+    "digital"
+   ],
+   "budget_frames": 2256
+  },
+  {
+   "start_step": 13762,
+   "skill": "pick up from",
+   "objects": [
+    "digital",
+    "coffee_table"
+   ],
+   "budget_frames": 570
+  },
+  {
+   "start_step": 14332,
+   "skill": "move to",
+   "objects": [
+    "tennis"
+   ],
+   "budget_frames": 910
+  },
+  {
+   "start_step": 15242,
+   "skill": "pick up from",
+   "objects": [
+    "tennis",
+    "coffee_table"
+   ],
+   "budget_frames": 714
+  },
+  {
+   "start_step": 15956,
+   "skill": "move to",
+   "objects": [
+    "car"
+   ],
+   "budget_frames": 2493
+  },
+  {
+   "start_step": 18449,
+   "skill": "place in",
+   "objects": [
+    "tennis",
+    "car"
+   ],
+   "budget_frames": 391
+  },
+  {
+   "start_step": 18840,
+   "skill": "place in",
+   "objects": [
+    "digital",
+    "toy_box"
+   ],
+   "budget_frames": 405
+  },
+  {
+   "start_step": 19245,
+   "skill": "close lid",
+   "objects": [
+    "car"
+   ],
+   "budget_frames": 1030
+  }
+ ]
+}

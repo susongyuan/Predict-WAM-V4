@@ -1,0 +1,26 @@
+{
+  "schema": "task090-assistant-roi-v1",
+  "task_id": 90,
+  "split": "train",
+  "annotation_author": "assistant; not a human annotator",
+  "source_manifest": "outputs/validation/task090_preparation_20260930/data_runtime/train_observations/manifest.json",
+  "coordinate_convention": "native RGB pixels, xyxy, exclusive upper bounds",
+  "purpose": "Finite appearance proposal fitting only; boxes are not runtime search regions, physical centers, identity tracks or relation labels.",
+  "annotations": [
+    {"episode": 18000, "frame": 1830, "camera": "observation.rgb.zed_link_camera_0", "label": "half", "physical_category": "half_banana", "bbox_xyxy": [487, 431, 579, 510], "fit_rois_xyxy": [[524, 448, 541, 470], [548, 474, 562, 486]], "appearance": "visible yellow curved half banana; exclude brown tips and counter"},
+    {"episode": 18000, "frame": 1830, "camera": "observation.rgb.zed_link_camera_0", "label": "half_pomegranate", "physical_category": "half_pomegranate", "bbox_xyxy": [277, 374, 324, 416], "fit_rois_xyxy": [[302, 389, 314, 403], [294, 401, 308, 409]], "appearance": "red half pomegranate peel; exclude pale cut interior"},
+    {"episode": 18001, "frame": 870, "camera": "observation.rgb.zed_link_camera_0", "label": "half", "physical_category": "half_banana", "bbox_xyxy": [383, 331, 414, 357], "fit_rois_xyxy": [[394, 339, 405, 347]], "appearance": "small yellow banana on counter, exclude shadow"},
+    {"episode": 18001, "frame": 870, "camera": "observation.rgb.zed_link_camera_0", "label": "half_pomegranate", "physical_category": "half_pomegranate", "bbox_xyxy": [172, 367, 223, 407], "fit_rois_xyxy": [[186, 382, 206, 394]], "appearance": "red pomegranate; not red appliance button"},
+    {"episode": 18000, "frame": 480, "camera": "observation.rgb.zed_link_camera_0", "label": "trash_can", "physical_category": "trash_can", "bbox_xyxy": [220, 540, 419, 720], "fit_rois_xyxy": [[233, 633, 247, 663], [396, 618, 409, 647], [266, 681, 344, 695]], "appearance": "black rectangular open bin, bottom partly image-clipped; not the old copper bin"}
+  ],
+  "negative_rois": [
+    {"episode": 18001, "frame": 870, "camera": "observation.rgb.zed_link_camera_0", "bbox_xyxy": [590, 370, 643, 408], "description": "red appliance button hard negative; appearance alone may confuse it with fruit"},
+    {"episode": 18000, "frame": 1830, "camera": "observation.rgb.zed_link_camera_0", "bbox_xyxy": [352, 414, 453, 462], "description": "yellow beige countertop hard negative"},
+    {"episode": 18000, "frame": 480, "camera": "observation.rgb.zed_link_camera_0", "bbox_xyxy": [57, 342, 147, 425], "description": "dark appliance hard negative; may remain an appearance false positive"}
+  ],
+  "unsupported": {"furniture_sink": "No assistant-verified sink ROI or metric reference in this fitting subset", "relations": "No support/container/hand labels or matched TRAIN depth"},
+  "uses_validation": false,
+  "uses_dev": false,
+  "uses_test": false,
+  "uses_hidden_truth": false
+}

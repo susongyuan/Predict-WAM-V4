@@ -1,0 +1,46 @@
+{
+  "navigation": "docking",
+  "manip_executor": "wam",
+  "postconditions": "task090_observed",
+  "candidate_outcome_policy": "hold",
+  "frozen": true,
+  "vlm": "none",
+  "answer": "none",
+  "ask_budget": 0,
+  "max_attempts": 1,
+  "min_budget_steps": {"move to": 1873},
+  "_navigation_budget_recipe": {
+    "train_first_navigation_budget": 1035,
+    "one_additional_scan": 461,
+    "one_exploration_transit": 129,
+    "pi_heading_alignment": 158,
+    "lost_target_grace": 90,
+    "note": "Fixed allowance derived from existing controller rates, not success-on-timeout; overall task budget unchanged."
+  },
+  "skip_failed_objects": false,
+  "precondition": true,
+  "dock_target_at": "start",
+  "base_control": "wam_whole_body",
+  "program": "configs/task090_fixed_program.json",
+  "train_targets": "/home/user/Robotic/project2/data/skill_vtt_task090/contract_targets.json",
+  "perception": {
+    "module": "harness.task090_perception",
+    "detector": {
+      "calibration_path": "/home/user/Robotic/project2/configs/task090_perception_floor_v3.json"
+    }
+  },
+  "perceive_every": 5,
+  "track_max_age_steps": 90,
+  "arrival_gate": "none",
+  "postcondition_gate": "none",
+  "task090_observation_calibration": null,
+  "_status": "CPU wiring only; not admitted for complete task success",
+  "_limitations": [
+    "Fixed TRAIN program, assisted navigation and WAM manipulation: not pure-WAM autonomy.",
+    "Appearance proposals can include false positives; no observed object identity or absence certification.",
+    "RGB-D point is a surface sample, not a center or a calibrated TRAIN grasp reference.",
+    "Sink, support/container relations and persistent object-hand tracking unsupported.",
+    "task090_observed remains unknown; candidate hold is mandatory and cannot certify or bypass success.",
+    "Task90 docking references use half_banana while TRAIN contract label is half; later banana docking needs explicit checked routing before admission."
+  ]
+}

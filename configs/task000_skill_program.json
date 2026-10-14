@@ -1,0 +1,60 @@
+{
+ "task_id": 0,
+ "task": "turning_on_radio",
+ "source": "180 train annotations only (validation excluded); objects canonicalized by harness.vtt_monitor.canonical_object",
+ "skills": [
+  {
+   "skill": "move to",
+   "objects": ["radio"],
+   "count": 178,
+   "median_frames": 517,
+   "median_position": 0,
+   "skill_type": "navigation"
+  },
+  {
+   "skill": "pick up from",
+   "objects": ["radio", "coffee_table"],
+   "count": 180,
+   "median_frames": 728,
+   "median_position": 1,
+   "skill_type": "uncoordinated"
+  },
+  {
+   "skill": "press",
+   "objects": ["radio"],
+   "count": 180,
+   "median_frames": 268,
+   "median_position": 2,
+   "skill_type": "coordinated"
+  },
+  {
+   "skill": "place on",
+   "objects": ["radio", "coffee_table"],
+   "count": 180,
+   "median_frames": 378,
+   "median_position": 3,
+   "skill_type": "uncoordinated"
+  },
+  {
+   "skill": "move to",
+   "objects": ["coffee_table"],
+   "count": 2,
+   "median_frames": 722,
+   "median_position": 0,
+   "skill_type": "navigation"
+  }
+ ],
+ "top_program": [
+  {"skill": "move to", "objects": ["radio"]},
+  {"skill": "pick up from", "objects": ["radio", "coffee_table"]},
+  {"skill": "press", "objects": ["radio"]},
+  {"skill": "place on", "objects": ["radio", "coffee_table"]}
+ ],
+ "top_program_count": 178,
+ "skill_classes": {
+  "move to": 0,
+  "pick up from": 1,
+  "place on": 2,
+  "press": 3
+ }
+}

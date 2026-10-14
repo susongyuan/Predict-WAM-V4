@@ -1,0 +1,55 @@
+{
+  "port_name": "BEHAVIOR-1K v3.9.2 + upstream isaac-6.0-upgrade patch, registered for Isaac Sim 6.1.0",
+  "base_tag": "v3.9.2",
+  "base_commit": "b1979916ec1549b10a4e65e630bc6504a9af1b00",
+  "upstream_branch": "isaac-6.0-upgrade",
+  "upstream_branch_head": "b45d34e7fef42954038a069060e6a819e79d18f5",
+  "patch_range": "9eda630..b45d34e (OmniGibson/omnigibson + OmniGibson/setup.py only)",
+  "patch_file": "outputs/behavior/isaac6_port/upgrade_6_0_omnigibson.patch",
+  "patch_sha256": "3e1cd93ab30efbae0e3b76fdcbf7a5d32a1ad74673bdb09b5de08f033696f1e9",
+  "local_deviations": [
+    "simulator.py: m.KIT_FILES also maps (6,1,0) -> omnigibson_6_0_0.kit (upstream branch only lists 6.0.0/6.0.1)",
+    "envs/__init__.py: lerobot wrappers imported inside try/except (lerobot not installed; not used by eval)",
+    "bddl installed from third_party/BEHAVIOR-1K/bddl3 (v3.9.2 tree, version 3.7.0); joylo from this tree",
+    "eval/utils/network_utils.py: remove sync-client ping_interval/ping_timeout unsupported by websockets 14.2; server keepalive remains enabled. setup.py pins websockets>=14.2,<15 to match isaacsim-kernel 6.1.0.0; upstream OmniGibson requires >=15.0.1."
+  ],
+  "why": "Isaac Sim 5.1 (official v3.9.2 pin) segfaults in rtx.scenedb at viewport creation on driver 595.91.07 / RTX 5060 Ti (Blackwell) in 5/5 headless attempts; Isaac Sim 6.1 renders headless on this machine (outputs/behavior/isaac_probe/probe_isaac61_timeline.json)",
+  "not_official": "Scores from this port are NOT official challenge scores (different Isaac/PhysX/renderer versions). Use for development; report the deviation.",
+  "created_utc": "2026-09-21T18:19:35Z",
+  "websocket_compatibility": {
+    "recorded_utc": "2026-09-22T02:43:51.324187+00:00",
+    "installed_behavior6_version": "14.2",
+    "installed_lilawam_version": "15.0.1",
+    "reason": "Isaac Sim 6.1 kernel requires >=12,<15; OmniGibson v3.9.2 client used v15-only sync keepalive options. This local port retains the Isaac dependency and compatible websocket protocol.",
+    "changed_client_sha256": "b8db3e5ab85d80c11105993cac2566f28c37fb032da7ff8cd939ce1235a1db42",
+    "check_command": "timeout 30s .conda-envs/behavior6/bin/python scripts/check_behavior_websocket.py",
+    "check_evidence": "outputs/validation/websocket_loopback_20260922.json",
+    "limitation": "Client no longer initiates periodic keepalive pings; the server keeps its default ping/pong behavior. This is not a simulator-success or policy-quality check."
+  },
+  "local_evaluator_changes": [
+    {
+      "date": "2026-09-26",
+      "change": "--log-object-poses (opt-in, default off): evaluator-side per-step ground-truth pose log",
+      "files": {
+        "OmniGibson/omnigibson/eval/eval.py": {
+          "sha256_after": "735bc5474c34f814060270adf62f28a8a0d0c8a6f912d014c4b79732feb2f5e1",
+          "sha256_before": "834ecac069a86a07bb835592a86294e63391b39630794616287af86cc2722701",
+          "what": "new argparse flag --log-object-poses (BooleanOptionalAction, default False); when set, start_pose_log() after reset and stop_pose_log() in the rollout finally block; nothing else changed"
+        },
+        "OmniGibson/omnigibson/eval/evaluator.py": {
+          "sha256_after": "8798cc460b92621d957faf4d0d13af788da6c6a46ac0592c932f4a677caf55f9",
+          "sha256_before": "fe2fd1f3efe49dc13be7593b56e5b7d36ca7b8e062d80e760a863bd76539bd5a",
+          "what": "Evaluator.start_pose_log/_write_pose_log/stop_pose_log (+ small helpers), mirroring start_joint_log: writes <output-dir>/object_poses/<task>_<instance>_<rollout>.jsonl with a header (privileged_data_use: evaluator-side evidence only; never policy input; entity names/categories, AABB at reset, native bbox, scale; BDDL ground goal literals; camera intrinsics and the cam_rel_poses camera order) and one row per environment step: world pose [x,y,z,qx,qy,qz,qw] of every task-scope object (systems, floors and the agent entry skipped), the robot base pose (robot.get_position_orientation, the base used for cam_rel_poses) and the per-literal BDDL goal truth (only when <= 64 literals). step() calls _write_pose_log(), a no-op unless the log was started"
+        }
+      },
+      "default_behaviour_unchanged": true,
+      "privileged_data_use": "evaluator-side evidence only; never policy input (nothing is added to the observation sent to the policy)",
+      "purpose": "Task 1 picking_up_trash demo-action replay diagnostic: physical ground truth for cans inside the ashcan and for offline perception development (aligned with sim-native RGB-D frames); not an official challenge feature",
+      "checks": [
+        "scripts/check_evaluation_evidence.py: evaluator/eval sections PASS (its launcher section fails before and after this change: guarded() abort kwarg, pre-existing)",
+        "P2_TASK_ID=1 scripts/replay_demo_actions_feasibility.py self-test (AST-executed pose-log methods on fakes; flag default off)"
+      ],
+      "note": "sha256_before already includes earlier local evaluator additions not itemized in this file (--log-object-joints object-joint log, viewer recording/occlusion-aware framing, evaluation_plan.json, policy evidence)"
+    }
+  ]
+}

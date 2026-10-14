@@ -1,0 +1,105 @@
+# Task 0 turning_on_radio: first end-to-end WAM success gate.
+# 180 train / 20 validation demonstrations; the model trains only on the three manipulation contracts.
+# Navigation and docking remain the shared RGB-D geometric controller, so this is not a task-specific IK solution.
+# Initialization transfers the Task-1 v2 three-view manipulation model; every action-model parameter remains trainable.
+# 4000 x batch 32 = 128k samples, approximately one pass over 122,624 retained train anchors.
+common:
+  action_dim: 23
+  state_dim: 61
+  action_chunk_size: 32
+  proprio_len: 1
+  num_inference_steps: 10
+  action_execution_horizon: 1
+dataset:
+  task_id: 0
+  root: data/behavior-1k/2026-challenge-demos
+  stats_path: data/behavior-1k/2026-challenge-demos/train_stats_task000.json
+  skill_segments: data/behavior-1k/2026-challenge-demos/skill_segments_task000.json
+  vtt_dir: data/skill_vtt_task000
+  camera: observation.rgb.zed_link_camera_0
+  image_size: [224, 224]
+  frame_stride: 2
+  future_frame_offset: 32
+  scope: manipulation
+  in_segment: true
+  cond_mode: contract_proto
+  contract_targets: data/skill_vtt_task000/contract_targets.json
+  contract_targets_sha256: 91537a4bbbbaab3bef058dccffef74ed968eea8cd1f8448175acf002649a1f86
+  skip_unsupported_contracts: true  # two rare move-to(coffee_table) segments are navigation-only and excluded
+  instance_vtt_prob: 0.0
+model:
+  views:
+    - observation.rgb.zed_link_camera_0
+    - observation.rgb.left_realsense_link_camera_0
+    - observation.rgb.right_realsense_link_camera_0
+  num_registers: 2
+  use_task_cond: true
+  proprio_mask: positions_no_gripper
+  vision_encoder:
+    checkpoint_path: models/dinov3-vitl16-pretrain-lvd1689m
+    repo_id: facebook/dinov3-vitl16-pretrain-lvd1689m
+    revision: ea8dc2863c51be0a264bab82070e3e8836b02d51
+    feat_layers: [-12, -8, -4]
+    include_cls_register: true
+    fusion_mode: concat
+    concat:
+      proj_type: linear
+      pre_norm: true
+      out_dim: null
+  future_feat:
+    enabled: true
+    target_layer: -4
+    num_decoder_layers: 4
+    num_heads: 4
+  action_expert:
+    depth: 12
+    hidden_size: 768
+    num_heads: 8
+    vlm_adapter_num_queries: 64
+    adapter_depth: 4
+training:
+  init_from_sha256: 2eef750126787bfecb5c406f759cad279e597bbaae626fd5f0cb56e36699acfa
+  motion_weighting:
+    power: 1.0
+    clip: [0.5, 6.0]
+    gripper_event_weight: 4.0
+  seed: 20260921
+  batch_size: 32
+  grad_accum_steps: 1
+  samples_per_epoch: 128000
+  max_steps: 4000
+  schedule_steps: 4000
+  learning_rate: 0.00002
+  lr_min: 0.000005
+  weight_decay: 0.01
+  betas: [0.9, 0.99]
+  grad_clip_norm: 1.0
+  time_sampler: logit_normal
+  time_mu: 0.0
+  time_sigma: 1.0
+  use_vel_weight: false
+  vel_weight_alpha: 0.2
+  vel_weight_sigma: 0.01
+  lambda_future_feat: 0.5
+  save_every: 500
+  validate_every: 500
+  validation_samples: 512
+  checkpoint_metric: upper_body_mae
+  validation_seed: 0
+inference:
+  smooth_actions: false
+  smooth_sigma: 1.0
+system:
+  cpu_threads: 8
+  cuda_memory_fraction: 0.70
+  duty_cycle: 0.8
+  gpu_util_target: 85
+  min_sleep_s: 0.0
+  vram_abort_mib: 15300
+  ram_abort_percent: 85
+manifest:
+  stage: "Task-0 turning_on_radio first-success WAM manipulation v1"
+  task_id: 0
+  derived_from_config: configs/lilawam_task001_multiview_manip_v2_train.yaml
+  initialization: "Task-1 v2 final; transfer only, not a Task-0 result"
+  success_rule: "offline held-out admission first, then simulator BDDL/Q>0; no scripted IK or privileged object state"
