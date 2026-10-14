@@ -1183,6 +1183,11 @@
       "sha256": "882d724f63c99545a5c26c9824a7186752bfc2fdfea95cb08498faaef34d6f66"
     },
     {
+      "path": "history/release-verification.json",
+      "bytes": 490,
+      "sha256": "b045deea0e6554b9267c6e040e14e8fa7236e1f7e3cd3b0a050f07e64ee418a2"
+    },
+    {
       "path": "history/retained-checkpoints.json",
       "bytes": 26729,
       "sha256": "9a0e0e719e567345959f16516bf38b493fd29c1ffd21faac4c49dc3e98aab93b"

@@ -1,0 +1,16 @@
+{
+  "status": "verified_download_and_restore",
+  "category": "historical-sources",
+  "files": 1542,
+  "remote_release_id": 412309105,
+  "archive_sha256": "b3e4b3e9dbcd49d3c59773d074e8589c4558a25830c903f499321b39830b5947",
+  "parts": 1,
+  "source_evidence_references_verified": 17,
+  "bulk_upload_complete": false,
+  "checks": [
+    "offline split restoration",
+    "corruption rejection",
+    "gzip streaming restoration",
+    "GitHub download and full historical source restoration"
+  ]
+}
