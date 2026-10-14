@@ -1,0 +1,795 @@
+{
+  "schema_version": 1,
+  "task": "press_stapler",
+  "repo": "TianxingChen/RoboTwin2.0",
+  "revision": "3dc3b798668feb99ac61cc9086d84cbcc3d79186",
+  "archive": "demo_clean.zip",
+  "status": "complete",
+  "started_unix": 1791393420.839318,
+  "scope": "downloaded_demonstrations_not_wam_performance",
+  "gpu_jobs": 0,
+  "url": "https://huggingface.co/datasets/TianxingChen/RoboTwin2.0/resolve/3dc3b798668feb99ac61cc9086d84cbcc3d79186/dataset/press_stapler/demo_clean.zip",
+  "upstream_file": {
+    "type": "file",
+    "oid": "5bc7d06eebedfb096dc1521b616e42987cb03b40",
+    "size": 210349080,
+    "lfs": {
+      "oid": "4dd735e5e328e8ea9d99d8bc6dbb3f30e68b06812f7ac925f7c506c4c0f3e90f",
+      "size": 210349080,
+      "pointerSize": 134
+    },
+    "xetHash": "f09a61bf4d2742496eed495d311f766b7e1692b42102117a0969c80ccae607f2",
+    "path": "dataset/press_stapler/demo_clean.zip"
+  },
+  "expected_bytes": 210349080,
+  "expected_sha256": "4dd735e5e328e8ea9d99d8bc6dbb3f30e68b06812f7ac925f7c506c4c0f3e90f",
+  "received_bytes": 210349080,
+  "sha256": "4dd735e5e328e8ea9d99d8bc6dbb3f30e68b06812f7ac925f7c506c4c0f3e90f",
+  "extracted_bytes": 272665298,
+  "members": [
+    {
+      "path": "source/press_stapler/aloha_agilex/scene_info.json",
+      "bytes": 13120,
+      "zip_crc32": "c77765ee"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/seed.txt",
+      "bytes": 142,
+      "zip_crc32": "02fc41a4"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000000.hdf5",
+      "bytes": 4649024,
+      "zip_crc32": "e6837714"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000001.hdf5",
+      "bytes": 6003893,
+      "zip_crc32": "754b0f23"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000002.hdf5",
+      "bytes": 5893544,
+      "zip_crc32": "c8714177"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000003.hdf5",
+      "bytes": 5841094,
+      "zip_crc32": "9bd6ed72"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000004.hdf5",
+      "bytes": 5878531,
+      "zip_crc32": "08f51233"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000005.hdf5",
+      "bytes": 5684636,
+      "zip_crc32": "0508c1be"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000006.hdf5",
+      "bytes": 5331151,
+      "zip_crc32": "b4324aca"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000007.hdf5",
+      "bytes": 5801095,
+      "zip_crc32": "6b702d5b"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000008.hdf5",
+      "bytes": 5817224,
+      "zip_crc32": "cc5acf48"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000009.hdf5",
+      "bytes": 5534478,
+      "zip_crc32": "81e466a6"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000010.hdf5",
+      "bytes": 5401261,
+      "zip_crc32": "d501e5fe"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000011.hdf5",
+      "bytes": 4709886,
+      "zip_crc32": "f89fcc68"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000012.hdf5",
+      "bytes": 5630417,
+      "zip_crc32": "3cedb187"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000013.hdf5",
+      "bytes": 5523733,
+      "zip_crc32": "431fa3f1"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000014.hdf5",
+      "bytes": 5668083,
+      "zip_crc32": "eb51f97e"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000015.hdf5",
+      "bytes": 5258848,
+      "zip_crc32": "21f804b5"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000016.hdf5",
+      "bytes": 5687328,
+      "zip_crc32": "ed86c2e8"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000017.hdf5",
+      "bytes": 4585442,
+      "zip_crc32": "c749eb61"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000018.hdf5",
+      "bytes": 5551828,
+      "zip_crc32": "c2cce84e"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000019.hdf5",
+      "bytes": 4815522,
+      "zip_crc32": "52774067"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000020.hdf5",
+      "bytes": 5175708,
+      "zip_crc32": "5f7264e4"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000021.hdf5",
+      "bytes": 5248110,
+      "zip_crc32": "89ca3c3a"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000022.hdf5",
+      "bytes": 5217748,
+      "zip_crc32": "338a7418"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000023.hdf5",
+      "bytes": 4740490,
+      "zip_crc32": "1592f6b9"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000024.hdf5",
+      "bytes": 6302468,
+      "zip_crc32": "78daa22f"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000025.hdf5",
+      "bytes": 5216230,
+      "zip_crc32": "cd3d3ae9"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000026.hdf5",
+      "bytes": 5362913,
+      "zip_crc32": "fe93906d"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000027.hdf5",
+      "bytes": 4794039,
+      "zip_crc32": "1b2430da"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000028.hdf5",
+      "bytes": 5351313,
+      "zip_crc32": "c68b765f"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000029.hdf5",
+      "bytes": 5838538,
+      "zip_crc32": "8b798b24"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000030.hdf5",
+      "bytes": 4879208,
+      "zip_crc32": "b991b229"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000031.hdf5",
+      "bytes": 5316814,
+      "zip_crc32": "9ffc7ef9"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000032.hdf5",
+      "bytes": 5011962,
+      "zip_crc32": "eef2a966"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000033.hdf5",
+      "bytes": 5501786,
+      "zip_crc32": "a900a499"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000034.hdf5",
+      "bytes": 5190802,
+      "zip_crc32": "dca81fe8"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000035.hdf5",
+      "bytes": 4919008,
+      "zip_crc32": "97897612"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000036.hdf5",
+      "bytes": 5074929,
+      "zip_crc32": "038e6e33"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000037.hdf5",
+      "bytes": 5519680,
+      "zip_crc32": "7507427a"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000038.hdf5",
+      "bytes": 4734396,
+      "zip_crc32": "96a5b48f"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000039.hdf5",
+      "bytes": 5377646,
+      "zip_crc32": "539184bd"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000040.hdf5",
+      "bytes": 5500254,
+      "zip_crc32": "c1338a37"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000041.hdf5",
+      "bytes": 5401581,
+      "zip_crc32": "2de14eab"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000042.hdf5",
+      "bytes": 5638128,
+      "zip_crc32": "ce3d03fa"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000043.hdf5",
+      "bytes": 6277724,
+      "zip_crc32": "f3a7510d"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000044.hdf5",
+      "bytes": 6017222,
+      "zip_crc32": "d714b672"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000045.hdf5",
+      "bytes": 5876761,
+      "zip_crc32": "76b0cf40"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000046.hdf5",
+      "bytes": 4781904,
+      "zip_crc32": "279c573b"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000047.hdf5",
+      "bytes": 5507042,
+      "zip_crc32": "1d9c9515"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000048.hdf5",
+      "bytes": 5587532,
+      "zip_crc32": "63292cb8"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/data/episode_0000049.hdf5",
+      "bytes": 5170785,
+      "zip_crc32": "8141ce17"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000000.mp4",
+      "bytes": 29977,
+      "zip_crc32": "72b2e336"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000001.mp4",
+      "bytes": 50644,
+      "zip_crc32": "2d3046e7"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000002.mp4",
+      "bytes": 58833,
+      "zip_crc32": "01dfbc96"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000003.mp4",
+      "bytes": 44976,
+      "zip_crc32": "969ecf90"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000004.mp4",
+      "bytes": 47657,
+      "zip_crc32": "022a8b4a"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000005.mp4",
+      "bytes": 42634,
+      "zip_crc32": "1ecb5875"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000006.mp4",
+      "bytes": 39222,
+      "zip_crc32": "59619579"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000007.mp4",
+      "bytes": 45623,
+      "zip_crc32": "b922d10c"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000008.mp4",
+      "bytes": 35886,
+      "zip_crc32": "dce02e1c"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000009.mp4",
+      "bytes": 43359,
+      "zip_crc32": "612286db"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000010.mp4",
+      "bytes": 40287,
+      "zip_crc32": "b3c519cd"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000011.mp4",
+      "bytes": 32655,
+      "zip_crc32": "d1a61954"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000012.mp4",
+      "bytes": 48300,
+      "zip_crc32": "49682fad"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000013.mp4",
+      "bytes": 52852,
+      "zip_crc32": "cd2a0c14"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000014.mp4",
+      "bytes": 48728,
+      "zip_crc32": "8a0b402d"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000015.mp4",
+      "bytes": 33143,
+      "zip_crc32": "c0e68fa8"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000016.mp4",
+      "bytes": 43960,
+      "zip_crc32": "ed521a43"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000017.mp4",
+      "bytes": 35018,
+      "zip_crc32": "d971f254"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000018.mp4",
+      "bytes": 48136,
+      "zip_crc32": "deac60f2"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000019.mp4",
+      "bytes": 34257,
+      "zip_crc32": "c79e078e"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000020.mp4",
+      "bytes": 36981,
+      "zip_crc32": "bcb2e2f2"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000021.mp4",
+      "bytes": 37653,
+      "zip_crc32": "ce4181bb"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000022.mp4",
+      "bytes": 32260,
+      "zip_crc32": "ffd53449"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000023.mp4",
+      "bytes": 31127,
+      "zip_crc32": "39839bc0"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000024.mp4",
+      "bytes": 54521,
+      "zip_crc32": "e9abb379"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000025.mp4",
+      "bytes": 42581,
+      "zip_crc32": "86a01c44"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000026.mp4",
+      "bytes": 41549,
+      "zip_crc32": "ac0a262f"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000027.mp4",
+      "bytes": 36015,
+      "zip_crc32": "2438cf4b"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000028.mp4",
+      "bytes": 38943,
+      "zip_crc32": "7e29e932"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000029.mp4",
+      "bytes": 40672,
+      "zip_crc32": "9f4bffc2"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000030.mp4",
+      "bytes": 33190,
+      "zip_crc32": "1c33ddd8"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000031.mp4",
+      "bytes": 49803,
+      "zip_crc32": "750f7d62"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000032.mp4",
+      "bytes": 49947,
+      "zip_crc32": "6a0a0059"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000033.mp4",
+      "bytes": 40428,
+      "zip_crc32": "84fabbbc"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000034.mp4",
+      "bytes": 44250,
+      "zip_crc32": "ce300eb4"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000035.mp4",
+      "bytes": 37459,
+      "zip_crc32": "67d998c7"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000036.mp4",
+      "bytes": 39018,
+      "zip_crc32": "4e5a733f"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000037.mp4",
+      "bytes": 52290,
+      "zip_crc32": "a8ae6f26"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000038.mp4",
+      "bytes": 28718,
+      "zip_crc32": "26fa44ca"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000039.mp4",
+      "bytes": 43140,
+      "zip_crc32": "884c6da4"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000040.mp4",
+      "bytes": 49708,
+      "zip_crc32": "3c7e3201"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000041.mp4",
+      "bytes": 49566,
+      "zip_crc32": "b2efee0e"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000042.mp4",
+      "bytes": 41838,
+      "zip_crc32": "7b874c43"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000043.mp4",
+      "bytes": 47836,
+      "zip_crc32": "4bd3ba70"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000044.mp4",
+      "bytes": 47665,
+      "zip_crc32": "a2d95724"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000045.mp4",
+      "bytes": 52120,
+      "zip_crc32": "7a4d9d2e"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000046.mp4",
+      "bytes": 42911,
+      "zip_crc32": "dc946870"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000047.mp4",
+      "bytes": 50132,
+      "zip_crc32": "30c5fb22"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000048.mp4",
+      "bytes": 36978,
+      "zip_crc32": "bf57f00c"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/video/episode_0000049.mp4",
+      "bytes": 45942,
+      "zip_crc32": "ecf77cfa"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000000.json",
+      "bytes": 15103,
+      "zip_crc32": "4e2a2d17"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000001.json",
+      "bytes": 14977,
+      "zip_crc32": "6bd491cd"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000002.json",
+      "bytes": 14302,
+      "zip_crc32": "dc9b72cc"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000003.json",
+      "bytes": 14837,
+      "zip_crc32": "442918ff"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000004.json",
+      "bytes": 14681,
+      "zip_crc32": "a94407e0"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000005.json",
+      "bytes": 15096,
+      "zip_crc32": "4074e69b"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000006.json",
+      "bytes": 14589,
+      "zip_crc32": "94675a01"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000007.json",
+      "bytes": 14594,
+      "zip_crc32": "a569a09f"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000008.json",
+      "bytes": 14368,
+      "zip_crc32": "8bf17f8c"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000009.json",
+      "bytes": 15082,
+      "zip_crc32": "3ef78379"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000010.json",
+      "bytes": 13601,
+      "zip_crc32": "1db9cb81"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000011.json",
+      "bytes": 14348,
+      "zip_crc32": "5d41b7f5"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000012.json",
+      "bytes": 15047,
+      "zip_crc32": "e9e37d3f"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000013.json",
+      "bytes": 13425,
+      "zip_crc32": "39217de7"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000014.json",
+      "bytes": 14922,
+      "zip_crc32": "c0406988"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000015.json",
+      "bytes": 14512,
+      "zip_crc32": "1aafe291"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000016.json",
+      "bytes": 14176,
+      "zip_crc32": "7c0cb339"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000017.json",
+      "bytes": 14861,
+      "zip_crc32": "3cd5bf42"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000018.json",
+      "bytes": 14547,
+      "zip_crc32": "d04dc382"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000019.json",
+      "bytes": 13630,
+      "zip_crc32": "20bbdf96"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000020.json",
+      "bytes": 14570,
+      "zip_crc32": "36a9d1e6"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000021.json",
+      "bytes": 14607,
+      "zip_crc32": "a08056c7"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000022.json",
+      "bytes": 15034,
+      "zip_crc32": "eb4d14af"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000023.json",
+      "bytes": 14173,
+      "zip_crc32": "b5ef59c4"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000024.json",
+      "bytes": 14973,
+      "zip_crc32": "217a90e1"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000025.json",
+      "bytes": 14977,
+      "zip_crc32": "aa19921d"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000026.json",
+      "bytes": 13609,
+      "zip_crc32": "13727b86"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000027.json",
+      "bytes": 15135,
+      "zip_crc32": "024948ba"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000028.json",
+      "bytes": 14566,
+      "zip_crc32": "917c3cfa"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000029.json",
+      "bytes": 14819,
+      "zip_crc32": "cf1c441e"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000030.json",
+      "bytes": 14133,
+      "zip_crc32": "c19224e4"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000031.json",
+      "bytes": 13547,
+      "zip_crc32": "53547a4c"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000032.json",
+      "bytes": 13578,
+      "zip_crc32": "86694040"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000033.json",
+      "bytes": 14511,
+      "zip_crc32": "24d5e114"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000034.json",
+      "bytes": 13659,
+      "zip_crc32": "ea369cde"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000035.json",
+      "bytes": 13938,
+      "zip_crc32": "814c6b37"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000036.json",
+      "bytes": 13639,
+      "zip_crc32": "10392cac"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000037.json",
+      "bytes": 13274,
+      "zip_crc32": "339c0a07"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000038.json",
+      "bytes": 14115,
+      "zip_crc32": "7775fadb"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000039.json",
+      "bytes": 13600,
+      "zip_crc32": "e67236d2"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000040.json",
+      "bytes": 14380,
+      "zip_crc32": "4a47d35b"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000041.json",
+      "bytes": 13920,
+      "zip_crc32": "e3a78421"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000042.json",
+      "bytes": 14746,
+      "zip_crc32": "14527d4b"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000043.json",
+      "bytes": 14565,
+      "zip_crc32": "799d1691"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000044.json",
+      "bytes": 15136,
+      "zip_crc32": "416ca918"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000045.json",
+      "bytes": 14887,
+      "zip_crc32": "c60f036c"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000046.json",
+      "bytes": 14083,
+      "zip_crc32": "f13146bd"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000047.json",
+      "bytes": 14441,
+      "zip_crc32": "790aab35"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000048.json",
+      "bytes": 15139,
+      "zip_crc32": "753a3dfa"
+    },
+    {
+      "path": "source/press_stapler/aloha_agilex/instruction/episode_0000049.json",
+      "bytes": 14457,
+      "zip_crc32": "1cbfc4a0"
+    }
+  ],
+  "hdf5_files": 50,
+  "elapsed_seconds": 9.932008028030396,
+  "zip_crc_verified": true,
+  "transport_archive_removed": true
+}

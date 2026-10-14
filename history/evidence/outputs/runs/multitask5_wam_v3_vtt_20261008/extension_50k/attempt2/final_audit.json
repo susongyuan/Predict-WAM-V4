@@ -1,0 +1,522 @@
+{
+  "audited_at": "2026-10-08T14:37:57+08:00",
+  "status": "all50_reverified",
+  "checkpoint_sha256": "8960be6ceb4d5293d2c5455ac4308421f64f1e31bf64f0646b7208735f63a5f4",
+  "global_training_steps": 50000,
+  "single_shared_checkpoint": true,
+  "successes": 34,
+  "failures": 16,
+  "native_success_rate": 0.68,
+  "unscored": 0,
+  "planned_unique_task_seed_pairs": 50,
+  "all_attempt_numbers_one": true,
+  "all_episode_evidence_recomputed": true,
+  "source_changes": [],
+  "video_or_third_view_files": [],
+  "onboard_frames": 23707,
+  "native_actions": 23657,
+  "by_task": {
+    "click_bell": {
+      "successes": 10,
+      "trials": 10,
+      "wilson_95": [
+        0.7224672001371107,
+        0.9999999999999999
+      ]
+    },
+    "open_laptop": {
+      "successes": 9,
+      "trials": 10,
+      "wilson_95": [
+        0.5958499732047615,
+        0.9821237869049271
+      ]
+    },
+    "place_cans_plasticbox": {
+      "successes": 1,
+      "trials": 10,
+      "wilson_95": [
+        0.017876213095072896,
+        0.4041500267952385
+      ]
+    },
+    "press_stapler": {
+      "successes": 10,
+      "trials": 10,
+      "wilson_95": [
+        0.7224672001371107,
+        0.9999999999999999
+      ]
+    },
+    "put_bottles_dustbin": {
+      "successes": 4,
+      "trials": 10,
+      "wilson_95": [
+        0.16818032970623614,
+        0.6873262302663417
+      ]
+    }
+  },
+  "task_sample_counts": {
+    "click_bell": 319916,
+    "open_laptop": 319257,
+    "place_cans_plasticbox": 320805,
+    "press_stapler": 319919,
+    "put_bottles_dustbin": 320103
+  },
+  "gpu_lock_owner": null,
+  "elapsed_seconds": 24.13157029496506,
+  "rows": [
+    {
+      "task": "put_bottles_dustbin",
+      "seed": 922001,
+      "success": true,
+      "steps": 527,
+      "onboard_frames": 528,
+      "wall_seconds": 138.9463061329443,
+      "verified": true
+    },
+    {
+      "task": "put_bottles_dustbin",
+      "seed": 922002,
+      "success": true,
+      "steps": 524,
+      "onboard_frames": 525,
+      "wall_seconds": 134.70211242418736,
+      "verified": true
+    },
+    {
+      "task": "put_bottles_dustbin",
+      "seed": 922003,
+      "success": false,
+      "steps": 1700,
+      "onboard_frames": 1701,
+      "wall_seconds": 417.2175292330794,
+      "verified": true
+    },
+    {
+      "task": "put_bottles_dustbin",
+      "seed": 922004,
+      "success": true,
+      "steps": 660,
+      "onboard_frames": 661,
+      "wall_seconds": 169.87552145891823,
+      "verified": true
+    },
+    {
+      "task": "put_bottles_dustbin",
+      "seed": 922005,
+      "success": false,
+      "steps": 1700,
+      "onboard_frames": 1701,
+      "wall_seconds": 404.262591190869,
+      "verified": true
+    },
+    {
+      "task": "put_bottles_dustbin",
+      "seed": 922006,
+      "success": false,
+      "steps": 1700,
+      "onboard_frames": 1701,
+      "wall_seconds": 427.5259624538012,
+      "verified": true
+    },
+    {
+      "task": "put_bottles_dustbin",
+      "seed": 922007,
+      "success": false,
+      "steps": 1700,
+      "onboard_frames": 1701,
+      "wall_seconds": 429.22227143100463,
+      "verified": true
+    },
+    {
+      "task": "put_bottles_dustbin",
+      "seed": 922008,
+      "success": false,
+      "steps": 1700,
+      "onboard_frames": 1701,
+      "wall_seconds": 422.575704628136,
+      "verified": true
+    },
+    {
+      "task": "put_bottles_dustbin",
+      "seed": 922009,
+      "success": true,
+      "steps": 657,
+      "onboard_frames": 658,
+      "wall_seconds": 166.8362418890465,
+      "verified": true
+    },
+    {
+      "task": "put_bottles_dustbin",
+      "seed": 922010,
+      "success": false,
+      "steps": 1700,
+      "onboard_frames": 1701,
+      "wall_seconds": 433.4796284029726,
+      "verified": true
+    },
+    {
+      "task": "place_cans_plasticbox",
+      "seed": 922001,
+      "success": true,
+      "steps": 233,
+      "onboard_frames": 234,
+      "wall_seconds": 67.64694811101072,
+      "verified": true
+    },
+    {
+      "task": "place_cans_plasticbox",
+      "seed": 922002,
+      "success": false,
+      "steps": 800,
+      "onboard_frames": 801,
+      "wall_seconds": 223.16451613116078,
+      "verified": true
+    },
+    {
+      "task": "place_cans_plasticbox",
+      "seed": 922003,
+      "success": false,
+      "steps": 800,
+      "onboard_frames": 801,
+      "wall_seconds": 213.7440528748557,
+      "verified": true
+    },
+    {
+      "task": "place_cans_plasticbox",
+      "seed": 922004,
+      "success": false,
+      "steps": 800,
+      "onboard_frames": 801,
+      "wall_seconds": 199.77339344704524,
+      "verified": true
+    },
+    {
+      "task": "place_cans_plasticbox",
+      "seed": 922005,
+      "success": false,
+      "steps": 800,
+      "onboard_frames": 801,
+      "wall_seconds": 199.52763056498952,
+      "verified": true
+    },
+    {
+      "task": "place_cans_plasticbox",
+      "seed": 922006,
+      "success": false,
+      "steps": 800,
+      "onboard_frames": 801,
+      "wall_seconds": 197.92375478707254,
+      "verified": true
+    },
+    {
+      "task": "place_cans_plasticbox",
+      "seed": 922007,
+      "success": false,
+      "steps": 800,
+      "onboard_frames": 801,
+      "wall_seconds": 186.17597741703503,
+      "verified": true
+    },
+    {
+      "task": "place_cans_plasticbox",
+      "seed": 922008,
+      "success": false,
+      "steps": 800,
+      "onboard_frames": 801,
+      "wall_seconds": 189.7313020369038,
+      "verified": true
+    },
+    {
+      "task": "place_cans_plasticbox",
+      "seed": 922009,
+      "success": false,
+      "steps": 800,
+      "onboard_frames": 801,
+      "wall_seconds": 200.3130913588684,
+      "verified": true
+    },
+    {
+      "task": "place_cans_plasticbox",
+      "seed": 922010,
+      "success": false,
+      "steps": 800,
+      "onboard_frames": 801,
+      "wall_seconds": 195.33378714486025,
+      "verified": true
+    },
+    {
+      "task": "open_laptop",
+      "seed": 922001,
+      "success": false,
+      "steps": 700,
+      "onboard_frames": 701,
+      "wall_seconds": 163.69298116792925,
+      "verified": true
+    },
+    {
+      "task": "open_laptop",
+      "seed": 922002,
+      "success": true,
+      "steps": 88,
+      "onboard_frames": 89,
+      "wall_seconds": 25.394086114130914,
+      "verified": true
+    },
+    {
+      "task": "open_laptop",
+      "seed": 922003,
+      "success": true,
+      "steps": 112,
+      "onboard_frames": 113,
+      "wall_seconds": 30.8200381109491,
+      "verified": true
+    },
+    {
+      "task": "open_laptop",
+      "seed": 922004,
+      "success": true,
+      "steps": 193,
+      "onboard_frames": 194,
+      "wall_seconds": 53.011630832916126,
+      "verified": true
+    },
+    {
+      "task": "open_laptop",
+      "seed": 922005,
+      "success": true,
+      "steps": 106,
+      "onboard_frames": 107,
+      "wall_seconds": 30.33497342397459,
+      "verified": true
+    },
+    {
+      "task": "open_laptop",
+      "seed": 922006,
+      "success": true,
+      "steps": 153,
+      "onboard_frames": 154,
+      "wall_seconds": 42.553469591075554,
+      "verified": true
+    },
+    {
+      "task": "open_laptop",
+      "seed": 922007,
+      "success": true,
+      "steps": 154,
+      "onboard_frames": 155,
+      "wall_seconds": 43.38774545211345,
+      "verified": true
+    },
+    {
+      "task": "open_laptop",
+      "seed": 922008,
+      "success": true,
+      "steps": 140,
+      "onboard_frames": 141,
+      "wall_seconds": 39.557535713072866,
+      "verified": true
+    },
+    {
+      "task": "open_laptop",
+      "seed": 922009,
+      "success": true,
+      "steps": 142,
+      "onboard_frames": 143,
+      "wall_seconds": 38.34316938999109,
+      "verified": true
+    },
+    {
+      "task": "open_laptop",
+      "seed": 922010,
+      "success": true,
+      "steps": 250,
+      "onboard_frames": 251,
+      "wall_seconds": 63.80926366895437,
+      "verified": true
+    },
+    {
+      "task": "click_bell",
+      "seed": 922001,
+      "success": true,
+      "steps": 63,
+      "onboard_frames": 64,
+      "wall_seconds": 18.5181458031293,
+      "verified": true
+    },
+    {
+      "task": "click_bell",
+      "seed": 922002,
+      "success": true,
+      "steps": 64,
+      "onboard_frames": 65,
+      "wall_seconds": 18.56428585294634,
+      "verified": true
+    },
+    {
+      "task": "click_bell",
+      "seed": 922003,
+      "success": true,
+      "steps": 63,
+      "onboard_frames": 64,
+      "wall_seconds": 18.43261990020983,
+      "verified": true
+    },
+    {
+      "task": "click_bell",
+      "seed": 922004,
+      "success": true,
+      "steps": 63,
+      "onboard_frames": 64,
+      "wall_seconds": 18.08381876698695,
+      "verified": true
+    },
+    {
+      "task": "click_bell",
+      "seed": 922005,
+      "success": true,
+      "steps": 64,
+      "onboard_frames": 65,
+      "wall_seconds": 18.82408582000062,
+      "verified": true
+    },
+    {
+      "task": "click_bell",
+      "seed": 922006,
+      "success": true,
+      "steps": 61,
+      "onboard_frames": 62,
+      "wall_seconds": 17.606834826990962,
+      "verified": true
+    },
+    {
+      "task": "click_bell",
+      "seed": 922007,
+      "success": true,
+      "steps": 63,
+      "onboard_frames": 64,
+      "wall_seconds": 18.684416764881462,
+      "verified": true
+    },
+    {
+      "task": "click_bell",
+      "seed": 922008,
+      "success": true,
+      "steps": 62,
+      "onboard_frames": 63,
+      "wall_seconds": 18.10538807697594,
+      "verified": true
+    },
+    {
+      "task": "click_bell",
+      "seed": 922009,
+      "success": true,
+      "steps": 64,
+      "onboard_frames": 65,
+      "wall_seconds": 18.707366111921147,
+      "verified": true
+    },
+    {
+      "task": "click_bell",
+      "seed": 922010,
+      "success": true,
+      "steps": 63,
+      "onboard_frames": 64,
+      "wall_seconds": 18.658024172997102,
+      "verified": true
+    },
+    {
+      "task": "press_stapler",
+      "seed": 922001,
+      "success": true,
+      "steps": 99,
+      "onboard_frames": 100,
+      "wall_seconds": 25.92721816105768,
+      "verified": true
+    },
+    {
+      "task": "press_stapler",
+      "seed": 922002,
+      "success": true,
+      "steps": 135,
+      "onboard_frames": 136,
+      "wall_seconds": 33.81177558703348,
+      "verified": true
+    },
+    {
+      "task": "press_stapler",
+      "seed": 922003,
+      "success": true,
+      "steps": 95,
+      "onboard_frames": 96,
+      "wall_seconds": 25.52618236001581,
+      "verified": true
+    },
+    {
+      "task": "press_stapler",
+      "seed": 922004,
+      "success": true,
+      "steps": 95,
+      "onboard_frames": 96,
+      "wall_seconds": 25.444838201161474,
+      "verified": true
+    },
+    {
+      "task": "press_stapler",
+      "seed": 922005,
+      "success": true,
+      "steps": 91,
+      "onboard_frames": 92,
+      "wall_seconds": 25.548554826993495,
+      "verified": true
+    },
+    {
+      "task": "press_stapler",
+      "seed": 922006,
+      "success": true,
+      "steps": 89,
+      "onboard_frames": 90,
+      "wall_seconds": 24.28915583807975,
+      "verified": true
+    },
+    {
+      "task": "press_stapler",
+      "seed": 922007,
+      "success": true,
+      "steps": 91,
+      "onboard_frames": 92,
+      "wall_seconds": 24.81622216105461,
+      "verified": true
+    },
+    {
+      "task": "press_stapler",
+      "seed": 922008,
+      "success": true,
+      "steps": 95,
+      "onboard_frames": 96,
+      "wall_seconds": 25.39222133695148,
+      "verified": true
+    },
+    {
+      "task": "press_stapler",
+      "seed": 922009,
+      "success": true,
+      "steps": 100,
+      "onboard_frames": 101,
+      "wall_seconds": 26.626328526996076,
+      "verified": true
+    },
+    {
+      "task": "press_stapler",
+      "seed": 922010,
+      "success": true,
+      "steps": 98,
+      "onboard_frames": 99,
+      "wall_seconds": 26.08384238393046,
+      "verified": true
+    }
+  ],
+  "scope": "five selected RoboTwin native tasks; no baseline/causal gain/generalization/real-robot claim"
+}

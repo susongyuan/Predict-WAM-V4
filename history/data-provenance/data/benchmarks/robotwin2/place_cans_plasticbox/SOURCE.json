@@ -1,0 +1,795 @@
+{
+  "schema_version": 1,
+  "task": "place_cans_plasticbox",
+  "repo": "TianxingChen/RoboTwin2.0",
+  "revision": "3dc3b798668feb99ac61cc9086d84cbcc3d79186",
+  "archive": "demo_clean.zip",
+  "status": "complete",
+  "started_unix": 1791116870.0470648,
+  "scope": "downloaded_demonstrations_not_wam_performance",
+  "gpu_jobs": 0,
+  "url": "https://huggingface.co/datasets/TianxingChen/RoboTwin2.0/resolve/3dc3b798668feb99ac61cc9086d84cbcc3d79186/dataset/place_cans_plasticbox/demo_clean.zip",
+  "upstream_file": {
+    "type": "file",
+    "oid": "090eb00cfd2bf39804c8ad77ebaf59ed2acfc49e",
+    "size": 833154225,
+    "lfs": {
+      "oid": "242646527171b42483da3b561d82ab1082d759029357ef9c9c2bd0acf9a19ff8",
+      "size": 833154225,
+      "pointerSize": 134
+    },
+    "xetHash": "ebcca680880046d925872ade2ee9f8513f3e1080acccb602b81aff0dd974c308",
+    "path": "dataset/place_cans_plasticbox/demo_clean.zip"
+  },
+  "expected_bytes": 833154225,
+  "expected_sha256": "242646527171b42483da3b561d82ab1082d759029357ef9c9c2bd0acf9a19ff8",
+  "received_bytes": 833154225,
+  "sha256": "242646527171b42483da3b561d82ab1082d759029357ef9c9c2bd0acf9a19ff8",
+  "extracted_bytes": 1287724130,
+  "members": [
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/scene_info.json",
+      "bytes": 15492,
+      "zip_crc32": "5cc5e525"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/seed.txt",
+      "bytes": 141,
+      "zip_crc32": "c35d80d9"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000000.hdf5",
+      "bytes": 25292048,
+      "zip_crc32": "2493379c"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000001.hdf5",
+      "bytes": 25745994,
+      "zip_crc32": "483f2098"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000002.hdf5",
+      "bytes": 26230516,
+      "zip_crc32": "6befa8b8"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000003.hdf5",
+      "bytes": 26692838,
+      "zip_crc32": "60654b70"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000004.hdf5",
+      "bytes": 25372882,
+      "zip_crc32": "4363ff93"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000005.hdf5",
+      "bytes": 25983858,
+      "zip_crc32": "e8a7e355"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000006.hdf5",
+      "bytes": 24592646,
+      "zip_crc32": "c19f5c21"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000007.hdf5",
+      "bytes": 25442516,
+      "zip_crc32": "843576cd"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000008.hdf5",
+      "bytes": 24384602,
+      "zip_crc32": "6eca4cda"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000009.hdf5",
+      "bytes": 24926276,
+      "zip_crc32": "726057df"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000010.hdf5",
+      "bytes": 25187292,
+      "zip_crc32": "db202c56"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000011.hdf5",
+      "bytes": 27187712,
+      "zip_crc32": "379aa22f"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000012.hdf5",
+      "bytes": 25010575,
+      "zip_crc32": "f3322e43"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000013.hdf5",
+      "bytes": 25137052,
+      "zip_crc32": "6194214a"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000014.hdf5",
+      "bytes": 24914824,
+      "zip_crc32": "882edb13"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000015.hdf5",
+      "bytes": 24193115,
+      "zip_crc32": "2e0d46ea"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000016.hdf5",
+      "bytes": 26801091,
+      "zip_crc32": "3c8dd744"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000017.hdf5",
+      "bytes": 26945856,
+      "zip_crc32": "98fecac0"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000018.hdf5",
+      "bytes": 24431664,
+      "zip_crc32": "1166658b"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000019.hdf5",
+      "bytes": 26783630,
+      "zip_crc32": "e76dc1e2"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000020.hdf5",
+      "bytes": 26161572,
+      "zip_crc32": "66335a74"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000021.hdf5",
+      "bytes": 27220974,
+      "zip_crc32": "5f1d9e45"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000022.hdf5",
+      "bytes": 26009744,
+      "zip_crc32": "1e602a21"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000023.hdf5",
+      "bytes": 25732801,
+      "zip_crc32": "e7cbbe8b"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000024.hdf5",
+      "bytes": 24496396,
+      "zip_crc32": "773f7527"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000025.hdf5",
+      "bytes": 24469023,
+      "zip_crc32": "4c239c1d"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000026.hdf5",
+      "bytes": 23481712,
+      "zip_crc32": "383e258b"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000027.hdf5",
+      "bytes": 25002780,
+      "zip_crc32": "57b8048a"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000028.hdf5",
+      "bytes": 25021369,
+      "zip_crc32": "8e71cac7"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000029.hdf5",
+      "bytes": 23939332,
+      "zip_crc32": "115f8463"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000030.hdf5",
+      "bytes": 25673391,
+      "zip_crc32": "0c303163"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000031.hdf5",
+      "bytes": 24230012,
+      "zip_crc32": "866b07f2"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000032.hdf5",
+      "bytes": 25839928,
+      "zip_crc32": "494dc614"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000033.hdf5",
+      "bytes": 26219212,
+      "zip_crc32": "69bbdd4f"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000034.hdf5",
+      "bytes": 24842412,
+      "zip_crc32": "6b828b18"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000035.hdf5",
+      "bytes": 24473756,
+      "zip_crc32": "466ed2d4"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000036.hdf5",
+      "bytes": 28175486,
+      "zip_crc32": "f5a499cb"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000037.hdf5",
+      "bytes": 26535796,
+      "zip_crc32": "962925e1"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000038.hdf5",
+      "bytes": 25107204,
+      "zip_crc32": "81dafb46"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000039.hdf5",
+      "bytes": 26967296,
+      "zip_crc32": "6241da4d"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000040.hdf5",
+      "bytes": 26390910,
+      "zip_crc32": "388c6080"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000041.hdf5",
+      "bytes": 26648348,
+      "zip_crc32": "4912ef12"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000042.hdf5",
+      "bytes": 26204288,
+      "zip_crc32": "51f89b9f"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000043.hdf5",
+      "bytes": 25050276,
+      "zip_crc32": "02bc15a1"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000044.hdf5",
+      "bytes": 26908580,
+      "zip_crc32": "9be568a9"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000045.hdf5",
+      "bytes": 23569481,
+      "zip_crc32": "7c0c8053"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000046.hdf5",
+      "bytes": 25483904,
+      "zip_crc32": "06d60f5f"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000047.hdf5",
+      "bytes": 26597995,
+      "zip_crc32": "055c5c16"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000048.hdf5",
+      "bytes": 24413500,
+      "zip_crc32": "1a4ae1b6"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/data/episode_0000049.hdf5",
+      "bytes": 24230696,
+      "zip_crc32": "080b3d68"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000000.mp4",
+      "bytes": 194674,
+      "zip_crc32": "2ca28048"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000001.mp4",
+      "bytes": 198792,
+      "zip_crc32": "510f772a"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000002.mp4",
+      "bytes": 209665,
+      "zip_crc32": "5cdb8e1f"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000003.mp4",
+      "bytes": 204346,
+      "zip_crc32": "ef886e1d"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000004.mp4",
+      "bytes": 206627,
+      "zip_crc32": "99c5d4be"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000005.mp4",
+      "bytes": 206630,
+      "zip_crc32": "56608950"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000006.mp4",
+      "bytes": 188846,
+      "zip_crc32": "fd0956df"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000007.mp4",
+      "bytes": 202846,
+      "zip_crc32": "26c91c77"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000008.mp4",
+      "bytes": 196918,
+      "zip_crc32": "f0233914"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000009.mp4",
+      "bytes": 193776,
+      "zip_crc32": "2ba601a2"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000010.mp4",
+      "bytes": 201094,
+      "zip_crc32": "c0fe7a2f"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000011.mp4",
+      "bytes": 202952,
+      "zip_crc32": "77de761a"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000012.mp4",
+      "bytes": 217854,
+      "zip_crc32": "cc0e834d"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000013.mp4",
+      "bytes": 192169,
+      "zip_crc32": "0769157a"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000014.mp4",
+      "bytes": 203098,
+      "zip_crc32": "32c69d10"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000015.mp4",
+      "bytes": 202622,
+      "zip_crc32": "f021a9aa"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000016.mp4",
+      "bytes": 194446,
+      "zip_crc32": "664ecf28"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000017.mp4",
+      "bytes": 206536,
+      "zip_crc32": "d59bd06d"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000018.mp4",
+      "bytes": 187111,
+      "zip_crc32": "2f1396cb"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000019.mp4",
+      "bytes": 192351,
+      "zip_crc32": "f62ff203"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000020.mp4",
+      "bytes": 189098,
+      "zip_crc32": "15d4f297"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000021.mp4",
+      "bytes": 195982,
+      "zip_crc32": "76ad7e81"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000022.mp4",
+      "bytes": 186947,
+      "zip_crc32": "c647d1c1"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000023.mp4",
+      "bytes": 185005,
+      "zip_crc32": "7a571218"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000024.mp4",
+      "bytes": 196936,
+      "zip_crc32": "cc58fb04"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000025.mp4",
+      "bytes": 196974,
+      "zip_crc32": "2c085b5f"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000026.mp4",
+      "bytes": 184212,
+      "zip_crc32": "94f290c3"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000027.mp4",
+      "bytes": 199775,
+      "zip_crc32": "c718e3d8"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000028.mp4",
+      "bytes": 191409,
+      "zip_crc32": "517ee666"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000029.mp4",
+      "bytes": 196605,
+      "zip_crc32": "ccf28bd1"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000030.mp4",
+      "bytes": 195866,
+      "zip_crc32": "f6d4943f"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000031.mp4",
+      "bytes": 200832,
+      "zip_crc32": "edffb349"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000032.mp4",
+      "bytes": 194174,
+      "zip_crc32": "d8b938bf"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000033.mp4",
+      "bytes": 183668,
+      "zip_crc32": "78d5a49e"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000034.mp4",
+      "bytes": 195950,
+      "zip_crc32": "11cf906d"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000035.mp4",
+      "bytes": 189660,
+      "zip_crc32": "90567a54"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000036.mp4",
+      "bytes": 200527,
+      "zip_crc32": "61997156"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000037.mp4",
+      "bytes": 190643,
+      "zip_crc32": "b33f8e99"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000038.mp4",
+      "bytes": 197550,
+      "zip_crc32": "6e9c6411"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000039.mp4",
+      "bytes": 198938,
+      "zip_crc32": "150a2b0f"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000040.mp4",
+      "bytes": 204376,
+      "zip_crc32": "49dc46e9"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000041.mp4",
+      "bytes": 190093,
+      "zip_crc32": "6ffd3a9b"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000042.mp4",
+      "bytes": 203095,
+      "zip_crc32": "970f50c4"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000043.mp4",
+      "bytes": 203022,
+      "zip_crc32": "8800c5b2"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000044.mp4",
+      "bytes": 208508,
+      "zip_crc32": "d3172d5f"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000045.mp4",
+      "bytes": 210400,
+      "zip_crc32": "8e069b4e"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000046.mp4",
+      "bytes": 195681,
+      "zip_crc32": "20aaa902"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000047.mp4",
+      "bytes": 212413,
+      "zip_crc32": "e30ba0e3"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000048.mp4",
+      "bytes": 192313,
+      "zip_crc32": "c57582af"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/video/episode_0000049.mp4",
+      "bytes": 185835,
+      "zip_crc32": "ef21e2ac"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000000.json",
+      "bytes": 28659,
+      "zip_crc32": "82854ab5"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000001.json",
+      "bytes": 27445,
+      "zip_crc32": "4e34d254"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000002.json",
+      "bytes": 28320,
+      "zip_crc32": "9a08109f"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000003.json",
+      "bytes": 28920,
+      "zip_crc32": "7272f0f8"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000004.json",
+      "bytes": 31609,
+      "zip_crc32": "f4e8ec0f"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000005.json",
+      "bytes": 30882,
+      "zip_crc32": "13430c80"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000006.json",
+      "bytes": 28812,
+      "zip_crc32": "e17a8db5"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000007.json",
+      "bytes": 29100,
+      "zip_crc32": "a54c6dad"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000008.json",
+      "bytes": 31673,
+      "zip_crc32": "6ecdf7f0"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000009.json",
+      "bytes": 27967,
+      "zip_crc32": "7094217c"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000010.json",
+      "bytes": 28502,
+      "zip_crc32": "c2d3a6f8"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000011.json",
+      "bytes": 29385,
+      "zip_crc32": "5f87c233"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000012.json",
+      "bytes": 31501,
+      "zip_crc32": "6df3c0d5"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000013.json",
+      "bytes": 28805,
+      "zip_crc32": "d81aa9e0"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000014.json",
+      "bytes": 30118,
+      "zip_crc32": "2fbb5521"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000015.json",
+      "bytes": 31807,
+      "zip_crc32": "54134de4"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000016.json",
+      "bytes": 27721,
+      "zip_crc32": "a37646a3"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000017.json",
+      "bytes": 29507,
+      "zip_crc32": "a47972b3"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000018.json",
+      "bytes": 26347,
+      "zip_crc32": "9d2f111b"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000019.json",
+      "bytes": 27494,
+      "zip_crc32": "c5ebc159"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000020.json",
+      "bytes": 30826,
+      "zip_crc32": "8db5ca6e"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000021.json",
+      "bytes": 30826,
+      "zip_crc32": "e9cd1ed1"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000022.json",
+      "bytes": 29846,
+      "zip_crc32": "f234c982"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000023.json",
+      "bytes": 27416,
+      "zip_crc32": "329277ae"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000024.json",
+      "bytes": 29844,
+      "zip_crc32": "30b4ed66"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000025.json",
+      "bytes": 30061,
+      "zip_crc32": "7e099108"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000026.json",
+      "bytes": 28958,
+      "zip_crc32": "d087e645"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000027.json",
+      "bytes": 32641,
+      "zip_crc32": "ff31f600"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000028.json",
+      "bytes": 28381,
+      "zip_crc32": "6cf8a96c"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000029.json",
+      "bytes": 29335,
+      "zip_crc32": "2f2b3a64"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000030.json",
+      "bytes": 28946,
+      "zip_crc32": "557ef2e1"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000031.json",
+      "bytes": 30176,
+      "zip_crc32": "d8be2f6d"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000032.json",
+      "bytes": 26731,
+      "zip_crc32": "1fc86360"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000033.json",
+      "bytes": 28423,
+      "zip_crc32": "c1c9482f"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000034.json",
+      "bytes": 30087,
+      "zip_crc32": "a9645fd6"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000035.json",
+      "bytes": 29868,
+      "zip_crc32": "a6519b6a"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000036.json",
+      "bytes": 29164,
+      "zip_crc32": "84764308"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000037.json",
+      "bytes": 30789,
+      "zip_crc32": "e72d7ff9"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000038.json",
+      "bytes": 26580,
+      "zip_crc32": "b833f582"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000039.json",
+      "bytes": 30811,
+      "zip_crc32": "afe9773e"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000040.json",
+      "bytes": 30544,
+      "zip_crc32": "8b99c590"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000041.json",
+      "bytes": 27658,
+      "zip_crc32": "51512af9"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000042.json",
+      "bytes": 29637,
+      "zip_crc32": "4f663ea4"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000043.json",
+      "bytes": 29428,
+      "zip_crc32": "a98066c8"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000044.json",
+      "bytes": 32726,
+      "zip_crc32": "1f5a3736"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000045.json",
+      "bytes": 30779,
+      "zip_crc32": "e0345f43"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000046.json",
+      "bytes": 30747,
+      "zip_crc32": "8e6a2287"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000047.json",
+      "bytes": 28142,
+      "zip_crc32": "aa036b8b"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000048.json",
+      "bytes": 31279,
+      "zip_crc32": "0484a552"
+    },
+    {
+      "path": "source/place_cans_plasticbox/aloha_agilex/instruction/episode_0000049.json",
+      "bytes": 28273,
+      "zip_crc32": "c6e4081c"
+    }
+  ],
+  "hdf5_files": 50,
+  "elapsed_seconds": 26.6895854473114,
+  "zip_crc_verified": true,
+  "transport_archive_removed": true
+}

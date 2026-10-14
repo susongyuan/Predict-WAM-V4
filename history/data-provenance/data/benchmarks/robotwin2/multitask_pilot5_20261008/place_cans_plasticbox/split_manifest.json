@@ -1,0 +1,68 @@
+{
+  "counts": {
+    "heldout": 5,
+    "train": 40,
+    "val": 5
+  },
+  "data_root": "/home/user/Robotic/project2/data/benchmarks/robotwin2/place_cans_plasticbox/source/place_cans_plasticbox/aloha_agilex/data",
+  "schema_version": 1,
+  "seed": 20261004,
+  "splits": {
+    "heldout": [
+      "episode_0000005.hdf5",
+      "episode_0000008.hdf5",
+      "episode_0000028.hdf5",
+      "episode_0000036.hdf5",
+      "episode_0000040.hdf5"
+    ],
+    "train": [
+      "episode_0000000.hdf5",
+      "episode_0000001.hdf5",
+      "episode_0000002.hdf5",
+      "episode_0000003.hdf5",
+      "episode_0000004.hdf5",
+      "episode_0000006.hdf5",
+      "episode_0000007.hdf5",
+      "episode_0000009.hdf5",
+      "episode_0000010.hdf5",
+      "episode_0000011.hdf5",
+      "episode_0000012.hdf5",
+      "episode_0000015.hdf5",
+      "episode_0000016.hdf5",
+      "episode_0000017.hdf5",
+      "episode_0000018.hdf5",
+      "episode_0000019.hdf5",
+      "episode_0000020.hdf5",
+      "episode_0000022.hdf5",
+      "episode_0000023.hdf5",
+      "episode_0000024.hdf5",
+      "episode_0000025.hdf5",
+      "episode_0000026.hdf5",
+      "episode_0000027.hdf5",
+      "episode_0000029.hdf5",
+      "episode_0000030.hdf5",
+      "episode_0000031.hdf5",
+      "episode_0000032.hdf5",
+      "episode_0000034.hdf5",
+      "episode_0000035.hdf5",
+      "episode_0000037.hdf5",
+      "episode_0000038.hdf5",
+      "episode_0000039.hdf5",
+      "episode_0000042.hdf5",
+      "episode_0000043.hdf5",
+      "episode_0000044.hdf5",
+      "episode_0000045.hdf5",
+      "episode_0000046.hdf5",
+      "episode_0000047.hdf5",
+      "episode_0000048.hdf5",
+      "episode_0000049.hdf5"
+    ],
+    "val": [
+      "episode_0000013.hdf5",
+      "episode_0000014.hdf5",
+      "episode_0000021.hdf5",
+      "episode_0000033.hdf5",
+      "episode_0000041.hdf5"
+    ]
+  }
+}

@@ -1,0 +1,197 @@
+{
+  "counts_total": {
+    "heldout": 25,
+    "train": 200,
+    "val": 25
+  },
+  "evaluation_requirements": {
+    "episodes_per_task": 10,
+    "no_selection_by_policy_results": true,
+    "onboard_observations_and_actions_retained": true,
+    "record_video": false,
+    "runtime_preflight_required": true,
+    "task_config": "demo_clean",
+    "third_view": false,
+    "use_native_task_success": true
+  },
+  "experiment_id": "multitask_pilot5_20261008",
+  "feature_cache_bytes_per_frame": 3729408,
+  "frames_total": {
+    "heldout": 6902,
+    "train": 52683,
+    "val": 6234
+  },
+  "gpu_used": false,
+  "kind": "robotwin_multitask_pilot",
+  "runtime_simulation_validated": false,
+  "schema_version": 1,
+  "selection": "/home/user/Robotic/project2/data/benchmarks/robotwin2/multitask_pilot5_20261008/selection.json",
+  "source_hdf5_bytes_total": 5059815339,
+  "split_manifests": {
+    "click_bell": "/home/user/Robotic/project2/data/benchmarks/robotwin2/multitask_pilot5_20261008/click_bell/split_manifest.json",
+    "open_laptop": "/home/user/Robotic/project2/data/benchmarks/robotwin2/multitask_pilot5_20261008/open_laptop/split_manifest.json",
+    "place_cans_plasticbox": "/home/user/Robotic/project2/data/benchmarks/robotwin2/multitask_pilot5_20261008/place_cans_plasticbox/split_manifest.json",
+    "press_stapler": "/home/user/Robotic/project2/data/benchmarks/robotwin2/multitask_pilot5_20261008/press_stapler/split_manifest.json",
+    "put_bottles_dustbin": "/home/user/Robotic/project2/data/benchmarks/robotwin2/multitask_pilot5_20261008/put_bottles_dustbin/split_manifest.json"
+  },
+  "task_config": "demo_clean",
+  "task_order": [
+    "put_bottles_dustbin",
+    "place_cans_plasticbox",
+    "open_laptop",
+    "click_bell",
+    "press_stapler"
+  ],
+  "tasks": [
+    {
+      "cache_identity_preserved_by_original_data_root": true,
+      "counts": {
+        "heldout": 5,
+        "train": 40,
+        "val": 5
+      },
+      "data_root": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data",
+      "embodiment": "aloha-agilex",
+      "episode_inventory": "/home/user/Robotic/project2/data/benchmarks/robotwin2/multitask_pilot5_20261008/put_bottles_dustbin/episodes.json",
+      "frames_by_split": {
+        "heldout": 3473,
+        "train": 24900,
+        "val": 2858
+      },
+      "native_contract": "/home/user/Robotic/project2/data/benchmarks/robotwin2/multitask_pilot5_20261008/put_bottles_dustbin/native_contract.json",
+      "native_eval_step_limit": 1700,
+      "original_source_receipt": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/SOURCE.json",
+      "source_bytes": 2773686689,
+      "source_receipt": "/home/user/Robotic/project2/data/benchmarks/robotwin2/multitask_pilot5_20261008/put_bottles_dustbin/SOURCE.json",
+      "split_manifest": "/home/user/Robotic/project2/data/benchmarks/robotwin2/multitask_pilot5_20261008/put_bottles_dustbin/split_manifest.json",
+      "task": "put_bottles_dustbin",
+      "task_config": "demo_clean",
+      "task_id": 0,
+      "task_name": "put_bottles_dustbin",
+      "uncached_train_val_feature_bytes_estimate": 103520907264
+    },
+    {
+      "cache_identity_preserved_by_original_data_root": true,
+      "counts": {
+        "heldout": 5,
+        "train": 40,
+        "val": 5
+      },
+      "data_root": "/home/user/Robotic/project2/data/benchmarks/robotwin2/place_cans_plasticbox/source/place_cans_plasticbox/aloha_agilex/data",
+      "embodiment": "aloha-agilex",
+      "episode_inventory": "/home/user/Robotic/project2/data/benchmarks/robotwin2/multitask_pilot5_20261008/place_cans_plasticbox/episodes.json",
+      "frames_by_split": {
+        "heldout": 1440,
+        "train": 11501,
+        "val": 1434
+      },
+      "native_contract": "/home/user/Robotic/project2/data/benchmarks/robotwin2/multitask_pilot5_20261008/place_cans_plasticbox/native_contract.json",
+      "native_eval_step_limit": 800,
+      "original_source_receipt": "/home/user/Robotic/project2/data/benchmarks/robotwin2/place_cans_plasticbox/SOURCE.json",
+      "source_bytes": 1276355161,
+      "source_receipt": "/home/user/Robotic/project2/data/benchmarks/robotwin2/multitask_pilot5_20261008/place_cans_plasticbox/SOURCE.json",
+      "split_manifest": "/home/user/Robotic/project2/data/benchmarks/robotwin2/multitask_pilot5_20261008/place_cans_plasticbox/split_manifest.json",
+      "task": "place_cans_plasticbox",
+      "task_config": "demo_clean",
+      "task_id": 1,
+      "task_name": "place_cans_plasticbox",
+      "uncached_train_val_feature_bytes_estimate": 48239892480
+    },
+    {
+      "cache_identity_preserved_by_original_data_root": true,
+      "counts": {
+        "heldout": 5,
+        "train": 40,
+        "val": 5
+      },
+      "data_root": "/home/user/Robotic/project2/data/benchmarks/robotwin2/open_laptop/source/open_laptop/aloha_agilex/data",
+      "embodiment": "aloha-agilex",
+      "episode_inventory": "/home/user/Robotic/project2/data/benchmarks/robotwin2/multitask_pilot5_20261008/open_laptop/episodes.json",
+      "frames_by_split": {
+        "heldout": 1001,
+        "train": 8444,
+        "val": 967
+      },
+      "native_contract": "/home/user/Robotic/project2/data/benchmarks/robotwin2/multitask_pilot5_20261008/open_laptop/native_contract.json",
+      "native_eval_step_limit": 700,
+      "original_source_receipt": "/home/user/Robotic/project2/data/benchmarks/robotwin2/open_laptop/SOURCE.json",
+      "source_bytes": 562453191,
+      "source_receipt": "/home/user/Robotic/project2/data/benchmarks/robotwin2/multitask_pilot5_20261008/open_laptop/SOURCE.json",
+      "split_manifest": "/home/user/Robotic/project2/data/benchmarks/robotwin2/multitask_pilot5_20261008/open_laptop/split_manifest.json",
+      "task": "open_laptop",
+      "task_config": "demo_clean",
+      "task_id": 2,
+      "task_name": "open_laptop",
+      "uncached_train_val_feature_bytes_estimate": 35097458688
+    },
+    {
+      "cache_identity_preserved_by_original_data_root": true,
+      "counts": {
+        "heldout": 5,
+        "train": 40,
+        "val": 5
+      },
+      "data_root": "/home/user/Robotic/project2/data/benchmarks/robotwin2/click_bell/source/click_bell/aloha_agilex/data",
+      "embodiment": "aloha-agilex",
+      "episode_inventory": "/home/user/Robotic/project2/data/benchmarks/robotwin2/multitask_pilot5_20261008/click_bell/episodes.json",
+      "frames_by_split": {
+        "heldout": 390,
+        "train": 3086,
+        "val": 379
+      },
+      "native_contract": "/home/user/Robotic/project2/data/benchmarks/robotwin2/multitask_pilot5_20261008/click_bell/native_contract.json",
+      "native_eval_step_limit": 400,
+      "original_source_receipt": "/home/user/Robotic/project2/data/benchmarks/robotwin2/click_bell/SOURCE.json",
+      "source_bytes": 177520559,
+      "source_receipt": "/home/user/Robotic/project2/data/benchmarks/robotwin2/multitask_pilot5_20261008/click_bell/SOURCE.json",
+      "split_manifest": "/home/user/Robotic/project2/data/benchmarks/robotwin2/multitask_pilot5_20261008/click_bell/split_manifest.json",
+      "task": "click_bell",
+      "task_config": "demo_clean",
+      "task_id": 3,
+      "task_name": "click_bell",
+      "uncached_train_val_feature_bytes_estimate": 12922398720
+    },
+    {
+      "cache_identity_preserved_by_original_data_root": true,
+      "counts": {
+        "heldout": 5,
+        "train": 40,
+        "val": 5
+      },
+      "data_root": "/home/user/Robotic/project2/data/benchmarks/robotwin2/press_stapler/source/press_stapler/aloha_agilex/data",
+      "embodiment": "aloha-agilex",
+      "episode_inventory": "/home/user/Robotic/project2/data/benchmarks/robotwin2/multitask_pilot5_20261008/press_stapler/episodes.json",
+      "frames_by_split": {
+        "heldout": 598,
+        "train": 4752,
+        "val": 596
+      },
+      "native_contract": "/home/user/Robotic/project2/data/benchmarks/robotwin2/multitask_pilot5_20261008/press_stapler/native_contract.json",
+      "native_eval_step_limit": 400,
+      "original_source_receipt": "/home/user/Robotic/project2/data/benchmarks/robotwin2/press_stapler/SOURCE.json",
+      "source_bytes": 269799739,
+      "source_receipt": "/home/user/Robotic/project2/data/benchmarks/robotwin2/multitask_pilot5_20261008/press_stapler/SOURCE.json",
+      "split_manifest": "/home/user/Robotic/project2/data/benchmarks/robotwin2/multitask_pilot5_20261008/press_stapler/split_manifest.json",
+      "task": "press_stapler",
+      "task_config": "demo_clean",
+      "task_id": 4,
+      "task_name": "press_stapler",
+      "uncached_train_val_feature_bytes_estimate": 19944873984
+    }
+  ],
+  "training_requirements": {
+    "action_dim": 14,
+    "action_repr": "absolute",
+    "dino_frozen": true,
+    "episode_history_crossing_allowed": false,
+    "heldout_allowed_for_training_or_features": false,
+    "normalization_fit_split": "train",
+    "shared_action_network_trainable": true,
+    "state_dim": 14,
+    "task_sampling": "task_uniform_recommended",
+    "vtt_projection_trainable": true,
+    "vtt_source_split": "train"
+  },
+  "uncached_train_val_feature_bytes_estimate": 219725531136,
+  "validation_scope": "source integrity + stable splits + CPU native contract/asset audit"
+}

@@ -1,0 +1,795 @@
+{
+  "schema_version": 1,
+  "task": "put_bottles_dustbin",
+  "repo": "TianxingChen/RoboTwin2.0",
+  "revision": "3dc3b798668feb99ac61cc9086d84cbcc3d79186",
+  "archive": "demo_clean.zip",
+  "status": "complete",
+  "started_unix": 1791314188.911593,
+  "scope": "downloaded_demonstrations_not_wam_performance",
+  "gpu_jobs": 0,
+  "url": "https://huggingface.co/datasets/TianxingChen/RoboTwin2.0/resolve/3dc3b798668feb99ac61cc9086d84cbcc3d79186/dataset/put_bottles_dustbin/demo_clean.zip",
+  "upstream_file": {
+    "type": "file",
+    "oid": "ff95321ea5d7f21afda523e4c67b267ec4cc1c07",
+    "size": 1622010524,
+    "lfs": {
+      "oid": "b0be2bbc3a45051b6638932a174bd561a37bd67413a8f71793236558b2b34e6c",
+      "size": 1622010524,
+      "pointerSize": 135
+    },
+    "xetHash": "d6a476dfef3d28d733fccba9304235972b1dc00a20dae249d85f696350f001c6",
+    "path": "dataset/put_bottles_dustbin/demo_clean.zip"
+  },
+  "expected_bytes": 1622010524,
+  "expected_sha256": "b0be2bbc3a45051b6638932a174bd561a37bd67413a8f71793236558b2b34e6c",
+  "received_bytes": 1622010524,
+  "sha256": "b0be2bbc3a45051b6638932a174bd561a37bd67413a8f71793236558b2b34e6c",
+  "extracted_bytes": 2792482988,
+  "members": [
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/scene_info.json",
+      "bytes": 17592,
+      "zip_crc32": "7d9bef1c"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/seed.txt",
+      "bytes": 143,
+      "zip_crc32": "72cd6b42"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000000.hdf5",
+      "bytes": 56323808,
+      "zip_crc32": "58e9508c"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000001.hdf5",
+      "bytes": 58843012,
+      "zip_crc32": "e95730e7"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000002.hdf5",
+      "bytes": 57496180,
+      "zip_crc32": "e048e3d4"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000003.hdf5",
+      "bytes": 60115436,
+      "zip_crc32": "cd73082d"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000004.hdf5",
+      "bytes": 45120628,
+      "zip_crc32": "b15dec7a"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000005.hdf5",
+      "bytes": 59651606,
+      "zip_crc32": "a89ade37"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000006.hdf5",
+      "bytes": 70428780,
+      "zip_crc32": "5b79451c"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000007.hdf5",
+      "bytes": 59118176,
+      "zip_crc32": "78dd2dcc"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000008.hdf5",
+      "bytes": 60684241,
+      "zip_crc32": "33f851bc"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000009.hdf5",
+      "bytes": 46835563,
+      "zip_crc32": "bacd9fbb"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000010.hdf5",
+      "bytes": 57082580,
+      "zip_crc32": "acc0dfee"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000011.hdf5",
+      "bytes": 56529437,
+      "zip_crc32": "36f9de2c"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000012.hdf5",
+      "bytes": 61220200,
+      "zip_crc32": "df10ed90"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000013.hdf5",
+      "bytes": 62286488,
+      "zip_crc32": "a10442fb"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000014.hdf5",
+      "bytes": 45217776,
+      "zip_crc32": "b2d3c85b"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000015.hdf5",
+      "bytes": 41648202,
+      "zip_crc32": "aafb2e31"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000016.hdf5",
+      "bytes": 46055302,
+      "zip_crc32": "5a64bbd9"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000017.hdf5",
+      "bytes": 59043884,
+      "zip_crc32": "5c176fff"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000018.hdf5",
+      "bytes": 56956196,
+      "zip_crc32": "aa0d228c"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000019.hdf5",
+      "bytes": 46185334,
+      "zip_crc32": "2ae47cfb"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000020.hdf5",
+      "bytes": 59915074,
+      "zip_crc32": "b5c31680"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000021.hdf5",
+      "bytes": 59616796,
+      "zip_crc32": "7d142b59"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000022.hdf5",
+      "bytes": 56590497,
+      "zip_crc32": "7eb5911c"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000023.hdf5",
+      "bytes": 59220268,
+      "zip_crc32": "5da59896"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000024.hdf5",
+      "bytes": 61210352,
+      "zip_crc32": "3706d935"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000025.hdf5",
+      "bytes": 56893564,
+      "zip_crc32": "70c1cafa"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000026.hdf5",
+      "bytes": 61575136,
+      "zip_crc32": "19031f5b"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000027.hdf5",
+      "bytes": 45926323,
+      "zip_crc32": "2dfe799c"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000028.hdf5",
+      "bytes": 80809936,
+      "zip_crc32": "b23618b1"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000029.hdf5",
+      "bytes": 61301102,
+      "zip_crc32": "1e22194e"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000030.hdf5",
+      "bytes": 28579948,
+      "zip_crc32": "1f75b766"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000031.hdf5",
+      "bytes": 47399053,
+      "zip_crc32": "43766d4d"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000032.hdf5",
+      "bytes": 48780566,
+      "zip_crc32": "b4a6fca8"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000033.hdf5",
+      "bytes": 41640396,
+      "zip_crc32": "51bad55f"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000034.hdf5",
+      "bytes": 56062340,
+      "zip_crc32": "08a23baa"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000035.hdf5",
+      "bytes": 56986432,
+      "zip_crc32": "b8e27186"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000036.hdf5",
+      "bytes": 57098824,
+      "zip_crc32": "ccbc87f9"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000037.hdf5",
+      "bytes": 57983683,
+      "zip_crc32": "4c2a7393"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000038.hdf5",
+      "bytes": 62355168,
+      "zip_crc32": "bc744676"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000039.hdf5",
+      "bytes": 58287867,
+      "zip_crc32": "3f2dd2f2"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000040.hdf5",
+      "bytes": 56826749,
+      "zip_crc32": "3ac5bbea"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000041.hdf5",
+      "bytes": 46543880,
+      "zip_crc32": "dec76de3"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000042.hdf5",
+      "bytes": 58230592,
+      "zip_crc32": "5be3f729"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000043.hdf5",
+      "bytes": 65574985,
+      "zip_crc32": "4f4d4538"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000044.hdf5",
+      "bytes": 47351632,
+      "zip_crc32": "bf89a508"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000045.hdf5",
+      "bytes": 58712937,
+      "zip_crc32": "9bad0d6b"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000046.hdf5",
+      "bytes": 57417911,
+      "zip_crc32": "3b2346ce"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000047.hdf5",
+      "bytes": 57196510,
+      "zip_crc32": "900effb6"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000048.hdf5",
+      "bytes": 54947467,
+      "zip_crc32": "98a5150a"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/data/episode_0000049.hdf5",
+      "bytes": 45807872,
+      "zip_crc32": "9cd40ec9"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000000.mp4",
+      "bytes": 359717,
+      "zip_crc32": "d8bf9566"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000001.mp4",
+      "bytes": 349743,
+      "zip_crc32": "ba625d02"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000002.mp4",
+      "bytes": 344359,
+      "zip_crc32": "40b76e22"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000003.mp4",
+      "bytes": 358086,
+      "zip_crc32": "5a9770b4"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000004.mp4",
+      "bytes": 275772,
+      "zip_crc32": "a1aa23e7"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000005.mp4",
+      "bytes": 358399,
+      "zip_crc32": "f8cb1072"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000006.mp4",
+      "bytes": 422292,
+      "zip_crc32": "46063618"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000007.mp4",
+      "bytes": 354220,
+      "zip_crc32": "8b7525b7"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000008.mp4",
+      "bytes": 360159,
+      "zip_crc32": "8ae9c01a"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000009.mp4",
+      "bytes": 280909,
+      "zip_crc32": "d12ca462"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000010.mp4",
+      "bytes": 346491,
+      "zip_crc32": "d11fa42b"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000011.mp4",
+      "bytes": 340564,
+      "zip_crc32": "fc09147c"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000012.mp4",
+      "bytes": 374522,
+      "zip_crc32": "b7769962"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000013.mp4",
+      "bytes": 373989,
+      "zip_crc32": "bf428633"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000014.mp4",
+      "bytes": 280730,
+      "zip_crc32": "b81967bc"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000015.mp4",
+      "bytes": 282216,
+      "zip_crc32": "89e638e9"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000016.mp4",
+      "bytes": 277000,
+      "zip_crc32": "94ce320b"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000017.mp4",
+      "bytes": 356843,
+      "zip_crc32": "affa5cb4"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000018.mp4",
+      "bytes": 345116,
+      "zip_crc32": "03f2f583"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000019.mp4",
+      "bytes": 280105,
+      "zip_crc32": "11fe8473"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000020.mp4",
+      "bytes": 375117,
+      "zip_crc32": "0e927b86"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000021.mp4",
+      "bytes": 372218,
+      "zip_crc32": "9c7b663c"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000022.mp4",
+      "bytes": 343610,
+      "zip_crc32": "41bc2006"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000023.mp4",
+      "bytes": 369099,
+      "zip_crc32": "a922577d"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000024.mp4",
+      "bytes": 375866,
+      "zip_crc32": "53b8e568"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000025.mp4",
+      "bytes": 353180,
+      "zip_crc32": "d91c4740"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000026.mp4",
+      "bytes": 379328,
+      "zip_crc32": "df690796"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000027.mp4",
+      "bytes": 289101,
+      "zip_crc32": "7092d594"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000028.mp4",
+      "bytes": 507978,
+      "zip_crc32": "a6912af0"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000029.mp4",
+      "bytes": 375643,
+      "zip_crc32": "8d7abd3c"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000030.mp4",
+      "bytes": 189977,
+      "zip_crc32": "b64c14de"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000031.mp4",
+      "bytes": 345183,
+      "zip_crc32": "e2fcbdf3"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000032.mp4",
+      "bytes": 297826,
+      "zip_crc32": "11593788"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000033.mp4",
+      "bytes": 274052,
+      "zip_crc32": "aa03c516"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000034.mp4",
+      "bytes": 347238,
+      "zip_crc32": "1e45b2d1"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000035.mp4",
+      "bytes": 347824,
+      "zip_crc32": "f2d9dfbb"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000036.mp4",
+      "bytes": 343846,
+      "zip_crc32": "5f25bb20"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000037.mp4",
+      "bytes": 342199,
+      "zip_crc32": "36c7ac45"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000038.mp4",
+      "bytes": 359616,
+      "zip_crc32": "ce7ed702"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000039.mp4",
+      "bytes": 349917,
+      "zip_crc32": "8e992979"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000040.mp4",
+      "bytes": 360755,
+      "zip_crc32": "3a65b652"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000041.mp4",
+      "bytes": 283202,
+      "zip_crc32": "cb096adb"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000042.mp4",
+      "bytes": 357627,
+      "zip_crc32": "6e3153c6"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000043.mp4",
+      "bytes": 378713,
+      "zip_crc32": "a2642557"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000044.mp4",
+      "bytes": 278794,
+      "zip_crc32": "fc268260"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000045.mp4",
+      "bytes": 366013,
+      "zip_crc32": "c16d9fa5"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000046.mp4",
+      "bytes": 352646,
+      "zip_crc32": "74f7537e"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000047.mp4",
+      "bytes": 354068,
+      "zip_crc32": "2ae6ea9f"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000048.mp4",
+      "bytes": 335634,
+      "zip_crc32": "668ffcf0"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/video/episode_0000049.mp4",
+      "bytes": 279703,
+      "zip_crc32": "28ae9b0a"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000000.json",
+      "bytes": 35452,
+      "zip_crc32": "427c7b71"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000001.json",
+      "bytes": 35695,
+      "zip_crc32": "a53569e6"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000002.json",
+      "bytes": 35297,
+      "zip_crc32": "e70c1b13"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000003.json",
+      "bytes": 35610,
+      "zip_crc32": "d9aaa194"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000004.json",
+      "bytes": 35156,
+      "zip_crc32": "002d17dd"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000005.json",
+      "bytes": 35554,
+      "zip_crc32": "8c3d94b0"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000006.json",
+      "bytes": 35567,
+      "zip_crc32": "f262da5a"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000007.json",
+      "bytes": 35554,
+      "zip_crc32": "9075dfdd"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000008.json",
+      "bytes": 35068,
+      "zip_crc32": "4bb54e15"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000009.json",
+      "bytes": 35311,
+      "zip_crc32": "8598f924"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000010.json",
+      "bytes": 35592,
+      "zip_crc32": "cc648f9b"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000011.json",
+      "bytes": 35210,
+      "zip_crc32": "5755f29e"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000012.json",
+      "bytes": 35601,
+      "zip_crc32": "5cceef8a"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000013.json",
+      "bytes": 35183,
+      "zip_crc32": "ea99b8d4"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000014.json",
+      "bytes": 35292,
+      "zip_crc32": "4e4bed77"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000015.json",
+      "bytes": 35740,
+      "zip_crc32": "efd0f4a4"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000016.json",
+      "bytes": 35210,
+      "zip_crc32": "76d66588"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000017.json",
+      "bytes": 35288,
+      "zip_crc32": "b8a50951"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000018.json",
+      "bytes": 35378,
+      "zip_crc32": "d874172f"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000019.json",
+      "bytes": 35300,
+      "zip_crc32": "3ff1a594"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000020.json",
+      "bytes": 35621,
+      "zip_crc32": "299d60e6"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000021.json",
+      "bytes": 35429,
+      "zip_crc32": "ad934b93"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000022.json",
+      "bytes": 35265,
+      "zip_crc32": "340fa94a"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000023.json",
+      "bytes": 35360,
+      "zip_crc32": "3794343f"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000024.json",
+      "bytes": 35432,
+      "zip_crc32": "494ee9fa"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000025.json",
+      "bytes": 35705,
+      "zip_crc32": "cea3eeba"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000026.json",
+      "bytes": 35428,
+      "zip_crc32": "101dc574"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000027.json",
+      "bytes": 35588,
+      "zip_crc32": "14005742"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000028.json",
+      "bytes": 35343,
+      "zip_crc32": "7d2676a9"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000029.json",
+      "bytes": 35797,
+      "zip_crc32": "85bdd683"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000030.json",
+      "bytes": 35756,
+      "zip_crc32": "84b20437"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000031.json",
+      "bytes": 35336,
+      "zip_crc32": "f79f70be"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000032.json",
+      "bytes": 35789,
+      "zip_crc32": "c5ddee65"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000033.json",
+      "bytes": 35223,
+      "zip_crc32": "61f5365c"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000034.json",
+      "bytes": 35165,
+      "zip_crc32": "ff888f5a"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000035.json",
+      "bytes": 35228,
+      "zip_crc32": "3773e1da"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000036.json",
+      "bytes": 35431,
+      "zip_crc32": "22291fba"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000037.json",
+      "bytes": 35348,
+      "zip_crc32": "666850bd"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000038.json",
+      "bytes": 35755,
+      "zip_crc32": "b535c38a"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000039.json",
+      "bytes": 35488,
+      "zip_crc32": "6f607624"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000040.json",
+      "bytes": 35329,
+      "zip_crc32": "589c09f4"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000041.json",
+      "bytes": 35045,
+      "zip_crc32": "f923538b"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000042.json",
+      "bytes": 35164,
+      "zip_crc32": "5aa91089"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000043.json",
+      "bytes": 35568,
+      "zip_crc32": "6c5da7ef"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000044.json",
+      "bytes": 35206,
+      "zip_crc32": "b16762aa"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000045.json",
+      "bytes": 35737,
+      "zip_crc32": "aa31a7ed"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000046.json",
+      "bytes": 35388,
+      "zip_crc32": "370b5f9d"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000047.json",
+      "bytes": 34989,
+      "zip_crc32": "62caf758"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000048.json",
+      "bytes": 35653,
+      "zip_crc32": "1f18509b"
+    },
+    {
+      "path": "source/put_bottles_dustbin/aloha_agilex/instruction/episode_0000049.json",
+      "bytes": 35735,
+      "zip_crc32": "49563a05"
+    }
+  ],
+  "hdf5_files": 50,
+  "elapsed_seconds": 46.05949091911316,
+  "zip_crc_verified": true,
+  "transport_archive_removed": true
+}

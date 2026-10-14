@@ -1,0 +1,27 @@
+{
+  "archive": "demo_clean.zip",
+  "archive_bytes": 833154225,
+  "archive_receipt": {
+    "bytes": 24635,
+    "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/place_cans_plasticbox/SOURCE.json",
+    "sha256": "e9c147b07eb2f70409abc047f8ace433740289111aa73cd799def373b9bc5654"
+  },
+  "archive_sha256": "242646527171b42483da3b561d82ab1082d759029357ef9c9c2bd0acf9a19ff8",
+  "archive_url": "https://huggingface.co/datasets/TianxingChen/RoboTwin2.0/resolve/3dc3b798668feb99ac61cc9086d84cbcc3d79186/dataset/place_cans_plasticbox/demo_clean.zip",
+  "copied_or_converted": false,
+  "data_root": "/home/user/Robotic/project2/data/benchmarks/robotwin2/place_cans_plasticbox/source/place_cans_plasticbox/aloha_agilex/data",
+  "extracted_bytes": 1287724130,
+  "heldout_policy": "integrity/structural metadata only; no image decode/features/fitting",
+  "inherited_split": null,
+  "native_embodiment": "aloha-agilex",
+  "original_hdf5_unchanged": true,
+  "receipt": {
+    "bytes": 24635,
+    "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/place_cans_plasticbox/SOURCE.json",
+    "sha256": "e9c147b07eb2f70409abc047f8ace433740289111aa73cd799def373b9bc5654"
+  },
+  "repo": "TianxingChen/RoboTwin2.0",
+  "revision": "3dc3b798668feb99ac61cc9086d84cbcc3d79186",
+  "schema_version": 1,
+  "task": "place_cans_plasticbox"
+}

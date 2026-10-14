@@ -1,0 +1,32 @@
+{
+  "counts_per_task": {
+    "heldout": 5,
+    "train": 40,
+    "val": 5
+  },
+  "feature_cache_created": false,
+  "gpu_jobs": 0,
+  "max_additional_source_bytes": 53687091200,
+  "min_free_bytes": 322122547200,
+  "official_repo": "TianxingChen/RoboTwin2.0",
+  "record_video": false,
+  "revision": "3dc3b798668feb99ac61cc9086d84cbcc3d79186",
+  "schema_version": 1,
+  "selected_without_policy_results": true,
+  "selection_reasons": {
+    "click_bell": "small official clean50 archive; short contact task; local assets",
+    "open_laptop": "existing clean50; articulated-object manipulation",
+    "place_cans_plasticbox": "existing clean50; bilateral two-object placement",
+    "press_stapler": "small official clean50 archive; short contact task; local assets",
+    "put_bottles_dustbin": "existing clean50, frozen split/cache reuse; long multi-object transport"
+  },
+  "split_seed": 20261004,
+  "task_config": "demo_clean",
+  "task_order": [
+    "put_bottles_dustbin",
+    "place_cans_plasticbox",
+    "open_laptop",
+    "click_bell",
+    "press_stapler"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "archive": "demo_clean.zip",
+  "archive_bytes": 1622010524,
+  "archive_receipt": {
+    "bytes": 24329,
+    "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/SOURCE.json",
+    "sha256": "5c5dc58c43e46cc55eb80c0111003f190125bdd54eeba654a9b067d7c2622304"
+  },
+  "archive_sha256": "b0be2bbc3a45051b6638932a174bd561a37bd67413a8f71793236558b2b34e6c",
+  "archive_url": "https://huggingface.co/datasets/TianxingChen/RoboTwin2.0/resolve/3dc3b798668feb99ac61cc9086d84cbcc3d79186/dataset/put_bottles_dustbin/demo_clean.zip",
+  "copied_or_converted": false,
+  "data_root": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data",
+  "extracted_bytes": 2792482988,
+  "heldout_policy": "integrity/structural metadata only; no image decode/features/fitting",
+  "inherited_split": {
+    "bytes": 1797,
+    "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/split_manifest.json",
+    "sha256": "72a89da822488fa60048797c978b517d37f3e8813ecddf3f53a57b753d7e8cc2"
+  },
+  "native_embodiment": "aloha-agilex",
+  "original_hdf5_unchanged": true,
+  "receipt": {
+    "bytes": 44796,
+    "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/SOURCE.json",
+    "sha256": "0fa91f05a2c38fb54a69ee672387a791564ab7e8af0d39de5dd3d3f5643a3eb2"
+  },
+  "repo": "TianxingChen/RoboTwin2.0",
+  "revision": "3dc3b798668feb99ac61cc9086d84cbcc3d79186",
+  "schema_version": 1,
+  "task": "put_bottles_dustbin"
+}

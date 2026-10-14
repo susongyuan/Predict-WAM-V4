@@ -1,0 +1,196 @@
+{
+  "status": "verified",
+  "verified_at": "2026-10-07T14:18:13.444913+08:00",
+  "task": "put_bottles_dustbin",
+  "training": {
+    "heldout_used": false,
+    "mode": "train",
+    "peak_resources": {
+      "cpu_percent": 20.895522388059707,
+      "gpu_util": 100.0,
+      "ram_percent": 45.75129987481373,
+      "rss_kib": 27478964,
+      "torch_peak_mib": 8284.46142578125,
+      "torch_reserved_mib": 8560.0,
+      "vram_global_mib": 11283.0
+    },
+    "physical_evaluation": false,
+    "schedule_budget": 50000,
+    "status": "bounded_complete",
+    "step": 30000,
+    "target": 30000
+  },
+  "checkpoints": {
+    "25000": {
+      "model_only": true,
+      "sha256": "02a984546c563cf4172bbe6db057c2c47b3659b585c761930ba0dadee03f4484",
+      "size": 887917739,
+      "step": 25000
+    },
+    "30000": {
+      "model_only": true,
+      "sha256": "4e43872026f1d0132b1d41cfae5d7c22fb5eb9d85f9eee517577bfbb73671f20",
+      "size": 887917739,
+      "step": 30000
+    }
+  },
+  "counts": {
+    "25000": {
+      "attempted_episodes": 5,
+      "incomplete_attempts": 0,
+      "invalid_initializations": 0,
+      "native_failures": 1,
+      "native_success_rate": 0.8,
+      "native_successes": 4,
+      "not_started": 0,
+      "requested_episodes": 5,
+      "scored_episodes": 5,
+      "unresolved_seeds": []
+    },
+    "30000": {
+      "attempted_episodes": 5,
+      "incomplete_attempts": 0,
+      "invalid_initializations": 0,
+      "native_failures": 2,
+      "native_success_rate": 0.6,
+      "native_successes": 3,
+      "not_started": 0,
+      "requested_episodes": 5,
+      "scored_episodes": 5,
+      "unresolved_seeds": []
+    }
+  },
+  "rows": [
+    {
+      "checkpoint_step": 25000,
+      "seed": 920001,
+      "native_success": true,
+      "control_steps": 516,
+      "wall_seconds": 439.89997360901907,
+      "video_frames": 517,
+      "policy_condition": "zero_single_task",
+      "actuator_clipped_actions": 297,
+      "native_topp_fallback_actions": 0,
+      "video": "outputs/runs/put_bottles_dustbin/pure_25k_30k_5each_20261007/step_025000/seed_920001/episode_000_seed920001/third_view.mp4",
+      "result_sha256": "5f708a54469daa25cfbcf0be8a1b5085922844aa67cb8a9fa6f91d30c80a6c62"
+    },
+    {
+      "checkpoint_step": 25000,
+      "seed": 920002,
+      "native_success": true,
+      "control_steps": 515,
+      "wall_seconds": 437.18965929490514,
+      "video_frames": 516,
+      "policy_condition": "zero_single_task",
+      "actuator_clipped_actions": 370,
+      "native_topp_fallback_actions": 1,
+      "video": "outputs/runs/put_bottles_dustbin/pure_25k_30k_5each_20261007/step_025000/seed_920002/episode_000_seed920002/third_view.mp4",
+      "result_sha256": "01bff9dcdc32eb029f01e10dd29b5f98f3eebdd379374b8c37a14ce032094ef9"
+    },
+    {
+      "checkpoint_step": 25000,
+      "seed": 920003,
+      "native_success": false,
+      "control_steps": 1700,
+      "wall_seconds": 1335.0218378088903,
+      "video_frames": 1701,
+      "policy_condition": "zero_single_task",
+      "actuator_clipped_actions": 1124,
+      "native_topp_fallback_actions": 1,
+      "video": "outputs/runs/put_bottles_dustbin/pure_25k_30k_5each_20261007/step_025000/seed_920003/episode_000_seed920003/third_view.mp4",
+      "result_sha256": "c2e9dc470ea8da57fd4cef0171db9733021f44931e525ca237b632f4a25bc937"
+    },
+    {
+      "checkpoint_step": 25000,
+      "seed": 920004,
+      "native_success": true,
+      "control_steps": 521,
+      "wall_seconds": 415.60707674804144,
+      "video_frames": 522,
+      "policy_condition": "zero_single_task",
+      "actuator_clipped_actions": 365,
+      "native_topp_fallback_actions": 0,
+      "video": "outputs/runs/put_bottles_dustbin/pure_25k_30k_5each_20261007/step_025000/seed_920004/episode_000_seed920004/third_view.mp4",
+      "result_sha256": "d7f3f30d99645611e04dc46c7fba276f5bc870e6ad9d2330cc42d75933250089"
+    },
+    {
+      "checkpoint_step": 25000,
+      "seed": 920005,
+      "native_success": true,
+      "control_steps": 657,
+      "wall_seconds": 515.1405929210596,
+      "video_frames": 658,
+      "policy_condition": "zero_single_task",
+      "actuator_clipped_actions": 414,
+      "native_topp_fallback_actions": 0,
+      "video": "outputs/runs/put_bottles_dustbin/pure_25k_30k_5each_20261007/step_025000/seed_920005/episode_000_seed920005/third_view.mp4",
+      "result_sha256": "d049b3058175b6793d63e8a3e21f47e5150e03b64fd33411a6c8c1043dae6977"
+    },
+    {
+      "checkpoint_step": 30000,
+      "seed": 920001,
+      "native_success": true,
+      "control_steps": 521,
+      "wall_seconds": 417.395289913984,
+      "video_frames": 522,
+      "policy_condition": "zero_single_task",
+      "actuator_clipped_actions": 348,
+      "native_topp_fallback_actions": 0,
+      "video": "outputs/runs/put_bottles_dustbin/pure_25k_30k_5each_20261007/step_030000/seed_920001/episode_000_seed920001/third_view.mp4",
+      "result_sha256": "9a3e46c46c004478dfc00f08d3a9592e5767d3cb9a84a40e99b30561a124005f"
+    },
+    {
+      "checkpoint_step": 30000,
+      "seed": 920002,
+      "native_success": true,
+      "control_steps": 516,
+      "wall_seconds": 410.54299800493754,
+      "video_frames": 517,
+      "policy_condition": "zero_single_task",
+      "actuator_clipped_actions": 403,
+      "native_topp_fallback_actions": 0,
+      "video": "outputs/runs/put_bottles_dustbin/pure_25k_30k_5each_20261007/step_030000/seed_920002/episode_000_seed920002/third_view.mp4",
+      "result_sha256": "37e68b4516bbb6da2bdecf3662c6abb72126bd4a041da24381552fa72efa22e5"
+    },
+    {
+      "checkpoint_step": 30000,
+      "seed": 920003,
+      "native_success": true,
+      "control_steps": 780,
+      "wall_seconds": 616.5980950158555,
+      "video_frames": 781,
+      "policy_condition": "zero_single_task",
+      "actuator_clipped_actions": 575,
+      "native_topp_fallback_actions": 0,
+      "video": "outputs/runs/put_bottles_dustbin/pure_25k_30k_5each_20261007/step_030000/seed_920003/episode_000_seed920003/third_view.mp4",
+      "result_sha256": "99dfc606f6aae1f2708ad342f7eafe63db8cfdef01025bab7368ad003f272490"
+    },
+    {
+      "checkpoint_step": 30000,
+      "seed": 920004,
+      "native_success": false,
+      "control_steps": 1700,
+      "wall_seconds": 1349.17413140391,
+      "video_frames": 1701,
+      "policy_condition": "zero_single_task",
+      "actuator_clipped_actions": 1132,
+      "native_topp_fallback_actions": 0,
+      "video": "outputs/runs/put_bottles_dustbin/pure_25k_30k_5each_20261007/step_030000/seed_920004/episode_000_seed920004/third_view.mp4",
+      "result_sha256": "96855a8506d80bfd7e744e09cd83b99f6fc7c268c39c4a1649728ee751f59903"
+    },
+    {
+      "checkpoint_step": 30000,
+      "seed": 920005,
+      "native_success": false,
+      "control_steps": 1700,
+      "wall_seconds": 1341.431550487876,
+      "video_frames": 1701,
+      "policy_condition": "zero_single_task",
+      "actuator_clipped_actions": 1155,
+      "native_topp_fallback_actions": 0,
+      "video": "outputs/runs/put_bottles_dustbin/pure_25k_30k_5each_20261007/step_030000/seed_920005/episode_000_seed920005/third_view.mp4",
+      "result_sha256": "c36f715076fbb6fa82d2328058fb56cac496cec29997bd78e73d4399e1a43304"
+    }
+  ],
+  "claims": "Native task success only, rigid bottles and open trash bin. No lid-opening/deformable/strict containment or broad generalization claim. No score-selected retries. Actuator clipping and original TOPP hold fallback are not VLM/expert/recovery."
+}

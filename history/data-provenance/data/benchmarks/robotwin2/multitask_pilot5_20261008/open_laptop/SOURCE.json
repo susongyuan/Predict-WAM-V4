@@ -1,0 +1,27 @@
+{
+  "archive": "demo_clean.zip",
+  "archive_bytes": 411982620,
+  "archive_receipt": {
+    "bytes": 23024,
+    "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/open_laptop/SOURCE.json",
+    "sha256": "17607111a23260b4cf94a4e8bba21e271c3cc01059c285fd0bc8aa466b37b01f"
+  },
+  "archive_sha256": "94cd144bc8213dc57756b8df4e43582833ddccf6e269b74018baad89ff1dbb45",
+  "archive_url": "https://huggingface.co/datasets/TianxingChen/RoboTwin2.0/resolve/3dc3b798668feb99ac61cc9086d84cbcc3d79186/dataset/open_laptop/demo_clean.zip",
+  "copied_or_converted": false,
+  "data_root": "/home/user/Robotic/project2/data/benchmarks/robotwin2/open_laptop/source/open_laptop/aloha_agilex/data",
+  "extracted_bytes": 567394621,
+  "heldout_policy": "integrity/structural metadata only; no image decode/features/fitting",
+  "inherited_split": null,
+  "native_embodiment": "aloha-agilex",
+  "original_hdf5_unchanged": true,
+  "receipt": {
+    "bytes": 23024,
+    "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/open_laptop/SOURCE.json",
+    "sha256": "17607111a23260b4cf94a4e8bba21e271c3cc01059c285fd0bc8aa466b37b01f"
+  },
+  "repo": "TianxingChen/RoboTwin2.0",
+  "revision": "3dc3b798668feb99ac61cc9086d84cbcc3d79186",
+  "schema_version": 1,
+  "task": "open_laptop"
+}

@@ -1,0 +1,1722 @@
+{
+  "data_origin": "official demo_clean v1 files; no conversion, no action shift, no image recompression",
+  "embodiment": "aloha-agilex dual-arm fixed-base",
+  "episodes": [
+    {
+      "action_dim": 14,
+      "frames": 666,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000000.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "77287f1edc1a9b324389977d9ded5b7676e51c2de762f56eaa8ce1019622ce76",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000000.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 653,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000001.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "113c3f78c6aea5252193cf4d1a9c9b4ffafac22130f276500933526754bc924b",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000001.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 649,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000002.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "608b9c126f546b7baa5b6fda3f1ab4016668bee2f42ebdd96b95919db1659bb0",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000002.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 660,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000003.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "78cade9a3db41aa2f9d88fb11bfa5db4b2a881be1fb324dea89f4c541e28c0d8",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000003.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 514,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000004.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "651cbea7b30e6f91c42210a1f2b624a2c7f3f6a300f4c1ae842230a6c4d6e8d7",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000004.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 663,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000005.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "330b6b16cace5741d6d5f462742cf25ecf77eabade7a5fab175b88b19479d5d8",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000005.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 782,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000006.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "b773a13abf761b9836451b15c8a1fe521abab9e04425c4675f4d62b4a3b99a15",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000006.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 664,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000007.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "c3454bc3d6d4ffe1391ac445442481dae07b1c65879bc0871bc91d4afebe44dd",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000007.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 667,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000008.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "0e29ee95082437c6ecaf9db7667f6c92cdd697285224c40dc54de24608ec7709",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000008.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 519,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000009.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "87472cf86daaa524b93127d498c2f2772e6d26c2a3b345a7109677a853e4aec0",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000009.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 665,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000010.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "c66e8f25201bcf8b1614737673d523f815c0a8de4680b10d385765bcf84cb07a",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000010.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 651,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000011.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "21c36c8cee02604ed7b50c51774aac2fc15cd1de7b5478efee9e3f68163509de",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000011.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 666,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000012.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "3597f647f9677fdd28a76be4dd1a49e7964e147def636b5a480649b0679882d5",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000012.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 656,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000013.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "c186cf9a9cab7c0665f2c7c6e779eb59f57cb1434dd2838404a6df820104f1c0",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000013.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 512,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000014.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "23b0d080e3a4f9ffc3d33d49b5523c6e4bdbc76055343c9606a07b05a3cd39e7",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000014.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 522,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000015.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "c39b766e32aa4a739fc9531d2530f798513a6d01f33f048ec82739b99cf6b2bb",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000015.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 518,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000016.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "36beaeca9871c9604216d272b0afad20c171dfa4ea5bc2260cf82629c8842d21",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000016.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 684,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000017.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "c2cf4b49c699bff0857b7137effc4f0454d1151a22a06421675cbe2a9908f0ce",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000017.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 662,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000018.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "1984d5b79f87e2ba9ac35bdf5c1e74d913a4c5659c0cc2cf45e62205ad0985c9",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000018.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 510,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000019.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "9600a0a0f9f8304eb9940af5571181a1978111443da2bba55146b534762637e4",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000019.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 655,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000020.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "6834fb2337559d399d9451605d0dff6c573fdbe589aaf651146e9a76884f7692",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000020.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 654,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000021.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "4064073d04e204bf2d109f08f8f467698cd362954014da8c88049cea35aedfff",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000021.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 645,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000022.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "991716a9cfd8f5f6c03b99bd4e673d70f3adf00d2476569061fa6a6d6e568a0a",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000022.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 652,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000023.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "666eeb3542e31bbcd689ec820b5a2e64f4f64e139fb250e88310ec7966b2e50b",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000023.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 661,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000024.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "d57b64531b6ca83da1230dd082cdc800bf53d4c963076e88535992174534153e",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000024.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 670,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000025.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "6c7006293c270d7e7f7de231a42a766a7c4277b090bec234be1a72d12dddd469",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000025.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 658,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000026.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "0e8c2c5a1f9f871a6920ecd32f0c739d02150f50ecc10571100d8f5af1c835cb",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000026.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 523,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000027.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "7e010c82f0b500475c727541d8399425f8f2e73c3b13e47358056a1e4f169445",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000027.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 824,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000028.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "ee5c9eaf1b950a620101f42ca732905a127aef03cb67e7c475f399026031bc65",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000028.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 662,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000029.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "b2ca050632895cd2928bff584b682e869a0d67c88c39c4466dc010e77ba1f27b",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000029.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 404,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000030.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        1.0,
+        1.0
+      ],
+      "sha256": "c025ab5ffec58e537f98ea6aa8214848d5073e0b53f89bcd76a3d207e0cc9d75",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000030.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 549,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000031.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "60444ba0137de607fb9f9d04fcaf7279293ac2f8c5581235ac864662d58aedcf",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000031.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 523,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000032.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "125fb159e55a479f5ce6a2513c804681c108692cd5d2a1fcff93f364c5009a97",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000032.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 516,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000033.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "5bc39b2f859a67119d6408d7eae2263f2adead46ab09c06fd0182875c7a294ae",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000033.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 661,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000034.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "a9d4aacb6d389c59145452253a9deb786a52ded568bcd9450e4b6630a121d2c4",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000034.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 654,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000035.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "ccd943ffcffeb9676f571c6192abb2080f837f30bf45ac1f885f3fdbd185c7cb",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000035.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 664,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000036.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "e7725d00c9d3bc9fa251f3be9a19613ecd9a66e4fe581a695022a540a661601c",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000036.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 649,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000037.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "3ea1038fa41e12e529eea16068692d065f7541aa78a4517f8341e8d2f52a2fbb",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000037.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 666,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000038.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "7fdafc3c7e27a66fa599701e9b333272cbe44d6fb48d9f33551a57ff544cd1c5",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000038.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 657,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000039.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "5c53dbcb8078bfab2a760f3a50805a5fc1db0b9b2e7d3b283331ab1ad4c6e494",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000039.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 655,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000040.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "e820acf9703d6a39ace7ed91b1f0ffa0be67e39cc2f3f3b8bafe32c87ab0f2c5",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000040.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 520,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000041.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "2e81f9ef9da24280309e167d56306b53667d346f983285fd51360a092dee62bd",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000041.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 656,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000042.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "e31e3ef62b6625662678e1ec7baf174fba59823df0be90c6768ffa36252d56bd",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000042.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 691,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000043.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "66841d93fa70d1fe2c86ccc44732ea8cb3ec3f7167bebea58e8ab9f7c3c6d1a3",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000043.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 524,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000044.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "4739f20ddbe13e864420830c7865edc8009ccb18f67584e41fae95428aac3575",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000044.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 653,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000045.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "191271a119bfc4bbe2d4647e6e4d4d9289b5f3861c7c43f7db3bab4c4e57de7b",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000045.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 657,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000046.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "d0f07fbdcc57fd53a9ed9ace62b3df753089829bf86a21df7a7a4b137c0b34d1",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000046.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 666,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000047.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "f86bde9128c464776bde611c1c92492bc3060c2771515ef72839be5f22338922",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000047.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 659,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000048.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "fd431a5bc80f0487b95c5bcdf410dd7fdd22a46656010bd5ab203114c0e8a9ab",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000048.hdf5",
+      "state_dim": 14
+    },
+    {
+      "action_dim": 14,
+      "frames": 520,
+      "frequency": 15.0,
+      "left_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "path": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/data/episode_0000049.hdf5",
+      "rgb_shapes": {
+        "cam_head": [
+          240,
+          320,
+          3
+        ],
+        "cam_left_wrist": [
+          240,
+          320,
+          3
+        ],
+        "cam_right_wrist": [
+          240,
+          320,
+          3
+        ]
+      },
+      "right_gripper_range": [
+        0.0,
+        1.0
+      ],
+      "sha256": "63d69bb7b1f3397b70dcd169942bd6cee097d230b6dbcfafe84f8f8ad7a4518f",
+      "source": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/source/put_bottles_dustbin/aloha_agilex/data/episode_0000049.hdf5",
+      "state_dim": 14
+    }
+  ],
+  "heldout_policy": "fixed40/5/5; heldout not encoded or fitted",
+  "limitations": [
+    "open trash bin, no lid opening",
+    "three rigid bottles, no deformable physics"
+  ],
+  "measured_clock_available": false,
+  "nominal_frequency": 15,
+  "raw_archive_sha256": "b0be2bbc3a45051b6638932a174bd561a37bd67413a8f71793236558b2b34e6c",
+  "raw_source_receipt": "/home/user/Robotic/project2/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/SOURCE.json",
+  "raw_source_sha256": "5c5dc58c43e46cc55eb80c0111003f190125bdd54eeba654a9b067d7c2622304",
+  "repo": "TianxingChen/RoboTwin2.0",
+  "revision": "3dc3b798668feb99ac61cc9086d84cbcc3d79186",
+  "state_semantics": "controller_joint_targets_and_gripper_command_not_measured_qpos",
+  "status": "complete",
+  "task": "put_bottles_dustbin",
+  "task_config": "demo_clean"
+}

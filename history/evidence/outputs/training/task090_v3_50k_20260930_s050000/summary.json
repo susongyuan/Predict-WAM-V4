@@ -1,0 +1,801 @@
+{
+  "automatic_next_segment": false,
+  "best_step": 40000,
+  "best_value": 0.03996696500106632,
+  "completed_updates": 50000,
+  "early_stopping": false,
+  "elapsed_s": 6703.461102748988,
+  "epoch": 13,
+  "final_validation": {
+    "action_mae": 0.024053516485309956,
+    "by_skill": {
+      "pick up from": {
+        "action_mae": 0.023483039377222084,
+        "fine_eef_m": 0.0372779450761251,
+        "fine_hold_eef_m": 0.047646537202700075,
+        "fine_pred_minus_hold_m": -0.010368592126574976,
+        "fine_samples": 121,
+        "flow": {
+          "future": 0.22997264547168084,
+          "gate_kl": 0.00434582452336436,
+          "log_dist": 0.03220423740201439,
+          "mse": 0.016558287547899075,
+          "phase_ce": 0.12961844064745315
+        },
+        "full_split_coverage": {
+          "anchors": 7516,
+          "fine_candidates": 3439,
+          "labelled": 7516,
+          "missing_labels": 0,
+          "phases": {
+            "contact": 641,
+            "far": 3424,
+            "near": 2798,
+            "post": 653
+          }
+        },
+        "gate_entropy_nats": 0.9464764093097887,
+        "gate_mean": [
+          0.37871354057600626,
+          0.36968508841175785,
+          0.2516013721102162
+        ],
+        "hold_action_mae": 0.03841746820846379,
+        "loss_total": 0.13467631202261404,
+        "memory_projection": {
+          "anchors": 380,
+          "fraction_dims_variance_below_1e-8": 0.0,
+          "variance_by_view_slot": [
+            [
+              0.7968102476050056,
+              0.8063869039439555,
+              0.7541441866777653
+            ],
+            [
+              0.949928546970051,
+              1.1025221640879568,
+              1.339070873418294
+            ],
+            [
+              0.9843757305950419,
+              1.1091414158659543,
+              1.1571212821401609
+            ]
+          ],
+          "variance_max": 5.835559863275952,
+          "variance_mean": 0.9999445945893539,
+          "warning": null
+        },
+        "missing_labels": 0,
+        "phase_accuracy": 0.9605263157894737,
+        "phase_confusion": [
+          [
+            115,
+            1,
+            0,
+            0
+          ],
+          [
+            5,
+            189,
+            5,
+            0
+          ],
+          [
+            0,
+            3,
+            35,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            26
+          ]
+        ],
+        "phase_labels": {
+          "contact": 39,
+          "far": 116,
+          "near": 199,
+          "post": 26
+        },
+        "phase_predictions": {
+          "contact": 40,
+          "far": 120,
+          "near": 193,
+          "post": 27
+        },
+        "samples": 380
+      },
+      "place in": {
+        "action_mae": 0.02753233616572938,
+        "fine_eef_m": 0.07058738127551757,
+        "fine_hold_eef_m": 0.10178560345704805,
+        "fine_pred_minus_hold_m": -0.031198222181530483,
+        "fine_samples": 58,
+        "flow": {
+          "future": 0.21339147027049746,
+          "gate_kl": 0.009264477721444564,
+          "log_dist": 0.04936196598717671,
+          "mse": 0.018557583650233158,
+          "phase_ce": 0.2701287077040801
+        },
+        "full_split_coverage": {
+          "anchors": 4110,
+          "fine_candidates": 1777,
+          "labelled": 4014,
+          "missing_labels": 96,
+          "phases": {
+            "contact": 459,
+            "far": 1328,
+            "near": 1318,
+            "post": 909
+          }
+        },
+        "gate_entropy_nats": 0.9553910419730942,
+        "gate_mean": [
+          0.3847172545954353,
+          0.46562059995732774,
+          0.14966214706860675
+        ],
+        "hold_action_mae": 0.06453154213127814,
+        "loss_total": 0.13161273651889394,
+        "memory_projection": {
+          "anchors": 193,
+          "fraction_dims_variance_below_1e-8": 0.0,
+          "variance_by_view_slot": [
+            [
+              0.8455119200228921,
+              0.9259649560195515,
+              1.0681112804597355
+            ],
+            [
+              1.4491884239806556,
+              1.5667782821684761,
+              1.2496621841293527
+            ],
+            [
+              0.680351703454177,
+              0.6468496794769423,
+              0.7534771239211474
+            ]
+          ],
+          "variance_max": 7.564139654540368,
+          "variance_mean": 1.0206550615147703,
+          "warning": null
+        },
+        "missing_labels": 2,
+        "phase_accuracy": 0.9162303664921466,
+        "phase_confusion": [
+          [
+            46,
+            1,
+            0,
+            0
+          ],
+          [
+            7,
+            67,
+            3,
+            0
+          ],
+          [
+            0,
+            3,
+            31,
+            2
+          ],
+          [
+            0,
+            0,
+            0,
+            31
+          ]
+        ],
+        "phase_labels": {
+          "contact": 36,
+          "far": 47,
+          "near": 77,
+          "post": 31
+        },
+        "phase_predictions": {
+          "contact": 34,
+          "far": 53,
+          "near": 71,
+          "post": 35
+        },
+        "samples": 193
+      },
+      "place on next to": {
+        "action_mae": 0.020914653666474135,
+        "fine_eef_m": 0.021916931815831268,
+        "fine_hold_eef_m": 0.024859398274982347,
+        "fine_pred_minus_hold_m": -0.0029424664591510795,
+        "fine_samples": 77,
+        "flow": {
+          "future": 0.21137256655737618,
+          "gate_kl": 0.035016852192660666,
+          "log_dist": 0.13581353750439723,
+          "mse": 0.00853781079466533,
+          "phase_ce": 1.1671623318471906
+        },
+        "full_split_coverage": {
+          "anchors": 3426,
+          "fine_candidates": 2403,
+          "labelled": 3426,
+          "missing_labels": 0,
+          "phases": {
+            "contact": 288,
+            "far": 486,
+            "near": 2115,
+            "post": 537
+          }
+        },
+        "gate_entropy_nats": 0.9519834801637007,
+        "gate_mean": [
+          0.3031495426735167,
+          0.14797990789729587,
+          0.5488705472063623
+        ],
+        "hold_action_mae": 0.027950743574509832,
+        "loss_total": 0.1406763184850461,
+        "memory_projection": {
+          "anchors": 181,
+          "fraction_dims_variance_below_1e-8": 0.0,
+          "variance_by_view_slot": [
+            [
+              0.9427365531719217,
+              0.9416914952606318,
+              0.7631336736653971
+            ],
+            [
+              0.7878986844862546,
+              0.7521700836997681,
+              0.8521057973912708
+            ],
+            [
+              1.2201887098262512,
+              1.1401452184971201,
+              1.0813821988868384
+            ]
+          ],
+          "variance_max": 3.8143052005151024,
+          "variance_mean": 0.9423836016539394,
+          "warning": null
+        },
+        "missing_labels": 0,
+        "phase_accuracy": 0.8839779005524862,
+        "phase_confusion": [
+          [
+            9,
+            10,
+            0,
+            0
+          ],
+          [
+            4,
+            127,
+            1,
+            0
+          ],
+          [
+            0,
+            3,
+            12,
+            3
+          ],
+          [
+            0,
+            0,
+            0,
+            12
+          ]
+        ],
+        "phase_labels": {
+          "contact": 18,
+          "far": 19,
+          "near": 132,
+          "post": 12
+        },
+        "phase_predictions": {
+          "contact": 13,
+          "far": 13,
+          "near": 140,
+          "post": 15
+        },
+        "samples": 181
+      }
+    },
+    "fine_eef_m": 0.04020430944535221,
+    "fine_hold_eef_m": 0.053058475270348196,
+    "fine_pred_minus_hold_m": -0.012854165824995989,
+    "fine_samples": 256,
+    "flow": {
+      "future": 0.22155160451075062,
+      "gate_kl": 0.012100534305290012,
+      "log_dist": 0.05854852863810363,
+      "mse": 0.015428815754404468,
+      "phase_ce": 0.38486967843319464
+    },
+    "gate_entropy_nats": 0.9500802606739479,
+    "gate_mean": [
+      0.36211093206857814,
+      0.3410205208456801,
+      0.29686854752052366
+    ],
+    "hold_action_mae": 0.043370653390809366,
+    "loss_total": 0.1350925231963629,
+    "memory_projection": {
+      "anchors": 754,
+      "fraction_dims_variance_below_1e-8": 0.0,
+      "variance_by_view_slot": [
+        [
+          0.8471784903762153,
+          0.8745694572566615,
+          0.8974058073440098
+        ],
+        [
+          1.0438562970587248,
+          1.159991576790438,
+          1.3260137327597878
+        ],
+        [
+          0.9659534466413519,
+          1.005971052504175,
+          1.0844431822130247
+        ]
+      ],
+      "variance_max": 6.857067302185376,
+      "variance_mean": 1.0228203381049321,
+      "warning": null
+    },
+    "missing_labels": 2,
+    "noise_rule": "sha256(seed,episode,anchor,purpose)",
+    "phase_accuracy": 0.9308510638297872,
+    "phase_confusion": [
+      [
+        170,
+        12,
+        0,
+        0
+      ],
+      [
+        16,
+        383,
+        9,
+        0
+      ],
+      [
+        0,
+        9,
+        78,
+        6
+      ],
+      [
+        0,
+        0,
+        0,
+        69
+      ]
+    ],
+    "phase_labels": {
+      "contact": 93,
+      "far": 182,
+      "near": 408,
+      "post": 69
+    },
+    "phase_predictions": {
+      "contact": 87,
+      "far": 186,
+      "near": 404,
+      "post": 77
+    },
+    "plan_sha256": "387cd3c74066e74dc69fb75cd27bdc02979d97e5dee2010df2ed3b2c4edc94d8",
+    "samples": 754,
+    "samples_per_anchor": 1,
+    "seconds": 127.7322700379882,
+    "split": "validation",
+    "terminal_step": 31
+  },
+  "initial_validation": {
+    "action_mae": 0.06924946602885029,
+    "by_skill": {
+      "pick up from": {
+        "action_mae": 0.07875893327565688,
+        "fine_eef_m": 0.11801253952288218,
+        "fine_hold_eef_m": 0.047646537202700075,
+        "fine_pred_minus_hold_m": 0.07036600232018211,
+        "fine_samples": 121,
+        "flow": {
+          "future": 0.40895945902140635,
+          "gate_kl": 0.18601084306774626,
+          "log_dist": 0.6821313905094734,
+          "mse": 0.06805217032197793,
+          "phase_ce": 5.85774700079381
+        },
+        "full_split_coverage": {
+          "anchors": 7516,
+          "fine_candidates": 3439,
+          "labelled": 7516,
+          "missing_labels": 0,
+          "phases": {
+            "contact": 641,
+            "far": 3424,
+            "near": 2798,
+            "post": 653
+          }
+        },
+        "gate_entropy_nats": 0.970007437938138,
+        "gate_mean": [
+          0.572106439188907,
+          0.18281751208399472,
+          0.2450760471193414
+        ],
+        "hold_action_mae": 0.03841746820846379,
+        "loss_total": 0.40580869243954715,
+        "memory_projection": {
+          "anchors": 380,
+          "fraction_dims_variance_below_1e-8": 0.0,
+          "variance_by_view_slot": [
+            [
+              0.5643586513725419,
+              0.5596423602527806,
+              0.5109935127525734
+            ],
+            [
+              0.615171018242202,
+              0.6885253865326652,
+              0.7813118250337773
+            ],
+            [
+              0.6369181661570893,
+              0.6837880693706838,
+              0.7012950393721559
+            ]
+          ],
+          "variance_max": 3.880661119598085,
+          "variance_mean": 0.6380004476762743,
+          "warning": null
+        },
+        "missing_labels": 0,
+        "phase_accuracy": 0.33157894736842103,
+        "phase_confusion": [
+          [
+            116,
+            0,
+            0,
+            0
+          ],
+          [
+            199,
+            0,
+            0,
+            0
+          ],
+          [
+            39,
+            0,
+            0,
+            0
+          ],
+          [
+            16,
+            0,
+            0,
+            10
+          ]
+        ],
+        "phase_labels": {
+          "contact": 39,
+          "far": 116,
+          "near": 199,
+          "post": 26
+        },
+        "phase_predictions": {
+          "far": 370,
+          "post": 10
+        },
+        "samples": 380
+      },
+      "place in": {
+        "action_mae": 0.07110409067411508,
+        "fine_eef_m": 0.15461045696441575,
+        "fine_hold_eef_m": 0.10178560345704805,
+        "fine_pred_minus_hold_m": 0.052824853507367694,
+        "fine_samples": 58,
+        "flow": {
+          "future": 0.43325348113264356,
+          "gate_kl": 0.22584812673074858,
+          "log_dist": 0.632680492765043,
+          "mse": 0.06794698707692857,
+          "phase_ce": 5.535087889803449
+        },
+        "full_split_coverage": {
+          "anchors": 4110,
+          "fine_candidates": 1777,
+          "labelled": 4014,
+          "missing_labels": 96,
+          "phases": {
+            "contact": 459,
+            "far": 1328,
+            "near": 1318,
+            "post": 909
+          }
+        },
+        "gate_entropy_nats": 1.0203091665870785,
+        "gate_mean": [
+          0.503968904055462,
+          0.1914448176795337,
+          0.3045862726288138
+        ],
+        "hold_action_mae": 0.06453154213127814,
+        "loss_total": 0.4128946907818317,
+        "memory_projection": {
+          "anchors": 193,
+          "fraction_dims_variance_below_1e-8": 0.0,
+          "variance_by_view_slot": [
+            [
+              0.6067887404667741,
+              0.6164320248010121,
+              0.6640443756107082
+            ],
+            [
+              0.8901841925925692,
+              0.8794779155707199,
+              0.6950895235858031
+            ],
+            [
+              0.45363964233531107,
+              0.4249294751825521,
+              0.4806820017195252
+            ]
+          ],
+          "variance_max": 3.0249266380643363,
+          "variance_mean": 0.6345853213183306,
+          "warning": null
+        },
+        "missing_labels": 2,
+        "phase_accuracy": 0.24083769633507854,
+        "phase_confusion": [
+          [
+            39,
+            0,
+            0,
+            8
+          ],
+          [
+            54,
+            0,
+            2,
+            21
+          ],
+          [
+            32,
+            0,
+            1,
+            3
+          ],
+          [
+            25,
+            0,
+            0,
+            6
+          ]
+        ],
+        "phase_labels": {
+          "contact": 36,
+          "far": 47,
+          "near": 77,
+          "post": 31
+        },
+        "phase_predictions": {
+          "contact": 3,
+          "far": 151,
+          "post": 39
+        },
+        "samples": 193
+      },
+      "place on next to": {
+        "action_mae": 0.04327137004061837,
+        "fine_eef_m": 0.04389217514267843,
+        "fine_hold_eef_m": 0.024859398274982347,
+        "fine_pred_minus_hold_m": 0.019032776867696083,
+        "fine_samples": 77,
+        "flow": {
+          "future": 0.39761038417014005,
+          "gate_kl": 0.1555994549922854,
+          "log_dist": 0.869772816372809,
+          "mse": 0.03060506124954636,
+          "phase_ce": 5.287525147135095
+        },
+        "full_split_coverage": {
+          "anchors": 3426,
+          "fine_candidates": 2403,
+          "labelled": 3426,
+          "missing_labels": 0,
+          "phases": {
+            "contact": 288,
+            "far": 486,
+            "near": 2115,
+            "post": 537
+          }
+        },
+        "gate_entropy_nats": 1.0206101309528668,
+        "gate_mean": [
+          0.5071813709498769,
+          0.1991879640363198,
+          0.29363065974488445
+        ],
+        "hold_action_mae": 0.027950743574509832,
+        "loss_total": 0.3516384533075529,
+        "memory_projection": {
+          "anchors": 181,
+          "fraction_dims_variance_below_1e-8": 0.0,
+          "variance_by_view_slot": [
+            [
+              0.6563436899627259,
+              0.6332876205467258,
+              0.4821328958969268
+            ],
+            [
+              0.5218432088710964,
+              0.4966000554729413,
+              0.5227128449170824
+            ],
+            [
+              0.7683728381001126,
+              0.689024868509971,
+              0.6598507039076376
+            ]
+          ],
+          "variance_max": 2.358994284975793,
+          "variance_mean": 0.6033520806872467,
+          "warning": null
+        },
+        "missing_labels": 0,
+        "phase_accuracy": 0.14917127071823205,
+        "phase_confusion": [
+          [
+            19,
+            0,
+            0,
+            0
+          ],
+          [
+            123,
+            3,
+            5,
+            1
+          ],
+          [
+            18,
+            0,
+            0,
+            0
+          ],
+          [
+            7,
+            0,
+            0,
+            5
+          ]
+        ],
+        "phase_labels": {
+          "contact": 18,
+          "far": 19,
+          "near": 132,
+          "post": 12
+        },
+        "phase_predictions": {
+          "contact": 5,
+          "far": 167,
+          "near": 3,
+          "post": 6
+        },
+        "samples": 181
+      }
+    },
+    "fine_eef_m": 0.10401023934449646,
+    "fine_hold_eef_m": 0.053058475270348196,
+    "fine_pred_minus_hold_m": 0.05095176407414827,
+    "fine_samples": 256,
+    "flow": {
+      "future": 0.4132305763778277,
+      "gate_kl": 0.19054834538951582,
+      "log_dist": 0.7078237867656387,
+      "mse": 0.0601975485933508,
+      "phase_ce": 5.650352442434175
+    },
+    "gate_entropy_nats": 0.9950304101727685,
+    "gate_mean": [
+      0.5390799383506851,
+      0.18895560463480354,
+      0.2719644534967306
+    ],
+    "hold_action_mae": 0.043370653390809366,
+    "loss_total": 0.3964255365426652,
+    "memory_projection": {
+      "anchors": 754,
+      "fraction_dims_variance_below_1e-8": 0.0,
+      "variance_by_view_slot": [
+        [
+          0.5990682299899016,
+          0.5950198584116039,
+          0.5789649410642441
+        ],
+        [
+          0.6652674433050224,
+          0.6999795562853189,
+          0.7573396939354469
+        ],
+        [
+          0.6233178498501314,
+          0.6216608749508666,
+          0.6567241526452267
+        ]
+      ],
+      "variance_max": 3.527865855884566,
+      "variance_mean": 0.644149177826418,
+      "warning": null
+    },
+    "missing_labels": 2,
+    "noise_rule": "sha256(seed,episode,anchor,purpose)",
+    "phase_accuracy": 0.2646276595744681,
+    "phase_confusion": [
+      [
+        174,
+        0,
+        0,
+        8
+      ],
+      [
+        376,
+        3,
+        7,
+        22
+      ],
+      [
+        89,
+        0,
+        1,
+        3
+      ],
+      [
+        48,
+        0,
+        0,
+        21
+      ]
+    ],
+    "phase_labels": {
+      "contact": 93,
+      "far": 182,
+      "near": 408,
+      "post": 69
+    },
+    "phase_predictions": {
+      "contact": 8,
+      "far": 688,
+      "near": 3,
+      "post": 55
+    },
+    "plan_sha256": "387cd3c74066e74dc69fb75cd27bdc02979d97e5dee2010df2ed3b2c4edc94d8",
+    "samples": 754,
+    "samples_per_anchor": 1,
+    "seconds": 124.98518766695634,
+    "split": "validation",
+    "terminal_step": 31
+  },
+  "new_module_grad_norm_max": {
+    "dist_head": 0.15231625735759735,
+    "gate_head": 0.7064037322998047,
+    "mem_proj": 0.26143842935562134,
+    "mem_slot_emb": 0.009958324022591114,
+    "phase_head": 0.33285462856292725,
+    "phase_net": 0.6682285070419312,
+    "type_emb_mem": 0.010191737674176693
+  },
+  "offline_proxy_only": true,
+  "resumed_from_step": 45000
+}
