@@ -1,0 +1,1342 @@
+[
+  {
+    "path": "outputs/training/task0_v3_pilot_20260928_a1/manifest.json",
+    "bytes": 639794,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/training/stage6_multiview_manip_20260924/manifest.json",
+    "bytes": 3483,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/training/task1_manip_mv_20260926/manifest.json",
+    "bytes": 3583,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/training/stage7b_prophistdiff_manip_20260924/manifest.json",
+    "bytes": 3402,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/training/task090_v3_50k_20260930_s050000/summary.json",
+    "bytes": 19509,
+    "kind": "summary.json"
+  },
+  {
+    "path": "outputs/training/task090_v3_50k_20260930_s050000/manifest.json",
+    "bytes": 1316179,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/training/task0_v3_pilot_20260928_a2/manifest.json",
+    "bytes": 639877,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/training/task090_v3_50k_20260930_s045000/summary.json",
+    "bytes": 19504,
+    "kind": "summary.json"
+  },
+  {
+    "path": "outputs/training/task090_v3_50k_20260930_s045000/manifest.json",
+    "bytes": 1316179,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/training/task0_manip_v2_20260928/manifest.json",
+    "bytes": 3643,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/training/stage5_manipulation_pilot_20260923/manifest.json",
+    "bytes": 2496,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/training/task0_v3_30k_20260929_s010000/summary.json",
+    "bytes": 19468,
+    "kind": "summary.json"
+  },
+  {
+    "path": "outputs/training/task0_v3_30k_20260929_s010000/manifest.json",
+    "bytes": 642814,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/training/task0_v3_30k_20260929_s025000/summary.json",
+    "bytes": 19463,
+    "kind": "summary.json"
+  },
+  {
+    "path": "outputs/training/task0_v3_30k_20260929_s025000/manifest.json",
+    "bytes": 642816,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/training/task090_v3_50k_20260930_s010000/summary.json",
+    "bytes": 19505,
+    "kind": "summary.json"
+  },
+  {
+    "path": "outputs/training/task090_v3_50k_20260930_s010000/manifest.json",
+    "bytes": 1316116,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/training/task090_v3_50k_20260930_s020000/summary.json",
+    "bytes": 19495,
+    "kind": "summary.json"
+  },
+  {
+    "path": "outputs/training/task090_v3_50k_20260930_s020000/manifest.json",
+    "bytes": 1316179,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/training/task1_manip_v3_20260926/manifest.json",
+    "bytes": 3604,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/training/task0_v3_30k_20260929_s005000/summary.json",
+    "bytes": 19472,
+    "kind": "summary.json"
+  },
+  {
+    "path": "outputs/training/task0_v3_30k_20260929_s005000/manifest.json",
+    "bytes": 642171,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/training/task0_v3_30k_20260929_s020000/summary.json",
+    "bytes": 19462,
+    "kind": "summary.json"
+  },
+  {
+    "path": "outputs/training/task0_v3_30k_20260929_s020000/manifest.json",
+    "bytes": 642816,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/training/task1_manip_v2_20260926/manifest.json",
+    "bytes": 3629,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/training/task0_v3_30k_20260929_s015000/summary.json",
+    "bytes": 19460,
+    "kind": "summary.json"
+  },
+  {
+    "path": "outputs/training/task0_v3_30k_20260929_s015000/manifest.json",
+    "bytes": 642816,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/training/task0_v3_30k_20260929_s030000/summary.json",
+    "bytes": 19464,
+    "kind": "summary.json"
+  },
+  {
+    "path": "outputs/training/task0_v3_30k_20260929_s030000/manifest.json",
+    "bytes": 642816,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/training/task090_v3_50k_20260930_s035000/summary.json",
+    "bytes": 19498,
+    "kind": "summary.json"
+  },
+  {
+    "path": "outputs/training/task090_v3_50k_20260930_s035000/manifest.json",
+    "bytes": 1316179,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/training/task090_v3_50k_20260930_s015000/summary.json",
+    "bytes": 19499,
+    "kind": "summary.json"
+  },
+  {
+    "path": "outputs/training/task090_v3_50k_20260930_s015000/manifest.json",
+    "bytes": 1316117,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/training/task0_v3_pilot_20260928_a3/summary.json",
+    "bytes": 19483,
+    "kind": "summary.json"
+  },
+  {
+    "path": "outputs/training/task0_v3_pilot_20260928_a3/manifest.json",
+    "bytes": 640407,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/training/task0_manip_v1_20260927/manifest.json",
+    "bytes": 3515,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/training/stage7_prophist_manip_20260924/manifest.json",
+    "bytes": 3221,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/training/task090_v3_50k_20260930_s030000/summary.json",
+    "bytes": 19492,
+    "kind": "summary.json"
+  },
+  {
+    "path": "outputs/training/task090_v3_50k_20260930_s030000/manifest.json",
+    "bytes": 1316179,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/training/task090_v3_50k_20260930_s025000/summary.json",
+    "bytes": 19498,
+    "kind": "summary.json"
+  },
+  {
+    "path": "outputs/training/task090_v3_50k_20260930_s025000/manifest.json",
+    "bytes": 1316179,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/training/task090_v3_50k_20260930_s005000/summary.json",
+    "bytes": 19488,
+    "kind": "summary.json"
+  },
+  {
+    "path": "outputs/training/task090_v3_50k_20260930_s005000/manifest.json",
+    "bytes": 1315862,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/training/task090_v3_50k_20260930_s040000/summary.json",
+    "bytes": 19505,
+    "kind": "summary.json"
+  },
+  {
+    "path": "outputs/training/task090_v3_50k_20260930_s040000/manifest.json",
+    "bytes": 1316179,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/training/task0_v3_tiny_20260928_a2/summary.json",
+    "bytes": 19242,
+    "kind": "summary.json"
+  },
+  {
+    "path": "outputs/training/task0_v3_tiny_20260928_a2/manifest.json",
+    "bytes": 639707,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/training/stage8_motionw_manip_20260925/manifest.json",
+    "bytes": 3401,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/runs/multitask5_wam_v3_vtt_20261008/completion.json",
+    "bytes": 260,
+    "kind": "completion.json"
+  },
+  {
+    "path": "outputs/runs/multitask5_wam_v3_vtt_20261008/evaluation_continuation/completion.json",
+    "bytes": 338,
+    "kind": "completion.json"
+  },
+  {
+    "path": "outputs/runs/multitask5_wam_v3_vtt_20261008/train/manifest.json",
+    "bytes": 1340081,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/runs/multitask5_wam_v3_vtt_20261008/extension_50k/completion.json",
+    "bytes": 368,
+    "kind": "completion.json"
+  },
+  {
+    "path": "outputs/runs/multitask5_wam_v3_vtt_20261008/extension_50k/attempt2/completion.json",
+    "bytes": 217,
+    "kind": "completion.json"
+  },
+  {
+    "path": "outputs/runs/multitask5_wam_v3_vtt_20261008/extension_50k/attempt2/cuda_smoke/manifest.json",
+    "bytes": 2843860,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/runs/multitask5_wam_v3_vtt_20261008/extension_50k/attempt2/eval/summary.json",
+    "bytes": 398865,
+    "kind": "summary.json"
+  },
+  {
+    "path": "outputs/runs/multitask5_wam_v3_vtt_20261008/extension_50k/attempt2/success_replays/manifest.json",
+    "bytes": 14154,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/runs/multitask5_wam_v3_vtt_20261008/extension_50k/attempt2/train/manifest.json",
+    "bytes": 2843859,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/runs/multitask5_wam_v3_vtt_20261008/smoke/manifest.json",
+    "bytes": 1340080,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/runs/put_bottles_dustbin/middle25k_5each_20261007/report.md",
+    "bytes": 3057,
+    "kind": "report.md"
+  },
+  {
+    "path": "outputs/runs/put_bottles_dustbin/middle25k_5each_20261007/manifest.json",
+    "bytes": 29709,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/runs/put_bottles_dustbin/pure25k_fresh20_20261007/summary.json",
+    "bytes": 4743,
+    "kind": "summary.json"
+  },
+  {
+    "path": "outputs/runs/put_bottles_dustbin/pure25k_fresh20_20261007/completion.json",
+    "bytes": 140,
+    "kind": "completion.json"
+  },
+  {
+    "path": "outputs/runs/put_bottles_dustbin/pure25k_fresh20_20261007/report.md",
+    "bytes": 1894,
+    "kind": "report.md"
+  },
+  {
+    "path": "outputs/runs/put_bottles_dustbin/pure25k_fresh20_20261007/manifest.json",
+    "bytes": 40858,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/runs/put_bottles_dustbin/pure25k_fixed20_novideo_20261007/summary.json",
+    "bytes": 4296,
+    "kind": "summary.json"
+  },
+  {
+    "path": "outputs/runs/put_bottles_dustbin/pure25k_fixed20_novideo_20261007/completion.json",
+    "bytes": 163,
+    "kind": "completion.json"
+  },
+  {
+    "path": "outputs/runs/put_bottles_dustbin/pure25k_fixed20_novideo_20261007/report.md",
+    "bytes": 1596,
+    "kind": "report.md"
+  },
+  {
+    "path": "outputs/runs/put_bottles_dustbin/pure25k_fixed20_novideo_20261007/manifest.json",
+    "bytes": 51558,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/runs/put_bottles_dustbin/pure25k_fixed20_offscreen_repair_20261007/summary.json",
+    "bytes": 5562,
+    "kind": "summary.json"
+  },
+  {
+    "path": "outputs/runs/put_bottles_dustbin/pure25k_fixed20_offscreen_repair_20261007/completion.json",
+    "bytes": 251,
+    "kind": "completion.json"
+  },
+  {
+    "path": "outputs/runs/put_bottles_dustbin/pure25k_fixed20_offscreen_repair_20261007/report.md",
+    "bytes": 2439,
+    "kind": "report.md"
+  },
+  {
+    "path": "outputs/runs/put_bottles_dustbin/pure25k_fixed20_offscreen_repair_20261007/manifest.json",
+    "bytes": 51412,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/runs/put_bottles_dustbin/wam_30k_20261007/cuda_smoke/manifest.json",
+    "bytes": 68975,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/runs/put_bottles_dustbin/wam_30k_20261007/train/manifest.json",
+    "bytes": 68966,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/runs/put_bottles_dustbin/pure_25k_30k_5each_20261007/manifest.json",
+    "bytes": 31983,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_30k_continuation_20261010_r1/development_20000/summary.json",
+    "bytes": 4197924,
+    "kind": "summary.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_future16_50k_20261013/train/manifest.json",
+    "bytes": 2426676,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_dagger50_segmented_20261010_v7/manifest.json",
+    "bytes": 29895,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/dual_source_probe_20261009_v1/zhuhai_task2/manifest.json",
+    "bytes": 144944,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/dual_source_probe_20261009_v1/zhuhai_task1/manifest.json",
+    "bytes": 589627,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_dagger_80k_fixed5_20261011_v23/summary.json",
+    "bytes": 4261421,
+    "kind": "summary.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/production_task2_collection_only_20261009_v11/completion.json",
+    "bytes": 921,
+    "kind": "completion.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/production_task2_collection_only_20261009_v11/zhuhai_task2/randomized/manifest.json",
+    "bytes": 34426681,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/production_task2_collection_only_20261009_v11/zhuhai_task2/randomized/shards/shard_01/manifest.json",
+    "bytes": 6188494,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/production_task2_collection_only_20261009_v11/zhuhai_task2/randomized/shards/shard_03/manifest.json",
+    "bytes": 8512032,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/production_task2_collection_only_20261009_v11/zhuhai_task2/randomized/shards/shard_00/manifest.json",
+    "bytes": 7192193,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/production_task2_collection_only_20261009_v11/zhuhai_task2/randomized/shards/shard_02/manifest.json",
+    "bytes": 6699277,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_continuity10_20261012_v36_r2/summary.json",
+    "bytes": 1748,
+    "kind": "summary.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_continuity10_20261012_v36_r2/failure_guard.json",
+    "bytes": 152,
+    "kind": "failure_guard.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_dagger_50k_fixed10_20261011_v20/summary.json",
+    "bytes": 7711829,
+    "kind": "summary.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_dagger_weighted50k_20261011_v18/train/manifest.json",
+    "bytes": 2350149,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_dagger50_parallel_20261010_v3/manifest.json",
+    "bytes": 10433,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_30k_20261010_v1/development_20000/summary.json",
+    "bytes": 650,
+    "kind": "summary.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_30k_20261010_v1/tiny_admission/manifest.json",
+    "bytes": 2306078,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_30k_20261010_v1/development_20000_bootstrap_recovery_20261010_r1/summary.json",
+    "bytes": 74550,
+    "kind": "summary.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_30k_20261010_v1/development_25000_exitaware_20261010_r3/summary.json",
+    "bytes": 1151592,
+    "kind": "summary.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_30k_20261010_v1/train/manifest.json",
+    "bytes": 2306152,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/production_200dr_20261009_v2/scaling_probe_3workers/probe/manifest.json",
+    "bytes": 30468,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/production_200dr_20261009_v2/scaling_trials_20261009/summary.json",
+    "bytes": 997,
+    "kind": "summary.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/production_200dr_20261009_v2/scaling_trials_20261009/four_worker_probe4/probe/manifest.json",
+    "bytes": 30528,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/production_200dr_20261009_v2/scaling_trials_20261009/four_worker_probe3/probe/manifest.json",
+    "bytes": 30528,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/production_200dr_20261009_v2/scaling_trials_20261009/three_worker_probe3/probe/manifest.json",
+    "bytes": 295673,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_continuity10_20261012_v36_r1/summary.json",
+    "bytes": 1748,
+    "kind": "summary.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_continuity10_20261012_v36_r1/failure_guard.json",
+    "bytes": 152,
+    "kind": "failure_guard.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_dagger_45k_fixed10_20261011_v19/summary.json",
+    "bytes": 4296046,
+    "kind": "summary.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/production_tasks12_dr200_collection_only_20261010_serial_r3/collection/zhuhai_task1/randomized/shards/shard_00/manifest.json",
+    "bytes": 4128229,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/dual_source_probe_20261009_v2/zhuhai_task2/manifest.json",
+    "bytes": 148886,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/dual_source_probe_20261009_v2/zhuhai_task1/manifest.json",
+    "bytes": 666106,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/production_100dr_4workers_20k_reuse_20261009_v6/zhuhai_task1/randomized/shards/shard_01/manifest.json",
+    "bytes": 14425233,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/production_100dr_4workers_20k_reuse_20261009_v6/zhuhai_task1/randomized/shards/shard_03/manifest.json",
+    "bytes": 33793,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/production_100dr_4workers_20k_reuse_20261009_v6/zhuhai_task1/randomized/shards/shard_00/manifest.json",
+    "bytes": 15061262,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/production_100dr_4workers_20k_reuse_20261009_v6/zhuhai_task1/randomized/shards/shard_02/manifest.json",
+    "bytes": 14288688,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_dagger_70k_fixed5_20261011_v23/summary.json",
+    "bytes": 4261424,
+    "kind": "summary.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_50k_20261012_r2/train/manifest.json",
+    "bytes": 2424210,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_50k_20261012_r2/train/failure_guard.json",
+    "bytes": 124,
+    "kind": "failure_guard.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_dagger50_segmented_20261010_v5/manifest.json",
+    "bytes": 26128,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_50k_20261012/train/manifest.json",
+    "bytes": 2422924,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_dagger50_segmented_20261010_v9/manifest.json",
+    "bytes": 39807,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/production_task2first_100dr_20k_20261009_v7/zhuhai_task2/randomized/shards/shard_01/manifest.json",
+    "bytes": 2055465,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/production_task2first_100dr_20k_20261009_v7/zhuhai_task2/randomized/shards/shard_03/manifest.json",
+    "bytes": 72472,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/production_task2first_100dr_20k_20261009_v7/zhuhai_task2/randomized/shards/shard_00/manifest.json",
+    "bytes": 2160158,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/production_task2first_100dr_20k_20261009_v7/zhuhai_task2/randomized/shards/shard_02/manifest.json",
+    "bytes": 1652759,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_dagger30k_extraDR_20261011_v20/train/manifest.json",
+    "bytes": 2409160,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_80k_extra20_20261011_v24/summary.json",
+    "bytes": 16752052,
+    "kind": "summary.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_train_diagnostic10_20261010_v1/summary.json",
+    "bytes": 1704514,
+    "kind": "summary.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_dagger50_segmented_20261010_v8/manifest.json",
+    "bytes": 32318,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_final30k_trainingfirst_20261010/summary.json",
+    "bytes": 2677127,
+    "kind": "summary.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_dagger30k_diagnostic_20261011_v22/train/manifest.json",
+    "bytes": 2411410,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_future16_50k_20261013_b23_fast/train/manifest.json",
+    "bytes": 2429888,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_dagger_45k_fixed10_20261011_v18/summary.json",
+    "bytes": 1812,
+    "kind": "summary.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_dagger30k_diagnostic_20261011_v23/train/manifest.json",
+    "bytes": 2412694,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/final_admission_20261009_v1/task2_source/manifest.json",
+    "bytes": 307022,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_dagger50_segmented_20261010_v10/manifest.json",
+    "bytes": 44729,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_official_braking30k_20261010_v1/summary.json",
+    "bytes": 4273193,
+    "kind": "summary.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_future16_fixed5_20261013_b23_fast/summary.json",
+    "bytes": 8923465,
+    "kind": "summary.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/verification/precision_v4_20261012/r2_continuation_supervisor/failure_guard.json",
+    "bytes": 142,
+    "kind": "failure_guard.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/verification/precision_v4_20261012/r2_final_delivery/failure_guard.json",
+    "bytes": 223,
+    "kind": "failure_guard.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/verification/precision_v4_20261012/ray_roundtrip_cpu/manifest.json",
+    "bytes": 2422305,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/verification/precision_v4_20261012/r2_post_reboot_supervisor_20261012/failure_guard.json",
+    "bytes": 133,
+    "kind": "failure_guard.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/verification/precision_v4_20261012/ray_roundtrip_cpu_final/manifest.json",
+    "bytes": 2422579,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/verification/precision_v4_20261013_future16/fast_final_delivery_lineage_20261013/final_delivery.json",
+    "bytes": 4432416,
+    "kind": "final_delivery.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/verification/precision_v4_20261013_future16/swap_failure_5121/failure_guard.json",
+    "bytes": 124,
+    "kind": "failure_guard.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/verification/precision_v4_20261013_future16/RAM_reserve_45000_20261013/original_failed_final_delivery/failure_guard.json",
+    "bytes": 180,
+    "kind": "failure_guard.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/verification/tasks12_collection_repair/task1_expert_repair_v2_20261009_c/seed_945024/manifest.json",
+    "bytes": 691995,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/verification/tasks12_collection_repair/task1_expert_repair_v2_20261009_c/seed_947000/manifest.json",
+    "bytes": 692074,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/verification/tasks12_collection_repair/task1_expert_repair_v2_20261009_c/seed_944026/manifest.json",
+    "bytes": 711574,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/verification/tasks12_collection_repair/task1_expert_repair_v2_20261009_c/seed_944025/manifest.json",
+    "bytes": 692631,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/verification/tasks12_collection_repair/task1_expert_repair_v1/seed_945024/manifest.json",
+    "bytes": 621785,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/verification/tasks12_collection_repair/task1_expert_repair_v1/seed_947000/manifest.json",
+    "bytes": 680935,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/verification/tasks12_collection_repair/task1_expert_repair_v1/seed_944026/manifest.json",
+    "bytes": 700127,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/verification/tasks12_collection_repair/task1_expert_repair_v1/seed_944025/manifest.json",
+    "bytes": 621919,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/verification/tasks12_collection_repair/task1_expert_repair_v2_20261009_a/seed_945024/manifest.json",
+    "bytes": 691998,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/verification/tasks12_collection_repair/task1_expert_repair_v2_20261009_a/seed_947000/manifest.json",
+    "bytes": 692075,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/verification/tasks12_collection_repair/task1_expert_repair_v2_20261009_a/seed_944026/manifest.json",
+    "bytes": 468529,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/verification/tasks12_collection_repair/task1_expert_repair_v2_20261009_a/seed_944025/manifest.json",
+    "bytes": 493336,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_dagger20k_segmented_20261011_v12/train/manifest.json",
+    "bytes": 2345247,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_rtc_single_20261012_v37/summary.json",
+    "bytes": 838180,
+    "kind": "summary.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_future16_50k_20261013_b23/train/manifest.json",
+    "bytes": 2428252,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_30k_continuation_20261010_r2/development_25000/summary.json",
+    "bytes": 2167,
+    "kind": "summary.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_dagger_45k_fixed10_20261011_v20/summary.json",
+    "bytes": 6859208,
+    "kind": "summary.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_dagger50_parallel_20261010_v4/manifest.json",
+    "bytes": 18435,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_dagger50_segmented_20261011_v12/manifest.json",
+    "bytes": 81672,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_prefix_commit_single_20261012_v41_r2/summary.json",
+    "bytes": 869519,
+    "kind": "summary.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_dagger50_direct_20261010_v2/manifest.json",
+    "bytes": 1994,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_prefix_commit_single_20261012_v41/summary.json",
+    "bytes": 1639,
+    "kind": "summary.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_prefix_commit_single_20261012_v41/failure_guard.json",
+    "bytes": 152,
+    "kind": "failure_guard.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_dagger_weighted50k_20261011_v16/train/manifest.json",
+    "bytes": 2347759,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_dagger50_segmented_20261010_v6/manifest.json",
+    "bytes": 29038,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/production_task2_final10_20k_20261009_v8/verification/expert_repair_v1/seed_954007/manifest.json",
+    "bytes": 297962,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/production_task2_final10_20k_20261009_v8/verification/expert_repair_v1/seed_954006/manifest.json",
+    "bytes": 150467,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/production_task2_final10_20k_20261009_v8/verification/expert_repair_v1/seed_954005/manifest.json",
+    "bytes": 150660,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/production_task2_final10_20k_20261009_v8/verification/expert_repair_v3/seed_957002/manifest.json",
+    "bytes": 313777,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/production_task2_final10_20k_20261009_v8/verification/expert_repair_v3/seed_954007/manifest.json",
+    "bytes": 314051,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/production_task2_final10_20k_20261009_v8/verification/expert_repair_v3/seed_954006/manifest.json",
+    "bytes": 336454,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/production_task2_final10_20k_20261009_v8/verification/expert_repair_v3/seed_954005/manifest.json",
+    "bytes": 350874,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/production_task2_final10_20k_20261009_v8/verification/expert_repair_v2/seed_954007/manifest.json",
+    "bytes": 302000,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/production_task2_final10_20k_20261009_v8/verification/expert_repair_v2/seed_954006/manifest.json",
+    "bytes": 335994,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/production_task2_final10_20k_20261009_v8/verification/expert_repair_v2/seed_954005/manifest.json",
+    "bytes": 350428,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_dagger50_20261010_v1/manifest.json",
+    "bytes": 836,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_future16_50k_20261013_b23_prefetch/train/manifest.json",
+    "bytes": 2429095,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_dagger50_extraDR_20261011_v20/manifest.json",
+    "bytes": 154285,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_dagger50_segmented_20261010_v11/manifest.json",
+    "bytes": 71037,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/smoke/franka_task2_source1_20261009_v1/manifest.json",
+    "bytes": 315698,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/manifest.json",
+    "bytes": 2986008,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/validation/openlid_replay_stage3abs_best5500_s8_20260922/summary.json",
+    "bytes": 6600,
+    "kind": "summary.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/validation/render_domain_gap_stage7b_ep2603_20260925/summary.json",
+    "bytes": 5387,
+    "kind": "summary.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/validation/image_domain_gap_20260923/summary.json",
+    "bytes": 10980,
+    "kind": "summary.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/validation/velocity_copycat_posonly_best5500_20260922/summary.json",
+    "bytes": 1694,
+    "kind": "summary.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/validation/openlid_stage8_motionw_final_k8_20260925/summary.json",
+    "bytes": 7528,
+    "kind": "summary.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/validation/openlid_replay_posonly_best5500_trainsplit_20260922/summary.json",
+    "bytes": 6537,
+    "kind": "summary.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/validation/openlid_stage5_manippilot_k8_20260923/summary.json",
+    "bytes": 7186,
+    "kind": "summary.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/validation/openlid_replay_posonly_best5500_20260922/summary.json",
+    "bytes": 6543,
+    "kind": "summary.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/validation/openlid_replay_stage1_best46k_20260922/summary.json",
+    "bytes": 6525,
+    "kind": "summary.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/validation/chunk_consistency_contractadapt_20260922/summary.json",
+    "bytes": 5679,
+    "kind": "summary.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/validation/openlid_replay_stage4delta_best6500_s8_20260922/summary.json",
+    "bytes": 6611,
+    "kind": "summary.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/validation/openlid_stage7b_prophistdiff_k8_20260924/summary.json",
+    "bytes": 7525,
+    "kind": "summary.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/validation/openlid_stage7b_statichist_k8_20260924/summary.json",
+    "bytes": 7512,
+    "kind": "summary.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/validation/reach_phase_metric_20260925/stage3/summary.json",
+    "bytes": 1174,
+    "kind": "summary.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/validation/reach_phase_metric_20260925/stage8_final/summary.json",
+    "bytes": 1171,
+    "kind": "summary.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/validation/reach_phase_metric_20260925/stage7b/summary.json",
+    "bytes": 1177,
+    "kind": "summary.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/validation/openlid_stage6_multiview_k8_20260924/summary.json",
+    "bytes": 7672,
+    "kind": "summary.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/validation/openlid_noise_bias_posonly_best5500_20260922/summary.json",
+    "bytes": 809,
+    "kind": "summary.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/validation/velocity_copycat_contractadapt_20260922/summary.json",
+    "bytes": 1710,
+    "kind": "summary.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/task1_cl_dev10_prim_v3/manifest.json",
+    "bytes": 13522,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/task0_v3_30k_20260929_s030000_dev10_k1/manifest.json",
+    "bytes": 13558,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/task090_wam_s010000_dev10_seed0_intervalv3_first_contracts/manifest.json",
+    "bytes": 16534,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/task090_wam_s015000_dev10_seed0_privbase_preposition_v2_firstgrasp/manifest.json",
+    "bytes": 19184,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/s1_dev10_goalcondition_20260922/summary.json",
+    "bytes": 2352,
+    "kind": "summary.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/s1_dev10_goalcondition_20260922/manifest.json",
+    "bytes": 2526,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/task090_wam_s025000_dev10_seed2_privbase_preposition_v4_firstgrasp/manifest.json",
+    "bytes": 19474,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/task1_cl_dev10_prim_v1/manifest.json",
+    "bytes": 13461,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/task090_wam_s015000_dev10_seed0_privbase_preposition_v1_firstgrasp/manifest.json",
+    "bytes": 19184,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/task090_wam_s015000_dev10_seed1_privbase_preposition_v3_firstgrasp/manifest.json",
+    "bytes": 19474,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/task0_v3_30k_20260929_s010000_dev10_k1/manifest.json",
+    "bytes": 13270,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/task090_wam_s050000_dev10_seed4_privbase_preposition_v4_diagadv/manifest.json",
+    "bytes": 22511,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/task090_wam_s050000_dev10_seed7_privbase_preposition_v4_diagadv_BLOCKED_launchguard/manifest.json",
+    "bytes": 21769,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/task090_wam_s050000_dev10_seed7_privbase_preposition_v4_diagadv/manifest.json",
+    "bytes": 23761,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/task090_wam_s030000_dev10_seed1_privbase_preposition_v4_firstgrasp/manifest.json",
+    "bytes": 19474,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/task090_wam_s035000_dev10_seed0_privbase_preposition_v4_observerlog_firstgrasp/manifest.json",
+    "bytes": 21346,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/task1_cl_dev10_prim_v5/manifest.json",
+    "bytes": 12989,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/task090_wam_s040000_dev10_seed1_privbase_preposition_v4_rigidlog_v2_firstgrasp/manifest.json",
+    "bytes": 21573,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/task090_wam_s050000_dev10_seed1_privbase_preposition_v4_rigidlog_v2_firstgrasp/manifest.json",
+    "bytes": 21850,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/task090_wam_s015000_dev10_seed0_floorv3_reacq_first_contracts/manifest.json",
+    "bytes": 17048,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/task090_wam_s035000_dev10_seed2_privbase_preposition_v4_observerlog_firstgrasp/manifest.json",
+    "bytes": 21346,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/task090_wam_s045000_dev10_seed1_privbase_preposition_v4_rigidlog_v2_firstgrasp/manifest.json",
+    "bytes": 21849,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/s1_dev10_stage3_movegain3_hold_exec32_720p_20260923/summary.json",
+    "bytes": 2862,
+    "kind": "summary.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/s1_dev10_stage3_movegain3_hold_exec32_720p_20260923/manifest.json",
+    "bytes": 2824,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/task0_v3_30k_20260929_s015000_dev10_k1/manifest.json",
+    "bytes": 13270,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/s1_dev10_stage3_gain3_tau88_noreapp_20260923/summary.json",
+    "bytes": 2849,
+    "kind": "summary.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/s1_dev10_stage3_gain3_tau88_noreapp_20260923/manifest.json",
+    "bytes": 2857,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/s1_dev10_stage3_navk1_manipk8_postgate_20260923/summary.json",
+    "bytes": 601,
+    "kind": "summary.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/s1_dev10_stage3_navk1_manipk8_postgate_20260923/manifest.json",
+    "bytes": 2850,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/task090_wam_s030000_dev10_seed0_privbase_preposition_v4_firstgrasp/manifest.json",
+    "bytes": 19473,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/task090_wam_s050000_dev10_seed2_privbase_preposition_v4_rigidlog_v2_firstgrasp/manifest.json",
+    "bytes": 21850,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/s1_dev10_contractadapt_best1500_20260922/summary.json",
+    "bytes": 2541,
+    "kind": "summary.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/s1_dev10_contractadapt_best1500_20260922/manifest.json",
+    "bytes": 2490,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/task090_wam_s005000_dev10_seed0_diag/manifest.json",
+    "bytes": 15367,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/task090_wam_s050000_dev10_seed8_privbase_preposition_v4_diagadv/manifest.json",
+    "bytes": 23761,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/task090_wam_s050000_dev10_seed1_privbase_preposition_v4_diagadv/manifest.json",
+    "bytes": 22511,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/task090_wam_s025000_dev10_seed1_privbase_preposition_v4_firstgrasp/manifest.json",
+    "bytes": 19474,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/task090_wam_s040000_dev10_seed2_privbase_preposition_v4_rigidlog_v2_firstgrasp/manifest.json",
+    "bytes": 21573,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/task090_wam_s050000_dev10_seed0_privbase_preposition_v4_rigidlog_v2_firstgrasp/manifest.json",
+    "bytes": 21850,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/task090_wam_s015000_dev10_seed0_privbase_v1_firstgrasp/manifest.json",
+    "bytes": 18636,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/s1_dev10_stage3_patchgate_k1_wholebody_20260923/summary.json",
+    "bytes": 4239,
+    "kind": "summary.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/s1_dev10_stage3_patchgate_k1_wholebody_20260923/manifest.json",
+    "bytes": 2911,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/task090_wam_s030000_dev10_seed2_privbase_preposition_v4_firstgrasp/manifest.json",
+    "bytes": 19474,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/task090_blocked_gate_cpu_20261004_bridge/manifest.json",
+    "bytes": 1625,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/task090_wam_s045000_dev10_seed0_privbase_preposition_v4_rigidlog_v2_firstgrasp/manifest.json",
+    "bytes": 21849,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/task090_wam_s050000_dev10_seed0_privbase_preposition_v4_diagadv/manifest.json",
+    "bytes": 22853,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/task1_cl_dev10_prim_v6/manifest.json",
+    "bytes": 12989,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/task090_wam_s040000_dev10_seed0_privbase_preposition_v4_rigidlog_v2_firstgrasp/manifest.json",
+    "bytes": 21573,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/task090_wam_s025000_dev10_seed0_privbase_preposition_v4_firstgrasp/manifest.json",
+    "bytes": 19474,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/task1_cl_dev10_prim_v2/manifest.json",
+    "bytes": 12989,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/task090_wam_s050000_dev10_seed6_privbase_preposition_v4_diagadv/manifest.json",
+    "bytes": 22511,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/s1_dev10_posonly_best5500_exec32_20260922/manifest.json",
+    "bytes": 2460,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/task090_wam_s050000_dev10_seed3_privbase_preposition_v4_diagadv/manifest.json",
+    "bytes": 22511,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/task090_wam_s050000_dev10_seed2_privbase_preposition_v4_diagadv/manifest.json",
+    "bytes": 22723,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/task090_wam_s050000_dev10_seed5_privbase_preposition_v4_diagadv/manifest.json",
+    "bytes": 22511,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/task090_wam_s045000_dev10_seed2_privbase_preposition_v4_rigidlog_v2_firstgrasp/manifest.json",
+    "bytes": 21849,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/task090_wam_s035000_dev10_seed1_privbase_preposition_v4_observerlog_firstgrasp/manifest.json",
+    "bytes": 21346,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/task1_cl_dev10_prim_v4/manifest.json",
+    "bytes": 13574,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/s1_dev10_stage3_navk1_manipk8_wholebody_20260923/summary.json",
+    "bytes": 4519,
+    "kind": "summary.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/s1_dev10_stage3_navk1_manipk8_wholebody_20260923/manifest.json",
+    "bytes": 2971,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/task090_wam_s010000_dev10_seed0_geomv2_diag/manifest.json",
+    "bytes": 15622,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/s1_dev10_stage3_gain442_dockgate_s8_wholebody_20260923/summary.json",
+    "bytes": 3133,
+    "kind": "summary.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/s1_dev10_stage3_gain442_dockgate_s8_wholebody_20260923/manifest.json",
+    "bytes": 2922,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/legacy_mobile_20261006/outputs/behavior/closed_loop/task0_v3_30k_20260929_s020000_dev10_k1/manifest.json",
+    "bytes": 13270,
+    "kind": "manifest.json"
+  },
+  {
+    "path": "archive/cabinet_retired_20261007/final_snapshot/outputs/validation/middle_comparison10_20261006/report.md",
+    "bytes": 653,
+    "kind": "report.md"
+  }
+]

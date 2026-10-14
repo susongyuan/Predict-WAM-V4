@@ -1,0 +1,197 @@
+{
+  "benchmark": "BEHAVIOR-1K 2026 Challenge",
+  "source_tag": "v3.9.2+isaac6-port",
+  "source_commit": "b1979916ec1549b10a4e65e630bc6504a9af1b00",
+  "python": "3.12",
+  "packages": {
+    "isaacsim": "6.1.0.0",
+    "omnigibson": "3.9.2",
+    "bddl": "3.7.0",
+    "joylo": "3.9.2",
+    "torch": "2.11.0",
+    "numpy": "2.3.1"
+  },
+  "data_path": "data/omnigibson",
+  "task": {
+    "id": 13,
+    "name": "loading_the_car",
+    "scene": "house_double_floor_lower",
+    "rooms": [
+      "living_room",
+      "garage"
+    ]
+  },
+  "asset_repository": "behavior-1k/zipped-datasets",
+  "asset_revision": "9f0d57d465726976ed98138d3f8b8ca3e2186775",
+  "assets": [
+    {
+      "filename": "behavior-1k-assets-3.9.0.zip",
+      "directory": "behavior-1k-assets",
+      "version": "3.9.0",
+      "bytes": 31457673073,
+      "sha256": "09e9fce600f841dc611aa96c0b1b9f9074f56f0e67898b37b39bd00c38a0095e"
+    },
+    {
+      "filename": "omnigibson-robot-assets-3.8.2.zip",
+      "directory": "omnigibson-robot-assets",
+      "version": "3.8.2",
+      "bytes": 641004353,
+      "sha256": "3d813b2181e0581cf2300a40892de70f8475fe59346ceeea4fb9bf7ff21ce126"
+    },
+    {
+      "filename": "2026-challenge-task-instances.zip",
+      "directory": "2026-challenge-task-instances",
+      "version": null,
+      "bytes": 108543852,
+      "sha256": "d4ac3d72dd585178e85d542f28d1b48233b886c80e196e2f9d3aa5993ba21f81"
+    }
+  ],
+  "action_slices": {
+    "base": [
+      0,
+      3
+    ],
+    "torso": [
+      3,
+      7
+    ],
+    "left_arm": [
+      7,
+      14
+    ],
+    "left_gripper": [
+      14,
+      15
+    ],
+    "right_arm": [
+      15,
+      22
+    ],
+    "right_gripper": [
+      22,
+      23
+    ]
+  },
+  "state_slices": {
+    "base_qvel": [
+      0,
+      3
+    ],
+    "arm_left_qpos": [
+      3,
+      10
+    ],
+    "arm_left_qvel": [
+      10,
+      17
+    ],
+    "eef_left_pos": [
+      17,
+      20
+    ],
+    "eef_left_quat": [
+      20,
+      24
+    ],
+    "gripper_left_qpos": [
+      24,
+      26
+    ],
+    "gripper_left_qvel": [
+      26,
+      28
+    ],
+    "arm_right_qpos": [
+      28,
+      35
+    ],
+    "arm_right_qvel": [
+      35,
+      42
+    ],
+    "eef_right_pos": [
+      42,
+      45
+    ],
+    "eef_right_quat": [
+      45,
+      49
+    ],
+    "gripper_right_qpos": [
+      49,
+      51
+    ],
+    "gripper_right_qvel": [
+      51,
+      53
+    ],
+    "trunk_qpos": [
+      53,
+      57
+    ],
+    "trunk_qvel": [
+      57,
+      61
+    ]
+  },
+  "profiles": {
+    "smoke": [
+      10
+    ],
+    "development": [
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "report": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ]
+  },
+  "authorization": {
+    "recorded_date": "2026-09-22",
+    "source": "2026-09-22 current user request: GPU+内存+CPU都要最大化利用，最大效率任务. Supersedes the prior 85% cap; retain memory headroom and process monitoring.",
+    "nvidia_eula": true,
+    "behavior_asset_license": true,
+    "short_gpu_utilization_spikes_allowed": true
+  },
+  "resource_policy": {
+    "requested_total_limit_percent": 100,
+    "installation_memory_max": "4G",
+    "installation_swap_max": 0,
+    "gpu_hard_cap_available": false,
+    "gpu_execution_enabled": true,
+    "gpu_execution_block_reason": "GPU execution can be disabled here while retaining CPU validation.",
+    "gpu_total_vram_limit_mib": 15300,
+    "policy_vram_reserve_mib": 2100,
+    "simulation_cpu_threads": 12,
+    "admission_total_percent": 90,
+    "monitor_exit_percent": 95,
+    "gpu_utilization_exit_percent": 85,
+    "poll_seconds": 0.25,
+    "installation_cpu_affinity": [
+      4,
+      5
+    ]
+  },
+  "environment_dir": ".conda-envs/behavior6",
+  "source_dir": "third_party/BEHAVIOR-1K-isaac6",
+  "source_provenance_file": "PORT_PROVENANCE.json",
+  "ld_preload": "lib/libstdc++.so.6",
+  "isaac_sim_note": "Official pin is Isaac Sim 5.1 (Python 3.11). It crashes on this driver/GPU; see PORT_PROVENANCE.json. Legacy env .conda-envs/behavior kept only until the 6.1 path passes S1."
+}

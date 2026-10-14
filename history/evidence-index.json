@@ -1,0 +1,121 @@
+[
+  {
+    "original_path": "archive/legacy_mobile_20261006/docs/archive/legacy_mobile_experiments_20261004.md",
+    "published_path": "history/evidence/archive/legacy_mobile_20261006/docs/archive/legacy_mobile_experiments_20261004.md",
+    "bytes": 16553,
+    "sha256": "dc66e7da2ede4f49b17034e7500a139595780fdabe4f662940c30556209d8174",
+    "status": "copied_verbatim"
+  },
+  {
+    "original_path": "archive/legacy_mobile_20261006/outputs/archive/legacy_mobile_20261004/results_index.json",
+    "published_path": "history/evidence/archive/legacy_mobile_20261006/outputs/archive/legacy_mobile_20261004/results_index.json",
+    "bytes": 1481660,
+    "sha256": "1110fafa231afff34a43afb3d0c64841313d042848fd9be825cd6b4303037505",
+    "status": "copied_verbatim"
+  },
+  {
+    "original_path": "archive/legacy_mobile_20261006/outputs/archive/legacy_mobile_20261004/cleanup_weights_downloads_result.json",
+    "published_path": "history/evidence/archive/legacy_mobile_20261006/outputs/archive/legacy_mobile_20261004/cleanup_weights_downloads_result.json",
+    "bytes": 10854,
+    "sha256": "7c0b9d0b6f73af4d3cb6c665f58e8cb741006a4aa72e04e9f04e8d3ab1d9efae",
+    "status": "copied_verbatim"
+  },
+  {
+    "original_path": "archive/cabinet_retired_20261007/final_snapshot/outputs/validation/middle_comparison10_20261006/report.md",
+    "published_path": "history/evidence/archive/cabinet_retired_20261007/final_snapshot/outputs/validation/middle_comparison10_20261006/report.md",
+    "bytes": 653,
+    "sha256": "5d3520e10bd4991c283a148c27b42a15a57a02b50170a8c8981f27268d22f3d1",
+    "status": "copied_verbatim"
+  },
+  {
+    "original_path": "outputs/training/task090_v3_50k_20260930_s050000/summary.json",
+    "published_path": "history/evidence/outputs/training/task090_v3_50k_20260930_s050000/summary.json",
+    "bytes": 19509,
+    "sha256": "5b255afa4bcb5232ba71a828d91e0b4d777d463b5b601a8b37370395ff6a8117",
+    "status": "copied_verbatim"
+  },
+  {
+    "original_path": "outputs/training/task090_v3_50k_20260930_s050000/manifest.json",
+    "published_path": "history/evidence/outputs/training/task090_v3_50k_20260930_s050000/manifest.json",
+    "bytes": 1316179,
+    "sha256": "17990f1b08469c7faae73492cc423bc53e5317d8c323335a4d88d583d47aea06",
+    "status": "copied_verbatim"
+  },
+  {
+    "original_path": "outputs/pipelines/dustbin_20261007/report.md",
+    "published_path": "history/evidence/outputs/pipelines/dustbin_20261007/report.md",
+    "bytes": 4757,
+    "sha256": "2c4653f632f81f72ffe350b8a2d80ae1cc99227ad277b98a0a5f1e4a87e3c5b0",
+    "status": "copied_verbatim"
+  },
+  {
+    "original_path": "outputs/pipelines/dustbin_20261007/per_episode_results.csv",
+    "published_path": "history/evidence/outputs/pipelines/dustbin_20261007/per_episode_results.csv",
+    "bytes": 2743,
+    "sha256": "da3b463c2e83f620c14275b27063433df52259623d4394c44e1d30352a3d24ad",
+    "status": "copied_verbatim"
+  },
+  {
+    "original_path": "outputs/pipelines/dustbin_20261007/final_verification.json",
+    "published_path": "history/evidence/outputs/pipelines/dustbin_20261007/final_verification.json",
+    "bytes": 7425,
+    "sha256": "108f56d4b8dabb585f73165d912a96927618f1c985139225d873e1b019f74b6d",
+    "status": "copied_verbatim"
+  },
+  {
+    "original_path": "outputs/runs/put_bottles_dustbin/middle25k_5each_20261007/report.md",
+    "published_path": "history/evidence/outputs/runs/put_bottles_dustbin/middle25k_5each_20261007/report.md",
+    "bytes": 3057,
+    "sha256": "a1577e822a60a80682fcc93cdba73e8751674adc0a64b7153dc73864035a12e1",
+    "status": "copied_verbatim"
+  },
+  {
+    "original_path": "outputs/runs/put_bottles_dustbin/middle25k_5each_20261007/verification.json",
+    "published_path": "history/evidence/outputs/runs/put_bottles_dustbin/middle25k_5each_20261007/verification.json",
+    "bytes": 6655,
+    "sha256": "886d966d5ae9f26e050fb394ba9a6fc97e5e1414043f6299535692fbb1befcf0",
+    "status": "copied_verbatim"
+  },
+  {
+    "original_path": "outputs/runs/put_bottles_dustbin/pure25k_fixed20_novideo_20261007/report.md",
+    "published_path": "history/evidence/outputs/runs/put_bottles_dustbin/pure25k_fixed20_novideo_20261007/report.md",
+    "bytes": 1596,
+    "sha256": "913dc604aa74815960aae79db977fac097f501ded0040c0616da3b4f99abbb5f",
+    "status": "copied_verbatim"
+  },
+  {
+    "original_path": "outputs/runs/multitask5_wam_v3_vtt_20261008/extension_50k/attempt2/completion.json",
+    "published_path": "history/evidence/outputs/runs/multitask5_wam_v3_vtt_20261008/extension_50k/attempt2/completion.json",
+    "bytes": 217,
+    "sha256": "5bf8b96dadbe545e93990729805a1ca62ad2d34ec6e066d3b3a6cd0d5f4558c9",
+    "status": "copied_verbatim"
+  },
+  {
+    "original_path": "outputs/runs/multitask5_wam_v3_vtt_20261008/extension_50k/attempt2/final_audit.json",
+    "published_path": "history/evidence/outputs/runs/multitask5_wam_v3_vtt_20261008/extension_50k/attempt2/final_audit.json",
+    "bytes": 11941,
+    "sha256": "57d3cc6e9ab1f98b4780c2f5ddd499b1ae58f6cfd4741448903a86b9bb60d8b5",
+    "status": "copied_verbatim"
+  },
+  {
+    "original_path": "outputs/zhuhai2026_tasks12/verification/precision_v4_20261013_future16/fast_final_delivery_lineage_20261013/final_delivery.json",
+    "published_path": "history/evidence/outputs/zhuhai2026_tasks12/verification/precision_v4_20261013_future16/fast_final_delivery_lineage_20261013/final_delivery.json",
+    "bytes": 4432416,
+    "sha256": "882d724f63c99545a5c26c9824a7186752bfc2fdfea95cb08498faaef34d6f66",
+    "status": "copied_verbatim"
+  },
+  {
+    "original_path": "outputs/zhuhai2026_tasks12/old_results_preservation_manifest.json",
+    "published_path": "history/evidence/outputs/zhuhai2026_tasks12/old_results_preservation_manifest.json",
+    "bytes": 7350698,
+    "sha256": "c9aedd474450fcdaec0dd288a6b1ea8beadc1df73f4b39cd04deff644fb22e6d",
+    "status": "copied_verbatim"
+  },
+  {
+    "original_path": "configs/behavior_environment.json",
+    "published_path": "history/evidence/configs/behavior_environment.json",
+    "bytes": 4100,
+    "sha256": "2563134c8f51e0eb1145f10a0b76444f785a1dc8bd219216a6f29bb0102498e1",
+    "status": "copied_verbatim"
+  }
+]

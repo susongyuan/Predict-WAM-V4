@@ -1,0 +1,722 @@
+[
+  {
+    "path": "outputs/construction/dustbin_full_middle_20261007/vtt_adapter_1000_v2/adapter_step_000300.pt",
+    "bytes": 3154309,
+    "role": "milestone-or-fixture",
+    "warning": "Test/verification artifacts are not automatically admitted policy weights."
+  },
+  {
+    "path": "outputs/construction/dustbin_full_middle_20261007/vtt_adapter_1000_v2/adapter_step_000200.pt",
+    "bytes": 3154245,
+    "role": "milestone-or-fixture",
+    "warning": "Test/verification artifacts are not automatically admitted policy weights."
+  },
+  {
+    "path": "outputs/construction/dustbin_full_middle_20261007/vtt_adapter_1000_v2/adapter_step_000400.pt",
+    "bytes": 3154309,
+    "role": "milestone-or-fixture",
+    "warning": "Test/verification artifacts are not automatically admitted policy weights."
+  },
+  {
+    "path": "outputs/construction/dustbin_full_middle_20261007/vtt_adapter_1000_v2/adapter_step_000100.pt",
+    "bytes": 3154245,
+    "role": "milestone-or-fixture",
+    "warning": "Test/verification artifacts are not automatically admitted policy weights."
+  },
+  {
+    "path": "outputs/construction/dustbin_full_middle_20261007/vtt_adapter_1000_v2/adapter_step_000900.pt",
+    "bytes": 3154309,
+    "role": "milestone-or-fixture",
+    "warning": "Test/verification artifacts are not automatically admitted policy weights."
+  },
+  {
+    "path": "outputs/construction/dustbin_full_middle_20261007/vtt_adapter_1000_v2/adapter_step_000600.pt",
+    "bytes": 3154309,
+    "role": "milestone-or-fixture",
+    "warning": "Test/verification artifacts are not automatically admitted policy weights."
+  },
+  {
+    "path": "outputs/construction/dustbin_full_middle_20261007/vtt_adapter_1000_v2/adapter_step_000800.pt",
+    "bytes": 3154309,
+    "role": "milestone-or-fixture",
+    "warning": "Test/verification artifacts are not automatically admitted policy weights."
+  },
+  {
+    "path": "outputs/construction/dustbin_full_middle_20261007/vtt_adapter_1000_v2/adapter_step_000500.pt",
+    "bytes": 3154309,
+    "role": "milestone-or-fixture",
+    "warning": "Test/verification artifacts are not automatically admitted policy weights."
+  },
+  {
+    "path": "outputs/construction/dustbin_full_middle_20261007/vtt_adapter_1000_v2/adapter_step_001000.pt",
+    "bytes": 3154309,
+    "role": "milestone-or-fixture",
+    "warning": "Test/verification artifacts are not automatically admitted policy weights."
+  },
+  {
+    "path": "outputs/construction/dustbin_full_middle_20261007/vtt_adapter_1000_v2/adapter_step_000700.pt",
+    "bytes": 3154309,
+    "role": "milestone-or-fixture",
+    "warning": "Test/verification artifacts are not automatically admitted policy weights."
+  },
+  {
+    "path": "outputs/construction/dustbin_full_middle_20261007/vtt_adapter_1000/adapter_step_000300.pt",
+    "bytes": 3153989,
+    "role": "milestone-or-fixture",
+    "warning": "Test/verification artifacts are not automatically admitted policy weights."
+  },
+  {
+    "path": "outputs/construction/dustbin_full_middle_20261007/vtt_adapter_1000/adapter_step_000200.pt",
+    "bytes": 3153989,
+    "role": "milestone-or-fixture",
+    "warning": "Test/verification artifacts are not automatically admitted policy weights."
+  },
+  {
+    "path": "outputs/construction/dustbin_full_middle_20261007/vtt_adapter_1000/adapter_step_000100.pt",
+    "bytes": 3153989,
+    "role": "milestone-or-fixture",
+    "warning": "Test/verification artifacts are not automatically admitted policy weights."
+  },
+  {
+    "path": "outputs/construction/dustbin_initial_patch_pilot_20261007/model.pt",
+    "bytes": 19669,
+    "role": "milestone-or-fixture",
+    "warning": "Test/verification artifacts are not automatically admitted policy weights."
+  },
+  {
+    "path": "outputs/runs/multitask5_wam_v3_vtt_20261008/train/checkpoint_step_005000.pt",
+    "bytes": 891486267,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/runs/multitask5_wam_v3_vtt_20261008/train/checkpoint_last.pt",
+    "bytes": 2662266125,
+    "role": "full-state-or-last",
+    "warning": null
+  },
+  {
+    "path": "outputs/runs/multitask5_wam_v3_vtt_20261008/extension_50k/attempt2/cuda_smoke/checkpoint_step_005002.pt",
+    "bytes": 891948859,
+    "role": "milestone-or-fixture",
+    "warning": "Test/verification artifacts are not automatically admitted policy weights."
+  },
+  {
+    "path": "outputs/runs/multitask5_wam_v3_vtt_20261008/extension_50k/attempt2/cuda_smoke/checkpoint_last.pt",
+    "bytes": 2662729741,
+    "role": "full-state-or-last",
+    "warning": "Test/verification artifacts are not automatically admitted policy weights."
+  },
+  {
+    "path": "outputs/runs/multitask5_wam_v3_vtt_20261008/extension_50k/attempt2/train/checkpoint_step_045000.pt",
+    "bytes": 891948859,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/runs/multitask5_wam_v3_vtt_20261008/extension_50k/attempt2/train/checkpoint_step_015000.pt",
+    "bytes": 891948859,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/runs/multitask5_wam_v3_vtt_20261008/extension_50k/attempt2/train/checkpoint_step_040000.pt",
+    "bytes": 891948859,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/runs/multitask5_wam_v3_vtt_20261008/extension_50k/attempt2/train/checkpoint_step_030000.pt",
+    "bytes": 891948859,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/runs/multitask5_wam_v3_vtt_20261008/extension_50k/attempt2/train/checkpoint_step_020000.pt",
+    "bytes": 891948859,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/runs/multitask5_wam_v3_vtt_20261008/extension_50k/attempt2/train/checkpoint_step_025000.pt",
+    "bytes": 891948859,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/runs/multitask5_wam_v3_vtt_20261008/extension_50k/attempt2/train/checkpoint_last.pt",
+    "bytes": 2662729741,
+    "role": "full-state-or-last",
+    "warning": null
+  },
+  {
+    "path": "outputs/runs/multitask5_wam_v3_vtt_20261008/extension_50k/attempt2/train/checkpoint_step_035000.pt",
+    "bytes": 891948859,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/runs/multitask5_wam_v3_vtt_20261008/extension_50k/attempt2/train/checkpoint_step_010000.pt",
+    "bytes": 891948859,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/runs/multitask5_wam_v3_vtt_20261008/extension_50k/attempt2/train/checkpoint_step_050000.pt",
+    "bytes": 891948859,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/runs/multitask5_wam_v3_vtt_20261008/smoke/checkpoint_step_000002.pt",
+    "bytes": 891486203,
+    "role": "milestone-or-fixture",
+    "warning": "Test/verification artifacts are not automatically admitted policy weights."
+  },
+  {
+    "path": "outputs/runs/multitask5_wam_v3_vtt_20261008/smoke/checkpoint_last.pt",
+    "bytes": 2662266125,
+    "role": "full-state-or-last",
+    "warning": "Test/verification artifacts are not automatically admitted policy weights."
+  },
+  {
+    "path": "outputs/runs/put_bottles_dustbin/wam_30k_20261007/train/checkpoint_step_015000.pt",
+    "bytes": 887917739,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/runs/put_bottles_dustbin/wam_30k_20261007/train/checkpoint_step_030000.pt",
+    "bytes": 887917739,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/runs/put_bottles_dustbin/wam_30k_20261007/train/checkpoint_step_020000.pt",
+    "bytes": 887917739,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/runs/put_bottles_dustbin/wam_30k_20261007/train/checkpoint_step_025000.pt",
+    "bytes": 887917739,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/runs/put_bottles_dustbin/wam_30k_20261007/train/checkpoint_step_005000.pt",
+    "bytes": 887917739,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/runs/put_bottles_dustbin/wam_30k_20261007/train/checkpoint_last.pt",
+    "bytes": 2663449113,
+    "role": "full-state-or-last",
+    "warning": null
+  },
+  {
+    "path": "outputs/runs/put_bottles_dustbin/wam_30k_20261007/train/checkpoint_step_010000.pt",
+    "bytes": 887917739,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_future16_50k_20261013/train/checkpoint_step_080000.pt",
+    "bytes": 917899467,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_future16_50k_20261013/train/checkpoint_step_082500.pt",
+    "bytes": 917899467,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_future16_50k_20261013/train/checkpoint_last.pt",
+    "bytes": 2740081497,
+    "role": "full-state-or-last",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_future16_50k_20261013/train/checkpoint_step_085000.pt",
+    "bytes": 917899467,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_future16_50k_20261013/train/checkpoint_previous.pt",
+    "bytes": 2740081497,
+    "role": "full-state-or-last",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_dagger_weighted50k_20261011_v18/train/checkpoint_step_045000.pt",
+    "bytes": 886325787,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_dagger_weighted50k_20261011_v18/train/checkpoint_last.pt",
+    "bytes": 2645448413,
+    "role": "full-state-or-last",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_dagger_weighted50k_20261011_v18/train/checkpoint_step_050000.pt",
+    "bytes": 886325787,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_30k_20261010_v1/tiny_admission/checkpoint_step_000002.pt",
+    "bytes": 885809051,
+    "role": "milestone-or-fixture",
+    "warning": "Test/verification artifacts are not automatically admitted policy weights."
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_30k_20261010_v1/tiny_admission/checkpoint_step_000000.pt",
+    "bytes": 885809051,
+    "role": "milestone-or-fixture",
+    "warning": "Test/verification artifacts are not automatically admitted policy weights."
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_30k_20261010_v1/tiny_admission/checkpoint_last.pt",
+    "bytes": 2644930717,
+    "role": "full-state-or-last",
+    "warning": "Test/verification artifacts are not automatically admitted policy weights."
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_30k_20261010_v1/train/checkpoint_step_015000.pt",
+    "bytes": 885809051,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_30k_20261010_v1/train/checkpoint_step_030000.pt",
+    "bytes": 885809051,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_30k_20261010_v1/train/checkpoint_step_020000.pt",
+    "bytes": 885809051,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_30k_20261010_v1/train/checkpoint_step_025000.pt",
+    "bytes": 885809051,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_30k_20261010_v1/train/checkpoint_step_005000.pt",
+    "bytes": 885809051,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_30k_20261010_v1/train/checkpoint_step_000000.pt",
+    "bytes": 885809051,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_30k_20261010_v1/train/checkpoint_last.pt",
+    "bytes": 2644931677,
+    "role": "full-state-or-last",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_30k_20261010_v1/train/checkpoint_step_010000.pt",
+    "bytes": 885809051,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_50k_20261012_r2/train/checkpoint_step_080000.pt",
+    "bytes": 917897995,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_50k_20261012_r2/train/checkpoint_step_082250.pt",
+    "bytes": 917897995,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_50k_20261012_r2/train/checkpoint_interrupted_reboot_20261012.pt",
+    "bytes": 2740081049,
+    "role": "full-state-or-last",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_50k_20261012_r2/train/checkpoint_step_082500.pt",
+    "bytes": 917897995,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_50k_20261012_r2/train/checkpoint_last.pt",
+    "bytes": 2740081049,
+    "role": "full-state-or-last",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_50k_20261012_r2/train/checkpoint_step_085000.pt",
+    "bytes": 917897995,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_50k_20261012_r2/train/checkpoint_previous.pt",
+    "bytes": 2740081049,
+    "role": "full-state-or-last",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_50k_20261012/train/checkpoint_step_080000.pt",
+    "bytes": 917897355,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_50k_20261012/train/checkpoint_last.pt",
+    "bytes": 917902269,
+    "role": "full-state-or-last",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_dagger30k_extraDR_20261011_v20/train/checkpoint_step_050590.pt",
+    "bytes": 886364827,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_dagger30k_extraDR_20261011_v20/train/checkpoint_last.pt",
+    "bytes": 2645487453,
+    "role": "full-state-or-last",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_dagger30k_diagnostic_20261011_v22/train/checkpoint_last.pt",
+    "bytes": 2645488925,
+    "role": "full-state-or-last",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_future16_50k_20261013_b23_fast/train/checkpoint_step_087500.pt",
+    "bytes": 917902155,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_future16_50k_20261013_b23_fast/train/checkpoint_step_090000.pt",
+    "bytes": 917902155,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_future16_50k_20261013_b23_fast/train/checkpoint_step_095000.pt",
+    "bytes": 917902155,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_future16_50k_20261013_b23_fast/train/checkpoint_step_110000.pt",
+    "bytes": 917902155,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_future16_50k_20261013_b23_fast/train/checkpoint_step_112500.pt",
+    "bytes": 917902155,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_future16_50k_20261013_b23_fast/train/checkpoint_step_120000.pt",
+    "bytes": 917902155,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_future16_50k_20261013_b23_fast/train/checkpoint_step_105000.pt",
+    "bytes": 917902155,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_future16_50k_20261013_b23_fast/train/checkpoint_step_080000.pt",
+    "bytes": 917899467,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_future16_50k_20261013_b23_fast/train/checkpoint_step_107500.pt",
+    "bytes": 917902155,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_future16_50k_20261013_b23_fast/train/checkpoint_step_117500.pt",
+    "bytes": 917902155,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_future16_50k_20261013_b23_fast/train/checkpoint_step_087047.pt",
+    "bytes": 917902155,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_future16_50k_20261013_b23_fast/train/checkpoint_step_102500.pt",
+    "bytes": 917902155,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_future16_50k_20261013_b23_fast/train/checkpoint_step_125000.pt",
+    "bytes": 917902155,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_future16_50k_20261013_b23_fast/train/checkpoint_last.pt",
+    "bytes": 2740085209,
+    "role": "full-state-or-last",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_future16_50k_20261013_b23_fast/train/checkpoint_step_115000.pt",
+    "bytes": 917902155,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_future16_50k_20261013_b23_fast/train/checkpoint_step_130000.pt",
+    "bytes": 917902155,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_future16_50k_20261013_b23_fast/train/checkpoint_step_100000.pt",
+    "bytes": 917902155,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_future16_50k_20261013_b23_fast/train/checkpoint_step_092500.pt",
+    "bytes": 917902155,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_future16_50k_20261013_b23_fast/train/checkpoint_step_122500.pt",
+    "bytes": 917902155,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_future16_50k_20261013_b23_fast/train/checkpoint_previous.pt",
+    "bytes": 2740085209,
+    "role": "full-state-or-last",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_future16_50k_20261013_b23_fast/train/checkpoint_step_127500.pt",
+    "bytes": 917902155,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_future16_50k_20261013_b23_fast/train/checkpoint_step_097500.pt",
+    "bytes": 917902155,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_dagger30k_diagnostic_20261011_v23/train/checkpoint_step_070000.pt",
+    "bytes": 886367003,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_dagger30k_diagnostic_20261011_v23/train/checkpoint_step_055000.pt",
+    "bytes": 886367003,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_dagger30k_diagnostic_20261011_v23/train/checkpoint_step_060000.pt",
+    "bytes": 886367003,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_dagger30k_diagnostic_20261011_v23/train/checkpoint_step_080000.pt",
+    "bytes": 886367003,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_dagger30k_diagnostic_20261011_v23/train/checkpoint_last.pt",
+    "bytes": 2645489629,
+    "role": "full-state-or-last",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_dagger30k_diagnostic_20261011_v23/train/checkpoint_step_075000.pt",
+    "bytes": 886367003,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_dagger30k_diagnostic_20261011_v23/train/checkpoint_step_065000.pt",
+    "bytes": 886367003,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/verification/precision_v2_overnight_20261009/checkpoint_resume_020000_preserved.pt",
+    "bytes": 2644930717,
+    "role": "milestone-or-fixture",
+    "warning": "Test/verification artifacts are not automatically admitted policy weights."
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/verification/precision_v4_20261012/ray_roundtrip_cpu/checkpoint_step_080000.pt",
+    "bytes": 917912363,
+    "role": "milestone-or-fixture",
+    "warning": "Test/verification artifacts are not automatically admitted policy weights."
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/verification/precision_v4_20261012/ray_roundtrip_cpu/checkpoint_nonzero_ray_fixture.pt",
+    "bytes": 917915243,
+    "role": "milestone-or-fixture",
+    "warning": "Test/verification artifacts are not automatically admitted policy weights."
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/verification/precision_v4_20261012/ray_roundtrip_cpu_final/checkpoint_step_080000.pt",
+    "bytes": 917913003,
+    "role": "milestone-or-fixture",
+    "warning": "Test/verification artifacts are not automatically admitted policy weights."
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/verification/precision_v4_20261012/ray_roundtrip_cpu_final/checkpoint_nonzero_ray_fixture.pt",
+    "bytes": 917915947,
+    "role": "milestone-or-fixture",
+    "warning": "Test/verification artifacts are not automatically admitted policy weights."
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/verification/precision_v4_20261013_future16/RAM_reserve_45000_20261013/checkpoint_125000_fullstate.pt",
+    "bytes": 2740085209,
+    "role": "full-state-or-last",
+    "warning": "Test/verification artifacts are not automatically admitted policy weights."
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/verification/dagger_firstgrasp_diagnostic_20261011_v21/xid8_saved51000_state/checkpoint_step_051000.pt",
+    "bytes": 886365276,
+    "role": "milestone-or-fixture",
+    "warning": "Test/verification artifacts are not automatically admitted policy weights."
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_dagger20k_segmented_20261011_v12/train/checkpoint_step_040000.pt",
+    "bytes": 886322523,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_dagger20k_segmented_20261011_v12/train/checkpoint_step_044055.pt",
+    "bytes": 886322523,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_dagger20k_segmented_20261011_v12/train/checkpoint_last.pt",
+    "bytes": 2645445149,
+    "role": "full-state-or-last",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_dagger20k_segmented_20261011_v12/train/checkpoint_step_035000.pt",
+    "bytes": 886322523,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_future16_50k_20261013_b23/train/checkpoint_step_085076.pt",
+    "bytes": 917900875,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_future16_50k_20261013_b23/train/checkpoint_step_080000.pt",
+    "bytes": 917899467,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_future16_50k_20261013_b23/train/checkpoint_last.pt",
+    "bytes": 2740083993,
+    "role": "full-state-or-last",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_future16_50k_20261013_b23/train/checkpoint_step_085000.pt",
+    "bytes": 917900875,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_future16_50k_20261013_b23/train/checkpoint_previous.pt",
+    "bytes": 2740079111,
+    "role": "full-state-or-last",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_dagger_weighted50k_20261011_v16/train/checkpoint_last.pt",
+    "bytes": 2645446941,
+    "role": "full-state-or-last",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v2_task2_dagger_weighted50k_20261011_v16/train/checkpoint_step_044915.pt",
+    "bytes": 886324315,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_future16_50k_20261013_b23_prefetch/train/checkpoint_step_080000.pt",
+    "bytes": 917899467,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_future16_50k_20261013_b23_prefetch/train/checkpoint_step_085344.pt",
+    "bytes": 917901515,
+    "role": "milestone-or-fixture",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_future16_50k_20261013_b23_prefetch/train/checkpoint_last.pt",
+    "bytes": 2740084633,
+    "role": "full-state-or-last",
+    "warning": null
+  },
+  {
+    "path": "outputs/zhuhai2026_tasks12/wam_precision_v4_task2_future16_50k_20261013_b23_prefetch/train/checkpoint_previous.pt",
+    "bytes": 2740075527,
+    "role": "full-state-or-last",
+    "warning": null
+  },
+  {
+    "path": "outputs/training/task090_v3_50k_20260930_s050000/checkpoint_step_050000.pt",
+    "bytes": 888241835,
+    "role": "milestone-or-fixture",
+    "warning": null
+  }
+]
