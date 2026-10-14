@@ -1,6 +1,6 @@
 # Predict-WAM-V4
 
-**完整研发轨迹：** [WAM 版本演进、任务转换、数据与结果索引](history/EVOLUTION.md)。历史大文件以分包 Release 发布；当前进度见 [发布状态](history/publication-status.json)。
+**代码导航：** [按版本分类的核心代码与历史快照](versions/README.md) · [版本演进、任务转换与结果](history/EVOLUTION.md)。当前仅发布代码、环境依赖和小型结果；权重与大文件上传已取消，本地原件保留。
 
 固定双臂操作任务的 Precision WAM V4 研究代码。当前发布版本是 **Future +16/+32、Chunk-VTT16、exec8**，于 2026-10-14 从工作区整理；包含模型、数据处理、训练、推理、仿真评测、诊断及历史版本兼容源码。
 

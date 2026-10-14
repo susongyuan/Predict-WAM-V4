@@ -1,0 +1,378 @@
+--- /home/user/Robotic/project2/outputs/validation/task0_contract_safety_20260929_night/source_before/harness/task0_predicates.py
++++ /home/user/Robotic/project2/harness/task0_predicates.py
+@@ -11,8 +11,8 @@
+ `press` is special. OmniGibson ToggledOn flips when a finger overlaps the radio's toggle-button marker for 5
+ consecutive steps and changes no texture by default, so no onboard sensor here observes "radio on". The press
+ predicate therefore returns a CONTACT CANDIDATE (verifier_kind "contact_candidate", outcome_observable False): the
+-program may move on, but the orchestrator records it as unverified (no memory promotion, no reliability update), and
+-the candidate is not re-pressed because a second press would toggle the radio off. Only the evaluator decides success.
++program must HOLD for independent verification or safe recovery; only explicit legacy orchestration may advance
++unverified. The candidate is not re-pressed because a second press could undo its effect. Only the evaluator decides success.
+ Every press evidence record also carries `retry_safe`: True only while the left hand has stayed farther than
+ CONTACT_POSSIBLE_DIST from the right (radio-holding) hand during the whole attempt, i.e. the fist cannot have touched
+ the held radio (radio 0.32 m wide, handle held at its centre). The orchestrator retries a failed press only when
+@@ -51,11 +51,12 @@
+         self.holding_guard = bool(holding_guard)
+         self.hold_streak, self.empty_streak = int(hold_streak), int(empty_streak)
+         self.settle, self.press_streak = int(settle_after_release), int(press_streak)
+-        self.key = None
+-        self.grasp_z = None          # right eef z at the verified pick (kept across contracts within an episode)
++        self.reset_episode()
+ 
+     def reset_episode(self):
+         self.key, self.grasp_z = None, None
++        self._pre_z, self._release_ok = None, False
++        self.released_at = None
+ 
+     def start(self, key, skill, objects, state, step, *, episode=None):
+         self.key, self.skill, self.started = key, skill, int(step)
+@@ -68,6 +69,10 @@
+             self.min_lr = d if np.isfinite(d) else 0.0   # unknown geometry is never retry-safe
+         self.z_hold0 = None
+         self.released_at = None
++        # The first update may already show release. Its preceding height belongs to THIS contract,
++        # never to a previous place attempt or episode. grasp_z alone persists until episode reset.
++        self._pre_z = float(np.asarray(state, float)[EEF["right"]][2])
++        self._release_ok = False
+         self.detail = {}
+         fs = finger_sum(state, "right")
+         self.was_holding = HOLD_RANGE[0] <= fs <= HOLD_RANGE[1]
+@@ -162,7 +167,7 @@
+             if self.released_at is None:
+                 if fr >= OPEN_MIN:
+                     self.released_at = int(step)
+-                    z = getattr(self, "_pre_z", zr)
++                    z = self._pre_z
+                     ok = (RELEASE_DZ[0] <= z - self.grasp_z <= RELEASE_DZ[1]) if self.grasp_z is not None else \
+                         (RELEASE_Z_ABS[0] <= z <= RELEASE_Z_ABS[1])
+                     self.detail.update(release_z=round(z, 3), grasp_z=None if self.grasp_z is None else round(self.grasp_z, 3),
+--- /home/user/Robotic/project2/outputs/validation/task0_contract_safety_20260929_night/source_before/harness/orchestrator.py
++++ /home/user/Robotic/project2/harness/orchestrator.py
+@@ -197,7 +197,7 @@
+     closure_candidate_emitted: bool = False
+     # Irreversible, onboard-unobservable contact skills (Task 0 press): set from candidate evidence of this attempt.
+     candidate_kind: bool = False       # at least one candidate-kind evidence record was seen for this attempt
+-    retry_safe: bool | None = None     # latest evidence: True only if this attempt cannot have had its effect
++    retry_safe: bool | None = None     # possible contact is sticky; later evidence cannot erase it
+ 
+     @property
+     def key(self):
+@@ -228,7 +228,7 @@
+                  require_manipulation_postcondition=True, navigation_completion="precondition",
+                  manipulation_completion="vtt_and_postcondition", rollback_on_release_failure=False, max_rollbacks=2,
+                  min_budget_steps=None, candidate_advance_kinds=(), irreversible_skills=(),
+-                 reapproach_fallback_in_place=False):
++                 reapproach_fallback_in_place=False, candidate_outcome_policy="hold"):
+         """closure_monitor: harness.vtt_monitor.VTTClosureMonitor-like (start(skill_id, cls), update(cls, cfg)->verdict...)
+         precondition_monitor: object with arrived(cls, key)->(verdict, cos, margin) or None (navigation on budget only)
+         budgets: "skill(objects)" -> median demo frames; responder(choices)->index|None.
+@@ -239,9 +239,11 @@
+         (a verified, calibrated postcondition alone decides; a verified negative outcome `failed=True` ends the attempt).
+         rollback_on_release_failure: a verified `place in` failure whose object is no longer held (released outside the
+         container / not in hand) rewinds to that object's pick-up, so recovery re-approaches and re-grasps it.
+-        candidate_advance_kinds (default none; Task 0: ("contact_candidate",)): postcondition evidence of these verifier
+-        kinds, with verified=False and outcome_observable=False, may ADVANCE the program when satisfied, but is recorded
+-        as unverified (no reliability update, no memory promotion) and is never task success.
++        candidate_advance_kinds (historical name, default none): accepted unobservable candidate kinds.
++        candidate_outcome_policy="hold" (default) stops at a satisfied candidate without completing the contract;
++        independent verification/safe recovery requires a separately admitted path, not another action or blind retry.
++        Explicit "legacy_advance" preserves historical unverified advancement for reproduction only; its event
++        success is None, never True, and it cannot update reliability or memory.
+         irreversible_skills (default none; Task 0: ("press",)): skills whose effect cannot be observed onboard and
+         would be undone by a repetition (a second press toggles the radio off). Such a contract (or any contract that
+         produced candidate-kind evidence) is never started twice in an episode once it advanced, and after a failed
+@@ -268,6 +270,9 @@
+         self.rollback_on_release_failure, self.max_rollbacks = bool(rollback_on_release_failure), int(max_rollbacks)
+         # skill -> minimum contract budget (steps); e.g. a docking search needs a full in-place scan
+         self.min_budget_steps = {str(k): int(v) for k, v in (min_budget_steps or {}).items()}
++        if candidate_outcome_policy not in ("hold", "legacy_advance"):
++            raise ValueError("candidate_outcome_policy must be hold or legacy_advance")
++        self.candidate_outcome_policy = candidate_outcome_policy
+         self.candidate_advance_kinds = tuple(str(k) for k in (candidate_advance_kinds or ()))
+         self.irreversible_skills = tuple(str(k) for k in (irreversible_skills or ()))
+         self.reapproach_fallback_in_place = bool(reapproach_fallback_in_place)
+@@ -427,6 +432,26 @@
+             new_chunk = True
+         c = self.contract
+         elapsed = step_now - c.started_step
++
++        # Contact occurrence and task completion are different facts. This gate precedes BOTH
++        # manipulation completion modes, so a VTT closure cannot bypass an uncertain irreversible effect.
++        candidate = None if c.is_navigation else self._candidate_evidence(
++            postcondition, key=c.key, observation_id=step_now)
++        if candidate is not None:
++            c.candidate_kind = True
++            c.retry_safe = c.retry_safe is not False and candidate.get("retry_safe") is True
++            if candidate["satisfied"] and self.candidate_outcome_policy == "hold":
++                reason = "candidate_requires_independent_verification"
++                self._irreversible_attempted[c.key] = reason
++                self._finish(c, cls_now, step_now, None, {
++                    "predicate": reason, "verified": False, "outcome_observable": False,
++                    "candidate_occurred": True, "postcondition": dict(candidate)})
++                self.pending_hold_reason, self.status = reason, "held"
++                self.contract = None
++                self._manip_retry_state.pop(self._manip_retry_key(c.step), None)
++                self._emit(event="hold", index=self.index, key=c.key, reason=reason, step=step_now,
++                           candidate_occurred=True, verified=False, success=None)
++                return Directive("HOLD", reason=reason)
+ 
+         # 3) completion predicate
+         verdict, info = self._completion(c, cls_now, elapsed, base_velocity=base_velocity, dock_score=dock_score,
+@@ -558,7 +583,7 @@
+     def _candidate_evidence(self, postcondition, *, key, observation_id):
+         """Candidate evidence of an unobservable outcome (e.g. press contact): accepted only for configured kinds, only
+         when it does not claim verification and states outcome_observable=False; same identity checks as verified
+-        evidence. It may advance the program; it never counts as verified."""
++        evidence. It stops execution by default; explicit legacy mode may advance but never counts as verified."""
+         if not self.candidate_advance_kinds or not isinstance(postcondition, dict):
+             return None
+         if (postcondition.get("verifier_kind") not in self.candidate_advance_kinds
+@@ -603,8 +628,8 @@
+                 c.candidate_kind = True
+             accepted = evidence if evidence is not None else candidate
+             if accepted is not None and (candidate is not None or c.step.skill in self.irreversible_skills):
+-                # latest accepted record of an irreversible attempt decides whether a retry is allowed at all
+-                c.retry_safe = accepted.get("retry_safe") is True
++                # Once evidence permits possible contact, later records cannot make a blind retry safe.
++                c.retry_safe = c.retry_safe is not False and accepted.get("retry_safe") is True
+             info = {"predicate": "calibrated_postcondition", "progress": progress, "alignment": alignment,
+                     "verified": evidence is not None and evidence["satisfied"]}
+             if isinstance(postcondition, dict):
+@@ -620,9 +645,10 @@
+             if evidence is not None and evidence["satisfied"] is True:
+                 return True, info
+             if candidate is not None and candidate["satisfied"] is True:
+-                # Advance on an unobservable-outcome candidate: explicitly unverified, never success evidence.
+-                info.update(predicate="unverified_outcome_candidate", verified=False, outcome_observable=False)
+-                return True, info
++                # Only the explicitly selected legacy path can reach unverified advancement.
++                info.update(predicate="unverified_outcome_candidate", verified=False, outcome_observable=False,
++                            candidate_occurred=True)
++                return (True if self.candidate_outcome_policy == "legacy_advance" else "candidate_hold"), info
+             if evidence is not None and postcondition.get("failed") is True:
+                 info.update(verified=True, predicate="calibrated_postcondition_failed")
+                 return False, info
+@@ -693,7 +719,12 @@
+             return False, info
+         return None, info
+ 
+-    def _finish(self, c: Contract, cls_now, step_now, success: bool, info: dict):
++    def _finish(self, c: Contract, cls_now, step_now, success: bool | None, info: dict):
++        # Legacy advancement is a control-flow decision, not a successful manipulation outcome.
++        advanced_unverified = success is True and info.get("candidate_occurred") is True and not info.get("verified")
++        if advanced_unverified:
++            info = {**info, "legacy_program_advanced": True}
++            success = None
+         vtt = np.asarray(cls_now, np.float32) - np.asarray(self.closure.state.start_cls, np.float32)
+         if info.get("verified") is True:
+             self.bank.update(c.arm_key, c.arm.arm_id, success)
+@@ -1032,14 +1063,14 @@
+         return {"satisfied": satisfied, "failed": False, "verified": False, "verifier_kind": "contact_candidate",
+                 "outcome_observable": False, "retry_safe": retry_safe, "source": "synthetic://contact",
+                 "observation_id": t, "key": "open lid(car)", **extra}
+-    adv = irreversible()
++    adv = irreversible(candidate_outcome_policy="legacy_advance")
+     for t in range(60):
+         d = adv.tick(np.zeros(1024, np.float32), t, base_velocity=np.zeros(3, np.float32),
+                      postcondition=cand(t, satisfied=t >= 10))
+         if d.mode == "DONE":
+             break
+     ends = [e for e in adv.events if e["event"] == "contract_end" and e["key"] == "open lid(car)"]
+-    assert d.mode == "DONE" and len(ends) == 1 and ends[0]["success"] and ends[0]["verified"] is False, ends
++    assert d.mode == "DONE" and len(ends) == 1 and ends[0]["success"] is None and ends[0]["verified"] is False, ends
+     assert ends[0]["predicate"] == "unverified_outcome_candidate" and ends[0]["outcome_observable"] is False
+     assert sum(e["event"] == "contract_start" and e["key"] == "open lid(car)" for e in adv.events) == 1
+     assert not any(a.successes or a.failures or a.support_count for arms in adv.bank.arms.values() for a in arms)
+--- /home/user/Robotic/project2/outputs/validation/task0_contract_safety_20260929_night/source_before/harness/policy_server.py
++++ /home/user/Robotic/project2/harness/policy_server.py
+@@ -473,6 +473,7 @@
+                                      rollback_on_release_failure=bool(orchestrate.get("rollback_on_release_failure", False)),
+                                      replanner=self._skip_failed_object if orchestrate.get("skip_failed_objects") else None,
+                                      min_budget_steps=orchestrate.get("min_budget_steps"),
++                                     candidate_outcome_policy=orchestrate.get("candidate_outcome_policy", "hold"),
+                                      **({"candidate_advance_kinds": ("contact_candidate",), "irreversible_skills": ("press",),
+                                          "reapproach_fallback_in_place": True}
+                                         if self.postcondition_mode == "task0_physical" else {}))
+@@ -675,6 +676,8 @@
+                 "program": None if self.program is None else [(self.monitor.names[c], o, b) for c, o, b in self.program],
+                 "memory_contracts": sorted(self.bank.arms) if self.orch is not None else [],
+                 "orchestrator": None if self.orch is None else {k: v for k, v in self.orch_cfg.items() if k != "visible_objects"},
++                "contract_safety_version": "candidate_hold_release_scope_v1",
++                "candidate_outcome_policy": None if self.orch is None else self.orch.candidate_outcome_policy,
+                 "holding_guard_version": "post30k_holdguard_v1" if getattr(self, "holding_guard", None) is not None else None,
+                 "models": [m.describe() for m in (self.model, self.manip) if m is not None],
+                 "v3_history_rule": "V3Context per control frame; reset on contract/retry/HOLD/resume/model change",
+@@ -1712,6 +1715,30 @@
+         results["proprio_history"] = {"lags": LAGS, "legacy_bit_identical_chunks": len(chunks),
+                                       "orchestrated_chunks": [f"{r['model']}@step{r['step']}:padded_lags={r['proprio_padded_lags']}"
+                                                               for r in ch]}
++        # Candidate HOLD reaches the real policy action boundary BEFORE any queued WAM action.
++        # Stub evidence tests plumbing only; it is not an admitted real-world verifier.
++        p = make(dict(orch))
++        p.act(obs)  # complete initial grounding before selecting the synthetic manipulation fixture
++        p.orch.index, p.orch.contract = 1, None
++        p.orch.candidate_advance_kinds = ("contact_candidate",)
++        p.orch.manipulation_completion = "postcondition"
++        p.act(obs)
++        assert p.queue and p.orch.contract is not None
++        candidate_key = p.orch.contract.key
++        p.post_task1 = types.SimpleNamespace(update=lambda state, action, step: {
++            "key": candidate_key, "observation_id": step, "satisfied": True, "failed": False,
++            "verified": False, "verifier_kind": "contact_candidate", "outcome_observable": False,
++            "source": "synthetic://queue-boundary", "retry_safe": False})
++        inference_count = len(p.wrapper.action_model.seen)
++        for _ in range(3):
++            p.act(obs)
++            assert p.queue == [] and p.orch.status == "held" and p.orch.index == 1
++            assert len(p.wrapper.action_model.seen) == inference_count
++        candidate_trace = [json.loads(line) for line in open(p.trace.name)]
++        candidate_ends = [r for r in candidate_trace if r["event"] == "orch_contract_end"]
++        assert len(candidate_ends) == 1 and candidate_ends[0]["success"] is None
++        assert p.metadata()["candidate_outcome_policy"] == "hold"
++        results["candidate_hold"] = "queued actions cleared; no new inference, advancement or success; repeated HOLD"
+     return results
+ 
+ 
+--- /home/user/Robotic/project2/outputs/validation/task0_contract_safety_20260929_night/source_before/scripts/test_task0_contract_safety.py
++++ /home/user/Robotic/project2/scripts/test_task0_contract_safety.py
+@@ -0,0 +1,140 @@
++#!/usr/bin/env python3
++"""CPU synthetic contract regressions; not physical outcome verification."""
++import os
++os.environ['CUDA_VISIBLE_DEVICES'] = ''
++os.environ['HF_HUB_OFFLINE'] = '1'
++os.environ['TRANSFORMERS_OFFLINE'] = '1'
++import unittest
++import numpy as np
++from harness.task0_predicates import Task0Postconditions
++from harness.orchestrator import (Catalog, ConditionBank, Orchestrator, CandidateProgram,
++                                  Step, Contract, _FakeClosure, _FakePrecond)
++
++
++class ReleaseIsolation(unittest.TestCase):
++    def run_release(self, *, reset, guard=False, first=False, height=1.2):
++        p = Task0Postconditions(holding_guard=guard)
++        s = np.zeros(61); s[49:51] = .019; s[44] = .65
++        a = np.zeros(23)
++        if not first:
++            p.start('place', 'place on', ('radio', 'table'), s, 0)
++            p.update(s, a, 1)
++            p._release_ok = True
++        if reset:
++            p.reset_episode()
++            self.assertIsNone(p._pre_z)
++            self.assertFalse(p._release_ok)
++            self.assertIsNone(p.update(s, a, 2))
++        s[44] = height
++        p.start('place', 'place on', ('radio', 'table'), s, 0)
++        self.assertFalse(p._release_ok)
++        s[49:51] = .05
++        p.update(s, a, 1)
++        ev = p.update(s, a, 11)
++        self.assertAlmostEqual(ev['detail']['release_z'], height)
++        return ev
++
++    def test_old_episode_height_cannot_certify_high_release(self):
++        for guard in (False, True):
++            with self.subTest(guard=guard):
++                ev = self.run_release(reset=True, guard=guard)
++                self.assertTrue(ev['failed']); self.assertFalse(ev['satisfied'])
++
++    def test_old_contract_height_cannot_certify_high_release(self):
++        self.assertTrue(self.run_release(reset=False)['failed'])
++
++    def test_first_contract_initializes_pre_release_height(self):
++        self.assertTrue(self.run_release(reset=False, first=True)['failed'])
++
++    def test_current_surface_height_still_passes_proxy(self):
++        self.assertTrue(self.run_release(reset=True, height=.66)['satisfied'])
++
++    def test_grasp_height_persists_only_within_episode(self):
++        p = Task0Postconditions(); s = np.zeros(61)
++        p.grasp_z = .64
++        p.start('new', 'place on', ('radio', 'table'), s, 10)
++        self.assertEqual(p.grasp_z, .64)
++        p.reset_episode(); self.assertIsNone(p.grasp_z)
++
++
++class CandidateSafety(unittest.TestCase):
++    def make(self, **kw):
++        cat = Catalog()
++        protos = {name: np.full(1024, .1, np.float32) for name in cat.patterns}
++        opts = dict(catalog=cat, bank=ConditionBank(protos), closure_monitor=_FakeClosure(2),
++                    precondition_monitor=_FakePrecond(1), budgets={'move to(car)':100, 'open lid(car)':20},
++                    max_attempts=2, budget_factor=1, navigation_settle_steps=1,
++                    manipulation_completion='postcondition', candidate_advance_kinds=('contact_candidate',))
++        opts.update(kw)
++        o = Orchestrator(**opts)
++        o.reset([CandidateProgram('lid', [Step('move to', ('car',)), Step('open lid', ('car',))])])
++        return o
++
++    def candidate(self, t, **kw):
++        return dict(satisfied=True, failed=False, verified=False, verifier_kind='contact_candidate',
++                    outcome_observable=False, retry_safe=False, source='synthetic://candidate',
++                    key='open lid(car)', observation_id=t, **kw)
++
++    def drive(self, o, evidence=None):
++        for t in range(80):
++            d = o.tick(np.zeros(1024), t, base_velocity=np.zeros(3),
++                       postcondition=self.candidate(t) if evidence is None else evidence(t))
++            if o.status in ('held', 'done'):
++                return d, t
++        return d, t
++
++    def test_default_candidate_holds_in_both_completion_modes(self):
++        for mode in ('postcondition', 'vtt_and_postcondition'):
++            with self.subTest(mode=mode):
++                o = self.make(manipulation_completion=mode)
++                d, t = self.drive(o)
++                self.assertEqual(d.mode, 'HOLD')
++                self.assertEqual(o.index, 1); self.assertEqual(len(o.completed_steps), 1)
++                self.assertEqual(o.pending_hold_reason, 'candidate_requires_independent_verification')
++                ends = [e for e in o.events if e['event']=='contract_end' and e['key']=='open lid(car)']
++                self.assertEqual(len(ends), 1)
++                self.assertIsNone(ends[0]['success']); self.assertFalse(ends[0]['verified'])
++                self.assertFalse(any(a.successes or a.failures or a.support_count for arms in o.bank.arms.values() for a in arms))
++                for later in range(t+1, t+10):
++                    self.assertEqual(o.tick(np.zeros(1024), later, postcondition=self.candidate(later)).mode, 'HOLD')
++                again = Contract(Step('open lid', ('car',)), 1, None, 20, arm_key='open lid(car)')
++                self.assertFalse(o._start_contract(again, np.zeros(1024), t+20))
++
++    def test_legacy_requires_explicit_opt_in_and_never_reports_success(self):
++        o = self.make(candidate_outcome_policy='legacy_advance')
++        d, _ = self.drive(o)
++        self.assertEqual(d.mode, 'DONE')
++        end = [e for e in o.events if e['event']=='contract_end' and e['key']=='open lid(car)'][0]
++        self.assertIsNone(end['success']); self.assertTrue(end['legacy_program_advanced'])
++
++    def test_invalid_configuration_rejected(self):
++        with self.assertRaises(ValueError): self.make(candidate_outcome_policy='advance')
++
++    def test_stale_wrong_key_or_self_verified_candidate_cannot_pass(self):
++        o = self.make()
++        for patch in ({'observation_id':9}, {'key':'other'}, {'verified':True}, {'outcome_observable':True}):
++            ev = {**self.candidate(10), **patch}
++            self.assertIsNone(o._candidate_evidence(ev, key='open lid(car)', observation_id=10))
++
++    def test_possible_contact_cannot_be_erased_by_later_retry_safe_record(self):
++        o = self.make()
++        seen = []
++        def ev(t):
++            if o.contract is not None and not o.contract.is_navigation: seen.append(t)
++            return {**self.candidate(t), 'satisfied':False, 'retry_safe':len(seen)>1}
++        d, _ = self.drive(o, ev)
++        self.assertEqual(d.mode, 'HOLD')
++        self.assertEqual(o.pending_hold_reason, 'irreversible_outcome_unknown')
++        self.assertEqual(sum(e['event']=='contract_start' and e['key']=='open lid(car)' for e in o.events), 1)
++
++    def test_independent_synthetic_evidence_still_completes(self):
++        o = self.make()
++        d, _ = self.drive(o, lambda t: dict(satisfied=True, failed=False, verified=True,
++            verifier_kind='controller_postconditions', source='synthetic://independent-test-only',
++            observation_id=t, key='open lid(car)'))
++        self.assertEqual(d.mode, 'DONE')
++        self.assertTrue(o.realized[-1]['success'])
++
++
++if __name__ == '__main__':
++    unittest.main()

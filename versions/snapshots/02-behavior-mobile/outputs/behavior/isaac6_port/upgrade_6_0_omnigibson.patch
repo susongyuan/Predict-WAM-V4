@@ -1,0 +1,570 @@
+diff --git a/OmniGibson/omnigibson/envs/lerobot_data_wrapper.py b/OmniGibson/omnigibson/envs/lerobot_data_wrapper.py
+index 635d9dc..c5747d9 100644
+--- a/OmniGibson/omnigibson/envs/lerobot_data_wrapper.py
++++ b/OmniGibson/omnigibson/envs/lerobot_data_wrapper.py
+@@ -2,7 +2,7 @@ import logging
+ import os
+ import shutil
+ import torch as th
+-from lerobot.configs import DepthEncoderConfig, VideoEncoderConfig
++from lerobot.configs import DepthEncoderConfig, RGBEncoderConfig
+ from lerobot.datasets import LeRobotDataset
+ from lerobot.utils.constants import HF_LEROBOT_HOME
+ 
+@@ -80,7 +80,7 @@ class LeRobotDataWrapper(DataWrapper):
+             "robot_type": env.robots[0].__class__.__name__.lower() if robot_type is None else robot_type,
+             "use_videos": True,
+             "streaming_encoding": True,
+-            "camera_encoder": VideoEncoderConfig(
++            "rgb_encoder": RGBEncoderConfig(
+                 vcodec="hevc",
+                 pix_fmt="yuv420p",
+                 g=8,
+@@ -96,7 +96,6 @@ class LeRobotDataWrapper(DataWrapper):
+                 depth_max=MAX_DEPTH,
+                 shift=DEPTH_SHIFT,
+                 use_log=True,
+-                output_unit="m",
+                 extra_options={"x265-params": "log-level=0:bframes=0"},
+             ),
+         }
+@@ -283,7 +282,7 @@ class LeRobotDataWrapper(DataWrapper):
+ 
+         obs_mapping, obs_features = self.get_lerobot_obs_mapping(
+             env=env,
+-            depth_output_unit=self.lerobot_dataset_kwargs["depth_encoder"].output_unit,
++            depth_output_unit="m",
+         )
+         self.obs_mapping = obs_mapping
+         features.update(obs_features)
+diff --git a/OmniGibson/omnigibson/omnigibson_5_1_0.kit b/OmniGibson/omnigibson/omnigibson_6_0_0.kit
+similarity index 97%
+rename from OmniGibson/omnigibson/omnigibson_5_1_0.kit
+rename to OmniGibson/omnigibson/omnigibson_6_0_0.kit
+index da79519..7a47838 100644
+--- a/OmniGibson/omnigibson/omnigibson_5_1_0.kit
++++ b/OmniGibson/omnigibson/omnigibson_6_0_0.kit
+@@ -43,7 +43,7 @@ outDirectory = "${data}"
+ 
+ [settings.exts."omni.kit.registry.nucleus"]
+ registries = [
+-	{ name = "kit/default", url = "https://ovextensionsprod.blob.core.windows.net/exts/kit/prod/107/shared" },
++	{ name = "kit/default", url = "https://ovextensionsprod.blob.core.windows.net/exts/kit/prod/110/shared" },
+ 	{ name = "kit/sdk", url = "https://ovextensionsprod.blob.core.windows.net/exts/kit/prod/sdk/${kit_version_short}/${kit_git_hash}" },
+ 	{ name = "kit/community", url = "https://dw290v42wisod.cloudfront.net/exts/kit/community" },
+ ]
+diff --git a/OmniGibson/omnigibson/omnigibson_5_1_0_vr.kit b/OmniGibson/omnigibson/omnigibson_6_0_0_vr.kit
+similarity index 97%
+rename from OmniGibson/omnigibson/omnigibson_5_1_0_vr.kit
+rename to OmniGibson/omnigibson/omnigibson_6_0_0_vr.kit
+index 8c7ba70..7959281 100644
+--- a/OmniGibson/omnigibson/omnigibson_5_1_0_vr.kit
++++ b/OmniGibson/omnigibson/omnigibson_6_0_0_vr.kit
+@@ -43,7 +43,7 @@ outDirectory = "${data}"
+ 
+ [settings.exts."omni.kit.registry.nucleus"]
+ registries = [
+-	{ name = "kit/default", url = "https://ovextensionsprod.blob.core.windows.net/exts/kit/prod/107/shared" },
++	{ name = "kit/default", url = "https://ovextensionsprod.blob.core.windows.net/exts/kit/prod/110/shared" },
+ 	{ name = "kit/sdk", url = "https://ovextensionsprod.blob.core.windows.net/exts/kit/prod/sdk/${kit_version_short}/${kit_git_hash}" },
+ 	{ name = "kit/community", url = "https://dw290v42wisod.cloudfront.net/exts/kit/community" },
+ ]
+diff --git a/OmniGibson/omnigibson/prims/material_prim.py b/OmniGibson/omnigibson/prims/material_prim.py
+index 50e08c4..d429dc5 100644
+--- a/OmniGibson/omnigibson/prims/material_prim.py
++++ b/OmniGibson/omnigibson/prims/material_prim.py
+@@ -272,7 +272,7 @@ class MaterialPrim(BasePrim):
+         if non_default_inp is not None:
+             return non_default_inp
+ 
+-        return self._shader_node.GetInput(inp).GetDefaultValue()
++        return self._shader_node.GetShaderInput(inp).GetDefaultValue()
+ 
+     def set_input(self, inp, val):
+         """
+@@ -314,7 +314,7 @@ class MaterialPrim(BasePrim):
+         Returns:
+             set: All the shader input names associated with this material that have default values
+         """
+-        return set(self._shader_node.GetInputNames())
++        return set(self._shader_node.GetShaderInputNames())
+ 
+     def get_shader_input_names_by_type(self, input_type, include_default=False):
+         """
+@@ -332,7 +332,7 @@ class MaterialPrim(BasePrim):
+         shader_default_input_names = {
+             inp_name
+             for inp_name in self.shader_default_input_names
+-            if self._shader_node.GetInput(inp_name).GetType() == input_type
++            if self._shader_node.GetShaderInput(inp_name).GetType() == input_type
+         }
+         return shader_input_names | shader_default_input_names
+ 
+diff --git a/OmniGibson/omnigibson/sensors/vision_sensor.py b/OmniGibson/omnigibson/sensors/vision_sensor.py
+index 00d30a8..b7d1b62 100644
+--- a/OmniGibson/omnigibson/sensors/vision_sensor.py
++++ b/OmniGibson/omnigibson/sensors/vision_sensor.py
+@@ -106,6 +106,13 @@ class VisionSensor(BaseSensor):
+     INSTANCE_REGISTRY = {0: "background", 1: "unlabelled"}
+     INSTANCE_ID_REGISTRY = {0: "background"}
+ 
++    # Counter bumped whenever a semantic label is authored at runtime. On Isaac Sim 6.0, semantic
++    # labels added after a render product's annotators are attached never get registered into the existing
++    # render products' instance mappings (idToLabels), so then the results are unlabeled. Each
++    # sensor tracks the version it last synced to and refreshes its render product when it falls behind.
++    # See _refresh_semantic_instance_mapping for the workaround.
++    _SEMANTIC_LABELS_VERSION = 0
++
+     def __init__(
+         self,
+         relative_prim_path,
+@@ -140,6 +147,7 @@ class VisionSensor(BaseSensor):
+         self._render_product = None
+         self._image_height = image_height  # used when viewport is not created
+         self._image_width = image_width  # used when viewport is not created
++        self._semantic_labels_version = 0  # Version of the semantic labels this sensor's annotators last synced to
+ 
+         self._RAW_SENSOR_TYPES = dict(
+             rgb="rgb",
+@@ -278,6 +286,10 @@ class VisionSensor(BaseSensor):
+         for _ in range(4):
+             og.sim.render()
+ 
++        # Annotators attached above build their instance mapping from scratch, so they are synced to all
++        # semantic labels authored up to this point
++        self._semantic_labels_version = VisionSensor._SEMANTIC_LABELS_VERSION
++
+     def initialize_sensors(self, names):
+         """Initializes a raw sensor in the simulation.
+ 
+@@ -296,6 +308,13 @@ class VisionSensor(BaseSensor):
+         # Run super first to grab any upstream obs
+         obs, info = super()._get_obs()
+ 
++        # If semantic labels were authored after our annotators were attached, the annotators' idToLabels
++        # mappings are stale and the newly-labeled prims would come back UNLABELLED, so refresh first
++        if self._semantic_labels_version != VisionSensor._SEMANTIC_LABELS_VERSION and any(
++            self._is_semantic_modality(m) for m in self._modalities
++        ):
++            self._refresh_semantic_instance_mapping()
++
+         # Reorder modalities to ensure that seg_semantic is always ran before seg_instance or seg_instance_id
+         if "seg_semantic" in self._modalities:
+             reordered_modalities = ["seg_semantic"] + [
+@@ -305,9 +324,8 @@ class VisionSensor(BaseSensor):
+             reordered_modalities = self._modalities
+ 
+         for modality in reordered_modalities:
+-            raw_obs = self._annotators[modality].get_data(device=og.sim.device)
+-
+             if modality == "pointcloud":
++                raw_obs = self._annotators[modality].get_data(device=og.sim.device)
+                 # Pointcloud is a special case where we need to concatenate the point xyz coordinates with the rgb values
+                 # Note: rgb values are in the range of [0, 255], xyz is in world frame
+                 concatenated = np.concatenate([raw_obs["pointRgb"][:, :3], raw_obs["data"]], axis=1)
+@@ -318,21 +336,152 @@ class VisionSensor(BaseSensor):
+                     obs[modality] = np.pad(concatenated, pad_width, mode="constant", constant_values=0)
+                 else:
+                     obs[modality] = concatenated
+-            else:
+-                # Obs is either a dictionary of {"data":, ..., "info": ...} or a direct array
+-                obs[modality] = raw_obs["data"] if isinstance(raw_obs, dict) else raw_obs
+ 
+-            if og.sim.device == "cpu":
+-                obs[modality] = self._preprocess_cpu_obs(obs[modality], modality)
+-            elif "cuda" in og.sim.device:
+-                obs[modality] = self._preprocess_gpu_obs(obs[modality], modality)
++                obs[modality] = self._preprocess_obs_for_device(obs[modality], modality)
+             else:
+-                raise ValueError(f"Unsupported device {og.sim.device}")
++                raw_obs, obs[modality] = self._fetch_and_preprocess_modality(modality)
+ 
+-            if "seg_" in modality or "bbox_" in modality:
++            if self._is_semantic_modality(modality):
+                 self._remap_modality(modality, obs, info, raw_obs)
+         return obs, info
+ 
++    def _fetch_and_preprocess_modality(self, modality):
++        """
++        Fetches raw annotator data for @modality (any modality except "pointcloud", which has its own fetch path)
++        and applies the device-specific preprocessing. Used both for the initial fetch and for the empty-buffer
++        retry in _get_obs.
++
++        Args:
++            modality (str): Name of the modality to fetch
++
++        Returns:
++            2-tuple:
++                - dict or array: Raw annotator output, as returned by the annotator's get_data()
++                - th.Tensor or array: Device-preprocessed observation for this modality
++        """
++        raw_obs = self._annotators[modality].get_data(device=og.sim.device)
++        obs_value = raw_obs["data"] if isinstance(raw_obs, dict) else raw_obs
++
++        # Right after the render product is destroyed and recreated (see _recreate_render_product), Replicator's
++        # backing AOVs / instance mappings can take a few frames to catch up, so the first few reads can come back
++        # stale: an image-shaped modality may report the wrong shape, and a semantic modality's idToLabels mapping
++        # may come back empty even though the scene has labeled prims in view. Render a few more frames and retry
++        # until the data looks valid.
++        for _ in range(4):
++            if not self._is_stale_obs(modality, raw_obs, obs_value):
++                break
++            og.sim.render()
++            raw_obs = self._annotators[modality].get_data(device=og.sim.device)
++            obs_value = raw_obs["data"] if isinstance(raw_obs, dict) else raw_obs
++
++        return raw_obs, self._preprocess_obs_for_device(obs_value, modality)
++
++    def _is_stale_obs(self, modality, raw_obs, obs_value):
++        """
++        Checks whether a freshly-fetched observation for @modality looks like it was read before Replicator caught
++        up to a render product recreation (see _recreate_render_product), as opposed to a legitimate reading (e.g.
++        genuinely zero bounding boxes because nothing is in view).
++
++        Args:
++            modality (str): Name of the modality @raw_obs / @obs_value belongs to
++            raw_obs (dict or array): Raw annotator output, as returned by the annotator's get_data()
++            obs_value (th.Tensor or array): Extracted observation value (raw_obs["data"] if @raw_obs is a dict)
++
++        Returns:
++            bool: Whether this observation should be re-fetched after another render
++        """
++        if self._is_semantic_modality(modality):
++            # A freshly-rebuilt instance mapping is never truly empty -- every scene has at least one labeled prim
++            # (e.g. the floor) in view of a sensibly-posed camera, so an empty mapping means Replicator hasn't
++            # caught up yet.
++            return len(raw_obs["info"]["idToLabels"]) == 0
++        elif modality not in ("pointcloud", "camera_params"):
++            return obs_value.shape[0] != self.image_height or obs_value.shape[1] != self.image_width
++        else:
++            return False
++
++    def _preprocess_obs_for_device(self, obs_value, modality):
++        """
++        Applies the device-specific preprocessing to an already-extracted observation value for @modality.
++
++        Args:
++            obs_value (th.Tensor or array): Observation value to preprocess
++            modality (str): Name of the modality @obs_value belongs to
++
++        Returns:
++            th.Tensor or array: Device-preprocessed observation
++        """
++        if og.sim.device == "cpu":
++            return self._preprocess_cpu_obs(obs_value, modality)
++        elif "cuda" in og.sim.device:
++            return self._preprocess_gpu_obs(obs_value, modality)
++        else:
++            raise ValueError(f"Unsupported device {og.sim.device}")
++
++    @staticmethod
++    def _is_semantic_modality(modality):
++        """
++        Args:
++            modality (str): Name of the modality to check
++
++        Returns:
++            bool: Whether @modality is a segmentation or bounding-box modality, i.e. one whose observations carry
++                a replicator idToLabels mapping that needs remapping (see _remap_modality) and can go stale (see
++                mark_semantics_stale)
++        """
++        return "seg_" in modality or "bbox_" in modality
++
++    @classmethod
++    def mark_semantics_stale(cls):
++        """
++        Flags the replicator semantic instance mappings as stale, so that sensors refresh them before the
++        next segmentation / bounding box read. Should be called whenever a semantic label is authored on a
++        prim at runtime (handled by omnigibson.utils.vision_utils.add_semantic_label).
++        """
++        cls._SEMANTIC_LABELS_VERSION += 1
++
++    def _refresh_semantic_instance_mapping(self):
++        """
++        Forces replicator to rebuild its semantic instance mappings (idToLabels).
++
++        On Isaac Sim 6.0 / Kit 110, semantic labels authored after a render product's annotators are
++        attached never get registered into the existing render products' instance mappings, so pixels of
++        newly-labeled prims (e.g. particles generated at runtime) are reported as UNLABELLED. Freshly
++        created render products build their mapping from scratch (and trigger a global rebuild that also
++        updates other existing render products), so recreate our render product and re-attach all
++        annotators, mirroring the flow used by the image_height / image_width setters.
++        """
++        self._recreate_render_product(self.image_width, self.image_height)
++        self._semantic_labels_version = VisionSensor._SEMANTIC_LABELS_VERSION
++
++    def _recreate_render_product(self, width, height):
++        """
++        Destroys the current render product and creates a new one at resolution (@width, @height), re-attaching
++        all active annotators to it. Shared by the image_height / image_width setters and
++        _refresh_semantic_instance_mapping, which all need to recreate the render product for different reasons.
++
++        Args:
++            width (int): Width of the new render product, in pixels
++            height (int): Height of the new render product, in pixels
++        """
++        with og.sim.editing_usd():
++            for annotator in self._annotators.values():
++                if annotator is not None:
++                    annotator.detach([self._render_product.path])
++
++            self._render_product.destroy()
++            self._render_product = lazy.omni.replicator.core.create.render_product(
++                self.prim_path, (width, height), force_new=True
++            )
++
++            for annotator in self._annotators.values():
++                if annotator is not None:
++                    annotator.attach([self._render_product])
++
++        # Requires several renders for the new render product's data to propagate
++        for _ in range(4):
++            og.sim.render()
++
+     def _preprocess_cpu_obs(self, obs, modality):
+         # All segmentation modalities return uint32 numpy arrays on cpu, but PyTorch doesn't support it
+         if "seg_" in modality:
+@@ -493,18 +642,18 @@ class VisionSensor(BaseSensor):
+                         value = value[: value.rfind(".")]
+                     # Case 2: For everything else, we keep the name as is
+                     """
+-                    e.g. 
++                    e.g.
+                     {
+-                        '54': '/World/scene_0/water/waterInstancer0/prototype0.proto0_prototype0_id0', 
+-                        '60': '/World/scene_0/water/waterInstancer0/prototype0.proto0_prototype0_id0', 
+-                        '30': '/World/scene_0/breakfast_table/base_link/stainParticle1', 
+-                        '27': '/World/scene_0/diced__apple/particles/diced__appleParticle0', 
+-                        '58': '/World/scene_0/white_rice/white_riceInstancer0/prototype0.proto0_prototype0_id0', 
+-                        '64': '/World/scene_0/white_rice/white_riceInstancer0/prototype0.proto0_prototype0_id0', 
+-                        '40': '/World/scene_0/diced__apple/particles/diced__appleParticle1', 
+-                        '48': '/World/scene_0/breakfast_table/base_link/stainParticle0', 
+-                        '1': '/World/ground_plane/geom', 
+-                        '19': '/World/scene_0/dishtowel/base_link_cloth', 
++                        '54': '/World/scene_0/water/waterInstancer0/prototype0.proto0_prototype0_id0',
++                        '60': '/World/scene_0/water/waterInstancer0/prototype0.proto0_prototype0_id0',
++                        '30': '/World/scene_0/breakfast_table/base_link/stainParticle1',
++                        '27': '/World/scene_0/diced__apple/particles/diced__appleParticle0',
++                        '58': '/World/scene_0/white_rice/white_riceInstancer0/prototype0.proto0_prototype0_id0',
++                        '64': '/World/scene_0/white_rice/white_riceInstancer0/prototype0.proto0_prototype0_id0',
++                        '40': '/World/scene_0/diced__apple/particles/diced__appleParticle1',
++                        '48': '/World/scene_0/breakfast_table/base_link/stainParticle0',
++                        '1': '/World/ground_plane/geom',
++                        '19': '/World/scene_0/dishtowel/base_link_cloth',
+                         '6': '/World/scene_0/breakfast_table/base_link/visuals'
+                     }
+                     """
+@@ -722,21 +871,7 @@ class VisionSensor(BaseSensor):
+             self._viewport.viewport_api.set_texture_resolution((width, height))
+ 
+         # Also update render product and update all annotators
+-        with og.sim.editing_usd():
+-            for annotator in self._annotators.values():
+-                annotator.detach([self._render_product.path])
+-
+-            self._render_product.destroy()
+-            self._render_product = lazy.omni.replicator.core.create.render_product(
+-                self.prim_path, (width, height), force_new=True
+-            )
+-
+-            for annotator in self._annotators.values():
+-                annotator.attach([self._render_product])
+-
+-        # Requires 4 updates to propagate changes
+-        for i in range(4):
+-            og.sim.render()
++        self._recreate_render_product(width, height)
+ 
+     @property
+     def image_width(self):
+@@ -761,21 +896,7 @@ class VisionSensor(BaseSensor):
+             self._viewport.viewport_api.set_texture_resolution((width, height))
+ 
+         # Also update render product and update all annotators
+-        with og.sim.editing_usd():
+-            for annotator in self._annotators.values():
+-                annotator.detach([self._render_product.path])
+-
+-            self._render_product.destroy()
+-            self._render_product = lazy.omni.replicator.core.create.render_product(
+-                self.prim_path, (width, height), force_new=True
+-            )
+-
+-            for annotator in self._annotators.values():
+-                annotator.attach([self._render_product])
+-
+-        # Requires 4 updates to propagate changes
+-        for i in range(4):
+-            og.sim.render()
++        self._recreate_render_product(width, height)
+ 
+     @property
+     def clipping_range(self):
+diff --git a/OmniGibson/omnigibson/simulator.py b/OmniGibson/omnigibson/simulator.py
+index fd21294..0c2b61e 100644
+--- a/OmniGibson/omnigibson/simulator.py
++++ b/OmniGibson/omnigibson/simulator.py
+@@ -68,7 +68,8 @@ m.SCENE_MARGIN = 10.0
+ m.INITIAL_SCENE_PRIM_Z_OFFSET = -100.0
+ 
+ m.KIT_FILES = {
+-    (5, 1, 0): "omnigibson_5_1_0.kit",
++    (6, 0, 0): "omnigibson_6_0_0.kit",
++    (6, 0, 1): "omnigibson_6_0_0.kit",
+ }
+ 
+ 
+@@ -463,21 +464,21 @@ def _launch_simulator(*args, **kwargs):
+             # Store other references to variables that will be initialized later
+             self._scenes = []
+             # The callback will be called right *before* the physics step
+-            self._pre_physics_step_callback = self._physics_context._physx_interface.subscribe_physics_on_step_events(
++            self._pre_physics_step_callback = lazy.omni.physx.get_physx_interface().subscribe_physics_on_step_events(
+                 lambda _: self._on_pre_physics_step(),
+                 pre_step=True,
+                 order=0,
+             )
+             # The callback will be called right *after* the physics step
+-            self._post_physics_step_callback = self._physics_context._physx_interface.subscribe_physics_on_step_events(
++            self._post_physics_step_callback = lazy.omni.physx.get_physx_interface().subscribe_physics_on_step_events(
+                 lambda _: self._on_post_physics_step(),
+                 pre_step=False,
+                 order=0,
+             )
+             self._simulation_event_callback = (
+-                self._physics_context._physx_interface.get_simulation_event_stream_v2().create_subscription_to_pop(
+-                    self._on_simulation_event
+-                )
++                lazy.omni.physx.get_physx_interface()
++                .get_simulation_event_stream_v2()
++                .create_subscription_to_pop(self._on_simulation_event)
+             )
+ 
+             # List of objects that need to be initialized during whenever the next sim step occurs
+@@ -1121,11 +1122,11 @@ def _launch_simulator(*args, **kwargs):
+ 
+         @property
+         def pi(self):
+-            return self._physics_context._physx_interface
++            return lazy.omni.physx.get_physx_interface()
+ 
+         @property
+         def psi(self):
+-            return self._physics_context._physx_sim_interface
++            return lazy.omni.physx.get_physx_simulation_interface()
+ 
+         @property
+         def psqi(self):
+diff --git a/OmniGibson/omnigibson/utils/asset_conversion_utils.py b/OmniGibson/omnigibson/utils/asset_conversion_utils.py
+index 9be094c..3d5d6c5 100644
+--- a/OmniGibson/omnigibson/utils/asset_conversion_utils.py
++++ b/OmniGibson/omnigibson/utils/asset_conversion_utils.py
+@@ -294,7 +294,7 @@ def _force_asset_pipeline_materials(obj_prim, obj_category, obj_model, usd_path,
+             mtl_name="OmniGibsonVRayMtl",
+             mtl_created_list=mtl_created_list,
+         )
+-        vray_mat = lazy.omni.isaac.core.utils.prims.get_prim_at_path(mtl_created_list[0])
++        vray_mat = lazy.isaacsim.core.utils.prims.get_prim_at_path(mtl_created_list[0])
+ 
+         # Apply all rendering channels for this material
+         for mat_type, mat_file in mtl_info.items():
+diff --git a/OmniGibson/omnigibson/utils/deprecated_utils.py b/OmniGibson/omnigibson/utils/deprecated_utils.py
+index f4857ba..3cbc12c 100644
+--- a/OmniGibson/omnigibson/utils/deprecated_utils.py
++++ b/OmniGibson/omnigibson/utils/deprecated_utils.py
+@@ -590,11 +590,12 @@ class ArticulationView(_ArticulationView):
+         return
+ 
+     def _invalidate_physics_handle_callback(self, event):
+-        # Overwrite super method, add additional de-initialization
+-        if event.type == int(omni.timeline.TimelineEventType.STOP):
+-            self._physics_view = None
+-            self._invalidate_physics_handle_event = None
+-            self._is_initialized = False
++        # Overwrite super method, add additional de-initialization.
++        # The subscription is registered against GLOBAL_EVENT_STOP only (Kit 110 event
++        # dispatcher), so no event-type check is needed here.
++        self._physics_view = None
++        self._invalidate_physics_handle_event = None
++        self._is_initialized = False
+ 
+     @property
+     def initialized(self):
+diff --git a/OmniGibson/omnigibson/utils/urdfpy_utils.py b/OmniGibson/omnigibson/utils/urdfpy_utils.py
+index 27cf84d..289dda2 100644
+--- a/OmniGibson/omnigibson/utils/urdfpy_utils.py
++++ b/OmniGibson/omnigibson/utils/urdfpy_utils.py
+@@ -2189,8 +2189,8 @@ class Joint(URDFType):
+         if self.joint_limit is None:
+             return True
+         cfg = float(cfg)
+-        lower = -np.infty
+-        upper = np.infty
++        lower = -np.inf
++        upper = np.inf
+         if self.limit.lower is not None:
+             lower = self.limit.lower
+         if self.limit.upper is not None:
+@@ -2855,7 +2855,7 @@ class URDF(URDFType):
+         """(n,2) float : A lower and upper limit for each joint."""
+         limits = []
+         for joint in self.actuated_joints:
+-            limit = [-np.infty, np.infty]
++            limit = [-np.inf, np.inf]
+             if joint.limit is not None:
+                 if joint.limit.lower is not None:
+                     limit[0] = joint.limit.lower
+diff --git a/OmniGibson/omnigibson/utils/vision_utils.py b/OmniGibson/omnigibson/utils/vision_utils.py
+index cd28d2c..07d988d 100644
+--- a/OmniGibson/omnigibson/utils/vision_utils.py
++++ b/OmniGibson/omnigibson/utils/vision_utils.py
+@@ -21,6 +21,13 @@ def add_semantic_label(prim, label, instance_name="class"):
+         lazy.isaacsim.core.utils.semantics.upgrade_prim_semantics_to_labels(prim=prim)
+         lazy.isaacsim.core.utils.semantics.add_labels(prim=prim, labels=[label], instance_name=instance_name)
+ 
++    # Labels authored after a render product's annotators are attached do not get picked up by the
++    # existing render products' instance mappings (Isaac Sim 6.0 regression), so flag the semantics
++    # as stale.
++    from omnigibson.sensors.vision_sensor import VisionSensor
++
++    VisionSensor.mark_semantics_stale()
++
+ 
+ class RandomScale:
+     """Rescale the input PIL.Image to the given size.
+diff --git a/OmniGibson/setup.py b/OmniGibson/setup.py
+index 52158ef..467334a 100644
+--- a/OmniGibson/setup.py
++++ b/OmniGibson/setup.py
+@@ -23,7 +23,7 @@ setup(
+     install_requires=[
+         "huggingface-hub[cli]>=0.34.4",
+         "gymnasium>=0.28.1",
+-        "numpy<2.0.0,>=1.23.5",
++        "numpy>=2.0.0",
+         "scipy>=1.10.1",
+         "GitPython>=3.1.40",
+         "transforms3d>=0.4.1",
+@@ -42,8 +42,7 @@ setup(
+         "imageio-ffmpeg>=0.4.9",
+         "termcolor>=2.4.0",
+         "progressbar>=2.5",
+-        "pymeshlab~=2022.2; platform_machine!='aarch64'",
+-        "pymeshlab>=2022.2; platform_machine=='aarch64'",
++        "pymeshlab>=2022.2",
+         "click>=8.1.3",
+         "aenum>=3.1.15",
+         "rtree>=1.2.0",
+@@ -52,10 +51,10 @@ setup(
+         "lxml>=5.2.2",
+         "numba>=0.59.1",
+         "cffi==1.17.1",
+-        "pillow~=11.0.0",
++        "pillow>=11.0.0",
+         "websockets>=15.0.1",
+         "omegaconf>=2.3.0",
+-        "lerobot[dataset] @ git+https://github.com/wensi-ai/lerobot@release/b1k",
++        "lerobot[dataset] @ git+https://github.com/huggingface/lerobot@1427d35ef58ab46651dc7ef78bde81642090c861",
+     ],
+     extras_require={
+         "dev": [

@@ -1,0 +1,403 @@
+#!/usr/bin/python3
+"""Generate one editable SVG and render its exact PNG with system librsvg.
+
+No image model or diagram dependency; explicit ports and orthogonal routes.
+"""
+import hashlib
+import json
+from datetime import datetime, timezone
+from pathlib import Path
+from xml.etree import ElementTree as ET
+from xml.sax.saxutils import escape
+
+ROOT = Path(__file__).resolve().parents[1]
+OUT = ROOT / 'outputs/architecture'
+NODES = {
+    'world': (50, 200, 300, 650),
+    'vlm': (420, 200, 280, 190),
+    'orch': (780, 200, 330, 250),
+    'nav': (1180, 200, 340, 250),
+    'controller': (1600, 200, 380, 650),
+    'human': (420, 650, 280, 200),
+    'bank': (780, 650, 330, 200),
+    'wam': (1180, 650, 340, 200),
+    'predicates': (780, 930, 740, 170),
+}
+# Functional views of one policy-server runtime, not separate nav/manip models.
+# Reuse the former residual route for the real shared-encoder arrival features.
+EDGES = [
+    ('world', 'vlm', 'head_rgb_for_grounding', [(350, 285), (420, 285)], 'data'),
+    ('vlm', 'orch', 'candidate_skill_programs', [(700, 285), (780, 285)], 'data'),
+    ('orch', 'nav', 'docking_target_and_budget', [(1110, 300), (1180, 300)], 'data'),
+    ('orch', 'controller', 'execute_hold_and_queue_reset', [(1040, 200), (1040, 180), (1680, 180), (1680, 200)], 'action'),
+    ('controller', 'world', 'bounded_23d_physical_action', [(1790, 200), (1790, 100), (200, 100), (200, 200)], 'action'),
+    ('world', 'controller', 'rgbd_wrist_rgb_and_61d_proprio', [(250, 200), (250, 140), (1750, 140), (1750, 200)], 'data'),
+    ('nav', 'controller', 'docking_base_and_posture_command', [(1520, 280), (1600, 280)], 'action'),
+    ('controller', 'nav', 'head_rgbd_campose_and_base_velocity', [(1600, 380), (1520, 380)], 'data'),
+    ('nav', 'orch', 'docked_or_search_failed_status', [(1180, 400), (1110, 400)], 'feedback'),
+    ('orch', 'wam', 'manipulation_contract_condition', [(1110, 420), (1150, 420), (1150, 750), (1180, 750)], 'data'),
+    ('controller', 'wam', 'three_view_rgb_and_masked_61d', [(1600, 700), (1520, 700)], 'data'),
+    ('wam', 'controller', 'manipulation_32x23d_chunks', [(1520, 780), (1600, 780)], 'action'),
+    ('predicates', 'orch', 'fail_closed_completion_status', [(780, 1000), (750, 1000), (750, 420), (780, 420)], 'feedback'),
+    ('bank', 'orch', 'condition_arms_and_reviewed_outcomes', [(945, 650), (945, 450)], 'memory'),
+    ('human', 'orch', 'ask_and_bound_reply', [(700, 750), (720, 750), (720, 400), (780, 400)], 'interaction'),
+    ('orch', 'vlm', 'replan_after_repeated_failure', [(780, 365), (700, 365)], 'feedback'),
+    ('controller', 'predicates', 'finger_and_eef_proprio', [(1790, 850), (1790, 1000), (1520, 1000)], 'data'),
+]
+# Keep the nine functional modules and seventeen existing routes. Task90 rigid_v2
+# is wired to passive sensor logs only, not to the completion gate. The dotted
+# evidence route means gate integration/admission pending, not producer absence.
+PENDING = {'replan_after_repeated_failure', 'finger_and_eef_proprio'}
+BIDIRECTIONAL = {'condition_arms_and_reviewed_outcomes', 'ask_and_bound_reply'}
+
+
+def on_boundary(point, box):
+    px, py = point
+    x, y, w, h = box
+    return ((px in (x, x+w) and y <= py <= y+h)
+            or (py in (y, y+h) and x <= px <= x+w))
+
+
+def validate():
+    """Fail on miswired endpoints, box penetration, or crossing arrow routes."""
+    assert len({e[2] for e in EDGES}) == len(EDGES), 'duplicate edge meaning'
+    assert PENDING | BIDIRECTIONAL <= {e[2] for e in EDGES}
+    for x, y, w, h in NODES.values():
+        assert 0 <= x < x+w <= 2048 and 0 <= y < y+h <= 1220, 'node outside canvas'
+    segments = []
+    for source, target, name, points, _ in EDGES:
+        assert all(0 <= x <= 2048 and 0 <= y <= 1220 for x, y in points), (name, 'canvas')
+        assert on_boundary(points[0], NODES[source]), (name, 'source')
+        assert on_boundary(points[-1], NODES[target]), (name, 'target')
+        for a, b in zip(points, points[1:]):
+            assert (a[0] == b[0]) != (a[1] == b[1]), (name, 'non-orthogonal')
+            segments.append((name, a, b))
+            for node, (x, y, w, h) in NODES.items():
+                if a[0] == b[0]:
+                    inside = x < a[0] < x+w and max(min(a[1], b[1]), y) < min(max(a[1], b[1]), y+h)
+                else:
+                    inside = y < a[1] < y+h and max(min(a[0], b[0]), x) < min(max(a[0], b[0]), x+w)
+                assert not inside, (name, 'penetrates', node)
+    for i, (name, a, b) in enumerate(segments):
+        for other, c, d in segments[i+1:]:
+            if name == other:
+                continue
+            av, cv = a[0] == b[0], c[0] == d[0]
+            if av != cv:
+                v1, v2, h1, h2 = (a, b, c, d) if av else (c, d, a, b)
+                crossing = (min(v1[1], v2[1]) <= h1[1] <= max(v1[1], v2[1])
+                            and min(h1[0], h2[0]) <= v1[0] <= max(h1[0], h2[0]))
+            elif av:
+                crossing = a[0] == c[0] and max(min(a[1], b[1]), min(c[1], d[1])) <= min(max(a[1], b[1]), max(c[1], d[1]))
+            else:
+                crossing = a[1] == c[1] and max(min(a[0], b[0]), min(c[0], d[0])) <= min(max(a[0], b[0]), max(c[0], d[0]))
+            assert not crossing, (name, 'crosses', other)
+
+
+def main():
+    validate()
+    OUT.mkdir(parents=True, exist_ok=True)
+    chunks = ['''<svg xmlns="http://www.w3.org/2000/svg" width="2048" height="1220" viewBox="0 0 2048 1220">
+<title>WAM + VLM: task-agnostic mobile-manipulation runtime</title>
+<desc>Task90 snapshot, 2026-10-04. Original goal: both rigid fruit halves inside the same bin; release and stability are checked separately. The final 50k training and three development seeds ended: assisted first-bin lift 1/3, full task 0/3, Q=0. All three produced scores but evaluator shutdown timed out. No new training or simulation has run in this revision. The launcher and policy reject known unadmitted completion gates for capability_validation before GPU startup; diagnostic_only must be explicit and cannot use frozen report instances. This launch check is not physical precondition satisfaction or complete safety admission. Frozen WAM inputs remain head and wrist RGB plus masked proprioception; no evaluator truth enters WAM or manipulation verdicts. The optional surface_v2 producer is now wired through policy_server to the existing read-only observer lifecycle. It uses positive and negative DINO scores, independent connected RGB-D surfaces, and optional sensor/FK robot exclusion. Multiple surfaces remain unknown instead of being merged into one target. The final 83 CPU regressions pass; the two TRAIN examples still yield 8 and 5 surfaces, not verified object identities. This is an interface repair, not physical completion or tracking admission. The default legacy rigid_v2 configuration is unchanged. Task090Postconditions remains unadmitted; no diagnostic measurement advances a skill or promotes memory. The 23D robot action has no independent head/camera command. A base-only scan does not change the view of a rigidly held object relative to a torso-fixed camera and is not a verified recovery primitive. Optional privileged base navigation/prepositioning and simulator-assisted grasp are disclosed protocol deviations; official autonomous completion, friction-only grasp, real hardware, VLM, asking, memory benefit and generalization remain unverified. Dotted evidence lines indicate missing completion integration/admission, not an implemented physical verifier.</desc>
+<defs>
+<linearGradient id="physical" x2="0.9" y2="1"><stop stop-color="#eef8fa"/><stop offset="1" stop-color="#dae9f0"/></linearGradient>
+<linearGradient id="latent" x2="1" y2="1"><stop stop-color="#f2effc"/><stop offset="1" stop-color="#e0e5fa"/></linearGradient>
+''']
+    colors = {'data': '#287fb5', 'action': '#b77928', 'feedback': '#008c70',
+              'interaction': '#8565aa', 'memory': '#008c70'}
+    for kind, color in colors.items():
+        chunks.append(f'<marker id="arrow-{kind}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 1 L 9 5 L 0 9 z" fill="{color}"/></marker>')
+    chunks.append('</defs><style>text{font-family:DejaVu Sans,sans-serif;fill:#263544}.small{font-size:15px}.body{font-size:16px}.title{font-size:23px;font-weight:600}.edge-label{font-size:15px}</style><rect width="2048" height="1220" fill="white"/>')
+
+    def text(x, y, value, cls='body', extra=''):
+        chunks.append(f'<text x="{x}" y="{y}" class="{cls}" {extra}>{escape(value)}</text>')
+
+    text(50, 48, 'WAM + VLM  |  General mobile-manipulation runtime', extra='style="font-size:32px;font-weight:600"')
+    text(50, 80, 'Task90: two fruit halves into one bin • existing navigation • learned manipulation • independent outcome checks', 'body')
+    text(1980, 48, 'TASK 90 · ORDINARY GRASP / PLACE', 'small', 'text-anchor="end"')
+    for source, target, name, points, kind in EDGES:
+        path = 'M ' + ' L '.join(f'{x},{y}' for x, y in points)
+        dash = ' stroke-dasharray="4 7" opacity="0.5"' if name in PENDING else ''
+        start = f' marker-start="url(#arrow-{kind})"' if name in BIDIRECTIONAL else ''
+        chunks.append(f'<g id="edge-{name}" data-source="{source}" data-target="{target}"><path d="{path}" fill="none" stroke="{colors[kind]}" stroke-width="2.6" stroke-linejoin="round" marker-end="url(#arrow-{kind})"{start}{dash}/></g>')
+
+    def card(node, title, badge, lines, fill, accent):
+        x, y, w, h = NODES[node]
+        chunks.append(f'<g id="{node}"><rect x="{x}" y="{y+4}" width="{w}" height="{h}" rx="16" fill="#263544" opacity="0.045"/><rect x="{x}" y="{y}" width="{w}" height="{h}" rx="16" fill="{fill}" stroke="{accent}" stroke-width="1.3"/>')
+        text(x+21, y+30, badge, 'small', 'style="font-weight:600;font-size:12px;letter-spacing:1px"')
+        text(x+21, y+67, title, 'title', 'style="font-size:22px"')
+        for i, line in enumerate(lines):
+            text(x+21, y+102+i*27, line, 'body')
+        chunks.append('</g>')
+
+    card('world', 'BEHAVIOR · Task90', 'RS_INT · ISAAC SIM 6.1 PORT',
+         ['Two rigid fruit halves → bin', 'R1Pro: assisted grasping', 'No GT fields to WAM actions'], 'url(#physical)', '#548795')
+    # A code-native physical anchor: room floor, mobile base, torso, two arms.
+    chunks.append('''<g id="robot-schematic" stroke="#587681" stroke-width="3" stroke-linejoin="round">
+<path d="M95 526 L194 472 L337 519 L242 570 Z" fill="#cfdfe6" stroke-width="1.2"/>
+<path d="M179 516 L216 494 L255 514 L217 539 Z" fill="#829da8"/>
+<path d="M179 516 L179 530 L217 553 L217 539 Z" fill="#66818e"/>
+<path d="M217 539 L255 514 L255 530 L217 553 Z" fill="#91acb8"/>
+<path d="M209 496 L209 439 L228 433 L228 495 Z" fill="#eef5f7"/>
+<path d="M204 439 L238 439 L244 421 L214 412 Z" fill="#b9d1da"/>
+<circle cx="222" cy="426" r="4" fill="#48a7ae" stroke="none"/>
+<path d="M209 452 L178 462 L155 493 M228 451 L261 458 L285 481" fill="none" stroke-width="10"/>
+<path d="M150 489 L145 502 M160 495 L157 507 M280 478 L286 491 M290 477 L298 488" fill="none" stroke-width="4"/>
+</g>''')
+    chunks.append('<g id="evaluation-audit" data-node="world">')
+    text(71, 700, 'TRUTH BOUNDARIES', 'small', 'style="font-weight:600"')
+    text(71, 730, 'Opt-in: dev nav / preposition', 'small')
+    text(71, 758, 'Audit only: poses / BDDL / Q', 'small')
+    text(71, 786, 'Not manip. completion / memory', 'small')
+    chunks.append('</g>')
+    card('vlm', 'Goal grounding', 'VLM · BENEFIT UNVERIFIED',
+         ['Goal + RGB → skill programs', 'Fixed plan for these checks', 'Safety cannot be bypassed'], '#f3eff9', '#8565aa')
+    card('orch', 'Skill contracts', 'OBSERVATION-GATED ADVANCE',
+         ['No confirmation → no advance', 'Unknown: bounded observation', 'Budget ends → safe stop', 'No GT manipulation transitions'], '#e9f6f0', '#388571')
+    card('nav', 'Navigation / docking', 'REUSED · ASSISTANCE DISCLOSED',
+         ['RGB-D map + body envelope', 'Opt-in nav-only truth channel', 'Dev preposition ≠ nav success', 'GT isolated from manip. evidence'], '#eaf6f7', '#438b98')
+    card('wam', 'WAM V3 · Task90', '50K COMPLETE · WEIGHTS FROZEN',
+         ['Head + 2 wrists · K=1 · exec 8', 'DINO cached + frozen · history', 'No additional training started'], 'url(#latent)', '#727aaf')
+    # Existing status panels and all node/route geometry are retained.
+    chunks.append('<g id="pending-navigation" data-node="nav"><rect x="1194" y="400" width="312" height="38" rx="8" fill="none" stroke="#438b98"/>')
+    text(1204, 424, 'DEV ONLY · first-bin assistance', 'small')
+    chunks.append('</g><g id="pending-manip-pilot" data-node="wam"><rect x="1194" y="817" width="312" height="27" rx="8" fill="none" stroke="#727aaf" stroke-dasharray="4 7"/>')
+    text(1204, 836, 'Final checks ended; full task 0/3', 'small')
+    chunks.append('</g>')
+    card('controller', 'Policy / control adapter', 'NAV TRUTH / SENSOR SPLIT',
+         ['RGB-D + wrist RGB + 61D input', 'Nav truth split before allowlist', 'WAM / postconditions: sensors only', 'One action owner per step'], '#fbf1e4', '#b77928')
+    chunks.append('''<g id="control-ownership" data-node="controller">
+<rect x="1622" y="500" width="336" height="112" rx="12" fill="#fffaf3" stroke="#d7a45a" stroke-width="1.2"/>
+<text x="1642" y="530" class="small" style="font-weight:600">TRAVEL / DEV ASSISTANCE</text>
+<text x="1642" y="560" class="body">Base + posture; nav-only truth</text>
+<text x="1642" y="588" class="body">Explicit opt-in; depth shield</text>
+<rect x="1622" y="640" width="336" height="132" rx="12" fill="#f7f4fd" stroke="#8576b5" stroke-width="1.2"/>
+<text x="1642" y="670" class="small" style="font-weight:600">WAM SENSOR ALLOWLIST</text>
+<text x="1642" y="700" class="body">3 RGB views + masked 61D</text>
+<text x="1642" y="728" class="body">No GT fields; limits may override</text>
+<text x="1642" y="756" class="small">32 × 23D chunks; execute 8 steps</text>
+</g>''')
+    card('human', 'Intent clarification', 'ASKING · BENEFIT UNVERIFIED',
+         ['CPU Qwen3-1.7B / human CLI', 'Action-changing ambiguity', 'Episode / question IDs checked', 'No reply → HOLD'], '#f4eef9', '#8565aa')
+    card('bank', 'Condition memory', 'MEMORY · BENEFIT UNVERIFIED',
+         ['Task / object / nav-next / version', 'Train targets / reviewed VTT', 'No unverified success promotion', 'No evaluator GT as evidence'], '#edf6f0', '#388571')
+    card('predicates', 'Evidence gate + recovery', 'SURFACE_V2 OPTIONAL · WIRED / COMPLETION NOT ADMITTED',
+         ['Positive / negative DINO + RGB-D → separate surface candidates', 'Unknown ≠ success: no advance; budget → safe stop / recovery', 'No GT manipulation completion, stage switch or memory promotion'], '#edf5f7', '#548795')
+
+    for x, y, label, anchor in [
+        (385, 270, 'RGB', 'middle'), (740, 270, 'programs', 'middle'),
+        (1145, 285, 'target', 'middle'), (1360, 170, 'EXECUTE / HOLD', 'middle'),
+        (1360, 94, '30 Hz · bounded 23D action', 'middle'),
+        (1000, 134, 'RGB-D + wrists + 61D | opt-in nav-only truth → isolated navigation', 'middle'),
+        (1560, 265, 'dock cmd', 'middle'), (1560, 365, 'nav truth', 'middle'),
+        (1135, 590, 'contract condition', 'end'),
+        (1560, 685, 'no GT', 'middle'), (1560, 765, '32×23D', 'middle'),
+        (1145, 385, 'status', 'middle'),
+        (765, 590, 'verdict / recovery', 'start'),
+        (960, 530, 'arms ↕ reviewed VTT', 'start'),
+        (705, 535, 'ASK ↕ answer', 'end'),
+        (740, 350, 'replan', 'middle'),
+        (1660, 980, 'onboard only · gate not admitted', 'middle')]:
+        text(x, y, label, 'edge-label', f'text-anchor="{anchor}"')
+    text(50, 1135, 'Routes show interfaces, not proven capability; dotted = pending. GT: opt-in dev navigation / preposition + evaluator audit only; never WAM action input or manipulation verdict.', 'small')
+    text(50, 1160, '25k / 35k: assisted first-bin grasp 2/3 each; 40k / 45k: 0/3; 50k: 1/3. Same dev311; all Q=0. First grasp is not long-task completion.', 'small')
+    text(50, 1185, 'Original goals unchanged: both fruit halves inside bin; release / stability need separate evidence. First grasp ≠ full-task success, generalization or autonomous navigation.', 'small')
+    text(50, 1205, '83 CPU tests pass; TRAIN surfaces still ambiguous. No new simulation. No independent head action. VLM / asking / memory unverified.', 'small')
+    chunks.append('</svg>')
+    svg = '\n'.join(chunks)
+    document = ET.fromstring(svg)
+    ns = '{http://www.w3.org/2000/svg}'
+    assert not any(e.tag in {ns+'image', ns+'feImage', ns+'foreignObject'} for e in document.iter()), 'Vector only'
+    for i, label in enumerate(document.iter(ns+'text')):
+        label.set('id', f'label-{i}')
+    for source, target, name, _, _ in EDGES:
+        group = document.find(f"{ns}g[@id='edge-{name}']")
+        assert (group.get('data-source'), group.get('data-target')) == (source, target)
+        path = group.find(ns+'path')
+        assert ('stroke-dasharray' in path.attrib) == (name in PENDING)
+        assert ('marker-start' in path.attrib) == (name in BIDIRECTIONAL)
+    assert not document.find(f"{ns}g[@id='pending-navigation']/{ns}rect").get('stroke-dasharray')
+    assert document.find(f"{ns}g[@id='pending-manip-pilot']/{ns}rect").get('stroke-dasharray')
+    ET.register_namespace('', ns[1:-1])
+    svg = ET.tostring(document, encoding='unicode')
+    svg_path = OUT / 'wam_vlm_architecture.svg'
+    svg_path.write_text(svg, encoding='utf-8')
+    import gi
+    gi.require_version('Rsvg', '2.0')
+    from gi.repository import Rsvg
+    import cairo
+    surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, 3072, 1830)
+    context = cairo.Context(surface)
+    handle = Rsvg.Handle.new_from_file(str(svg_path))
+    viewport = Rsvg.Rectangle()
+    viewport.x, viewport.y, viewport.width, viewport.height = 0, 0, 3072, 1830
+    assert handle.render_document(context, viewport)
+    # Check actual librsvg ink bounds, not guessed character widths. Same renderer as the PNG.
+    bounds_view = Rsvg.Rectangle()
+    bounds_view.x, bounds_view.y, bounds_view.width, bounds_view.height = 0, 0, 2048, 1220
+    owners = {}
+    for group in document.iter(ns+'g'):
+        node = group.get('data-node', group.get('id'))
+        if node in NODES:
+            owners.update({t.get('id'): node for t in group.iter(ns+'text')})
+    boxes = []
+    for label in document.iter(ns+'text'):
+        ok, ink, _ = handle.get_geometry_for_layer('#'+label.get('id'), bounds_view)
+        assert ok
+        x, y, right, bottom = ink.x, ink.y, ink.x+ink.width, ink.y+ink.height
+        detail = ''.join(label.itertext())
+        assert 0 <= x <= right <= 2048 and 0 <= y <= bottom <= 1220, ('text outside canvas', detail)
+        owner = owners.get(label.get('id'))
+        for node, (nx, ny, w, h) in NODES.items():
+            if node == owner:
+                assert nx+8 <= x and right <= nx+w-8 and ny+8 <= y and bottom <= ny+h-8, ('text overflow', node, detail)
+            else:
+                assert right <= nx or nx+w <= x or bottom <= ny or ny+h <= y, ('label overlaps node', node, detail)
+        for ox, oy, ore, ob, other in boxes:
+            assert right <= ox or ore <= x or bottom <= oy or ob <= y, ('text overlap', detail, other)
+        for _, _, name, points, _ in EDGES:
+            for a, b in zip(points, points[1:]):
+                assert (max(a[0], b[0]) < x or right < min(a[0], b[0])
+                        or max(a[1], b[1]) < y or bottom < min(a[1], b[1])), ('text crosses route', detail, name)
+        boxes.append((x, y, right, bottom, detail))
+    png_path = OUT / 'wam_vlm_architecture.png'
+    surface.write_to_png(str(png_path))
+    png = cairo.ImageSurface.create_from_png(str(png_path))
+    assert (png.get_width(), png.get_height()) == (3072, 1830)
+    assert bytes(png.get_data()) == bytes(surface.get_data()), 'PNG differs from current SVG render'
+    topology_path = OUT / 'topology.json'
+    evidence = {
+        'head_rgb_for_grounding': 'WamPolicy._ground/_act_orchestrated: head RGB only; deterministic benchmark gates may use a fixed typed program so grounding quality is not confused with control quality.',
+        'candidate_skill_programs': 'harness/grounding.py:ground/compile_programs validates typed skill(objects) candidates against the skill catalog before Orchestrator.reset.',
+        'docking_target_and_budget': 'Orchestrator navigation_completion="docking": move-to key and budget (min_budget_steps) -> WamPolicy._act_orchestrated -> DockingController.start(label, phase).',
+        'execute_hold_and_queue_reset': 'Orchestrator.tick -> WamPolicy._act_orchestrated: Directive EXECUTE/HOLD, queue invalidation, hold_baseline.',
+        'bounded_23d_physical_action': 'WamPolicy._bounded_chunk/_apply_base_control/serve -> official websocket evaluator and R1Pro controllers; action shape 23.',
+        'rgbd_wrist_rgb_and_61d_proprio': 'World -> control transport: RGB-D, wrist RGB, 61D proprio/camera poses. ONLY the explicit privileged_base_navigation wrapper opt-in adds the named nav-only truth packet; WamPolicy._split_navigation_observation separates it before the sensor allowlist. PrepositionedBaseRGBDWrapper uses truth for diagnostic base-only reset placement, not autonomous navigation or manipulation success.',
+        'docking_base_and_posture_command': 'harness/docking_controller.py DockingController.step -> base velocity + trunk/arm posture target, dispatched by WamPolicy._act_orchestrated during move to.',
+        'head_rgbd_campose_and_base_velocity': 'Control -> navigation: head RGB-D, camera pose, base velocity; explicit opt-in nav-only truth -> PrivbaseNavigator.prepare. Its separate odometry/ObjectMap serves first move to(trash_can) only; no truth map is shared with WAM or observed manipulation postconditions. Development navigation/prepositioning assistance is not an autonomous result.',
+        'docked_or_search_failed_status': 'DockingController.last_status (docked / search failed / budget) -> Orchestrator._completion with navigation_completion="docking".',
+        'manipulation_contract_condition': 'ConditionBank.select(contract): frozen train-only task/skill condition vectors -> WamPolicy._sample for manipulation keys only.',
+        'three_view_rgb_and_masked_61d': 'WamPolicy._policy_observation allowlists this robot RGB/depth/proprio/camera pose only; WAM _preprocess/_view_pixels uses head + two wrist RGB and masked 61D (positions_no_gripper). Frozen DINO supplies temporal features. No GT object pose, goal/Q, assisted-hand identity or phase labels enter WAM actions, grounding or history/condition encoding.',
+        'manipulation_32x23d_chunks': 'WamPolicy._sample/_bounded_chunk proposes 32x23D chunks. Controller bounds and harness/docking_controller.py geometric safety checks may hold or replace unsafe base motion.',
+        'fail_closed_completion_status': 'Orchestrator._completion accepts only verified sensor-derived postconditions for manipulation advance. Unknown returns no completion before budget; candidate satisfaction holds; unverified budget expiry fails/stops safely, not success. No GT manipulation phase switch or unverified success-memory promotion. Task090Postconditions.admission_status remains false; rigid_v2 is connected to passive diagnostic logs only, not the completion gate; admission remains blocked.',
+        'condition_arms_and_reviewed_outcomes': 'ConditionBank.select/update/add_memory_arm and harness/memory_vtt.py: scoped, independently reviewed evidence; frozen runs do not update; support is not policy success.',
+        'ask_and_bound_reply': 'Orchestrator.tick/answer <-> policy_server.control_message: bounded ASK, episode/question IDs, source-labeled human/sim replies.',
+        'replan_after_repeated_failure': 'PENDING: VLM recovery replanning is not wired; Task 1 uses WamPolicy._skip_failed_object as the orchestrator replanner (rule-based).',
+        'finger_and_eef_proprio': 'PENDING gate integration/admission: rigid_v2 uses onboard RGB-D + proprio and is wired to read-only runtime logs, not verdicts or actions. Target/hand-relative motion, support/container relation and release/stability evidence need independent admission. Task090Postconditions ADMISSION_BLOCKERS remain. Evaluator poses, BDDL/Q, assisted-grasp audit and nav truth must never enter this route.',
+    }
+    assert evidence.keys() == {e[2] for e in EDGES}
+    topology_path.write_text(json.dumps({
+        'nodes': NODES, 'edges': [dict(source=s, target=t, meaning=n, points=p, kind=k,
+                                     implemented=n not in PENDING, bidirectional=n in BIDIRECTIONAL,
+                                     semantic_evidence=evidence[n])
+                                for s, t, n, p, k in EDGES],
+        'validation': 'ports, orthogonal routes, canvas/text bounds, no node/label penetration or crossings, XML, no raster',
+        'scope': 'Existing layout retained; implementation flags describe interfaces, not task capability',
+    }, indent=2) + '\n')
+
+    def digest(path):
+        return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+    artifacts = [svg_path, png_path, topology_path]
+    for optional in (OUT / 'wam_vlm_hybrid_reference.png', OUT / 'wam_vlm_hybrid_reference_pixelmatch.svg',
+                     OUT / 'reference/task_agnostic_system_reference_20260927.png',
+                     OUT / 'reference/task_agnostic_system_reference_pixelmatch_20260927.svg'):
+        if optional.exists():
+            artifacts.append(optional)
+    (OUT / 'validation.json').write_text(json.dumps({
+        'checked_utc': datetime.now(timezone.utc).isoformat(),
+        'scope': '2026-10-04: optional surface_v2 runtime interface; 83 CPU regressions pass, TRAIN candidates remain ambiguous; no new simulation or completion admission',
+        'nodes': len(NODES), 'edges': len(EDGES),
+        'checks': {
+            'source_destination_ports': 'pass', 'orthogonal_routes': 'pass',
+            'node_penetration': 'none', 'arrow_crossings_or_overlaps': 'none',
+            'svg_xml': 'pass', 'raster_layers_in_publication_svg': 0,
+            'canvas_and_text_bounds': 'pass', 'text_overlaps_or_route_crossings': 'none',
+            'rendered_text_labels_checked': len(boxes),
+            'implemented_pending_arrow_styles': 'pass', 'png_size': [3072, 1830],
+            'png_rendered_from_current_svg': True,
+            'manual_image_inspection': {'status': 'pending', 'note': 'New V3 labels require manual inspection after this generated render; automated geometry checks below are separate.'},
+        },
+        'routes': {n: dict(source=s, target=t, source_port=p[0], target_port=p[-1], result='pass')
+                   for s, t, n, p, _ in EDGES},
+        'semantic_edge_evidence': evidence,
+        'pending_interfaces': sorted(PENDING),
+        'pending_pilot': ['Admit independent onboard RGB-D target/hand/relation evidence; rigid_v2 is connected to passive logs, not the completion gate.',
+                          'Verify bounded unknown handling, safe recovery and no GT manipulation phase switching.',
+                          'Complete full-system evaluation of both original inside goals, separately verify release/stability, and resolve evaluator rc1.',
+                          'Evaluate VLM, asking and memory benefits separately; none is established here.'],
+        'audited_evidence': {
+            'task90_25k_triplet': {
+                'summary': 'outputs/validation/task090_25k_triplet_20261002/state.json',
+                'independent_audit': 'outputs/validation/task090_25k_triplet_20261002/independent_lift_check.json',
+                'checkpoint_step': 25000, 'instance_id': 311, 'seeds': [0, 1, 2],
+                'first_grasp_target': 'ashcan.n.01_1', 'qualified_first_bin_grasps': 2, 'runs': 3,
+                'max_logged_aabb_bottom_lift_cm_successful_seeds': [20.7, 24.4],
+                'qualification': 'active assisted grasp + reset-relative AABB bottom lift >=3cm for >=15 consecutive control steps',
+                'q_scores': [0, 0, 0], 'task_success': [False, False, False],
+                'evaluator_returncodes': [1, 1, 1], 'evaluation_complete': [False, False, False],
+                'interpretation': 'Prepositioned-base assisted diagnostic only; not full-task success, generalization, friction-only grasp or autonomous navigation'},
+            'task90_training': {
+                'launch': 'outputs/validation/task090_remaining_stages_20261002/train_050000_launch.json',
+                'manifest': 'outputs/training/task090_v3_50k_20260930_s050000/manifest.json',
+                'episodes': 200, 'train': 180, 'validation': 20, 'dino_cache': 'ready', 'dino_encoder': 'frozen',
+                'action_transformer': 'trained_to_50000_frozen', 'segment': '45000 -> 50000 complete',
+                'plan_steps': 50000, 'check_every_steps': 5000,
+                'test_order': '45000 checks, 50000 training and final triplet all ended; no additional training'},
+            'task90_50k': {
+                'summary': 'outputs/validation/task090_remaining_stages_20261002/triplet_050000/state.json',
+                'first_grasp_successes': 1, 'runs': 3, 'q_scores': [0, 0, 0],
+                'task_success': [False, False, False], 'evaluation_complete': [False, False, False],
+                'exit_reason': 'all scores produced; simulator shutdown timed out'},
+            'recorded_development': {
+                'summary': 'outputs/validation/task090_completion_20261002_1840/recorded_dev02/result_summary.json',
+                'checkpoint_step': 35000, 'seed': 1, 'instance_id': 311, 'environment_steps': 601,
+                'first_grasp': '265 consecutive assisted-lift observations; online completion still blocked',
+                'q_score': 0, 'evaluation_complete': True, 'task_success': False,
+                'video': '1920x1080, 602 frames decoded; third-person framing partly occluded',
+                'interpretation': 'selected development recording, not random success rate or long-task evaluation'},
+            'task90_35k_40k': {
+                'independent_audit': 'outputs/validation/task090_takeover_20261002_1319/independent_evaluation.json',
+                'first_grasp_successes': {'35000': 2, '40000': 0}, 'runs_per_step': 3,
+                'q_scores': [0, 0, 0], 'task_success': [False, False, False],
+                'interpretation': 'assisted development diagnostics only; 40k had no negative close command'},
+            'onboard_evidence': {'status': 'surface_v2 optional and rigid_v2 legacy wired to passive runtime logs; no completion admission',
+                                 'producer_source': 'harness/task090_rigid_observation_v2.py',
+                                 'surface_v2_source': 'harness/instance_surface.py',
+                                 'surface_v2_adapter': 'harness/task090_observation.py',
+                                 'surface_v2_tests': 'outputs/validation/task090_closedloop_bridge_20261004_1718/surface_integration/cpu_tests_final.log',
+                                 'gate_source': 'harness/task090_predicates.py',
+                                 'admission_blockers': 'object/hand tracks, support/container/sink relations, train/geometry calibration'},
+        },
+        'runtime_limits': [
+            'Truth is opt-in development base navigation/prepositioning or evaluator-only audit; not WAM action fields, manipulation verdict, manipulation stage switching or memory evidence.',
+            'Navigation uses a separate truth map in the opt-in diagnostic. Sensor-only deployment remains the intended runtime, not a proven result.',
+            'Task90 keeps the original two inside goals and rigid fruit halves. First grasp here targets the bin; it is not fruit placement or deformable manipulation.',
+            'Assisted-grasp lift is a simulator-constraint diagnostic, not evidence of real-world/friction-only grasp or absence of other support.',
+            '25k same-instance three-seed checks all have Q0, task_success false and rc1; evaluations are incomplete.',
+            'Unknown does not always mean immediate HOLD: no unverified advance; bounded execution/observation until budget then safe stop/recovery. Candidate satisfaction may HOLD earlier.',
+            'Onboard RGB-D/proprio producer, target-bound relations and safe continuation require independent admission; force/tactile/current evidence is not established.',
+            'VLM / asking / memory benefit, full-task success and generalization remain unverified.',
+        ],
+        'evidence_sha256': {str(path.relative_to(ROOT)): digest(path) for path in [
+            ROOT / 'scripts/draw_architecture.py',
+            ROOT / 'harness/policy_server.py', ROOT / 'harness/orchestrator.py', ROOT / 'harness/docking_controller.py',
+            ROOT / 'harness/task090_predicates.py', ROOT / 'harness/task090_perception.py',
+            ROOT / 'harness/instance_surface.py', ROOT / 'harness/task090_dino_localizer.py',
+            ROOT / 'harness/task090_observation.py', ROOT / 'harness/completion_readiness.py',
+            ROOT / 'harness/privileged_base_navigation.py', ROOT / 'harness/prepositioned_base_rgbd_wrapper.py',
+            ROOT / 'harness/wam_v3.py', ROOT / 'scripts/train_wam_task_v3.py',
+            ROOT / 'outputs/validation/task090_25k_triplet_20261002/state.json',
+            ROOT / 'outputs/validation/task090_25k_triplet_20261002/independent_lift_check.json',
+            ROOT / 'outputs/validation/task090_remaining_stages_20261002/train_050000_launch.json',
+            ROOT / 'outputs/training/task090_v3_50k_20260930_s050000/manifest.json',
+            ROOT / 'outputs/validation/task090_preparation_20260930/dino_v1/completion.json',
+            ROOT / 'data/skill_vtt_task090/meta.json']},
+        'sha256': {Path(path).name: digest(path) for path in artifacts},
+    }, indent=2) + '\n')
+    print(f'PASS: {len(NODES)} modules, {len(EDGES)} checked arrows; SVG and 3072×1830 PNG in {OUT}')
+
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,106 @@
+[
+  {
+    "id": "01-upstream",
+    "name": "原始LiLa-WAM",
+    "core": [
+      "third_party/LiLa-WAM"
+    ],
+    "entrypoints": [],
+    "snapshot_category": null
+  },
+  {
+    "id": "02-behavior-mobile",
+    "name": "BEHAVIOR移动操作适配",
+    "core": [
+      "harness/wam_behavior.py",
+      "harness/wam_v3.py"
+    ],
+    "entrypoints": [
+      "scripts/train_wam_v3.py",
+      "scripts/train_lilawam_behavior.py",
+      "scripts/train_wam_task_v3.py"
+    ],
+    "snapshot_category": "02-behavior-mobile"
+  },
+  {
+    "id": "03-fixed-bimanual",
+    "name": "固定双臂与柜体迁移",
+    "core": [
+      "harness/robotwin_policy_worker.py",
+      "harness/robotwin_dataset.py"
+    ],
+    "entrypoints": [
+      "scripts/train_robotwin_wam.py"
+    ],
+    "snapshot_category": "03-fixed-bimanual"
+  },
+  {
+    "id": "04-dustbin-and-multitask",
+    "name": "投瓶基线与五任务共享",
+    "core": [
+      "harness/robotwin_multitask_training.py",
+      "harness/robotwin_vtt_adapter.py"
+    ],
+    "entrypoints": [
+      "scripts/train_robotwin_wam.py",
+      "scripts/train_robotwin_multitask_wam.py"
+    ],
+    "snapshot_category": "04-dustbin-and-multitask"
+  },
+  {
+    "id": "05-hjepa-and-precision",
+    "name": "珠海任务及H-JEPA/初代Precision",
+    "core": [
+      "harness/wam_hjepa.py",
+      "harness/wam_precision.py",
+      "harness/zhuhai_hjepa_training.py",
+      "harness/zhuhai_precision_training.py"
+    ],
+    "entrypoints": [
+      "scripts/train_zhuhai_wam.py",
+      "scripts/train_zhuhai_wam_hjepa.py",
+      "scripts/train_zhuhai_wam_precision.py"
+    ],
+    "snapshot_category": "05-hjepa-and-precision"
+  },
+  {
+    "id": "06-precision-v2-and-dagger",
+    "name": "Precision V2及DAgger改版",
+    "core": [
+      "harness/wam_precision_v2.py",
+      "harness/zhuhai_precision_v2_training.py",
+      "harness/zhuhai_dagger_training.py"
+    ],
+    "entrypoints": [
+      "scripts/train_zhuhai_wam_precision_v2.py"
+    ],
+    "snapshot_category": null
+  },
+  {
+    "id": "07-precision-v3",
+    "name": "Precision V3失败支线",
+    "core": [
+      "harness/wam_precision_v3.py",
+      "harness/zhuhai_precision_v3_training.py"
+    ],
+    "entrypoints": [
+      "scripts/train_zhuhai_wam_precision_v3.py"
+    ],
+    "snapshot_category": null
+  },
+  {
+    "id": "08-precision-v4",
+    "name": "Precision V4及Future16/32",
+    "core": [
+      "harness/wam_precision_v4.py",
+      "harness/zhuhai_precision_v4_training.py",
+      "harness/zhuhai_precision_v4_future16.py"
+    ],
+    "entrypoints": [
+      "scripts/train_zhuhai_wam_precision_v4.py",
+      "scripts/train_zhuhai_wam_precision_v4_future16.py",
+      "scripts/eval_zhuhai_wam_precision_v4_future16.py"
+    ],
+    "snapshot_category": "08-precision-v4"
+  }
+]

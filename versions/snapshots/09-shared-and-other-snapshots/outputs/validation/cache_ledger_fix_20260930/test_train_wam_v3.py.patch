@@ -1,0 +1,117 @@
+--- /home/user/Robotic/project2/outputs/validation/cache_ledger_fix_20260930/backups/test_train_wam_v3.py
++++ /home/user/Robotic/project2/scripts/test_train_wam_v3.py
+@@ -662,7 +662,7 @@
+     def test_cache_receipt_reuses_without_reading_payload(self):
+         with tempfile.TemporaryDirectory() as tmp:
+             payload = Path(tmp) / "feat.npy"
+-            payload.write_bytes(b"frozen-feature-bits")
++            payload.write_bytes(b"f" * (T.CacheLedger.SMALL_FILE_BYTES + 1))
+             receipt = Path(tmp) / "cache-ledger.json"
+             bindings = {"config": "a" * 64, "meta": "b" * 64}
+             first = T.CacheLedger(receipt, T.SourceLedger()).verify_or_create([payload], bindings)
+@@ -675,7 +675,9 @@
+             def no_payload_read(path, tick=None):
+                 self.assertNotEqual(Path(path), payload)
+                 return real_hash(path, tick)
+-            with patch.object(T, "sha256", side_effect=no_payload_read):
++            # Simulate elapsed wall time, not a forged file identity: old LARGE receipts reuse.
++            aged_now = max(row["mtime_ns"], row["ctime_ns"]) + T.CacheLedger.RECENT_NS + 1
++            with patch.object(T, "sha256", side_effect=no_payload_read), patch.object(T.time, "time_ns", return_value=aged_now):
+                 sources = T.SourceLedger()
+                 reused = T.CacheLedger(receipt, sources).verify_or_create([payload], bindings)
+             self.assertEqual(reused["payloads_rehashed_this_run"], 0)
+@@ -721,6 +723,94 @@
+         self.assertEqual(args.cache_ledger, "/tmp/cache-receipt.json")
+         with patch.object(sys, "stderr"), self.assertRaises(SystemExit):
+             T.parse_args(["--run-name", "x", "--init-from", "v2.pt", "--resume-source", "last.pt"])
++
++
++class CacheCollisionTests(unittest.TestCase):
++    def fixture(self, tmp, size=4):
++        payload = Path(tmp) / "feat.npy"
++        payload.write_bytes(b"a" * size)
++        receipt = Path(tmp) / "receipt.json"
++        T.CacheLedger(receipt, T.SourceLedger()).verify_or_create([payload], {})
++        return payload, receipt
++
++    def test_dev_shm_real_collisions_rejected(self):
++        import os
++        collisions = 0
++        for _ in range(100):
++            with tempfile.TemporaryDirectory(dir="/dev/shm") as tmp:
++                payload, receipt = self.fixture(tmp)
++                old = payload.stat()
++                stamp = T.stat_identity(payload)
++                payload.write_bytes(b"bbbb")
++                os.utime(payload, ns=(old.st_atime_ns, old.st_mtime_ns))
++                collisions += stamp == T.stat_identity(payload)
++                sources = T.SourceLedger()
++                with self.assertRaisesRegex(ValueError, "invalidated"):
++                    T.CacheLedger(receipt, sources).verify_or_create([payload], {})
++                self.assertEqual(sources.files, {})
++        print(f"/dev/shm: {collisions}/100 real stat collisions; 100/100 changes rejected")
++        self.assertGreater(collisions, 0, "No real collision observed; collision coverage NOT demonstrated")
++
++    def test_small_metadata_rehashed_even_when_old_and_already_recorded(self):
++        with tempfile.TemporaryDirectory() as tmp:
++            payload, receipt = self.fixture(tmp)
++            sources = T.SourceLedger()
++            sources.add(payload)
++            now = max(T.stat_identity(payload)[k] for k in ("ctime_ns", "mtime_ns")) + T.CacheLedger.RECENT_NS + 1
++            with patch.object(T.time, "time_ns", return_value=now), patch.object(T, "sha256", wraps=T.sha256) as hashes:
++                result = T.CacheLedger(receipt, sources).verify_or_create([payload], {})
++            self.assertEqual(sum(Path(c.args[0]) == payload for c in hashes.call_args_list), 1)
++            self.assertEqual(result["payloads_rehashed_this_run"], 1)
++            self.assertEqual(result["payloads_stat_verified"], 1)
++            self.assertFalse(result["not_fresh_payload_hash"])
++            self.assertEqual(sources.files[str(payload)], T.sha256(payload))
++
++    def test_recent_large_rejected_without_reading_or_accepting_digest(self):
++        with tempfile.TemporaryDirectory() as tmp:
++            payload, receipt = self.fixture(tmp, T.CacheLedger.SMALL_FILE_BYTES + 1)
++            real_hash = T.sha256
++            def no_payload(path, tick=None):
++                self.assertNotEqual(Path(path), payload)
++                return real_hash(path, tick)
++            latest = max(T.stat_identity(payload)[k] for k in ("mtime_ns", "ctime_ns"))
++            for age in (0, T.CacheLedger.RECENT_NS):
++                sources = T.SourceLedger()
++                with patch.object(T.time, "time_ns", return_value=latest + age), patch.object(T, "sha256", side_effect=no_payload):
++                    with self.assertRaisesRegex(ValueError, "recent large"):
++                        T.CacheLedger(receipt, sources).verify_or_create([payload], {})
++                self.assertEqual(sources.files, {})
++
++    def test_malformed_stats_and_future_timestamps_fail_closed(self):
++        with tempfile.TemporaryDirectory() as tmp:
++            payload, receipt = self.fixture(tmp)
++            original = json.loads(receipt.read_text())
++            for key, value in (("size", True), ("size", 4.0), ("inode", 0), ("device", -1),
++                               ("mtime_ns", "123"), ("ctime_ns", None)):
++                data = copy.deepcopy(original)
++                data["files"][0][key] = value
++                data["files_sha256"] = T.digest_json(data["files"])
++                T.atomic_json(receipt, data)
++                with self.assertRaisesRegex(ValueError, "invalidated"):
++                    T.CacheLedger(receipt, T.SourceLedger()).verify_or_create([payload], {})
++            T.atomic_json(receipt, original)
++            latest = max(original["files"][0][k] for k in ("mtime_ns", "ctime_ns"))
++            with patch.object(T.time, "time_ns", return_value=latest - 1):
++                with self.assertRaisesRegex(ValueError, "timestamp invalidated"):
++                    T.CacheLedger(receipt, T.SourceLedger()).verify_or_create([payload], {})
++
++    def test_mixed_inventory_counters(self):
++        with tempfile.TemporaryDirectory() as tmp:
++            small = Path(tmp) / "meta.json"; small.write_bytes(b"{}")
++            large = Path(tmp) / "feat.npy"; large.write_bytes(b"a" * (T.CacheLedger.SMALL_FILE_BYTES + 1))
++            receipt = Path(tmp) / "receipt.json"
++            T.CacheLedger(receipt, T.SourceLedger()).verify_or_create([small, large], {})
++            now = max(T.stat_identity(p)[k] for p in (small, large) for k in ("mtime_ns", "ctime_ns")) + T.CacheLedger.RECENT_NS + 1
++            with patch.object(T.time, "time_ns", return_value=now), patch.object(T, "sha256", wraps=T.sha256) as hashes:
++                result = T.CacheLedger(receipt, T.SourceLedger()).verify_or_create([small, large], {})
++            self.assertFalse(any(Path(c.args[0]) == large for c in hashes.call_args_list))
++            self.assertEqual(result["payloads_rehashed_this_run"], 1)
++            self.assertEqual(result["payloads_stat_verified"], 2)
++            self.assertTrue(result["not_fresh_payload_hash"])
+ 
+ 
+ class SegmentedBudgetTests(unittest.TestCase):

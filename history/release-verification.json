@@ -1,5 +1,5 @@
 {
-  "status": "verified_download_and_restore",
+  "status": "historical_verification_only_release_cancelled",
   "category": "historical-sources",
   "files": 1542,
   "remote_release_id": 412309105,
@@ -12,5 +12,7 @@
     "corruption rejection",
     "gzip streaming restoration",
     "GitHub download and full historical source restoration"
-  ]
+  ],
+  "release_deleted_by_user_request": true,
+  "source_snapshots_now_in_git": true
 }

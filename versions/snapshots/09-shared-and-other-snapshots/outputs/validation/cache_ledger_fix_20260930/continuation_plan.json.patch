@@ -1,0 +1,21 @@
+--- /home/user/Robotic/project2/outputs/validation/cache_ledger_fix_20260930/backups/continuation_plan.json
++++ /home/user/Robotic/project2/outputs/validation/task0_continuation_20k_20260929/continuation_plan.json
+@@ -23,9 +23,16 @@
+     {
+       "path": "scripts/train_wam_v3.py",
+       "from_sha256": "fba00fe6f1843fa2141296f95a9fb15225d1604419320a74da4089bf72dfb8d2",
+-      "to_sha256": "2efdd3b85af189328661e86d3ec9b78424d78d1e95872117e3d9c2f5c032aa26",
++      "to_sha256": "126ef68e59a5c65863cb175512572218224e668ad989cff066c2b72a157c5c79",
+       "backup": "outputs/validation/task0_continuation_20k_20260929/backups/train_wam_v3.py.parent30k",
+-      "reason": "Opt-in bounded second-stage LR and exact source migration; default legacy path unchanged. Restore verified backup explicitly for legacy-source recovery, never bypass source checks."
++      "reason": "Opt-in bounded second-stage LR and exact source migration; default legacy schedule unchanged. Restore verified backup explicitly for legacy-source recovery, never bypass source checks. Additional cache-reuse correction: hash small payloads, reject recent large/invalid timestamp identities, explicitly retain only historical stat assurance for old large payloads. Trainer-only delta from 2efdd3b85af189328661e86d3ec9b78424d78d1e95872117e3d9c2f5c032aa26 is recorded in outputs/validation/cache_ledger_fix_20260930/source_binding_audit.json; model/data/stats and parent identity unchanged."
++    },
++    {
++      "path": "scripts/test_train_wam_v3.py",
++      "from_sha256": "731034bb05fdb85f05d331321cc8e21ff8fa68ad744cfbf3427f1d5cc5c5ad91",
++      "to_sha256": "c0c8cb3a1380f9d474508aef125ed69fb90c26e00b5e6198dcf84b5ffc8d1f67",
++      "backup": "outputs/validation/cache_ledger_fix_20260930/backups/test_train_wam_v3.py",
++      "reason": "Cache-ledger fix regression coverage only: preserve the restored-mtime failure test; adapt no-read fixture to an aged large payload and add real /dev/shm collision, small-hash, recent/future/malformed-stat and counter checks. No training behavior/model/data/stats changes."
+     },
+     {
+       "path": "harness/orchestrator.py",

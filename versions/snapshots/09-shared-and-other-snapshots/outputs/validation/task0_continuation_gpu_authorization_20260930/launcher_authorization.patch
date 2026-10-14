@@ -1,0 +1,198 @@
+--- /home/user/Robotic/project2/outputs/validation/task0_continuation_gpu_authorization_20260930/source_before/run_wam_v3_stages.py
++++ /home/user/Robotic/project2/scripts/run_wam_v3_stages.py
+@@ -15,6 +15,10 @@
+ import subprocess
+ import sys
+ import time
++
++from wam_v3_resource_authorization import (
++    validate_authorization, validate_resource_contract, resource_environment,
++)
+ 
+ ROOT = Path(__file__).resolve().parents[1]
+ GPU_LOCK = Path('/tmp/project2_gpu.lock')
+@@ -182,18 +186,31 @@
+ def clean_env():
+     env = dict(os.environ)
+     for key in ('RESUME', 'INIT', 'RUN_NAME', 'RESUME_SHA256', 'DRY_RUN', 'MAXSTEPS',
+-                'ORCH_EXTRA', 'VIDEO_VIEW', 'MAX_ATTEMPTS', 'CONTINUATION_PLAN'):
++                'ORCH_EXTRA', 'VIDEO_VIEW', 'MAX_ATTEMPTS', 'CONTINUATION_PLAN',
++                'GPU_AUTHORIZATION', 'P2_GPU_AUTHORIZATION_SHA256', 'P2_GPU_UTILIZATION_ALLOWED',
++                'P2_TOTAL_VRAM_ABORT_MIB', 'P2_CPU_PERCENT_CEILING', 'P2_RAM_PERCENT_CEILING',
++                'P2_GPU_CONCURRENCY'):
+         env.pop(key, None)
+     return env
+ 
+ 
++def entrypoint_source_hashes():
++    return {name: digest(ROOT / name) for name in (
++        'scripts/run_wam_v3_stages.py', 'scripts/run_wam_v3_unit.sh',
++        'scripts/wam_v3_resource_authorization.py')}
++
++
+ def new_plan(a):
+     continuation = getattr(a, 'continuation_plan', None)
++    authorization = getattr(a, 'gpu_authorization', None)
++    resource = validate_authorization(authorization) if authorization else None
+     return {'version': 1, 'created_unix': time.time(), 'total_optimizer_steps': a.budget or 30000,
+             'checkpoints': list(range(35000 if continuation else 5000, (a.budget or 30000) + 1, 5000)),
+             'start_step': 30000 if continuation else 0,
+             'training': {'config': a.config, 'config_sha256': digest(ROOT / a.config),
+                          'approval': a.approval, 'cache_ledger': a.cache_ledger,
++                         **({'approval_sha256': digest(ROOT / a.approval),
++                             'entrypoint_source_sha256': entrypoint_source_hashes()} if resource else {}),
+                          'continuation_plan': continuation,
+                          'continuation_plan_sha256': digest(ROOT / continuation) if continuation else None,
+                          'resume_source': a.resume_source, 'optimizer_resume': True, 'early_stopping': False},
+@@ -204,7 +221,7 @@
+                          'max_attempts': 3, 'fixed_program': True,
+                          'success': 'only evaluator success/BDDL and final Q; no timeout or program-end success',
+                          'scope': 'development checkpoint tracking, not official report'},
+-            'resource': 'exclusive GPU; wait before and after each stage; never steal lock',
++            'resource': resource or 'exclusive GPU; wait before and after each stage; never steal lock',
+             'physical_failure': 'record and continue unchanged training',
+             'infra_failure': 'stop chain, preserve all evidence', 'no_test_feedback_to_training': True,
+             'automatic_extension': False}
+@@ -247,20 +264,44 @@
+             and plan.get('automatic_extension') is False and plan.get('no_test_feedback_to_training') is True,
+             'training protocol differs')
+     require(digest(ROOT / t['config']) == t['config_sha256'], 'original config digest changed')
++    if isinstance(plan.get('resource'), dict):
++        contract = validate_resource_contract(plan['resource'])
++        require(t.get('entrypoint_source_sha256') == entrypoint_source_hashes(),
++                'entrypoint sources changed; use an explicit new migration/plan, never relax hashes')
++        require(digest(ROOT / t['approval']) == t.get('approval_sha256'), 'original approval digest changed')
++        if getattr(a, 'gpu_authorization', None):
++            require(validate_authorization(a.gpu_authorization) == contract, 'original GPU authorization differs')
++    else:
++        require(not getattr(a, 'gpu_authorization', None),
++                'historical GPU-blocked plan is immutable; create a separate authorized plan')
+ 
+ 
+ def require_execution_authorization(plan):
+-    """Unconditional continuation hard stop; no CLI/env override exists."""
+-    if plan['training'].get('continuation_plan'):
+-        raise ValueError('continuation GPU execution blocked: resource-window authorization unresolved')
++    """Validate the actual user receipt; resource consent never grants training approval."""
++    if plan['training'].get('continuation_plan') or isinstance(plan.get('resource'), dict):
++        resource = validate_resource_contract(plan.get('resource'))
++        require(plan['training'].get('entrypoint_source_sha256') == entrypoint_source_hashes(),
++                'entrypoint sources changed; use an explicit new migration/plan, never relax hashes')
++        return resource
++    return None
+ 
+ 
+ def execute(plan, a, out):
+-    require_execution_authorization(plan)
++    resource = require_execution_authorization(plan)
+     t, p = plan['training'], plan['physical']
+     row = {'phase': 'preflight', 'time': time.time()}
+     try:
++        if resource:
++            # Do not turn an invocation during another experiment into an unattended queue.
++            # Inter-stage waits remain below; this check is ONLY on controller entry.
++            require(not GPU_LOCK.exists() and not GPU_LOCK.is_symlink(),
++                    'external GPU lock is already held; retry explicitly after the current experiment')
++            write(out / 'resource_authorization.json', resource)
+         require((ROOT / t['approval']).is_file(), 'reviewed approval missing')
++        if resource:
++            require(digest(ROOT / t['approval']) == t.get('approval_sha256'), 'original approval digest changed')
++            require(read(ROOT / t['approval']).get('approved') is True,
++                    'training approval is not admitted; GPU resource consent alone is insufficient')
+         resume = t.get('resume_source')
+         initial_step = validate_last(ROOT / resume)['step'] if resume else 0
+         for step in plan['checkpoints']:
+@@ -306,6 +347,8 @@
+                 write(out / 'status.json', row)
+                 wait_release()
+                 env = clean_env()
++                if resource:
++                    env.update(resource_environment(resource))
+                 env.update(NAME=name, MODE='long', MAX_STEPS=str(step), CONFIG=t['config'],
+                            CACHE_LEDGER=t['cache_ledger'], APPROVAL=t['approval'], P2_TASK_ID='0')
+                 if t.get('continuation_plan'):
+@@ -356,6 +399,8 @@
+                         'prior physical attempt exists; refusing automatic re-test')
+                 wait_release()
+                 env = clean_env()
++                if resource:
++                    env.update(resource_environment(resource))
+                 env.update(NAME=physical, CKPT=str(ck), INST=str(p['instance']), PROFILE='development',
+                            SAMPLES='1', EXEC='8', VIDEO_W='1280', VIDEO_H='720', VIDEO_VIEW='viewer',
+                            MAX_ATTEMPTS='3', P2_TASK_ID='0')
+@@ -397,7 +442,7 @@
+ def main():
+     parser = argparse.ArgumentParser(description=__doc__)
+     parser.add_argument('--prefix', required=True)
+-    for key in ('config', 'cache-ledger', 'approval', 'resume-source', 'continuation-plan'):
++    for key in ('config', 'cache-ledger', 'approval', 'resume-source', 'continuation-plan', 'gpu-authorization'):
+         parser.add_argument('--' + key)
+     parser.add_argument('--budget', type=int, choices=[30000, 50000])
+     parser.add_argument('--instance', type=int)
+--- /home/user/Robotic/project2/outputs/validation/task0_continuation_gpu_authorization_20260930/source_before/run_wam_v3_unit.sh
++++ /home/user/Robotic/project2/scripts/run_wam_v3_unit.sh
+@@ -4,6 +4,9 @@
+ # Optional: MAX_STEPS (absolute target, defaults tiny=200 / pilot=2000 / long=100000),
+ #           RESUME or INIT (mutually exclusive), APPROVAL (mandatory for long),
+ #           RESUME_SHA256, LIMIT_NOFILE (default/minimum 8192).
++# Continuation execution also requires GPU_AUTHORIZATION naming the pinned actual-user
++# receipt. Numeric/boolean environment overrides cannot authorize GPU work. DRY_RUN
++# only previews commands and resource metadata; it never grants training approval.
+ # CONFIG is deliberately explicit: B32 OOMed; the verified pilot uses the separate
+ # configs/lilawam_task000_multiview_manip_v3_micro16_train.yaml (microbatch16, accum2).
+ # CACHE_LEDGER must match that config; never substitute the original B32 receipt.
+@@ -94,13 +97,31 @@
+     [[ $mode == long && -n ${RESUME:-} && -f $CONTINUATION_PLAN ]] || die 'continuation requires long, RESUME and an existing plan'
+     trainer+=(--continuation-plan "$CONTINUATION_PLAN")
+ fi
++resource_json=
++resource_env=()
++if [[ -n ${GPU_AUTHORIZATION:-} || ( -n ${CONTINUATION_PLAN:-} && ${DRY_RUN:-0} != 1 ) ]]; then
++    # Independent revalidation; inheriting a controller's environment is not consent.
++    resource_json=$(/usr/bin/python3 -B "$ROOT/scripts/wam_v3_resource_authorization.py" \
++        --authorization "${GPU_AUTHORIZATION:-}") || die 'GPU resource authorization rejected'
++    resource_env=("GPU_AUTHORIZATION=$GPU_AUTHORIZATION"
++        P2_GPU_AUTHORIZATION_SHA256=9bd06b2fbdda711378c8e31b2b7605da3fd3ed0453e6ebf2c797925ec5c69cad
++        P2_GPU_UTILIZATION_ALLOWED=100 P2_TOTAL_VRAM_ABORT_MIB=15300
++        P2_CPU_PERCENT_CEILING=85 P2_RAM_PERCENT_CEILING=85 P2_GPU_CONCURRENCY=exclusive)
++fi
+ if [[ ${DRY_RUN:-0} == 1 ]]; then
++    printf 'GPU resource contract: %s\n' "${resource_json:-not authorized; CPU preview only}"
+     printf 'Command:'; printf ' %q' "${trainer[@]}"; printf '\n'
+     exit 0
+ fi
+-# No service/lock/GPU work until the real user resolves the resource definition.
++# Refuse an occupied lock before any systemd query or output creation. The atomic
++# lock acquire below closes the race; neither check waits, steals or auto-queues.
++[[ ! -e $LOCK_FILE && ! -L $LOCK_FILE ]] || die 'external GPU lock is already held; no waiting, stealing or auto-queuing'
+ if [[ -n ${CONTINUATION_PLAN:-} ]]; then
+-    die 'continuation GPU execution blocked: resource-window authorization unresolved'
++    /usr/bin/python3 -B - "$APPROVAL" <<'PY' || die 'training approval is not admitted; resource consent alone is insufficient'
++import json, sys
++if json.load(open(sys.argv[1])).get('approved') is not True:
++    raise SystemExit(2)
++PY
+ fi
+ 
+ owner="wam-train-$name"
+@@ -117,6 +138,11 @@
+ [[ ! -e $LOCK_FILE && ! -L $LOCK_FILE ]] || die 'external GPU lock is already held; no waiting, stealing or auto-queuing'
+ mkdir -p -- "$(dirname -- "$log")"
+ ( set -o noclobber; : > "$log" ) || die "launch log exists; preserve it and use a NEW name: $log"
++if [[ -n $resource_json ]]; then
++    printf 'GPU resource contract: %s\n' "$resource_json" | tee -a "$log"
++    ( set -o noclobber; printf '%s\n' "$resource_json" > "${log%.log}.resources.json" ) \
++        || die 'resource log already exists; preserve it and use a NEW name'
++fi
+ 
+ acquired=0
+ launched=0
+@@ -170,7 +196,7 @@
+     -p Type=exec -p Restart=no -p "LimitNOFILE=$limit" -p CPUAffinity=0-15 \
+     -p MemoryMax=20G -p MemorySwapMax=0 -p KillSignal=SIGTERM -p KillMode=mixed -p TimeoutStopSec=900s \
+     -p "StandardOutput=append:$log" -p "StandardError=append:$log" \
+-    /usr/bin/env P2_TASK_ID=0 OMP_NUM_THREADS=8 MKL_NUM_THREADS=8 OPENBLAS_NUM_THREADS=8 \
++    /usr/bin/env "${resource_env[@]}" P2_TASK_ID=0 OMP_NUM_THREADS=8 MKL_NUM_THREADS=8 OPENBLAS_NUM_THREADS=8 \
+     PYTHONUNBUFFERED=1 PYTHONDONTWRITEBYTECODE=1 "${trainer[@]}"
+ 
+ # The detached watcher releases only this owner's lock after this unit exits.

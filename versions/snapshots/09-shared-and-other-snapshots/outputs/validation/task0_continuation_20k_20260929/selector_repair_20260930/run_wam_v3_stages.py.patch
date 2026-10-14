@@ -1,0 +1,32 @@
+--- outputs/validation/task0_continuation_20k_20260929/selector_repair_20260930/backups/run_wam_v3_stages.py
++++ scripts/run_wam_v3_stages.py
+@@ -215,8 +215,9 @@
+     budget = plan['total_optimizer_steps']
+     continuation = t.get('continuation_plan')
+     start = 30000 if continuation else 0
+-    require(type(budget) is int and budget == (50000 if continuation else 30000)
+-            and plan.get('start_step', 0) == start
++    require(type(budget) is int and budget in ((50000,) if continuation else (30000, 50000))
++            and integer(plan.get('start_step', 0), start)
++            and all(type(step) is int for step in plan['checkpoints'])
+             and plan['checkpoints'] == list(range(start + 5000, budget + 1, 5000)), 'invalid stage plan')
+     if continuation:
+         cp = read(ROOT / continuation)
+@@ -248,10 +249,15 @@
+     require(digest(ROOT / t['config']) == t['config_sha256'], 'original config digest changed')
+ 
+ 
++def require_execution_authorization(plan):
++    """Unconditional continuation hard stop; no CLI/env override exists."""
++    if plan['training'].get('continuation_plan'):
++        raise ValueError('continuation GPU execution blocked: resource-window authorization unresolved')
++
++
+ def execute(plan, a, out):
++    require_execution_authorization(plan)
+     t, p = plan['training'], plan['physical']
+-    if t.get('continuation_plan'):
+-        raise ValueError('continuation GPU execution blocked: resource-window authorization unresolved')
+     row = {'phase': 'preflight', 'time': time.time()}
+     try:
+         require((ROOT / t['approval']).is_file(), 'reviewed approval missing')

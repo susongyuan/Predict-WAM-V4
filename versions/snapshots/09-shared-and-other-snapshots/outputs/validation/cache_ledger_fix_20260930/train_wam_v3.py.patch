@@ -1,0 +1,74 @@
+--- /home/user/Robotic/project2/outputs/validation/cache_ledger_fix_20260930/backups/train_wam_v3.py
++++ /home/user/Robotic/project2/scripts/train_wam_v3.py
+@@ -15,10 +15,12 @@
+ then resume the SAME mode/config to 10000 ... total budget). Physical evaluations between segments
+ are managed externally; this trainer never starts them or auto-queues another segment. Partial accumulation
+ is replayed from its boundary. Optimizer-update failures are marked unsafe and cannot auto-resume.
+---cache-ledger FILE (default <feature_cache>/sha256_ledger_v1.json) hashes payloads ONCE. Reuse rehashes
+-config/metadata and requires exact path/size/mtime_ns/ctime_ns/inode/device matches for ALL payloads.
+-Reuse is explicitly stat-validated historical SHA256 assurance, NOT a fresh payload hash. Changed
+-receipts/files fail closed; choose a new ledger path to perform a new full hash.
++--cache-ledger FILE (default <feature_cache>/sha256_ledger_v1.json) records historical full hashes.
++Reuse rehashes config/metadata and all payloads <=1 MiB; ALL payloads must match recorded stats.
++Large payloads with timestamps within 60 s (or future/invalid stats) fail closed without reading them.
++Older large payloads reuse historical SHA256, NOT a content guarantee: stat identity and the 60 s
++heuristic cannot rule out timestamp collisions, undetected writes, or concurrent mutation. Inputs must
++remain immutable. Changed receipts/files fail closed; no automatic full-cache rehash is performed.
+ Sampling is one noise per (seed, episode, anchor), independent of batching/order. Future *action* step
+ 31 FK in metres selects best; flow is report-only. K=1 is unrelated to execution horizon (usually 8).
+ Tiny/pilot outputs are diagnostics, never long-run results or physical success claims.
+@@ -992,6 +994,8 @@
+ class CacheLedger:
+     """A historical full-content digest receipt, NOT a claim of fresh byte hashing on reuse."""
+     FORMAT = "wam-v3-cache-sha256-v1"
++    SMALL_FILE_BYTES = 1024 * 1024
++    RECENT_NS = 60 * 1_000_000_000  # conservative heuristic, not measured filesystem resolution
+ 
+     def __init__(self, path, source_ledger):
+         self.path, self.sources = Path(path).resolve(), source_ledger
+@@ -1008,21 +1012,41 @@
+         if len(indexed) != len(rows) or set(indexed) != set(paths):
+             raise ValueError("cache ledger payload inventory mismatch")
+         # Validate the ENTIRE inventory before accepting even one cached digest.
++        # Stat equality is only a historical-receipt check, never proof of byte equality.
++        now_ns = time.time_ns()
++        rehashed = 0
+         for name in paths:
+             self.sources.check()
+             row = indexed[name]
+             current = stat_identity(name)
+-            if (current != {k: row.get(k) for k in current}
++            if (any(type(row.get(k)) is not int or row[k] < 0 for k in current)
++                    or row.get("inode", 0) == 0 or row.get("device", 0) == 0
++                    or current != {k: row.get(k) for k in current}
+                     or not re.fullmatch(r"[0-9a-f]{64}", str(row.get("sha256", "")))):
+                 raise ValueError(f"cache ledger stat/hash invalidated: {name}; choose a new ledger to rehash")
++            latest_ns = max(current["mtime_ns"], current["ctime_ns"])
++            if min(current["mtime_ns"], current["ctime_ns"]) <= 0 or latest_ns > now_ns:
++                raise ValueError(f"cache ledger timestamp invalidated: {name}")
++            if current["size"] <= self.SMALL_FILE_BYTES:
++                # Read directly: SourceLedger.add may already hold a historical digest.
++                if sha256(name, self.sources.check) != row["sha256"]:
++                    raise ValueError(f"cache ledger content invalidated: {name}")
++                rehashed += 1
++            elif now_ns - latest_ns <= self.RECENT_NS:
++                # Do not accidentally rehash a recently copied 500 GiB cache. Refuse instead.
++                raise ValueError(f"cache ledger recent large payload invalidated: {name}; immutable old payload required")
+         require_hash(self.path, receipt_hash, self.sources.check)
++        for name, row in indexed.items():
++            stamp = {k: row[k] for k in ("size", "mtime_ns", "ctime_ns", "inode", "device")}
++            if stat_identity(name) != stamp:
++                raise ValueError(f"cache ledger stat invalidated during verification: {name}")
+         for name, row in indexed.items():
+             self.sources.files[name] = row["sha256"]
+             self.sources.stamps[name] = {k: row[k] for k in ("size", "mtime_ns", "ctime_ns", "inode", "device")}
+         self.sources.add(self.path, receipt_hash)
+-        return {"assurance": "reused_historical_full_sha256_all_stats_match_config_meta_rehashed",
+-                "payloads_rehashed_this_run": 0, "payloads_stat_verified": len(paths), "ledger": str(self.path),
+-                "ledger_sha256": receipt_hash, "not_fresh_payload_hash": True}
++        return {"assurance": "historical_stat_receipt_with_small_payloads_rehashed_not_content_guarantee",
++                "payloads_rehashed_this_run": rehashed, "payloads_stat_verified": len(paths), "ledger": str(self.path),
++                "ledger_sha256": receipt_hash, "not_fresh_payload_hash": rehashed < len(paths)}
+ 
+     def verify_or_create(self, paths, bindings):
+         paths = sorted({str(Path(p).resolve()) for p in paths})

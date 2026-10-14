@@ -1,0 +1,193 @@
+--- /home/user/Robotic/project2/outputs/validation/task090_takeover_20261003_1752/observer_lifecycle/source_before/policy_server.py
++++ /home/user/Robotic/project2/harness/policy_server.py
+@@ -433,6 +433,9 @@
+                 self.post_task1 = Task090Postconditions(orchestrate.get("task090_observation_calibration"))
+                 self.onboard_measurement = None
+                 self._onboard_measurement_binding = None
++                self._onboard_measurement_contract = None
++                self._onboard_measurement_last_frame = None
++                self._onboard_measurement_seen = set()
+                 measurement = orchestrate.get("onboard_measurement_log")
+                 if measurement:
+                     from harness.task090_observation import Task090ObservationProducer
+@@ -783,8 +786,10 @@
+             self.privbase.reset()
+         self._active_contract, self._last_action = None, None
+         self._onboard_measurement_binding = None
+-        if getattr(self, "onboard_measurement", None) is not None:
+-            self.onboard_measurement.reset()
++        self._onboard_measurement_contract = None
++        self._onboard_measurement_last_frame = None
++        self._onboard_measurement_seen = set()
++        self._reset_onboard_measurement()
+         if hasattr(getattr(self, "post_task1", None), "reset_episode"):
+             self.post_task1.reset_episode()     # Task 0: the verified grasp height belongs to one episode
+         self.step_in_episode = 0
+@@ -1243,11 +1248,13 @@
+     def _onboard_observation_request(self):
+         """Select what to observe, never assert an observed identity or a satisfied precondition."""
+         orch = self.orch
+-        if orch is None or orch.status == "done" or not orch.candidates:
++        if orch is None or orch.status not in ("running", "held", "awaiting_answer") or not orch.candidates:
++            return None
++        if type(orch.index) is not int or orch.index < 0:
+             return None
+         requests = []
+         for candidate in orch.candidates:
+-            if not 0 <= orch.index < len(candidate.steps):
++            if orch.index >= len(candidate.steps):
+                 return None
+             current = candidate.steps[orch.index]
+             target = current
+@@ -1258,45 +1265,126 @@
+                 target = candidate.steps[orch.index + 1]
+                 if target.skill == "move to":
+                     return None
+-            if not target.objects:
+-                return None
+-            requests.append((current.key(), target.key(), target.objects[0]))
++            for step in (current, target):
++                if (not isinstance(step.skill, str) or not step.skill.strip()
++                        or not isinstance(step.objects, (tuple, list)) or not step.objects
++                        or any(not isinstance(o, str) or not o.strip() for o in step.objects)):
++                    return None
++            # key() drops instance tags: compare exact tokens too, including reference objects.
++            requests.append((current.key(), tuple(current.objects), target.key(), tuple(target.objects)))
+         if any(request != requests[0] for request in requests[1:]):
+             return None  # Asking/holding must not guess between different task stages or targets.
+-        current_key, target_key, object_id = requests[0]
++        current_key, current_objects, target_key, target_objects = requests[0]
+         contract = orch.contract
+-        if contract is not None and (contract.index != orch.index or contract.key != current_key):
++        if contract is not None and (contract.index != orch.index or contract.key != current_key
++                                     or tuple(contract.step.objects) != current_objects):
+             return None
+-        return {"object_id": object_id, "current_contract_key": current_key,
+-                "measurement_contract_key": target_key, "source": "unambiguous_program_request",
+-                "observed_identity": False}
++        return {"object_id": target_objects[0], "current_contract_key": current_key,
++                "measurement_contract_key": target_key, "contract_index": orch.index,
++                "current_objects": current_objects, "target_objects": target_objects,
++                "source": "unambiguous_program_request", "observed_identity": False}
++
++    def _reset_onboard_measurement(self, *, contract_only=False, contract=None):
++        """Reset candidate counts separately from geometry; keep the configured producer."""
++        producer = getattr(self, "onboard_measurement", None)
++        if producer is None:
++            return
++        reset_contract = getattr(producer, "reset_contract", None)
++        if contract_only:
++            if callable(reset_contract):
++                reset_contract(contract)
++            else:
++                # Legacy rigid_v2 has these counters but no reset_contract method.
++                # Do not call its _clear(): that would discard the original 3D reference.
++                for name, value in (("candidate_start", None), ("candidate_count", 0)):
++                    if hasattr(producer, name):
++                        setattr(producer, name, value)
++        else:
++            producer.reset()
++            # v2.reset does not reset its nested surface association/replay history.
++            # Producers exposing reset_contract already own their full reset lifecycle.
++            measure = getattr(producer, "measure", None)
++            if not callable(reset_contract) and measure is not None:
++                measure.reset()
+ 
+     def _log_task090_measurement(self, obs, state, head_features):
+-        """Observe through navigation/manipulation/HOLD; diagnostics cannot issue outcomes."""
++        """Observe every new control frame, including navigation/HOLD; never issue outcomes."""
+         producer = getattr(self, "onboard_measurement", None)
+-        if producer is None or self.step_in_episode % self.onboard_measurement_every:
++        if producer is None:
+             return
+         started = time.monotonic()
+-        request = self._onboard_observation_request()
+-        binding = None if request is None else (self.episode, request["object_id"])
++        request = None
+         try:
++            request = self._onboard_observation_request()
++            if (type(self.episode) is not int or type(self.step_in_episode) is not int
++                    or self.episode < 0 or self.step_in_episode < 0):
++                raise ValueError("invalid_episode_or_step")
++            previous = getattr(self, "_onboard_measurement_last_frame", None)
++            if previous is not None and (self.episode < previous[0] or
++                    self.episode == previous[0] and self.step_in_episode <= previous[1]):
++                raise ValueError("nonmonotonic_observation")
++            if previous is None or previous[0] != self.episode:
++                self._onboard_measurement_seen = set()
++                previous = None
++            binding = None if request is None else (self.episode, request["object_id"])
+             if binding != getattr(self, "_onboard_measurement_binding", None):
+-                producer.reset()
++                self._reset_onboard_measurement()
+                 self._onboard_measurement_binding = binding
++                self._onboard_measurement_contract = None
+             if request is None:
+-                measured = {"status": "unknown", "verified": False, "admitted": False,
+-                            "reason": "missing_or_ambiguous_observation_request"}
+-            else:
+-                extra = ({"action": None if self._last_action is None else
+-                          np.array(self._last_action, dtype=np.float32, copy=True)}
+-                         if getattr(producer, "requires_applied_action", False) else {})
+-                measured = producer.update(obs, state.copy(), episode=self.episode, step=self.step_in_episode,
+-                    object_id=request["object_id"], head_features=head_features, **extra)
+-                if measured.get("verified") is not False or measured.get("admitted") is not False:
+-                    raise ValueError("passive observation producer cannot certify success")
++                raise ValueError("missing_or_ambiguous_observation_request")
++            scope = (self.episode, request["contract_index"], request["current_contract_key"],
++                     request["current_objects"], request["measurement_contract_key"], request["target_objects"])
++            old_scope = getattr(self, "_onboard_measurement_contract", None)
++            live = self._contract_id(self.orch.contract)
++            # HOLD clears orch.contract, not the observed object's identity or attempt.
++            attempt = live if live is not None else (old_scope[-1] if old_scope and old_scope[:-1] == scope else None)
++            scope += (attempt,)
++            if scope != old_scope:
++                self._reset_onboard_measurement(contract_only=True, contract=scope)
++                self._onboard_measurement_contract = scope
++
++            # Reapply the same allowlist at this diagnostic boundary. No privbase/evaluator payload
++            # or shared writable sensor/feature buffer may leak into or back out of the producer.
++            sensors = self._policy_observation(obs)
++            rgb = np.asarray(self._find(sensors, "::rgb", "zed_link"))
++            depth = np.asarray(self._find(sensors, "::depth_linear", "zed_link"))
++            camera = np.asarray(self._find(sensors, "::cam_rel_poses"))
++            state_copy = np.array(state, dtype=np.float32, copy=True)
++            if (rgb.ndim != 3 or rgb.shape[-1] not in (3, 4) or not np.isfinite(rgb).all()
++                    or depth.squeeze().shape != rgb.shape[:2] or not np.any(np.isfinite(depth) & (depth > 0))
++                    or camera.shape not in ((7,), (21,)) or not np.isfinite(camera).all()
++                    or np.linalg.norm(camera[3:7]) == 0 or state_copy.shape != (61,)
++                    or not np.isfinite(state_copy).all()):
++                raise ValueError("invalid_sensor_schema")
++            from harness.task090_predicates import sensor_frame_sha256
++            digest = sensor_frame_sha256(rgb, depth)
++            if digest in self._onboard_measurement_seen:
++                raise ValueError("repeated_sensor_frame")
++            self._onboard_measurement_seen.add(digest)
++            self._onboard_measurement_last_frame = (self.episode, self.step_in_episode)
++            if previous is not None and self.step_in_episode - previous[1] > producer.max_frame_gap:
++                raise ValueError("stale_observation_gap")
++            extra = ({"action": None if self._last_action is None else
++                      np.array(self._last_action, dtype=np.float32, copy=True)}
++                     if getattr(producer, "requires_applied_action", False) else {})
++            features = ([f.detach().clone() if hasattr(f, "detach") else np.array(f, copy=True)
++                         for f in head_features] if isinstance(head_features, (list, tuple)) else
++                        None if head_features is None else np.array(head_features, copy=True))
++            measured = producer.update({k: np.array(v, copy=True) for k, v in sensors.items()}, state_copy,
++                episode=self.episode, step=self.step_in_episode, object_id=request["object_id"],
++                head_features=features, **extra)
++            if measured.get("verified") is not False or measured.get("admitted") is not False:
++                raise ValueError("passive observation producer cannot certify success")
+         except Exception as error:
+-            measured = {"status": "diagnostic_error", "verified": False, "admitted": False,
+-                        "reason": type(error).__name__ + ":" + str(error)}
++            # An invalid diagnostic must neither retain candidate credit nor interrupt WAM/HOLD.
++            try:
++                self._reset_onboard_measurement(contract_only=True,
++                    contract=getattr(self, "_onboard_measurement_contract", None))
++            except Exception:
++                pass
++            measured = {"status": "unknown", "verified": False, "admitted": False,
++                        "diagnostic_error": True, "reason": type(error).__name__ + ":" + str(error)}
+         self._emit({"event": "onboard_measurement", "episode": self.episode, "step": self.step_in_episode,
+                     "diagnostic_only": True, "observation_request": request,
+                     "measurement_ms": round((time.monotonic()-started)*1000, 3), "measurement": measured})

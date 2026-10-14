@@ -38,23 +38,23 @@ flowchart TD
 
 ## 代码、数据与结果如何对应
 
-1. 当前 `harness/`、`scripts/`、`configs/` 包含历史兼容模块和最新实现。完整保留的历史源码快照在 Release 的 `historical-sources` 中，沿原路径恢复；它们优先于用当前文件猜测过去实现。
+1. 当前 `harness/`、`scripts/`、`configs/` 包含历史兼容模块和最新实现。完整保留的历史源码快照直接纳入 Git 的 [`versions/snapshots/`](../versions/snapshots/)，按阶段和原路径查找；它们优先于用当前文件猜测过去实现。
 2. [`evidence-index.json`](evidence-index.json) 记录精选原报告的原路径、发布路径、长度和 SHA256。`evidence/` 内文件是原文副本，未将旧路径或历史结论改写成新结果。原文相对链接可能只在恢复完整 Release 后有效。
-3. [`retained-checkpoints.json`](retained-checkpoints.json) 列出所有现存模型及全状态/fixture类别。Release 清单记录逐文件 SHA256，不能把 smoke 或合成测试模型当作正式策略。
-4. 自采示教 HDF5、split/manifest、动作/评分/规则、机载观测与既有录像分别保留。未新录制或重渲染任何视频。
+3. [`retained-checkpoints.json`](retained-checkpoints.json) 列出所有现存模型及全状态/fixture类别。[`versions/snapshot-index.json`](../versions/snapshot-index.json) 记录源码快照逐文件 SHA256；检查点索引仅记录现存路径，权重不上传，不能把 smoke 或合成测试模型当作正式策略。
+4. 原始自采示教 HDF5、动作/评分/规则、机载观测与既有录像保留在本地，不上传大型档案；仓库只发布精选小型报告及来源/划分记录。未新录制或重渲染任何视频。
 5. 上游 BEHAVIOR / RoboTwin 数据、仿真资产和通用编码器仍按原来源下载；`data-provenance/` 保存现存来源和划分记录，不把上游内容重新标为自有数据。
 
-## 大文件下载与恢复
+## 当前发布范围：代码与小型结果
 
-[历史数据与权重 Release](https://github.com/susongyuan/Predict-WAM-V4/releases/tag/wam-history-artifacts-20261014) 在全部文件上传、远端长度与 SHA256 核验完成前保持 draft。上传中不能将某个类别已完成解释成全部已上传。
+用户于 2026-10-14 取消权重和大文件上传。上传服务已停止并禁用自动启动，未完成的 Release 草稿及其分包已删除；本地原始数据、权重和实验记录保留。
 
-各类别是一条 tar 流，分成最多 512MiB 的 part；必须下载该类别的全部 part 和对应 manifest。**先验证每个 part 的 SHA256，随后按编号拼接再解包到独立目录**：
+- [各版本核心代码导航](../versions/README.md) 按八个阶段整理模型、训练入口及任务转换。
+- 1,542 份原始源码/补丁快照直接纳入 `versions/snapshots/`，无需下载 Release。
+- 精选原报告、运行索引、数据来源和检查点目录索引保留在 `history/`。路径索引不能替代未上传的原文件。
+- 数据集、模型权重、优化器全状态、逐帧观测和视频不纳入本次发布。
+- 原始报告可能引用本地旧路径；读取源码和结论不等于可以在无数据/权重的机器上复现全部实验。
 
-```bash
-python tools/restore_wam_release.py --assets /path/to/downloads --category priority-weights --out /path/to/restored
-```
-
-实际进度见 [`publication-status.json`](publication-status.json)。类别含：关键路径模型、元数据、示教数据、其余检查点、观测与结果、历史源码。完整 `plan.json` 记录纳入和排除范围。解包恢复原相对路径；文件名、hardlink/原SHA和训练契约应保持，不要盲目全局替换历史绝对路径。
+当前状态见 [`publication-status.json`](publication-status.json)。
 
 ## 明确缺口
 

@@ -1,0 +1,455 @@
+--- /home/user/Robotic/project2/outputs/validation/robotwin_contact_evidence_20261005/before/harness/robotwin_eval_evidence.py
++++ /home/user/Robotic/project2/harness/robotwin_eval_evidence.py
+@@ -96,14 +96,150 @@
+             "clip_mask": (values != bounded).tolist()}
+ 
+ 
++def contact_snapshot(env):
++    """Read-only SAPIEN 3 contact evidence, never a grasp/support/goal predicate.
++
++    Public mapping: Actor.actor -> Entity; articulation.get_links() and
++    PhysxContact.bodies -> PhysxRigidBaseComponent.entity. IDs are accepted only
++    inside this scene's complete Entity registry. Names are never identities.
++    A nonempty target contact is required to witness the reporter/target mapping;
++    an empty list cannot establish separation. No Scene is constructed here.
++    """
++    result = {"status": "unknown", "reason": None, "api": None,
++              "read_valid": False, "identity_valid": False, "counts_valid": False,
++              "reported_contact_records": None, "target_robot_contact_count": None,
++              "target_other_contact_count": None, "target_contact_observed": None,
++              "target_other_nonpositive_separation_count": None,
++              "target_entity_ids": None, "robot_entity_ids": None, "records": [],
++              "release_verified": None, "count_unit": "reported_contact_records",
++              "scope": "current reported contacts only; no support force, duration, or task success"}
++    phase = "contact_api"
++    try:
++        scene = env.scene
++        reporter = getattr(scene, "get_contacts", None)
++        if reporter is None:
++            reporter = getattr(getattr(scene, "physx_system", None), "get_contacts", None)
++            result["api"] = "scene.physx_system.get_contacts"
++        else:
++            result["api"] = "scene.get_contacts"
++        if not callable(reporter):
++            raise ValueError("public contact reporter unavailable")
++        phase = "contact_read"
++        contacts = reporter()
++        if not isinstance(contacts, (list, tuple)):
++            raise ValueError("contact reporter did not return a list")
++        result["reported_contact_records"] = len(contacts)
++        result["read_valid"] = True
++        phase = "identity_mapping"
++        import sapien
++        entity_type = sapien.Entity
++        rigid_type = sapien.physx.PhysxRigidBaseComponent
++        articulation_type = sapien.physx.PhysxArticulation
++        entities = scene.get_entities()
++        if not isinstance(entities, (list, tuple)) or not entities:
++            raise ValueError("scene entity registry unavailable/empty")
++
++        def entity_id(entity):
++            if not isinstance(entity, entity_type) or entity.scene is not scene:
++                raise ValueError("body is not an Entity in the evaluated scene")
++            key = entity.per_scene_id
++            if type(key) is not int or key < 0:
++                raise ValueError("invalid per_scene_id")
++            return key
++
++        registry = {}
++        for entity in entities:
++            key = entity_id(entity)
++            if key in registry:
++                raise ValueError("duplicate per_scene_id in scene registry")
++            registry[key] = entity
++
++        def body_id(body):
++            # Native contact bodies and robot links are rigid components;
++            # the target's Actor wrapper instead holds an Entity.
++            body = getattr(body, "actor", body)
++            if isinstance(body, rigid_type):
++                body = body.entity
++            key = entity_id(body)
++            if key not in registry:
++                raise ValueError("body Entity absent from scene registry")
++            return key
++
++        def link_ids(articulation):
++            if not isinstance(articulation, articulation_type):
++                raise ValueError("robot/target articulation type unconfirmed")
++            links = articulation.get_links()
++            if not isinstance(links, (list, tuple)) or not links:
++                raise ValueError("articulation links unavailable/empty")
++            if any(not isinstance(link, rigid_type) for link in links):
++                raise ValueError("unrecognized articulation link")
++            return {body_id(link) for link in links}
++
++        target = getattr(env.object, "actor", env.object)
++        target_ids = link_ids(target) if isinstance(target, articulation_type) else {body_id(target)}
++        robot_ids = set()
++        for arm in ("left", "right"):
++            robot_ids.update(link_ids(getattr(env.robot, f"{arm}_entity")))
++        if target_ids & robot_ids:
++            raise ValueError("target and robot identities overlap")
++        result.update(target_entity_ids=sorted(target_ids), robot_entity_ids=sorted(robot_ids))
++        robot_count = other_count = other_witness_count = 0
++        for contact in contacts:
++            bodies = contact.bodies
++            if not isinstance(bodies, (list, tuple)) or len(bodies) != 2:
++                raise ValueError("contact must contain two recognized bodies")
++            keys = [body_id(body) for body in bodies]
++            phase = "contact_points"
++            points = contact.points
++            if not isinstance(points, (list, tuple)) or not points:
++                raise ValueError("contact has no observable points; not a contact witness")
++            separations = [float(point.separation) for point in points]
++            if not all(math.isfinite(value) for value in separations):
++                raise ValueError("nonfinite contact point separation")
++            minimum_separation = min(separations)
++            phase = "identity_mapping"
++            targets = [key in target_ids for key in keys]
++            kind = "unrelated"
++            if all(targets):
++                kind = "target_internal"
++            elif any(targets):
++                other = keys[1] if targets[0] else keys[0]
++                if other in robot_ids:
++                    robot_count += 1
++                    kind = "target_robot"
++                else:
++                    other_count += 1
++                    other_witness_count += int(minimum_separation <= 0)
++                    kind = "target_other"
++            result["records"].append({"body_entity_ids": keys, "point_count": len(points), "kind": kind,
++                                      "min_separation_m": minimum_separation})
++        result.update(identity_valid=True, counts_valid=True,
++                      target_robot_contact_count=robot_count, target_other_contact_count=other_count,
++                      target_other_nonpositive_separation_count=other_witness_count,
++                      target_contact_observed=bool(robot_count + other_count))
++        if robot_count:
++            result.update(status="valid", release_verified=False, reason="target_robot_contact_observed")
++        elif other_witness_count:
++            result.update(status="valid", release_verified=True,
++                          reason="target_nonrobot_contact_observed_and_no_robot_contact")
++        else:
++            result["reason"] = "no_target_contact_witness; empty/irrelevant/positive-gap reports cannot prove separation"
++    except Exception as exc:
++        if phase in ("contact_read", "contact_points"):
++            result["read_valid"] = False
++        result["reason"] = f"{phase}: {type(exc).__name__}: {exc}"
++    return result
++
++
+ def empty_evidence():
+     return {"native_benchmark_success": None, "native_terminal_predicate": None,
+             "native_predicate_after_settle": None,
+             "object_pose_world": None, "cabinet_joint_qpos": None,
+-            "release_verified": None, "stable_after_settle": None,
++            "release_verified": None, "contact_evidence": None, "stable_after_settle": None,
+             "full_containment": None, "competition_success": None, "five_second_hold": None,
+             "scene_timestamp": None,
+-            "evidence_limitations": ["release/contact criterion not implemented",
++            "evidence_limitations": ["release means final reported contact separation only; real-scene API validation pending",
++                "contact counts do not establish support force, grasp duration, or full containment",
+                 "complete object-in-cabinet volume test not implemented",
+                 "scene clock and five-second hold not validated"]}
+ 
+@@ -128,6 +264,7 @@
+     capture("gripper_drive_target_normalized", env.robot.get_normal_real_gripper_val)
+     result["object_model"] = str(getattr(env, "selected_modelname", "unknown"))
+     result["object_model_id"] = str(getattr(env, "selected_model_id", "unknown"))
++    result["contact_evidence"] = contact_snapshot(env)
+     return result
+ 
+ 
+--- /home/user/Robotic/project2/outputs/validation/robotwin_contact_evidence_20261005/before/scripts/eval_robotwin_wam.py
++++ /home/user/Robotic/project2/scripts/eval_robotwin_wam.py
+@@ -119,7 +119,8 @@
+             "video nominal FPS is not scene time; one frame per control observation plus optional settle frames",
+             "native predicate is not full containment, verified release, competition success, or a 5-second hold"],
+         "gpu_validation_pending": ["strict real checkpoint inference and history", "native Scene joint-target rollout",
+-            "cross-environment ABI end-to-end", "1080p camera framing/render/video", "GPU memory coexistence of policy and sim"]}
++            "cross-environment ABI end-to-end", "1080p camera framing/render/video", "GPU memory coexistence of policy and sim",
++            "real Scene contact reporting and target/robot identity mapping (static interfaces and CPU stubs only so far)"]}
+ 
+ 
+ def make_client(args, out):
+@@ -279,6 +280,10 @@
+                     diagnostic = settle_diagnostic(poses, args.settle_steps, args.settle_steps)
+                     row["settle_diagnostic"] = diagnostic
+                     row["evidence"]["stable_after_settle"] = diagnostic["stable_after_settle"]
++                    # Final snapshot only: no temporal hold/support claim and no
++                    # changes to native scoring, commands or policy observations.
++                    row["evidence"]["contact_evidence"] = last["contact_evidence"]
++                    row["evidence"]["release_verified"] = last["contact_evidence"]["release_verified"]
+                     row["post_settle_snapshot"] = last
+                     phase = "video_finalize"
+                     video.close(complete=True)
+--- /home/user/Robotic/project2/outputs/validation/robotwin_contact_evidence_20261005/before/scripts/test_robotwin_eval_bridge.py
++++ /home/user/Robotic/project2/scripts/test_robotwin_eval_bridge.py
+@@ -65,11 +65,11 @@
+ 
+ import numpy as np
+ from harness.robotwin_qpos_adapter import policy_observation
+-from harness.robotwin_eval_evidence import (VideoRecorder, bound_action, empty_evidence, joint_bounds,
+-    settle_diagnostic)
++from harness.robotwin_eval_evidence import (VideoRecorder, bound_action, contact_snapshot, empty_evidence, joint_bounds,
++    settle_diagnostic, snapshot)
+ from scripts import eval_robotwin_wam as evaluation
+ 
+-OUT = ROOT / "outputs/validation/robotwin_eval_bridge_20261005"
++OUT = Path(os.environ.get("ROBOTWIN_EVAL_TEST_OUT", ROOT / "outputs/validation/robotwin_eval_bridge_20261005"))
+ 
+ 
+ def observation():
+@@ -206,6 +206,197 @@
+         self.assertEqual(robot.left_gripper_val, 1.0)  # stored command is clipped
+         self.assertAlmostEqual(joint.target, 0.1)     # drive target still native slew-limited
+         self.assertNotEqual(robot.left_gripper_val, joint.target)
++
++
++class ContactEntity:
++    def __init__(self, scene, key, name="same_name"):
++        self.scene, self.per_scene_id, self.name = scene, key, name
++
++
++class ContactRigid:
++    def __init__(self, entity): self.entity = entity
++
++
++class ContactArticulation:
++    def __init__(self, links): self.links = links
++    def get_links(self): return self.links
++
++
++class ContactFixture:
++    """SAPIEN-shaped CPU stubs, never constructed in the production evaluator."""
++    def __init__(self):
++        self.scene = SimpleNamespace()
++        self.entities = [ContactEntity(self.scene, key) for key in range(1, 6)]
++        self.target, self.robot_link, self.other, self.same_name, self.second_link = self.entities
++        self.contacts = []
++        self.scene.get_entities = lambda: self.entities
++        self.scene.get_contacts = lambda: self.contacts
++        self.articulation = ContactArticulation([ContactRigid(self.robot_link), ContactRigid(self.second_link)])
++        self.env = SimpleNamespace(scene=self.scene, object=SimpleNamespace(actor=self.target),
++            robot=SimpleNamespace(left_entity=self.articulation, right_entity=self.articulation))
++    def contact(self, a, b):
++        return SimpleNamespace(bodies=[ContactRigid(a), ContactRigid(b)],
++                               points=[SimpleNamespace(separation=-0.0001)])
++    def patch(self):
++        return patch.dict(sys.modules, {"sapien": SimpleNamespace(Entity=ContactEntity,
++            physx=SimpleNamespace(PhysxRigidBaseComponent=ContactRigid, PhysxArticulation=ContactArticulation))})
++    def read(self):
++        with self.patch(): return contact_snapshot(self.env)
++
++
++class InstalledContactInterfaceTests(unittest.TestCase):
++    def test_real_public_classes_and_wrapper_mapping_without_scene(self):
++        import inspect
++        import sapien
++        self.assertEqual(np.__version__, "1.26.4")
++        interfaces = [(sapien.Scene, ("get_contacts", "physx_system", "get_entities")),
++            (sapien.Entity, ("scene", "per_scene_id")),
++            (sapien.physx.PhysxContact, ("bodies", "points")),
++            (sapien.physx.PhysxContactPoint, ("separation",)),
++            (sapien.physx.PhysxRigidBaseComponent, ("entity",)),
++            (sapien.physx.PhysxArticulation, ("get_links",)),
++            (sapien.physx.PhysxCpuSystem, ("get_contacts",))]
++        for cls, attrs in interfaces:
++            for attr in attrs: self.assertTrue(hasattr(cls, attr), (cls, attr))
++        self.assertIn("self.physx_system.get_contacts()", inspect.getsource(sapien.Scene.get_contacts))
++        source = (ROOT / "third_party/RoboTwin/envs/utils/actor_utils.py").read_text()
++        tree = ast.parse(source)
++        actor = next(n for n in tree.body if isinstance(n, ast.ClassDef) and n.name == "Actor")
++        self.assertIn("self.actor = actor", ast.unparse(actor))
++        source = (ROOT / "third_party/RoboTwin/envs/robot/robot.py").read_text()
++        self.assertIn("self.left_entity = self._entity", source)
++        self.assertIn("self.right_entity = self._entity", source)
++        self.assertIn("self.left_entity.get_links() + self.right_entity.get_links()", source)
++
++
++class ContactTests(unittest.TestCase):
++    def test_target_robot_contact_false_even_with_other_contact(self):
++        f = ContactFixture()
++        f.contacts = [f.contact(f.target, f.robot_link), f.contact(f.other, f.target)]
++        value = f.read()
++        self.assertFalse(value["release_verified"])
++        self.assertTrue(value["counts_valid"])
++        self.assertEqual(value["target_robot_contact_count"], 1)
++        self.assertEqual(value["target_other_contact_count"], 1)
++        self.assertEqual(value["robot_entity_ids"], [2, 5])
++
++    def test_target_other_contact_true_not_a_support_or_goal_claim(self):
++        f = ContactFixture()
++        f.contacts = [f.contact(f.other, f.target)]
++        value = f.read()
++        self.assertIs(value["release_verified"], True)
++        self.assertEqual(value["target_robot_contact_count"], 0)
++        self.assertEqual(value["target_other_contact_count"], 1)
++        self.assertEqual(value["records"][0]["body_entity_ids"], [3, 1])
++
++    def test_empty_or_unrelated_contacts_are_unknown_not_separation(self):
++        f = ContactFixture()
++        for contacts in ([], [f.contact(f.robot_link, f.other)], [f.contact(f.same_name, f.other)]):
++            f.contacts = contacts
++            value = f.read()
++            self.assertIsNone(value["release_verified"])
++            self.assertTrue(value["counts_valid"])
++            self.assertFalse(value["target_contact_observed"])
++            self.assertEqual(value["status"], "unknown")
++
++    def test_same_name_distinct_entities_do_not_match_robot_or_target(self):
++        f = ContactFixture()
++        f.contacts = [f.contact(f.target, f.same_name)]
++        self.assertEqual(f.target.name, f.robot_link.name)
++        value = f.read()
++        self.assertTrue(value["release_verified"])
++        self.assertEqual(value["target_robot_contact_count"], 0)
++        f.contacts = [f.contact(f.same_name, f.robot_link)]
++        self.assertIsNone(f.read()["release_verified"])
++
++    def test_all_robot_links_and_entity_component_wrapper_normalization(self):
++        f = ContactFixture()
++        f.contacts = [f.contact(f.target, f.second_link)]
++        for target in (f.target, ContactRigid(f.target), SimpleNamespace(actor=f.target)):
++            f.env.object = target
++            self.assertIs(f.read()["release_verified"], False)
++        # Left/right need not be aliases: include every link from both.
++        f.env.robot.right_entity = ContactArticulation([ContactRigid(f.same_name)])
++        f.contacts = [f.contact(f.target, f.same_name)]
++        self.assertIs(f.read()["release_verified"], False)
++
++    def test_unknown_body_or_incomplete_robot_blocks_positive_inference(self):
++        for mode in ("unknown_body", "unknown_target", "missing_arm", "empty_links", "overlap"):
++            f = ContactFixture()
++            f.contacts = [f.contact(f.target, f.other)]
++            if mode == "unknown_body": f.contacts.append(SimpleNamespace(bodies=[object(), object()], points=[object()]))
++            if mode == "unknown_target": f.env.object = object()
++            if mode == "missing_arm": del f.env.robot.right_entity
++            if mode == "empty_links": f.articulation.links = []
++            if mode == "overlap": f.articulation.links.append(ContactRigid(f.target))
++            value = f.read()
++            self.assertIsNone(value["release_verified"], mode)
++            self.assertFalse(value["counts_valid"], mode)
++            self.assertIsNone(value["target_robot_contact_count"], mode)
++            self.assertTrue(value["reason"])
++
++    def test_registry_collision_absent_entity_or_wrong_scene_is_unknown(self):
++        for mode in ("collision", "absent", "wrong_scene", "registry_failure"):
++            f = ContactFixture()
++            f.contacts = [f.contact(f.target, f.other)]
++            if mode == "collision": f.entities.append(ContactEntity(f.scene, 1))
++            if mode == "absent": f.entities.remove(f.other)
++            if mode == "wrong_scene": f.other.scene = object()
++            if mode == "registry_failure": f.scene.get_entities = lambda: None
++            value = f.read()
++            self.assertIsNone(value["release_verified"], mode)
++            self.assertFalse(value["identity_valid"], mode)
++
++    def test_missing_api_read_error_or_none_never_becomes_empty_proof(self):
++        for mode in ("missing", "error", "none", "invalid_points", "no_points"):
++            f = ContactFixture()
++            f.contacts = [f.contact(f.target, f.other)]
++            if mode == "missing": del f.scene.get_contacts
++            if mode == "error": f.scene.get_contacts = unittest.mock.Mock(side_effect=RuntimeError("read failed"))
++            if mode == "none": f.scene.get_contacts = lambda: None
++            if mode == "invalid_points": f.contacts[0].points = None
++            if mode == "no_points": f.contacts[0].points = []
++            value = f.read()
++            self.assertIsNone(value["release_verified"], mode)
++            self.assertFalse(value["read_valid"], mode)
++            self.assertFalse(value["counts_valid"], mode)
++            self.assertTrue(value["reason"], mode)
++
++    def test_public_physx_fallback_only_when_scene_method_missing(self):
++        f = ContactFixture()
++        f.contacts = [f.contact(f.target, f.other)]
++        f.scene.physx_system = SimpleNamespace(get_contacts=lambda: f.contacts)
++        del f.scene.get_contacts
++        self.assertTrue(f.read()["release_verified"])
++        f.scene.get_contacts = unittest.mock.Mock(side_effect=RuntimeError("do not hide failure"))
++        self.assertIsNone(f.read()["release_verified"])
++
++    def test_positive_gap_or_invalid_point_never_confirms_separation(self):
++        f = ContactFixture()
++        f.contacts = [f.contact(f.target, f.other)]
++        for separation in (0.001, float("nan"), float("inf"), None):
++            f.contacts[0].points[0].separation = separation
++            value = f.read()
++            self.assertIsNone(value["release_verified"])
++            if separation == 0.001:
++                self.assertTrue(value["counts_valid"])
++                self.assertEqual(value["target_other_contact_count"], 1)
++                self.assertEqual(value["target_other_nonpositive_separation_count"], 0)
++            else:
++                self.assertFalse(value["counts_valid"])
++
++    def test_contact_gt_is_not_policy_observation_or_ipc(self):
++        f = ContactFixture()
++        f.contacts = [f.contact(f.target, f.other)]
++        original = native_observation()
++        original["contact_evidence"] = f.read()
++        original["observation"][VIEWS[0]]["contact_evidence"] = f.read()
++        wire = json.dumps(encode_observation(policy_observation(original)))
++        for token in ("contact_evidence", "release_verified", "body_entity_ids", "target_entity_ids"):
++            self.assertNotIn(token, wire)
++        allowed = observation()
++        allowed["contact_evidence"] = f.read()
++        with self.assertRaises(InfrastructureError): encode_observation(allowed)
+ 
+ 
+ class HistoryTests(unittest.TestCase):
+@@ -502,6 +693,53 @@
+         self.assertTrue(evidence["native_terminal_predicate"])
+         self.assertFalse(evidence["native_predicate_after_settle"])
+         self.assertIsNone(evidence["full_containment"])
++
++    def test_final_contact_evidence_does_not_change_native_score_or_policy(self):
++        for final_kind, expected in (("other", True), ("robot", False), ("empty", None)):
++            with self.subTest(final_kind=final_kind):
++                directory = self.directory / final_kind
++                directory.mkdir()
++                args = self.args()
++                args.seeds, args.max_steps, args.settle_steps = [10000], 2, 2
++                policy, env, f = InjectedPolicy(), InjectedEnv(), ContactFixture()
++                env.object.actor = f.target
++                env.robot.left_entity = env.robot.right_entity = f.articulation
++                env.scene = f.scene
++                f.contacts = [f.contact(f.target, f.robot_link)]
++                settled = []
++                def settle():
++                    settled.append(True)
++                    f.contacts = ([] if final_kind == "empty" else
++                        [f.contact(f.target, f.other if final_kind == "other" else f.robot_link)])
++                f.scene.step = settle
++                action = env.take_action
++                def success(*a, **k):
++                    action(*a, **k)
++                    env.eval_success = True
++                env.take_action = success
++                env.check_success = lambda: env.eval_success and not settled
++                with f.patch():
++                    result = evaluation.run_evaluation(args, {"task_kwargs": {}}, directory,
++                        client_factory=lambda *a: policy, env_factory=lambda: env,
++                        video_factory=lambda *a: (InjectedVideo(), None), owner_check=lambda x: None,
++                        guard_factory=lambda: SimpleNamespace(check=lambda: {}, peaks={}))
++                row = result["episodes"][0]
++                value = row["evidence"]
++                self.assertEqual(result["status"], "completed")
++                self.assertIs(value["release_verified"], expected)
++                self.assertIs(value["native_benchmark_success"], True)
++                self.assertIs(value["native_terminal_predicate"], True)
++                self.assertIs(value["native_predicate_after_settle"], False)
++                self.assertEqual(result["native_success_rate"], 1)
++                self.assertTrue(value["stable_after_settle"])
++                for key in ("full_containment", "five_second_hold", "competition_success"):
++                    self.assertIsNone(value[key])
++                episode = directory / row["episode"]
++                gt = [json.loads(line) for line in (episode / "evaluation_gt.jsonl").read_text().splitlines()]
++                self.assertIs(gt[0]["contact_evidence"]["release_verified"], False)
++                self.assertIs(gt[-1]["contact_evidence"]["release_verified"], expected)
++                self.assertNotIn("contact_evidence", (episode / "actions.jsonl").read_text())
++                self.assertEqual(len(env.actions), 1)
+ 
+     def test_runtime_failure_stops_queue_closes_scene(self):
+         args = self.args()

@@ -1,13 +1,26 @@
 {
-  "status": "bulk_upload_in_progress",
+  "status": "code_and_small_results_only",
   "as_of": "2026-10-14",
-  "release_url": "https://github.com/susongyuan/Predict-WAM-V4/releases/tag/wam-history-artifacts-20261014",
-  "release_is_draft_until_verified": true,
-  "source_and_evolution_docs_pushed": true,
-  "logical_selected_bytes": 322541552845,
-  "retained_checkpoints": 120,
-  "generated_hdf5_files": 578,
-  "local_status_file": "/home/user/Robotic/wam-history-release-20261014/status.json",
-  "service": "predict-wam-history-publish-20261014.service",
-  "note": "This file is automatically updated and committed only when all categories and remote SHA256 checks complete. Upstream datasets/assets are referenced by provenance; previously deleted weights are not recoverable."
+  "bulk_upload_cancelled_by_user": true,
+  "upload_service_stopped": true,
+  "upload_autostart_disabled": true,
+  "unfinished_release_deleted": true,
+  "local_original_data_and_weights_preserved": true,
+  "historical_source_snapshots_in_git": 1542,
+  "core_version_catalog": "versions/README.md",
+  "scope": [
+    "source code",
+    "environment dependency snapshots",
+    "historical frozen source snapshots",
+    "selected original reports",
+    "dataset provenance and split metadata",
+    "checkpoint path metadata"
+  ],
+  "excluded_payloads": [
+    "datasets",
+    "weights and optimizer checkpoints",
+    "large per-frame observations",
+    "videos"
+  ],
+  "note": "No bulk upload will resume automatically. Historical deleted checkpoints remain unavailable."
 }

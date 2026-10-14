@@ -1,0 +1,137 @@
+--- /home/user/Robotic/project2/outputs/validation/task0_contract_safety_20260929_night/source_before/harness/orchestrator.py
++++ /home/user/Robotic/project2/harness/orchestrator.py
+@@ -197,7 +197,7 @@
+     closure_candidate_emitted: bool = False
+     # Irreversible, onboard-unobservable contact skills (Task 0 press): set from candidate evidence of this attempt.
+     candidate_kind: bool = False       # at least one candidate-kind evidence record was seen for this attempt
+-    retry_safe: bool | None = None     # latest evidence: True only if this attempt cannot have had its effect
++    retry_safe: bool | None = None     # possible contact is sticky; later evidence cannot erase it
+ 
+     @property
+     def key(self):
+@@ -228,7 +228,7 @@
+                  require_manipulation_postcondition=True, navigation_completion="precondition",
+                  manipulation_completion="vtt_and_postcondition", rollback_on_release_failure=False, max_rollbacks=2,
+                  min_budget_steps=None, candidate_advance_kinds=(), irreversible_skills=(),
+-                 reapproach_fallback_in_place=False):
++                 reapproach_fallback_in_place=False, candidate_outcome_policy="hold"):
+         """closure_monitor: harness.vtt_monitor.VTTClosureMonitor-like (start(skill_id, cls), update(cls, cfg)->verdict...)
+         precondition_monitor: object with arrived(cls, key)->(verdict, cos, margin) or None (navigation on budget only)
+         budgets: "skill(objects)" -> median demo frames; responder(choices)->index|None.
+@@ -239,9 +239,11 @@
+         (a verified, calibrated postcondition alone decides; a verified negative outcome `failed=True` ends the attempt).
+         rollback_on_release_failure: a verified `place in` failure whose object is no longer held (released outside the
+         container / not in hand) rewinds to that object's pick-up, so recovery re-approaches and re-grasps it.
+-        candidate_advance_kinds (default none; Task 0: ("contact_candidate",)): postcondition evidence of these verifier
+-        kinds, with verified=False and outcome_observable=False, may ADVANCE the program when satisfied, but is recorded
+-        as unverified (no reliability update, no memory promotion) and is never task success.
++        candidate_advance_kinds (historical name, default none): accepted unobservable candidate kinds.
++        candidate_outcome_policy="hold" (default) stops at a satisfied candidate without completing the contract;
++        independent verification/safe recovery requires a separately admitted path, not another action or blind retry.
++        Explicit "legacy_advance" preserves historical unverified advancement for reproduction only; its event
++        success is None, never True, and it cannot update reliability or memory.
+         irreversible_skills (default none; Task 0: ("press",)): skills whose effect cannot be observed onboard and
+         would be undone by a repetition (a second press toggles the radio off). Such a contract (or any contract that
+         produced candidate-kind evidence) is never started twice in an episode once it advanced, and after a failed
+@@ -268,6 +270,9 @@
+         self.rollback_on_release_failure, self.max_rollbacks = bool(rollback_on_release_failure), int(max_rollbacks)
+         # skill -> minimum contract budget (steps); e.g. a docking search needs a full in-place scan
+         self.min_budget_steps = {str(k): int(v) for k, v in (min_budget_steps or {}).items()}
++        if candidate_outcome_policy not in ("hold", "legacy_advance"):
++            raise ValueError("candidate_outcome_policy must be hold or legacy_advance")
++        self.candidate_outcome_policy = candidate_outcome_policy
+         self.candidate_advance_kinds = tuple(str(k) for k in (candidate_advance_kinds or ()))
+         self.irreversible_skills = tuple(str(k) for k in (irreversible_skills or ()))
+         self.reapproach_fallback_in_place = bool(reapproach_fallback_in_place)
+@@ -427,6 +432,26 @@
+             new_chunk = True
+         c = self.contract
+         elapsed = step_now - c.started_step
++
++        # Contact occurrence and task completion are different facts. This gate precedes BOTH
++        # manipulation completion modes, so a VTT closure cannot bypass an uncertain irreversible effect.
++        candidate = None if c.is_navigation else self._candidate_evidence(
++            postcondition, key=c.key, observation_id=step_now)
++        if candidate is not None:
++            c.candidate_kind = True
++            c.retry_safe = c.retry_safe is not False and candidate.get("retry_safe") is True
++            if candidate["satisfied"] and self.candidate_outcome_policy == "hold":
++                reason = "candidate_requires_independent_verification"
++                self._irreversible_attempted[c.key] = reason
++                self._finish(c, cls_now, step_now, None, {
++                    "predicate": reason, "verified": False, "outcome_observable": False,
++                    "candidate_occurred": True, "postcondition": dict(candidate)})
++                self.pending_hold_reason, self.status = reason, "held"
++                self.contract = None
++                self._manip_retry_state.pop(self._manip_retry_key(c.step), None)
++                self._emit(event="hold", index=self.index, key=c.key, reason=reason, step=step_now,
++                           candidate_occurred=True, verified=False, success=None)
++                return Directive("HOLD", reason=reason)
+ 
+         # 3) completion predicate
+         verdict, info = self._completion(c, cls_now, elapsed, base_velocity=base_velocity, dock_score=dock_score,
+@@ -558,7 +583,7 @@
+     def _candidate_evidence(self, postcondition, *, key, observation_id):
+         """Candidate evidence of an unobservable outcome (e.g. press contact): accepted only for configured kinds, only
+         when it does not claim verification and states outcome_observable=False; same identity checks as verified
+-        evidence. It may advance the program; it never counts as verified."""
++        evidence. It stops execution by default; explicit legacy mode may advance but never counts as verified."""
+         if not self.candidate_advance_kinds or not isinstance(postcondition, dict):
+             return None
+         if (postcondition.get("verifier_kind") not in self.candidate_advance_kinds
+@@ -603,8 +628,8 @@
+                 c.candidate_kind = True
+             accepted = evidence if evidence is not None else candidate
+             if accepted is not None and (candidate is not None or c.step.skill in self.irreversible_skills):
+-                # latest accepted record of an irreversible attempt decides whether a retry is allowed at all
+-                c.retry_safe = accepted.get("retry_safe") is True
++                # Once evidence permits possible contact, later records cannot make a blind retry safe.
++                c.retry_safe = c.retry_safe is not False and accepted.get("retry_safe") is True
+             info = {"predicate": "calibrated_postcondition", "progress": progress, "alignment": alignment,
+                     "verified": evidence is not None and evidence["satisfied"]}
+             if isinstance(postcondition, dict):
+@@ -620,9 +645,10 @@
+             if evidence is not None and evidence["satisfied"] is True:
+                 return True, info
+             if candidate is not None and candidate["satisfied"] is True:
+-                # Advance on an unobservable-outcome candidate: explicitly unverified, never success evidence.
+-                info.update(predicate="unverified_outcome_candidate", verified=False, outcome_observable=False)
+-                return True, info
++                # Only the explicitly selected legacy path can reach unverified advancement.
++                info.update(predicate="unverified_outcome_candidate", verified=False, outcome_observable=False,
++                            candidate_occurred=True)
++                return (True if self.candidate_outcome_policy == "legacy_advance" else "candidate_hold"), info
+             if evidence is not None and postcondition.get("failed") is True:
+                 info.update(verified=True, predicate="calibrated_postcondition_failed")
+                 return False, info
+@@ -693,7 +719,12 @@
+             return False, info
+         return None, info
+ 
+-    def _finish(self, c: Contract, cls_now, step_now, success: bool, info: dict):
++    def _finish(self, c: Contract, cls_now, step_now, success: bool | None, info: dict):
++        # Legacy advancement is a control-flow decision, not a successful manipulation outcome.
++        advanced_unverified = success is True and info.get("candidate_occurred") is True and not info.get("verified")
++        if advanced_unverified:
++            info = {**info, "legacy_program_advanced": True}
++            success = None
+         vtt = np.asarray(cls_now, np.float32) - np.asarray(self.closure.state.start_cls, np.float32)
+         if info.get("verified") is True:
+             self.bank.update(c.arm_key, c.arm.arm_id, success)
+@@ -1032,14 +1063,14 @@
+         return {"satisfied": satisfied, "failed": False, "verified": False, "verifier_kind": "contact_candidate",
+                 "outcome_observable": False, "retry_safe": retry_safe, "source": "synthetic://contact",
+                 "observation_id": t, "key": "open lid(car)", **extra}
+-    adv = irreversible()
++    adv = irreversible(candidate_outcome_policy="legacy_advance")
+     for t in range(60):
+         d = adv.tick(np.zeros(1024, np.float32), t, base_velocity=np.zeros(3, np.float32),
+                      postcondition=cand(t, satisfied=t >= 10))
+         if d.mode == "DONE":
+             break
+     ends = [e for e in adv.events if e["event"] == "contract_end" and e["key"] == "open lid(car)"]
+-    assert d.mode == "DONE" and len(ends) == 1 and ends[0]["success"] and ends[0]["verified"] is False, ends
++    assert d.mode == "DONE" and len(ends) == 1 and ends[0]["success"] is None and ends[0]["verified"] is False, ends
+     assert ends[0]["predicate"] == "unverified_outcome_candidate" and ends[0]["outcome_observable"] is False
+     assert sum(e["event"] == "contract_start" and e["key"] == "open lid(car)" for e in adv.events) == 1
+     assert not any(a.successes or a.failures or a.support_count for arms in adv.bank.arms.values() for a in arms)

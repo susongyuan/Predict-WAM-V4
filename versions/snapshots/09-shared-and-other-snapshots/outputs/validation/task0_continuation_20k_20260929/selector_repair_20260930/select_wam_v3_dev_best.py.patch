@@ -1,0 +1,34 @@
+--- outputs/validation/task0_continuation_20k_20260929/selector_repair_20260930/backups/select_wam_v3_dev_best.py
++++ scripts/select_wam_v3_dev_best.py
+@@ -112,10 +112,29 @@
+     require(integer(plan.get('version'), 1), 'unsupported plan version')
+     budget, steps = plan.get('total_optimizer_steps'), plan.get('checkpoints')
+     require(type(budget) is int and budget in (30000, 50000), 'invalid plan budget')
+-    require(isinstance(steps, list) and all(type(s) is int for s in steps)
+-            and steps == list(range(5000, budget + 1, 5000)), 'invalid original plan checkpoints')
+     p, training = plan.get('physical'), plan.get('training')
+     require(isinstance(p, dict) and isinstance(training, dict), 'invalid plan sections')
++    continuation = training.get('continuation_plan')
++    start = 30000 if continuation else 0
++    require(integer(plan.get('start_step', 0), start), 'invalid plan start_step')
++    if continuation:
++        require(budget == 50000, 'invalid continuation budget')
++        cp_path = path_at(root, continuation)
++        require(digest(cp_path) == training.get('continuation_plan_sha256'),
++                'continuation plan SHA256 mismatch')
++        cp = read(cp_path)
++        require(cp.get('format') == 'wam-v3-continuation-20k-v1'
++                and encoded(cp.get('schedule')) == encoded({
++                    'start_step': 30000, 'additional_steps': 20000, 'warmup_steps': 500,
++                    'start_lr': 5e-6, 'peak_lr': 2e-5, 'final_lr': 5e-6,
++                    'kind': 'linear_then_cosine_completed_global_updates'}),
++                'invalid continuation schedule')
++        parent = cp.get('parent', {})
++        require(path_at(root, training.get('resume_source')) == path_at(root, parent.get('checkpoint'))
++                and training.get('config_sha256') == parent.get('config_sha256'),
++                'continuation parent/config mismatch')
++    require(isinstance(steps, list) and all(type(s) is int for s in steps)
++            and steps == list(range(start + 5000, budget + 1, 5000)), 'invalid original plan checkpoints')
+     for key, value in {'profile': 'development', 'instance': 10, 'seed': 0, 'samples': 1,
+                        'exec_horizon': 8, 'task_id': 0, 'attempts_per_interval': 1,
+                        'fixed_program': True, 'video': [1280, 720]}.items():

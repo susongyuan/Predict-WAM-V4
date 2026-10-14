@@ -1,0 +1,51 @@
+--- /home/user/Robotic/project2/outputs/validation/task090_diagnostic_repairs_20261001/perception/source_before/task090_perception.py
++++ harness/task090_perception.py
+@@ -86,6 +86,20 @@
+     return out
+ 
+ 
++def geometry_sanity(points, prior):
++    """Reject impossible size / flat horizontal texture proposals; not object identity proof."""
++    if prior is None:
++        return True
++    pts = np.asarray(points, dtype=np.float64)
++    if pts.ndim != 2 or pts.shape[1] != 3 or len(pts) < 3 or not np.isfinite(pts).all():
++        return False
++    span = np.percentile(pts, 98, axis=0) - np.percentile(pts, 2, axis=0)
++    if np.max(span) > prior["max_axis_span_m"] or span[2] < prior["min_vertical_span_m"]:
++        return False
++    horizontal = prior.get("max_horizontal_axis_span_m")
++    return horizontal is None or bool(np.max(span[:2]) <= horizontal)
++
++
+ def detect_from_observation(rgb, depth, cam_rel_pose, state, *, calibration_path=str(DEFAULT_CALIBRATION)):
+     """Adapter API -> (surface detections, None). None means visibility is unknown.
+ 
+@@ -120,11 +134,15 @@
+             continue
+         u, v, z = u[valid], v[valid], z[valid]
+         pts = cam.backproject(u, v, z)
++        prior = cfg["classes"][candidate["label"]].get("geometry_prior")
++        if not geometry_sanity(pts, prior):
++            continue
+         median = np.median(pts, axis=0)
+         k = int(np.argmin(np.sum((pts-median)**2, axis=1)))
+         detections.append({**candidate, "xyz_base": pts[k].tolist(),
+                            "surface_pixel_uv": [int(u[k]), int(v[k])], "surface_depth_m": float(z[k]),
+                            "source": "rgbd", "point_semantics": "observed_surface_sample",
++                           "geometry_sanity": "static_model_v2" if prior is not None else "not_applied",
+                            "center_valid": False, "grasp_reference_valid": False,
+                            "metric_calibration_admitted": False, "relations_admitted": False,
+                            "identity_status": "appearance_candidate", "held_status": "unknown",
+--- /home/user/Robotic/project2/outputs/validation/task090_diagnostic_repairs_20261001/perception/source_before/behavior_closed_loop.py
++++ scripts/behavior_closed_loop.py
+@@ -179,6 +179,9 @@
+     vtt = task_profile.VTT_DIR  # WamPolicy uses the task's VTT_DIR (harness.task_profile), not the checkpoint's.
+     paths += [vtt / p for p in ("meta.json", "prototypes.npy", "task_level.npy")]
+     orch = json.loads(args.orchestrate) if args.orchestrate else {}
++    detector_calibration = orch.get("perception", {}).get("detector", {}).get("calibration_path")
++    if detector_calibration:
++        paths.append(ROOT / detector_calibration)
+     if args.program or args.orchestrate:
+         paths += [ROOT / "configs" / p for p in (f"task{task_profile.TASK_ID:03d}_skill_program.json", "vtt_stall_calibration.json",
+                                                 "motion_stall_calibration.json")]

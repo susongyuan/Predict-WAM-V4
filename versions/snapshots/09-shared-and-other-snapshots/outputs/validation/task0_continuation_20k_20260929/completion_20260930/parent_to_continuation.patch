@@ -1,0 +1,310 @@
+--- /home/user/Robotic/project2/outputs/validation/task0_continuation_20k_20260929/backups/train_wam_v3.py.parent30k
++++ /home/user/Robotic/project2/scripts/train_wam_v3.py
+@@ -22,6 +22,14 @@
+ Sampling is one noise per (seed, episode, anchor), independent of batching/order. Future *action* step
+ 31 FK in metres selects best; flow is report-only. K=1 is unrelated to execution horizon (usually 8).
+ Tiny/pilot outputs are diagnostics, never long-run results or physical success claims.
++
++--continuation-plan JSON is a separate, explicitly approved 30k+20k stage from the pinned 30k last.
++It keeps the original config/cache ledger/history unchanged, preserves full AdamW/RNG/cursor/global
++scheduler state, and applies a separately recorded post-30k LR callable. Production runs must stop at
++35000/40000/45000/50000 (one <=5k segment per invocation). An independently approved gpu_smoke_only
++scope allows <=10 added updates from the original parent; smoke is not promoted automatically.
++Old 30k approval is insufficient. Exact trainer/test migrations and the pinned candidate HOLD runtime
++migration require verified backups; other source/model/data/stat/sampler drift fails closed. 30k+20k is NOT an original 50k run.
+ 
+ CPU tests: PYTHONDONTWRITEBYTECODE=1 .conda-envs/lilawam/bin/python scripts/test_train_wam_v3.py
+ This module is import-safe: it does not select task_profile, initialize CUDA or start work on import.
+@@ -58,6 +66,14 @@
+ PHASES = ("far", "near", "contact", "post")
+ METRIC = "fine_eef_m"
+ NEW_MODULES = ("mem_proj", "mem_slot_emb", "type_emb_mem", "phase_net", "gate_head", "phase_head", "dist_head")
++# A distinct, opt-in second stage, never a reinterpretation of the original 30k schedule.
++CONTINUATION_PARENT = "outputs/training/task0_v3_30k_20260929_s030000/checkpoint_last.pt"
++CONTINUATION_PARENT_SHA = "3fe60483a4ee7087105b528ca787d84d790b4bf3f14d80e6ea5882b0bf56f75b"
++CONTINUATION_MANIFEST_SHA = "41991e62b0e134e241b4a34142df7356e14b6a6c5c51b7bc0565cd17dd966a89"
++CONTINUATION_SCHEDULE = {"start_step": 30000, "additional_steps": 20000, "warmup_steps": 500,
++                         "start_lr": 5e-6, "peak_lr": 2e-5, "final_lr": 5e-6,
++                         "kind": "linear_then_cosine_completed_global_updates"}
++CONTINUATION_PREFIX = "task0_v3_cont20k_20260929_"
+ 
+ 
+ def resolve(path):
+@@ -125,6 +141,7 @@
+     source = p.add_mutually_exclusive_group()
+     source.add_argument("--init-from", default=DEFAULT_INIT)
+     source.add_argument("--resume-source", help="resumable checkpoint_last; new --run-name required")
++    p.add_argument("--continuation-plan", help="explicit hashed 30k+20k stage; original config remains unchanged")
+     p.add_argument("--resume-source-sha256", help="optional explicit hash; otherwise require checkpoint's .sha256.json")
+     p.add_argument("--cache-ledger", help="reusable full-payload hash sidecar; default in feature_cache")
+     p.add_argument("--run-name", required=True)
+@@ -174,6 +191,14 @@
+     if args.num_workers < 0 or not 1 <= args.tiny_samples <= 32:
+         raise ValueError("invalid workers / tiny sample count")
+     cap = int(budget) if args.mode == "long" else 2000
++    if getattr(args, "continuation_plan", None):
++        if args.mode != "long" or not args.resume_source or budget != 30000:
++            raise ValueError("continuation requires long mode, original 30k config and --resume-source")
++        if not args.run_name.startswith(CONTINUATION_PREFIX) or args.max_steps is None:
++            raise ValueError("continuation requires independent run prefix and explicit absolute --max-steps")
++        cap = 50000
++        if not 30000 < args.max_steps <= cap:
++            raise ValueError("continuation target must be in (30000, 50000]")
+     steps = args.max_steps if args.max_steps is not None else (200 if args.mode == "tiny" else cap)
+     if not 1 <= steps <= cap:
+         raise ValueError(f"{args.mode} --max-steps must be in [1, {cap}]; no pilot auto-promotion")
+@@ -185,7 +210,133 @@
+     return steps
+ 
+ 
+-def verify_long_approval(args, config_sha):
++def read_continuation_plan(path, cfg, config_path):
++    """Validate a narrow migration specification, not an approval or a mutable config overlay."""
++    path = resolve(path)
++    plan_sha = sha256(path)
++    plan = json.loads(path.read_text())
++    require_hash(path, plan_sha)
++    if (set(plan) != {"format", "parent", "schedule", "run_prefix", "source_migrations", "reason"}
++            or plan["format"] != "wam-v3-continuation-20k-v1"
++            or plan["schedule"] != CONTINUATION_SCHEDULE or plan["run_prefix"] != CONTINUATION_PREFIX
++            or not plan["reason"]):
++        raise ValueError("invalid continuation plan/schema/schedule/budget")
++    parent = plan["parent"]
++    if (set(parent) != {"checkpoint", "sha256", "manifest", "manifest_sha256", "config", "config_sha256",
++                        "training_contract_sha256"}
++            or resolve(parent["checkpoint"]) != resolve(CONTINUATION_PARENT)
++            or parent["sha256"] != CONTINUATION_PARENT_SHA
++            or resolve(parent["manifest"]) != resolve(CONTINUATION_PARENT).parent / "manifest.json"
++            or parent["manifest_sha256"] != CONTINUATION_MANIFEST_SHA):
++        raise ValueError("continuation parent identity differs from pinned 30k last")
++    require_hash(resolve(parent["manifest"]), parent["manifest_sha256"])
++    manifest = json.loads(resolve(parent["manifest"]).read_text())
++    require_hash(resolve(parent["manifest"]), parent["manifest_sha256"])
++    if (resolve(config_path) != resolve(parent["config"])
++            or resolve(parent["config"]) != resolve(manifest["args"]["config"])
++            or parent["config_sha256"] != manifest["source_sha256"][str(resolve(config_path))]
++            or cfg != manifest["config"]
++            or parent["training_contract_sha256"] != manifest["training_contract_sha256"]):
++        raise ValueError("continuation config/model/data/stats or parent contract changed")
++    require_hash(resolve(config_path), parent["config_sha256"])
++    allowed = {"scripts/train_wam_v3.py", "scripts/test_train_wam_v3.py", "harness/orchestrator.py"}
++    seen = set()
++    for row in plan["source_migrations"]:
++        if (set(row) != {"path", "from_sha256", "to_sha256", "backup", "reason"}
++                or row["path"] not in allowed or row["path"] in seen or not row["reason"]):
++            raise ValueError("unapproved or duplicate source migration")
++        if row["path"] == "harness/orchestrator.py" and (
++                row["from_sha256"] != "243332e69a479f217e379d97a3c81b387e43f00d989883ff800a3c5947791f48"
++                or row["to_sha256"] != "a96cd5dbfb0556dcac7e355c7384a48f9256907224d5fac2fd2feabd68ae94e2"):
++            raise ValueError("only the audited candidate HOLD runtime migration is permitted")
++        seen.add(row["path"])
++        if manifest["source_sha256"].get(str(resolve(row["path"]))) != row["from_sha256"]:
++            raise ValueError("source migration does not match pinned parent source")
++        require_hash(resolve(row["backup"]), row["from_sha256"])
++        require_hash(resolve(row["path"]), row["to_sha256"])
++    if "scripts/train_wam_v3.py" not in seen:
++        raise ValueError("explicit trainer source migration is required")
++    return {"path": str(path), "sha256": plan_sha, "plan": plan, "parent_manifest": manifest}
++
++
++def continuation_identity(context):
++    plan = context["plan"]
++    return {"plan_sha256": context["sha256"], "parent_checkpoint_sha256": plan["parent"]["sha256"],
++            "parent_training_contract_sha256": plan["parent"]["training_contract_sha256"],
++            "schedule": plan["schedule"], "not_equivalent_to_original_50k": True}
++
++
++def verify_continuation_checkpoint(ck, source, source_sha, context):
++    """Keep all model/AdamW/RNG/cursor state intact; validate ancestry and LR before construction."""
++    parent = context["plan"]["parent"]
++    identity = continuation_identity(context)
++    if ck.get("continuation") is None:
++        if (resolve(source) != resolve(parent["checkpoint"]) or source_sha != parent["sha256"]
++                or ck["step"] != 30000 or ck.get("manifest_sha256") != parent["manifest_sha256"]
++                or ck.get("training_contract_sha256") != parent["training_contract_sha256"]):
++            raise ValueError("continuation must start from the pinned parent checkpoint_last")
++    elif ck["continuation"] != identity or not 30000 <= ck["step"] <= 50000:
++        raise ValueError("continuation ancestry/plan changed")
++    state = ck["resume_state"]
++    groups = state["optimizer_state_dict"]["param_groups"]
++    expected_lr = continuation_lr(ck["step"], context["plan"]["schedule"])
++    if (state.get("safe_optimizer_boundary") is not True or len(groups) != 1
++            or not state["optimizer_state_dict"]["state"]
++            or state["scheduler_state_dict"].get("base_lrs") != [ck["config"]["training"]["learning_rate"]]
++            or not math.isclose(groups[0]["lr"], expected_lr, rel_tol=1e-12, abs_tol=0)
++            or state["scheduler_state_dict"].get("_last_lr") != [groups[0]["lr"]]
++            or any(float(v["step"]) != ck["step"] for v in state["optimizer_state_dict"]["state"].values())):
++        raise ValueError("continuation optimizer counts/LR/boundary are inconsistent; no fresh optimizer allowed")
++
++
++def continuation_contract(contract, context, checkpoint):
++    """Rebuild the exact parent signature with ONLY the explicitly attested source substitutions."""
++    parent = context["parent_manifest"]
++    sources = dict(contract["sources"])
++    for row in context["plan"]["source_migrations"]:
++        name = str(resolve(row["path"]))
++        if sources.get(name) != row["to_sha256"]:
++            raise ValueError("current source SHA differs from explicit migration")
++        sources[name] = row["from_sha256"]
++    # Parent run-only ancestry and cache receipt are not semantic sources (same legacy rule).
++    expected = {k: v for k, v in parent["source_sha256"].items()
++                if k not in {str(resolve(parent["args"]["init_from"])),
++                             str(resolve(parent["args"]["resume_source"])),
++                             str(resolve(parent["cache_assurance"]["ledger"]))}}
++    if sources != expected:
++        changed = sorted(k for k in set(sources) | set(expected) if sources.get(k) != expected.get(k))
++        raise ValueError(f"unapproved source/data/stat inventory or SHA change: {changed[:8]}")
++    if digest_json({**contract, "sources": sources}) != context["plan"]["parent"]["training_contract_sha256"]:
++        raise ValueError("parent model/data/stats/plan/sampler contract differs after whitelisted migration")
++    digest = digest_json({"contract": contract, "continuation": continuation_identity(context)})
++    if checkpoint.get("continuation") is not None and checkpoint["training_contract_sha256"] != digest:
++        raise ValueError("resumed continuation training contract differs")
++    return digest
++
++
++def verify_continuation_approval(approval, args, context):
++    if (context is None or approval.get("continuation") != continuation_identity(context)
++            or approval.get("additional_steps") != 20000 or approval.get("global_budget") != 50000):
++        raise ValueError("new continuation approval required; original 30k approval cannot extend budget")
++    kind = approval.get("scope")
++    if kind == "gpu_smoke_only":
++        if not 30000 < args.max_steps <= 30010:
++            raise ValueError("smoke approval only permits at most ten additional updates from parent")
++        checks = ("continuation_cpu", "continuation_review")
++    elif kind == "four_5k_segments":
++        if args.max_steps not in (35000, 40000, 45000, 50000):
++            raise ValueError("continuation production targets must be 35000/40000/45000/50000")
++        checks = ("continuation_cpu", "continuation_review", "continuation_gpu_smoke")
++    else:
++        raise ValueError("explicit continuation approval scope missing")
++    for name in checks:
++        check = approval.get("checks", {}).get(name, {})
++        if check.get("passed") is not True:
++            raise ValueError(f"continuation prerequisite not approved: {name}")
++        require_hash(resolve(check["path"]), check.get("sha256"))
++
++
++def verify_long_approval(args, config_sha, continuation=None):
+     if args.mode != "long":
+         return None
+     path = resolve(args.long_run_approval)
+@@ -198,6 +349,8 @@
+         if check.get("passed") is not True:
+             raise ValueError(f"long-run prerequisite not approved: {name}")
+         require_hash(resolve(check["path"]), check.get("sha256"))
++    if getattr(args, "continuation_plan", None):
++        verify_continuation_approval(approval, args, continuation)
+     return {"path": str(path), "sha256": sha256(path), "attestation": approval}
+ 
+ 
+@@ -510,11 +663,25 @@
+         return seconds
+ 
+ 
+-def make_optimizer(model, cfg):
++def continuation_lr(completed_step, schedule):
++    if schedule != CONTINUATION_SCHEDULE:
++        raise ValueError("unapproved continuation schedule")
++    added = completed_step - schedule["start_step"]
++    if not 0 <= added <= schedule["additional_steps"]:
++        raise ValueError("continuation LR outside its approved cumulative budget")
++    if added <= schedule["warmup_steps"]:
++        return schedule["start_lr"] + (schedule["peak_lr"] - schedule["start_lr"]) * added / schedule["warmup_steps"]
++    progress = (added - schedule["warmup_steps"]) / (schedule["additional_steps"] - schedule["warmup_steps"])
++    return schedule["final_lr"] + (schedule["peak_lr"] - schedule["final_lr"]) * 0.5 * (1 + math.cos(math.pi * progress))
++
++
++def make_optimizer(model, cfg, continuation_schedule=None):
+     t = cfg
+     optimizer = torch.optim.AdamW(model.parameters(), lr=t["learning_rate"], betas=tuple(t["betas"]), weight_decay=t["weight_decay"])
+     warm, total, ratio = int(t["warmup_steps"]), int(t["schedule_steps"]), t["lr_min"] / t["learning_rate"]
+     def multiplier(step):
++        if continuation_schedule is not None and step >= continuation_schedule["start_step"]:
++            return continuation_lr(step, continuation_schedule) / t["learning_rate"]
+         if warm and step < warm:
+             return 0.01 + 0.99 * step / warm
+         progress = min(1.0, max(0.0, (step - warm) / max(1, total - warm)))
+@@ -1007,6 +1174,8 @@
+     from omegaconf import OmegaConf
+     cfg = OmegaConf.to_container(OmegaConf.load(resolve(args.config)), resolve=True)
+     max_steps = validate_config(cfg, args)
++    if args.continuation_plan and args.device == "cuda":
++        raise ValueError("continuation GPU execution blocked: resource-window authorization unresolved")
+     if os.environ.get("P2_TASK_ID", "0") != "0":
+         raise ValueError("this independent trainer requires P2_TASK_ID=0")
+     os.environ["P2_TASK_ID"] = "0"  # BEFORE task-dependent imports; import itself remains side-effect free
+@@ -1018,7 +1187,8 @@
+     from harness.r1pro_kinematics import R1ProKinematics
+     from scripts.train_lilawam_behavior import motion_sampling_weights
+     config_hash = sha256(resolve(args.config))
+-    approval = verify_long_approval(args, config_hash)
++    continuation = read_continuation_plan(args.continuation_plan, cfg, args.config) if args.continuation_plan else None
++    approval = verify_long_approval(args, config_hash, continuation)
+     # Check source pin even before creating a run or unpickling any checkpoint.
+     resume_ck, resume_sha = (None, None)
+     if args.resume_source:
+@@ -1026,6 +1196,13 @@
+                                                     args.resume_source_sha256)
+         if resume_ck["step"] > max_steps:
+             raise ValueError("--max-steps is an absolute target below the resume source step")
++        if continuation:
++            verify_continuation_checkpoint(resume_ck, args.resume_source, resume_sha, continuation)
++            scope = approval["attestation"]["scope"]
++            if scope == "gpu_smoke_only" and resume_sha != CONTINUATION_PARENT_SHA:
++                raise ValueError("GPU smoke must use the pinned parent, never extend a smoke or production run")
++            if not 0 < max_steps - resume_ck["step"] <= 5000:
++                raise ValueError("continuation permits one segment of at most 5000 updates, never automatic full 20k")
+     else:
+         require_hash(resolve(args.init_from), V2_SHA256)
+     if args.device == "cuda":
+@@ -1053,6 +1230,10 @@
+                 "action_execution_horizon": cfg["common"]["action_execution_horizon"], "early_stopping": False,
+                 "resume_source": str(resolve(args.resume_source)) if args.resume_source else None,
+                 "resume_source_sha256": resume_sha}
++    if continuation:
++        metadata["continuation"] = continuation_identity(continuation)
++        metadata["result_kind"] = ("continuation_gpu_smoke_diagnostic" if approval["attestation"]["scope"] == "gpu_smoke_only"
++                                   else "distinct_30k_plus_20k_continuation")
+     try:
+         guard.check(force=True)
+         emit({"event": "start", "max_steps": max_steps, "schedule_steps": cfg["training"]["schedule_steps"],
+@@ -1115,11 +1296,25 @@
+         # Bind semantic inputs independently of receipt filename/assurance and run-specific ancestry.
+         semantic_sources = {k: v for k, v in ledger.files.items()
+                             if k != str(cache_ledger_path) and k != str(resolve(args.init_from))}
+-        metadata["training_contract_sha256"] = digest_json({"config": cfg, "evaluation_plan": eval_plan,
+-                                                           "train_indices": train_indices, "sources": semantic_sources,
+-                                                           "sampler_rule": "weighted_epoch_seed_v1", "workers": args.num_workers})
+-        if resume_ck and resume_ck.get("training_contract_sha256") != metadata["training_contract_sha256"]:
++        contract = {"config": cfg, "evaluation_plan": eval_plan, "train_indices": train_indices,
++                    "sources": semantic_sources, "sampler_rule": "weighted_epoch_seed_v1", "workers": args.num_workers}
++        metadata["training_contract_sha256"] = (continuation_contract(contract, continuation, resume_ck)
++                                                 if continuation else digest_json(contract))
++        if not continuation and resume_ck and resume_ck.get("training_contract_sha256") != metadata["training_contract_sha256"]:
+             raise ValueError("resume model/data/stats/plan/sampler/source contract differs")
++        if continuation:
++            # These attestations do not alter the semantic source inventory; still guard them against mid-run drift.
++            ledger.add(continuation["path"], continuation["sha256"])
++            ledger.add(resolve(continuation["plan"]["parent"]["manifest"]), CONTINUATION_MANIFEST_SHA)
++            ledger.add(resolve(args.long_run_approval), approval["sha256"])
++            for row in continuation["plan"]["source_migrations"]:
++                ledger.add(resolve(row["backup"]), row["from_sha256"])
++            atomic_json(out / "continuation_migration.json", {"plan": continuation["plan"],
++                        "identity": continuation_identity(continuation), "resume_source_sha256": resume_sha,
++                        "from_contract_sha256": resume_ck["training_contract_sha256"],
++                        "to_contract_sha256": metadata["training_contract_sha256"],
++                        "state_transform": "none; exact AdamW/RNG/cursor and scheduler counters restored; new post-30k LR callable only",
++                        "optimizer_reset": False})
+         if resume_ck:
+             ledger.add(resolve(args.resume_source), resume_sha)
+         best_artifact = inherit_best_checkpoint(out, resume_ck, resolve(args.resume_source)) if resume_ck else None
+@@ -1146,7 +1341,8 @@
+         wrapper, notes = build_cached_wrapper(cfg, stats, resolve(args.init_from), V2_SHA256, args.device, resume_ck)
+         wrapper.to(args.device)
+         atomic_json(out / "initialization.json", {"migration": notes, "new_modules_seed": seed})
+-        optimizer, scheduler = make_optimizer(wrapper.action_model, cfg["training"])
++        optimizer, scheduler = make_optimizer(wrapper.action_model, cfg["training"],
++                                               continuation["plan"]["schedule"] if continuation else None)
+         before = (resume_ck.get("tiny_initial_parameters") if resume_ck and args.mode == "tiny" else None)
+         if before is None:
+             before = {k: p.detach().cpu().clone() for k, p in wrapper.action_model.named_parameters()

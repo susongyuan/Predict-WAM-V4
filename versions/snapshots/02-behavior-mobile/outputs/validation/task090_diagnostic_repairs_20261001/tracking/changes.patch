@@ -1,0 +1,77 @@
+--- /home/user/Robotic/project2/outputs/validation/task090_diagnostic_repairs_20261001/tracking/source_before/docking_controller.py
++++ harness/docking_controller.py
+@@ -84,17 +84,30 @@
+ 
+     GATE = {"can_of_soda": 0.35, "trash_can": 0.6}
+ 
+-    def __init__(self, min_hits=3):
++    def __init__(self, min_hits=3, max_age_steps=None):
++        if max_age_steps is not None and (type(max_age_steps) is not int or max_age_steps < 1):
++            raise ValueError("max_age_steps must be a positive integer or None")
+         self.tracks: list[Track] = []
+         self.min_hits = int(min_hits)
++        self.max_age_steps = max_age_steps
++        self._step = None
+         self._next_id = 1
+ 
+     def reset(self):
+         self.tracks, self._next_id = [], 1
++        self._step = None  # retain the configured age limit, not the previous episode clock
++
++    def advance(self, step):
++        """Age navigation evidence even between detector passes; expiry is not observed absence."""
++        if self.max_age_steps is not None:
++            if type(step) is not int or step < 0 or (self._step is not None and step < self._step):
++                raise ValueError("object-map step must be monotonic within an episode")
++        self._step = step
+ 
+     def update(self, detections, odom: Odometry, step: int, visible_fn=None):
+         """detections: [{label, xyz_base, score}]; visible_fn(p_base)->bool says whether an existing track should have
+         been seen in this frame (inside the image and the reliable range); unseen-but-visible tracks accumulate misses."""
++        self.advance(step)
+         seen = set()
+         for det in detections:
+             label = det["label"]
+@@ -128,7 +141,10 @@
+                                                                    or (t.misses >= 12))]
+ 
+     def confirmed(self, label):
+-        return [t for t in self.tracks if t.label == label and not t.consumed and t.hits >= self.min_hits]
++        # Keep expired tracks as conservative obstacle history, but never drive toward them.
++        return [t for t in self.tracks if t.label == label and not t.consumed and t.hits >= self.min_hits
++                and (self.max_age_steps is None or (self._step is not None
++                     and 0 <= self._step - t.last_seen <= self.max_age_steps))]
+ 
+     def consume_nearest(self, label, p_odom, radius=0.6):
+         cands = [t for t in self.tracks if t.label == label and not t.consumed]
+@@ -341,6 +357,8 @@
+             if cur is not None:
+                 return cur
+         if not tracks:
++            if omap.max_age_steps is not None:
++                self.track_id, self._plan, self._plan_age = None, None, 0
+             return None
+         best = min(tracks, key=lambda t: np.linalg.norm(t.pos - odom.pose[:2]))
+         self.track_id = best.track_id
+--- /home/user/Robotic/project2/outputs/validation/task090_diagnostic_repairs_20261001/tracking/source_before/policy_server.py
++++ harness/policy_server.py
+@@ -405,7 +405,10 @@
+                 self._bands_odom = None
+                 if orchestrate.get("manip_executor") == "primitive":
+                     self.docking.cfg.require_posture = False     # the IK primitives plan from any posture
+-                self.odom, self.omap = Odometry(), ObjectMap()
++                track_age = orchestrate.get("track_max_age_steps", self.docking.cfg.lost_steps if task_profile.TASK_ID == 90 else None)
++                if task_profile.TASK_ID == 90 and track_age is None:
++                    raise ValueError("Task90 requires a bounded navigation track age")
++                self.odom, self.omap = Odometry(), ObjectMap(max_age_steps=track_age)
+                 self.perception = TaskPerception(orchestrate.get("perception", {}), device=self.device,
+                                                  encoder=self.wrapper.vision_encoder)
+                 self.perceive_every = int(orchestrate.get("perceive_every", 5))
+@@ -1203,6 +1206,7 @@
+         current_dets = None   # Task90 postconditions may reuse this frame's detector pass, never ObjectMap tracks
+         if getattr(self, "docking", None) is not None:
+             self.odom.update(state[:3])          # measured local base velocity -> episode-local odometry
++            self.omap.advance(self.step_in_episode)  # stale targets expire even between perception updates
+             if self.step_in_episode % self.perceive_every == 0:
+                 dets, visible_fn = self.perception.detect(obs, state)
+                 current_dets = dets

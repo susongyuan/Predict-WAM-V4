@@ -1,0 +1,102 @@
+--- /home/user/Robotic/project2/outputs/validation/task0_trainer_gpu_authorization_20260930/source_before/train_wam_v3.py
++++ /home/user/Robotic/project2/scripts/train_wam_v3.py
+@@ -30,6 +30,9 @@
+ scheduler state, and applies a separately recorded post-30k LR callable. Production runs must stop at
+ 35000/40000/45000/50000 (one <=5k segment per invocation). An independently approved gpu_smoke_only
+ scope allows <=10 added updates from the original parent; smoke is not promoted automatically.
++CUDA continuation additionally requires --gpu-authorization and --gpu-authorization-sha256 naming
++and matching the pinned actual-user resource receipt. Neither environment variables nor that receipt
++replace training approval, real GPU-smoke prerequisites, or exclusive GPU-lock ownership.
+ Old 30k approval is insufficient. Exact trainer/test migrations and the pinned candidate HOLD runtime
+ migration require verified backups; other source/model/data/stat/sampler drift fails closed. 30k+20k is NOT an original 50k run.
+ 
+@@ -76,6 +79,9 @@
+                          "start_lr": 5e-6, "peak_lr": 2e-5, "final_lr": 5e-6,
+                          "kind": "linear_then_cosine_completed_global_updates"}
+ CONTINUATION_PREFIX = "task0_v3_cont20k_20260929_"
++# Reviewed bytes of the actual user message, NOT a caller-issued approval boolean/hash.
++GPU_AUTHORIZATION = "outputs/validation/task0_gpu_peak_authorization_20260930/authorization.json"
++GPU_AUTHORIZATION_SHA256 = "9bd06b2fbdda711378c8e31b2b7605da3fd3ed0453e6ebf2c797925ec5c69cad"
+ 
+ 
+ def resolve(path):
+@@ -144,6 +150,8 @@
+     source.add_argument("--init-from", default=DEFAULT_INIT)
+     source.add_argument("--resume-source", help="resumable checkpoint_last; new --run-name required")
+     p.add_argument("--continuation-plan", help="explicit hashed 30k+20k stage; original config remains unchanged")
++    p.add_argument("--gpu-authorization", help="CUDA continuation only: pinned actual-user resource receipt")
++    p.add_argument("--gpu-authorization-sha256", help="explicit SHA256 of that receipt; no environment fallback")
+     p.add_argument("--resume-source-sha256", help="optional explicit hash; otherwise require checkpoint's .sha256.json")
+     p.add_argument("--cache-ledger", help="reusable full-payload hash sidecar; default in feature_cache")
+     p.add_argument("--run-name", required=True)
+@@ -314,6 +322,42 @@
+     if checkpoint.get("continuation") is not None and checkpoint["training_contract_sha256"] != digest:
+         raise ValueError("resumed continuation training contract differs")
+     return digest
++
++
++def verify_gpu_authorization(args):
++    """Resource consent only; inline so the existing trainer source receipt covers this gate."""
++    if not getattr(args, "continuation_plan", None) or args.device != "cuda":
++        return None  # CPU and legacy non-continuation behavior is unchanged; no CUDA queries.
++    path = getattr(args, "gpu_authorization", None)
++    expected_sha = getattr(args, "gpu_authorization_sha256", None)
++    if not path or expected_sha != GPU_AUTHORIZATION_SHA256:
++        raise ValueError("CUDA continuation requires explicit --gpu-authorization and pinned --gpu-authorization-sha256")
++    candidate = ROOT / path
++    if candidate.is_symlink() or candidate.resolve() != resolve(GPU_AUTHORIZATION):
++        raise ValueError("GPU authorization must name the pinned actual-user receipt, not a substitute")
++    try:
++        payload = candidate.read_bytes()
++    except OSError as exc:
++        raise ValueError("GPU authorization receipt is missing or unreadable") from exc
++    if hashlib.sha256(payload).hexdigest() != GPU_AUTHORIZATION_SHA256:
++        raise ValueError("GPU authorization receipt SHA256 mismatch")
++    receipt = json.loads(payload)  # Parse precisely the bytes whose digest was checked.
++    expected = {
++        "format": "project2-gpu-peak-authorization-v1",
++        "source": "actual_user_message_in_current_session",
++        "user_text": "允许gpu超过85%的限制，允许达到峰值，我觉得测试和训练应该可以并行吧",
++        "gpu_peak_above_85_percent_allowed": True,
++        "gpu_utilization_percent_allowed": 100,
++        "operational_total_vram_abort_mib": 15300,
++        "cpu_percent_ceiling_unchanged": 85,
++        "ram_percent_ceiling_unchanged": 85,
++        "training_simulation_gpu_concurrency": "not_admitted_without_measured_combined_headroom",
++        "initial_execution_policy": "exclusive GPU lock; serialize simulation and training; CPU analysis may run concurrently",
++    }
++    if not isinstance(receipt, dict) or any(type(receipt.get(k)) is not type(v) or receipt[k] != v
++                                           for k, v in expected.items()):
++        raise ValueError("GPU authorization receipt content differs from actual-user resource consent")
++    return {"path": str(candidate.resolve()), "sha256": GPU_AUTHORIZATION_SHA256, "attestation": receipt}
+ 
+ 
+ def verify_continuation_approval(approval, args, context):
+@@ -1198,8 +1242,7 @@
+     from omegaconf import OmegaConf
+     cfg = OmegaConf.to_container(OmegaConf.load(resolve(args.config)), resolve=True)
+     max_steps = validate_config(cfg, args)
+-    if args.continuation_plan and args.device == "cuda":
+-        raise ValueError("continuation GPU execution blocked: resource-window authorization unresolved")
++    gpu_authorization = verify_gpu_authorization(args)
+     if os.environ.get("P2_TASK_ID", "0") != "0":
+         raise ValueError("this independent trainer requires P2_TASK_ID=0")
+     os.environ["P2_TASK_ID"] = "0"  # BEFORE task-dependent imports; import itself remains side-effect free
+@@ -1254,6 +1297,8 @@
+                 "action_execution_horizon": cfg["common"]["action_execution_horizon"], "early_stopping": False,
+                 "resume_source": str(resolve(args.resume_source)) if args.resume_source else None,
+                 "resume_source_sha256": resume_sha}
++    if gpu_authorization:
++        metadata["gpu_authorization"] = gpu_authorization
+     if continuation:
+         metadata["continuation"] = continuation_identity(continuation)
+         metadata["result_kind"] = ("continuation_gpu_smoke_diagnostic" if approval["attestation"]["scope"] == "gpu_smoke_only"
+@@ -1331,6 +1376,8 @@
+             ledger.add(continuation["path"], continuation["sha256"])
+             ledger.add(resolve(continuation["plan"]["parent"]["manifest"]), CONTINUATION_MANIFEST_SHA)
+             ledger.add(resolve(args.long_run_approval), approval["sha256"])
++            if gpu_authorization:
++                ledger.add(gpu_authorization["path"], gpu_authorization["sha256"])
+             for row in continuation["plan"]["source_migrations"]:
+                 ledger.add(resolve(row["backup"]), row["from_sha256"])
+             atomic_json(out / "continuation_migration.json", {"plan": continuation["plan"],

@@ -1,0 +1,209 @@
+--- /home/user/Robotic/project2/outputs/validation/task0_continuation_20k_20260929/completion_20260930/train_wam_v3.py
++++ /home/user/Robotic/project2/scripts/train_wam_v3.py
+@@ -28,8 +28,8 @@
+ scheduler state, and applies a separately recorded post-30k LR callable. Production runs must stop at
+ 35000/40000/45000/50000 (one <=5k segment per invocation). An independently approved gpu_smoke_only
+ scope allows <=10 added updates from the original parent; smoke is not promoted automatically.
+-Old 30k approval is insufficient. Only exact trainer/test source migrations with verified backups are
+-allowed; other source/model/data/stat/sampler drift fails closed. 30k+20k is NOT an original 50k run.
++Old 30k approval is insufficient. Exact trainer/test migrations and the pinned candidate HOLD runtime
++migration require verified backups; other source/model/data/stat/sampler drift fails closed. 30k+20k is NOT an original 50k run.
+ 
+ CPU tests: PYTHONDONTWRITEBYTECODE=1 .conda-envs/lilawam/bin/python scripts/test_train_wam_v3.py
+ This module is import-safe: it does not select task_profile, initialize CUDA or start work on import.
+@@ -239,12 +239,16 @@
+             or parent["training_contract_sha256"] != manifest["training_contract_sha256"]):
+         raise ValueError("continuation config/model/data/stats or parent contract changed")
+     require_hash(resolve(config_path), parent["config_sha256"])
+-    allowed = {"scripts/train_wam_v3.py", "scripts/test_train_wam_v3.py"}
++    allowed = {"scripts/train_wam_v3.py", "scripts/test_train_wam_v3.py", "harness/orchestrator.py"}
+     seen = set()
+     for row in plan["source_migrations"]:
+         if (set(row) != {"path", "from_sha256", "to_sha256", "backup", "reason"}
+                 or row["path"] not in allowed or row["path"] in seen or not row["reason"]):
+-            raise ValueError("unapproved or duplicate source migration; only trainer/test may migrate")
++            raise ValueError("unapproved or duplicate source migration")
++        if row["path"] == "harness/orchestrator.py" and (
++                row["from_sha256"] != "243332e69a479f217e379d97a3c81b387e43f00d989883ff800a3c5947791f48"
++                or row["to_sha256"] != "a96cd5dbfb0556dcac7e355c7384a48f9256907224d5fac2fd2feabd68ae94e2"):
++            raise ValueError("only the audited candidate HOLD runtime migration is permitted")
+         seen.add(row["path"])
+         if manifest["source_sha256"].get(str(resolve(row["path"]))) != row["from_sha256"]:
+             raise ValueError("source migration does not match pinned parent source")
+@@ -1170,6 +1174,8 @@
+     from omegaconf import OmegaConf
+     cfg = OmegaConf.to_container(OmegaConf.load(resolve(args.config)), resolve=True)
+     max_steps = validate_config(cfg, args)
++    if args.continuation_plan and args.device == "cuda":
++        raise ValueError("continuation GPU execution blocked: resource-window authorization unresolved")
+     if os.environ.get("P2_TASK_ID", "0") != "0":
+         raise ValueError("this independent trainer requires P2_TASK_ID=0")
+     os.environ["P2_TASK_ID"] = "0"  # BEFORE task-dependent imports; import itself remains side-effect free
+--- /home/user/Robotic/project2/outputs/validation/task0_continuation_20k_20260929/completion_20260930/run_wam_v3_unit.sh
++++ /home/user/Robotic/project2/scripts/run_wam_v3_unit.sh
+@@ -90,6 +90,19 @@
+     die 'APPROVAL is only meaningful with MODE=long; refusing ambiguous invocation'
+ fi
+ 
++if [[ -n ${CONTINUATION_PLAN:-} ]]; then
++    [[ $mode == long && -n ${RESUME:-} && -f $CONTINUATION_PLAN ]] || die 'continuation requires long, RESUME and an existing plan'
++    trainer+=(--continuation-plan "$CONTINUATION_PLAN")
++fi
++if [[ ${DRY_RUN:-0} == 1 ]]; then
++    printf 'Command:'; printf ' %q' "${trainer[@]}"; printf '\n'
++    exit 0
++fi
++# No service/lock/GPU work until the real user resolves the resource definition.
++if [[ -n ${CONTINUATION_PLAN:-} ]]; then
++    die 'continuation GPU execution blocked: resource-window authorization unresolved'
++fi
++
+ owner="wam-train-$name"
+ unit="$owner.service"
+ releaser="p2-gpulock-$owner.service"  # NAME length keeps gpu_lock.py's 120-character limit unambiguous
+--- /home/user/Robotic/project2/outputs/validation/task0_continuation_20k_20260929/completion_20260930/run_wam_v3_stages.py
++++ /home/user/Robotic/project2/scripts/run_wam_v3_stages.py
+@@ -182,16 +182,20 @@
+ def clean_env():
+     env = dict(os.environ)
+     for key in ('RESUME', 'INIT', 'RUN_NAME', 'RESUME_SHA256', 'DRY_RUN', 'MAXSTEPS',
+-                'ORCH_EXTRA', 'VIDEO_VIEW', 'MAX_ATTEMPTS'):
++                'ORCH_EXTRA', 'VIDEO_VIEW', 'MAX_ATTEMPTS', 'CONTINUATION_PLAN'):
+         env.pop(key, None)
+     return env
+ 
+ 
+ def new_plan(a):
++    continuation = getattr(a, 'continuation_plan', None)
+     return {'version': 1, 'created_unix': time.time(), 'total_optimizer_steps': a.budget or 30000,
+-            'checkpoints': list(range(5000, (a.budget or 30000) + 1, 5000)),
++            'checkpoints': list(range(35000 if continuation else 5000, (a.budget or 30000) + 1, 5000)),
++            'start_step': 30000 if continuation else 0,
+             'training': {'config': a.config, 'config_sha256': digest(ROOT / a.config),
+                          'approval': a.approval, 'cache_ledger': a.cache_ledger,
++                         'continuation_plan': continuation,
++                         'continuation_plan_sha256': digest(ROOT / continuation) if continuation else None,
+                          'resume_source': a.resume_source, 'optimizer_resume': True, 'early_stopping': False},
+             'physical': {'profile': 'development', 'instance': 10 if a.instance is None else a.instance,
+                          'seed': 0, 'samples': 1, 'exec_horizon': 8, 'task_id': 0,
+@@ -209,10 +213,26 @@
+ def validate_plan(plan, a):
+     t, p = plan['training'], plan['physical']
+     budget = plan['total_optimizer_steps']
+-    require(type(budget) is int and budget in (30000, 50000)
+-            and plan['checkpoints'] == list(range(5000, budget + 1, 5000)), 'invalid stage plan')
+-    for key in ('config', 'cache_ledger', 'approval', 'resume_source'):
+-        require(getattr(a, key) is None or getattr(a, key) == t.get(key), f'original plan {key} differs')
++    continuation = t.get('continuation_plan')
++    start = 30000 if continuation else 0
++    require(type(budget) is int and budget == (50000 if continuation else 30000)
++            and plan.get('start_step', 0) == start
++            and plan['checkpoints'] == list(range(start + 5000, budget + 1, 5000)), 'invalid stage plan')
++    if continuation:
++        cp = read(ROOT / continuation)
++        require(digest(ROOT / continuation) == t['continuation_plan_sha256'], 'continuation plan changed')
++        require(cp['format'] == 'wam-v3-continuation-20k-v1'
++                and cp['schedule'] == {'start_step': 30000, 'additional_steps': 20000,
++                    'warmup_steps': 500, 'start_lr': 5e-6, 'peak_lr': 2e-5, 'final_lr': 5e-6,
++                    'kind': 'linear_then_cosine_completed_global_updates'},
++                'invalid continuation budget/schedule')
++        require(a.prefix.startswith(cp['run_prefix']), 'independent continuation prefix required')
++        require(Path(ROOT / t['resume_source']).resolve() == Path(ROOT / cp['parent']['checkpoint']).resolve(),
++                'controller must start from pinned parent last')
++        require(digest(ROOT / t['resume_source']) == cp['parent']['sha256'], 'parent SHA mismatch')
++        require(t['config_sha256'] == cp['parent']['config_sha256'], 'continuation config differs')
++    for key in ('config', 'cache_ledger', 'approval', 'resume_source', 'continuation_plan'):
++        require(getattr(a, key, None) is None or getattr(a, key, None) == t.get(key), f'original plan {key} differs')
+     require(a.budget is None or a.budget == budget, 'original budget differs')
+     require(a.instance is None or a.instance == p['instance'], 'original instance differs')
+     require(type(p['instance']) is int and p['instance'] in range(10, 20), 'development instances only')
+@@ -230,6 +250,8 @@
+ 
+ def execute(plan, a, out):
+     t, p = plan['training'], plan['physical']
++    if t.get('continuation_plan'):
++        raise ValueError('continuation GPU execution blocked: resource-window authorization unresolved')
+     row = {'phase': 'preflight', 'time': time.time()}
+     try:
+         require((ROOT / t['approval']).is_file(), 'reviewed approval missing')
+@@ -280,6 +302,8 @@
+                 env = clean_env()
+                 env.update(NAME=name, MODE='long', MAX_STEPS=str(step), CONFIG=t['config'],
+                            CACHE_LEDGER=t['cache_ledger'], APPROVAL=t['approval'], P2_TASK_ID='0')
++                if t.get('continuation_plan'):
++                    env['CONTINUATION_PLAN'] = str(ROOT / t['continuation_plan'])
+                 if resume:
+                     env['RESUME'] = str(ROOT / resume)
+                     env['RESUME_SHA256'] = validate_last(ROOT / resume)['sha256']
+@@ -367,7 +391,7 @@
+ def main():
+     parser = argparse.ArgumentParser(description=__doc__)
+     parser.add_argument('--prefix', required=True)
+-    for key in ('config', 'cache-ledger', 'approval', 'resume-source'):
++    for key in ('config', 'cache-ledger', 'approval', 'resume-source', 'continuation-plan'):
+         parser.add_argument('--' + key)
+     parser.add_argument('--budget', type=int, choices=[30000, 50000])
+     parser.add_argument('--instance', type=int)
+--- /home/user/Robotic/project2/outputs/validation/task0_continuation_20k_20260929/completion_20260930/continuation_plan.json
++++ /home/user/Robotic/project2/outputs/validation/task0_continuation_20k_20260929/continuation_plan.json
+@@ -13,9 +13,9 @@
+     "start_step": 30000,
+     "additional_steps": 20000,
+     "warmup_steps": 500,
+-    "start_lr": 0.000005,
+-    "peak_lr": 0.00002,
+-    "final_lr": 0.000005,
++    "start_lr": 5e-06,
++    "peak_lr": 2e-05,
++    "final_lr": 5e-06,
+     "kind": "linear_then_cosine_completed_global_updates"
+   },
+   "run_prefix": "task0_v3_cont20k_20260929_",
+@@ -23,9 +23,16 @@
+     {
+       "path": "scripts/train_wam_v3.py",
+       "from_sha256": "fba00fe6f1843fa2141296f95a9fb15225d1604419320a74da4089bf72dfb8d2",
+-      "to_sha256": "bc1c2d36afe1cfb75768367a717e00340f739b7f4818425b21fda8c3cf6ce79a",
++      "to_sha256": "2efdd3b85af189328661e86d3ec9b78424d78d1e95872117e3d9c2f5c032aa26",
+       "backup": "outputs/validation/task0_continuation_20k_20260929/backups/train_wam_v3.py.parent30k",
+       "reason": "Opt-in bounded second-stage LR and exact source migration; default legacy path unchanged. Restore verified backup explicitly for legacy-source recovery, never bypass source checks."
++    },
++    {
++      "path": "harness/orchestrator.py",
++      "from_sha256": "243332e69a479f217e379d97a3c81b387e43f00d989883ff800a3c5947791f48",
++      "to_sha256": "a96cd5dbfb0556dcac7e355c7384a48f9256907224d5fac2fd2feabd68ae94e2",
++      "backup": "outputs/validation/task0_contract_safety_20260929_night/source_before/harness/orchestrator.py",
++      "reason": "Explicit candidate HOLD runtime safety migration; full diff and AST evidence in completion_20260930/runtime_migration.json. ConditionBank and every other training dependency unchanged; new development runtime, NOT original 25k repeat."
+     }
+   ],
+   "reason": "Prepare the user's requested additional 20000 updates from the completed 30000-update parent without resetting AdamW or changing architecture/data/statistics. This separate 30k+20k schedule is not equivalent to training an original 50k schedule. Preparation is not training approval."
+--- /home/user/Robotic/project2/outputs/validation/task0_continuation_20k_20260929/completion_20260930/test_continuation.py
++++ /home/user/Robotic/project2/outputs/validation/task0_continuation_20k_20260929/test_continuation.py
+@@ -148,9 +148,15 @@
+         self.assertEqual(saved_first['last']['step'], 35000)
+         self.assertIn('step_035000', saved_first)
+         seed(222)
+-        second, opt2, scheduler2, saved2, report2 = synthetic_run(50000, saved_first['last'], stage=True)
++        order = first.order[:]
++        boundary = saved_first['last']
++        for target in (40000, 45000, 50000):
++            second, opt2, scheduler2, saved2, report2 = synthetic_run(target, boundary, stage=True)
++            order.extend(second.order)
++            boundary = saved2['last']
++            self.assertIn(f'step_{target:06d}', saved2)
+         self.assertEqual(report2['completed_updates'], 50000)
+-        self.assertEqual(whole.order, first.order + second.order)
++        self.assertEqual(whole.order, order)
+         self.assert_tree_equal(whole.action_model.state_dict(), second.action_model.state_dict())
+         self.assert_tree_equal(opt.state_dict(), opt2.state_dict())
+         self.assert_tree_equal(scheduler.state_dict(), scheduler2.state_dict())
+@@ -159,8 +165,7 @@
+         self.assertEqual({float(v['step']) for v in opt2.state.values()}, {50000.})
+         self.assertEqual(scheduler2.last_epoch, 50000)
+         self.assertAlmostEqual(opt2.param_groups[0]['lr'], 5e-6, places=15)
+-        for target in (40000, 45000, 50000):
+-            self.assertIn(f'step_{target:06d}', saved2)
++        self.assertEqual(saved2['last']['step'], 50000)
+ 
+     def test_best_model_only_cannot_replace_full_last_or_parent(self):
+         with tempfile.TemporaryDirectory() as tmp:
