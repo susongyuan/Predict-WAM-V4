@@ -1,11 +1,16 @@
 {
   "export_date": "2026-10-14",
-  "source_workspace": "/home/user/Robotic/project2",
+  "scope": "Tracked publication snapshot, excluding this manifest and dynamically updated publication-status.json",
   "files": [
     {
       "path": ".gitignore",
       "bytes": 208,
       "sha256": "ac699c4bb1a52a4dcfa302681681925988014da43f3b2d8258fcb5288f68a687"
+    },
+    {
+      "path": "README.md",
+      "bytes": 9991,
+      "sha256": "009f9c9f20c1a5a6321d84cee33a45f9a5841e327a0275bfa74d8ecbc3f3d9a3"
     },
     {
       "path": "configs/behavior_environment.json",
@@ -231,6 +236,11 @@
       "path": "environment/evaluation-summary.json",
       "bytes": 1518,
       "sha256": "ebe0a38fcc76a39e95746c7d97ff5ae40783b89c798faa62fd8f429d444717c8"
+    },
+    {
+      "path": "environment/release-checks.json",
+      "bytes": 250,
+      "sha256": "be2a0332c27a6628671615525c7875e6a39354c10698478fd249f64941b77e7d"
     },
     {
       "path": "environment/requirements-simulation-snapshot.txt",
@@ -981,6 +991,206 @@
       "path": "harness/zhuhai_verified_cache_resume_v18.py",
       "bytes": 4117,
       "sha256": "a0deb5b9ce17afa1030b22095a89f84677b661c9e25af500432c2763336c29f8"
+    },
+    {
+      "path": "history/EVOLUTION.md",
+      "bytes": 7410,
+      "sha256": "0fe0189d0b836434f60da0a8f3bd99f253a56584209d5466649b9bf4658480f6"
+    },
+    {
+      "path": "history/data-provenance/data/benchmarks/robotwin2/click_bell/SOURCE.json",
+      "bytes": 22831,
+      "sha256": "a3be23314384a5da922f246f6a615598f8bc496a27cde3a45f342e7e96f1b16f"
+    },
+    {
+      "path": "history/data-provenance/data/benchmarks/robotwin2/multitask_pilot5_20261008/click_bell/SOURCE.json",
+      "bytes": 1265,
+      "sha256": "5181e4e4d2c92356c56d892011fcde1afab3097e7c900fa82d31b9992cd5a5f1"
+    },
+    {
+      "path": "history/data-provenance/data/benchmarks/robotwin2/multitask_pilot5_20261008/click_bell/split_manifest.json",
+      "bytes": 1813,
+      "sha256": "279ea14f83b80a81ae667cbc16aa19ab116e15f7688c95f730abc8ab86f22317"
+    },
+    {
+      "path": "history/data-provenance/data/benchmarks/robotwin2/multitask_pilot5_20261008/manifest.json",
+      "bytes": 9205,
+      "sha256": "60365848b19facfa341af21fcc746278cac379076b76fe9a7014c0a305240739"
+    },
+    {
+      "path": "history/data-provenance/data/benchmarks/robotwin2/multitask_pilot5_20261008/open_laptop/SOURCE.json",
+      "bytes": 1271,
+      "sha256": "dc5a7c53332532e7b6870d26ac031556e4eb7b7a556a7335df2eab5b1ceda5cb"
+    },
+    {
+      "path": "history/data-provenance/data/benchmarks/robotwin2/multitask_pilot5_20261008/open_laptop/split_manifest.json",
+      "bytes": 1815,
+      "sha256": "3804afa45c6859c6beed3078f9d6f67d4b77c6d844b5d54c32ea9691db1a7f46"
+    },
+    {
+      "path": "history/data-provenance/data/benchmarks/robotwin2/multitask_pilot5_20261008/place_cans_plasticbox/SOURCE.json",
+      "bytes": 1332,
+      "sha256": "e8915112389972c116be78d12f1cc1f808dbfa76d8c18442668eb6bb498ec661"
+    },
+    {
+      "path": "history/data-provenance/data/benchmarks/robotwin2/multitask_pilot5_20261008/place_cans_plasticbox/split_manifest.json",
+      "bytes": 1835,
+      "sha256": "8392bb4e844fd11fb975b25c0ca8de61a43aa96706c049af68cfe65730ef6bb8"
+    },
+    {
+      "path": "history/data-provenance/data/benchmarks/robotwin2/multitask_pilot5_20261008/press_stapler/SOURCE.json",
+      "bytes": 1283,
+      "sha256": "7bab743e923cc9eed13a555590593ad070380a1c45562c9bdbec1f3154913cf4"
+    },
+    {
+      "path": "history/data-provenance/data/benchmarks/robotwin2/multitask_pilot5_20261008/press_stapler/split_manifest.json",
+      "bytes": 1819,
+      "sha256": "0fef6e9128217accf936c7d4283b6964df83fe386527d6871b397f2bc43aeff2"
+    },
+    {
+      "path": "history/data-provenance/data/benchmarks/robotwin2/multitask_pilot5_20261008/put_bottles_dustbin/SOURCE.json",
+      "bytes": 1517,
+      "sha256": "eb27e64d78ef2441ba55e90db42c1a3e81aee13166fb760654ae6180d86b465f"
+    },
+    {
+      "path": "history/data-provenance/data/benchmarks/robotwin2/multitask_pilot5_20261008/put_bottles_dustbin/split_manifest.json",
+      "bytes": 1797,
+      "sha256": "72a89da822488fa60048797c978b517d37f3e8813ecddf3f53a57b753d7e8cc2"
+    },
+    {
+      "path": "history/data-provenance/data/benchmarks/robotwin2/multitask_pilot5_20261008/selection.json",
+      "bytes": 1058,
+      "sha256": "baeb94a88a9106c6cc1367fe88358e4a6d7d3c7e78e0a76798dedc00ba9890f9"
+    },
+    {
+      "path": "history/data-provenance/data/benchmarks/robotwin2/open_laptop/SOURCE.json",
+      "bytes": 23024,
+      "sha256": "17607111a23260b4cf94a4e8bba21e271c3cc01059c285fd0bc8aa466b37b01f"
+    },
+    {
+      "path": "history/data-provenance/data/benchmarks/robotwin2/place_cans_plasticbox/SOURCE.json",
+      "bytes": 24635,
+      "sha256": "e9c147b07eb2f70409abc047f8ace433740289111aa73cd799def373b9bc5654"
+    },
+    {
+      "path": "history/data-provenance/data/benchmarks/robotwin2/press_stapler/SOURCE.json",
+      "bytes": 23294,
+      "sha256": "9289d492186e4f55f553dca9f16d80904699cbb261adbe43c24ca1ae68eeb290"
+    },
+    {
+      "path": "history/data-provenance/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/SOURCE.json",
+      "bytes": 44796,
+      "sha256": "0fa91f05a2c38fb54a69ee672387a791564ab7e8af0d39de5dd3d3f5643a3eb2"
+    },
+    {
+      "path": "history/data-provenance/data/benchmarks/robotwin2/put_bottles_dustbin_50_v1/split_manifest.json",
+      "bytes": 1797,
+      "sha256": "72a89da822488fa60048797c978b517d37f3e8813ecddf3f53a57b753d7e8cc2"
+    },
+    {
+      "path": "history/data-provenance/data/benchmarks/robotwin2/put_bottles_dustbin_clean50/SOURCE.json",
+      "bytes": 24329,
+      "sha256": "5c5dc58c43e46cc55eb80c0111003f190125bdd54eeba654a9b067d7c2622304"
+    },
+    {
+      "path": "history/evidence-index.json",
+      "bytes": 6129,
+      "sha256": "0cba53071577ab75b8cc4cc1c99b649a1adeef12148d4e2a6145a3b86e65347a"
+    },
+    {
+      "path": "history/evidence/archive/cabinet_retired_20261007/final_snapshot/outputs/validation/middle_comparison10_20261006/report.md",
+      "bytes": 653,
+      "sha256": "5d3520e10bd4991c283a148c27b42a15a57a02b50170a8c8981f27268d22f3d1"
+    },
+    {
+      "path": "history/evidence/archive/legacy_mobile_20261006/docs/archive/legacy_mobile_experiments_20261004.md",
+      "bytes": 16553,
+      "sha256": "dc66e7da2ede4f49b17034e7500a139595780fdabe4f662940c30556209d8174"
+    },
+    {
+      "path": "history/evidence/archive/legacy_mobile_20261006/outputs/archive/legacy_mobile_20261004/cleanup_weights_downloads_result.json",
+      "bytes": 10854,
+      "sha256": "7c0b9d0b6f73af4d3cb6c665f58e8cb741006a4aa72e04e9f04e8d3ab1d9efae"
+    },
+    {
+      "path": "history/evidence/archive/legacy_mobile_20261006/outputs/archive/legacy_mobile_20261004/results_index.json",
+      "bytes": 1481660,
+      "sha256": "1110fafa231afff34a43afb3d0c64841313d042848fd9be825cd6b4303037505"
+    },
+    {
+      "path": "history/evidence/configs/behavior_environment.json",
+      "bytes": 4100,
+      "sha256": "2563134c8f51e0eb1145f10a0b76444f785a1dc8bd219216a6f29bb0102498e1"
+    },
+    {
+      "path": "history/evidence/outputs/pipelines/dustbin_20261007/final_verification.json",
+      "bytes": 7425,
+      "sha256": "108f56d4b8dabb585f73165d912a96927618f1c985139225d873e1b019f74b6d"
+    },
+    {
+      "path": "history/evidence/outputs/pipelines/dustbin_20261007/per_episode_results.csv",
+      "bytes": 2743,
+      "sha256": "da3b463c2e83f620c14275b27063433df52259623d4394c44e1d30352a3d24ad"
+    },
+    {
+      "path": "history/evidence/outputs/pipelines/dustbin_20261007/report.md",
+      "bytes": 4757,
+      "sha256": "2c4653f632f81f72ffe350b8a2d80ae1cc99227ad277b98a0a5f1e4a87e3c5b0"
+    },
+    {
+      "path": "history/evidence/outputs/runs/multitask5_wam_v3_vtt_20261008/extension_50k/attempt2/completion.json",
+      "bytes": 217,
+      "sha256": "5bf8b96dadbe545e93990729805a1ca62ad2d34ec6e066d3b3a6cd0d5f4558c9"
+    },
+    {
+      "path": "history/evidence/outputs/runs/multitask5_wam_v3_vtt_20261008/extension_50k/attempt2/final_audit.json",
+      "bytes": 11941,
+      "sha256": "57d3cc6e9ab1f98b4780c2f5ddd499b1ae58f6cfd4741448903a86b9bb60d8b5"
+    },
+    {
+      "path": "history/evidence/outputs/runs/put_bottles_dustbin/middle25k_5each_20261007/report.md",
+      "bytes": 3057,
+      "sha256": "a1577e822a60a80682fcc93cdba73e8751674adc0a64b7153dc73864035a12e1"
+    },
+    {
+      "path": "history/evidence/outputs/runs/put_bottles_dustbin/middle25k_5each_20261007/verification.json",
+      "bytes": 6655,
+      "sha256": "886d966d5ae9f26e050fb394ba9a6fc97e5e1414043f6299535692fbb1befcf0"
+    },
+    {
+      "path": "history/evidence/outputs/runs/put_bottles_dustbin/pure25k_fixed20_novideo_20261007/report.md",
+      "bytes": 1596,
+      "sha256": "913dc604aa74815960aae79db977fac097f501ded0040c0616da3b4f99abbb5f"
+    },
+    {
+      "path": "history/evidence/outputs/training/task090_v3_50k_20260930_s050000/manifest.json",
+      "bytes": 1316179,
+      "sha256": "17990f1b08469c7faae73492cc423bc53e5317d8c323335a4d88d583d47aea06"
+    },
+    {
+      "path": "history/evidence/outputs/training/task090_v3_50k_20260930_s050000/summary.json",
+      "bytes": 19509,
+      "sha256": "5b255afa4bcb5232ba71a828d91e0b4d777d463b5b601a8b37370395ff6a8117"
+    },
+    {
+      "path": "history/evidence/outputs/zhuhai2026_tasks12/old_results_preservation_manifest.json",
+      "bytes": 7350698,
+      "sha256": "c9aedd474450fcdaec0dd288a6b1ea8beadc1df73f4b39cd04deff644fb22e6d"
+    },
+    {
+      "path": "history/evidence/outputs/zhuhai2026_tasks12/verification/precision_v4_20261013_future16/fast_final_delivery_lineage_20261013/final_delivery.json",
+      "bytes": 4432416,
+      "sha256": "882d724f63c99545a5c26c9824a7186752bfc2fdfea95cb08498faaef34d6f66"
+    },
+    {
+      "path": "history/retained-checkpoints.json",
+      "bytes": 26729,
+      "sha256": "9a0e0e719e567345959f16516bf38b493fd29c1ffd21faac4c49dc3e98aab93b"
+    },
+    {
+      "path": "history/run-records-index.json",
+      "bytes": 46357,
+      "sha256": "2e998f3d319dac63a71e2f744ab9b8db747ddbd7597e119cc9b508c00fe5d1b1"
     },
     {
       "path": "requirements.txt",
@@ -4088,6 +4298,1871 @@
       "sha256": "8e57f590586b00789694ae8493c77664eae1522026cf5a69fd7b63ccf4b91db4"
     },
     {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/.gitignore",
+      "bytes": 1138,
+      "sha256": "a4160bcbcdd0ed8389cde6bc007de3c14e1e693296ca10a7f01b5da22dae0042"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/.gitmodules",
+      "bytes": 566,
+      "sha256": "2561c33f66d9c5ce1c766449a2e8f0c32ff451e83243fcd750cb123b2e16f2a5"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/LICENSE",
+      "bytes": 1091,
+      "sha256": "bd06773d35549a0dfb4d6526190c80cea09d54a9e3033e98654999e51efcc0ca"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/MANIFEST.in",
+      "bytes": 80,
+      "sha256": "9cc1475ce5e1d250db6661d91ed5d11351bfeb417f3a47f41639a6cafa0c5307"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/README.md",
+      "bytes": 3280,
+      "sha256": "791ee9b3277122d10e2793a056253445801bea00cdb4bcf9bb6e8b231c0fa288"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/.gitignore",
+      "bytes": 48,
+      "sha256": "499ef327a50c1c183dbd8ae59921b4c32cf18fdccd2f06533c7add3e7fb94f5e"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/__init__.py",
+      "bytes": 7126,
+      "sha256": "a63bba68d3b2498892f85043fb7816419ef4e069565636e6e400d77233484a08"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/action_primitives/action_primitive_set_base.py",
+      "bytes": 3409,
+      "sha256": "9031f5ddec831ad887b11d36f7242da450efaad7984f160c2fd84232a50b43d5"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/action_primitives/curobo.py",
+      "bytes": 50593,
+      "sha256": "7498565094d44b1ac62ff4f850bfa5175a0323b5455e94ba445269dbf542b5dc"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/action_primitives/starter_semantic_action_primitives.py",
+      "bytes": 95133,
+      "sha256": "a749f85b5cb50a3a465eb64399c8181e872d310f77ee2558479267babbb8cd07"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/action_primitives/symbolic_semantic_action_primitives.py",
+      "bytes": 27339,
+      "sha256": "3981841236181d2d03993fdbfa5a8ec165b014e23b16b1d3ef504f3067eb85d1"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/configs/avg_category_specs.json",
+      "bytes": 235556,
+      "sha256": "61ff0d1a571bc1f526de79787944b86475a7b795d7f4133f7fd6e1a1284ea710"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/configs/controllers/dd.yaml",
+      "bytes": 443,
+      "sha256": "0700b48965843dbb822ee95a5cc3ebbb8652fdd1e61be7189a2876a3aa649228"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/configs/controllers/ik.yaml",
+      "bytes": 638,
+      "sha256": "8a34a842a2333798916b2bd69640e7d622179f2bfd69f86cd5b9a0401749d443"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/configs/controllers/joint.yaml",
+      "bytes": 479,
+      "sha256": "1a9666c664abb3ca341f1c93a828a6f96c4493ec1e2ef1917435a87f0b230295"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/configs/controllers/multi_finger_gripper.yaml",
+      "bytes": 582,
+      "sha256": "333c36afe48d15f25a624fd25e395ad7e5c37f41dc0be7b5d0d2b6fbe4661a90"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/configs/controllers/null_gripper.yaml",
+      "bytes": 434,
+      "sha256": "53b08a9469759a2f1d0a98f1105f2d3ae5b4683e964b902a04eaf3bd31b3828a"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/configs/default_cfg.yaml",
+      "bytes": 254,
+      "sha256": "78d9936f9029931e3b7cd790013fb37d0c50d9f061599770edd5ce6d0f5b5758"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/configs/franka_vector_env.yaml",
+      "bytes": 2352,
+      "sha256": "29a1cf44e7280e7c1fee3741124f692fb3810a2da3bbcd99511aec2e404800b5"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/configs/r1_primitives.yaml",
+      "bytes": 3373,
+      "sha256": "58e925d9d3c6bdb69c90c1f6b92e3e78ac49297fe96132da4bddd0a65e2bb75f"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/configs/r1pro_behavior.yaml",
+      "bytes": 3666,
+      "sha256": "dad3b646966e188eccde6a3a26d6bc166a1ec91eb975f9d24defa390e1bd162f"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/configs/r1pro_primitives.yaml",
+      "bytes": 3368,
+      "sha256": "cf676802dcd0326c3c6c57e7daef6988489cbfc7064ffea4fd498c70cbe94ec5"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/configs/robots/fetch.yaml",
+      "bytes": 920,
+      "sha256": "ac57d9684dbf54fd89d10a8754287dcc94fc159ce12eebb0ee44d984733f9df0"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/configs/robots/freight.yaml",
+      "bytes": 563,
+      "sha256": "8c20b55e42fc09a96a7b2c9d13c7fb46b2c5168c2401f611e64d29003c584333"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/configs/robots/husky.yaml",
+      "bytes": 537,
+      "sha256": "4c436ad6c4505a6bccc9ae20c265dd8205ecf86811cebd4ce4912e36835eca42"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/configs/robots/locobot.yaml",
+      "bytes": 563,
+      "sha256": "a6c5899159ca77215f18ffb19e697a4c48749b7a5f6df214e73c9e5d4c6569f0"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/configs/robots/turtlebot.yaml",
+      "bytes": 567,
+      "sha256": "c96d5101ea2196056ee80b6345b20b98504b135de51e62da6ad47b2f2eaae99b"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/configs/sensors/scan.yaml",
+      "bytes": 1043,
+      "sha256": "2688bd0b87c59a257f4b0d552e85fa5d6ddb3cc40ee095cddc37686a782fee70"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/configs/sensors/vision.yaml",
+      "bytes": 597,
+      "sha256": "65835d38b2b4cd9eea732a9da54c65cadac63d6197f9619dce8badca57a4c021"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/configs/tiago_primitives.yaml",
+      "bytes": 3593,
+      "sha256": "782f046bc598e5e881ea07baa84d2f2dd8da838376ad66a4d1d8583c3dc5ce9f"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/configs/turtlebot_nav.yaml",
+      "bytes": 2334,
+      "sha256": "906a1b2f562dc8b529056036f484f94f0cbd831b5bf914f125b427f65b04dca4"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/controllers/__init__.py",
+      "bytes": 2093,
+      "sha256": "f8ec3922108fa0b3bd6d39f3a1875154ccefe0e9e281f17a3a9a7133d0e84f5d"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/controllers/controller_base.py",
+      "bytes": 35161,
+      "sha256": "48dbf51cfcbdd891a3fa0c0c3134fe457c5802e317af94d2b4833e3d1b588e46"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/controllers/controller_view.py",
+      "bytes": 12973,
+      "sha256": "1143de07a8ebd90b759dce784ec5515902151f680ca6c0502232f6a4b2365f3b"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/controllers/dd_controller.py",
+      "bytes": 6619,
+      "sha256": "1481d093fe2bbd580090e46c27159077d13233868160477edde9a6a2ccf0fc7b"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/controllers/holonomic_base_joint_controller.py",
+      "bytes": 9725,
+      "sha256": "e4f80607fb6afec2528ecb430128f4d90a1faf97eaa8a9f9b1e182d537c2ce74"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/controllers/ik_controller.py",
+      "bytes": 24975,
+      "sha256": "058772fe1be145bb950ddec3581f16d8257e55ce1896ce7a067dd604f8c2958e"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/controllers/joint_controller.py",
+      "bytes": 22407,
+      "sha256": "071564563090ac602f4e9c9051d3f1de8b44f14a9fc9c93e583157c792086242"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/controllers/multi_finger_gripper_controller.py",
+      "bytes": 21372,
+      "sha256": "dad60798c9df2a2d0f3a2d1489e6925206de1b8c4ab79586296ae9695a0ab4b3"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/controllers/null_joint_controller.py",
+      "bytes": 5761,
+      "sha256": "0e0d7adadf7841395131d3b8e3e96a9cec82e4d260cef18a2f05f3d6b950bcb2"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/controllers/osc_controller.py",
+      "bytes": 31140,
+      "sha256": "56185912cf0ec9e8232545e36ec45300cfd73d7da3d607b99ff44756d7f17f61"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/envs/__init__.py",
+      "bytes": 1119,
+      "sha256": "7faee418a28618de768fa0ed5f2c81bc3c4646de70e47691c5de01b90791cb03"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/envs/data_wrapper.py",
+      "bytes": 38958,
+      "sha256": "0e70cf95ff3a2b530b819568199ec6d5bcaa39c519b3fbb6722603c6231aa0db"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/envs/env_base.py",
+      "bytes": 33891,
+      "sha256": "ab3e0cefd46a583a8fa9e8ccd42e5cc29590f0b9efddfb0a6f34dab74e4f6c7c"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/envs/env_wrapper.py",
+      "bytes": 3013,
+      "sha256": "52fb65a92cf79f977e24546dd61e717835a44d926dcc1fd7772df53becb681ef"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/envs/hdf5_data_wrapper.py",
+      "bytes": 35849,
+      "sha256": "c143f9fb42d3f92518489efc8be32ad0ebd515cc18968b049ba19de3e255819b"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/envs/lerobot_data_wrapper.py",
+      "bytes": 19714,
+      "sha256": "08a09eaecb1bcff2e9b62581b996f7b4531a74247a808dbe1c9af2650025ef80"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/envs/metrics_wrapper.py",
+      "bytes": 2651,
+      "sha256": "aad26222310c9f1b21847c82a0a659d79d9ebe2883161becf1a77e58008cb729"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/envs/sb3_vec_env.py",
+      "bytes": 5015,
+      "sha256": "2a666058415d43fe1aa1d694ed459bc5e8185ebd900a0a64d47e712dde42f0cf"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/envs/vec_env_base.py",
+      "bytes": 1838,
+      "sha256": "0f4df162e4ba60e1394fbd9c05ac7d12e3c4f35ad4f386e2d6f2f90fc481967f"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/eval/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/eval/eval.py",
+      "bytes": 14004,
+      "sha256": "6134f10adbf0a783800124315eaf0d6ef0731834f3e80fea2d8bd306b903e9b5"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/eval/evaluator.py",
+      "bytes": 46387,
+      "sha256": "8c16bd96980cc50c171044fa8cd8f374d5a6f57aa629eb945456599da8277ec2"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/eval/policies.py",
+      "bytes": 2406,
+      "sha256": "3b2b5f52fb1ae8419b91aefae3664b30025f368b7ab38f17fcc0ce5c3359079f"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/eval/r1pro.yaml",
+      "bytes": 2733,
+      "sha256": "a98fa8a81472adfecfb642778d4d7a01e20131be7f70824e0ae095d665cdbb93"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/eval/utils/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/eval/utils/dataset_utils.py",
+      "bytes": 2755,
+      "sha256": "576e7357ea2de4fd6ae2cda93199a87b4f814e0a3e43ece705ed437be841507a"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/eval/utils/eval_utils.py",
+      "bytes": 8376,
+      "sha256": "659aceb8e8f404cabb00b3697f474b068254e1245c544ffab73c0f64947334d3"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/eval/utils/light_utils.py",
+      "bytes": 4791,
+      "sha256": "f86c061652a854b042da089ac5104c2b8604aba874ee655f8e98bd57956c5ce7"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/eval/utils/network_utils.py",
+      "bytes": 11404,
+      "sha256": "b8db3e5ab85d80c11105993cac2566f28c37fb032da7ff8cd939ce1235a1db42"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/eval/utils/obs_utils.py",
+      "bytes": 24434,
+      "sha256": "e2e976a35900ed5c9523a098791f57d01f610db7b9ca80b49bb17306f8cc6e0b"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/eval/utils/recording_utils.py",
+      "bytes": 12239,
+      "sha256": "90e3df3a580317d5efdfc4db94b54f7c72b4780a4230fe7c476b3249682e88f5"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/eval/utils/score_utils.py",
+      "bytes": 20704,
+      "sha256": "18ae9e9c681a047be90993bd06f0933b73321fbd6636cfad803c97050b8c6654"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/eval/wrappers/__init__.py",
+      "bytes": 150,
+      "sha256": "e1cb29ee9176217cf31fa6fead0fac98b26ed233e460d549a677583326f45d59"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/eval/wrappers/default_wrapper.py",
+      "bytes": 1091,
+      "sha256": "2234291522e6b53857bce406cb78e6909aea9265aa75df97f99ca06b6c18d886"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/eval/wrappers/rgbd_full_res_wrapper.py",
+      "bytes": 1772,
+      "sha256": "85ed8b529c0e6acc7839d0d9a7ac3d3bee0a58a3e13b84d237675c8b4ed9e6ff"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/environments/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/environments/behavior_env_demo.py",
+      "bytes": 2314,
+      "sha256": "b6c49002d37670035f94b82f97c052d9a46bd20590fe961f96c700de3ef546bb"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/environments/navigation_env_demo.py",
+      "bytes": 1981,
+      "sha256": "4271cefd5a65aada2fc8ee8f1aa355fcf307b98a7afe6dfce4259a1653527af0"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/environments/vector_env_demo.py",
+      "bytes": 1294,
+      "sha256": "0849203b2bd1f399f63a07bffad55ff56bc1ba104c6e2400c824b42faeb22fd6"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/learning/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/learning/navigation_policy_demo.py",
+      "bytes": 6559,
+      "sha256": "44b89b2914afa27a0576778cde808efa44305f56f43406cb9250ae1a9dc2b43f"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/object_states/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/object_states/attachment_demo.py",
+      "bytes": 2800,
+      "sha256": "7f39f629a1e88866189db82dba854893e30dd4f89bacf3d901b6587a9a7d5b3f"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/object_states/dicing_demo.py",
+      "bytes": 3038,
+      "sha256": "28fd8978590945bdc9816795bbb5cfda4443c303c821e7b71539ca3df11a70f3"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/object_states/heated_state_demo.py",
+      "bytes": 3251,
+      "sha256": "9ac9e4312bc25d00da5031382d95e8e9467a56da294d02965d3eeb5849196f41"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/object_states/object_state_texture_demo.py",
+      "bytes": 5879,
+      "sha256": "179b11e972d683e290a3602f2f2258d86a3c81da9679e74b2f3fc9f5fa7c86a2"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/object_states/onfire_demo.py",
+      "bytes": 3259,
+      "sha256": "ab61957b026a6766dafc758a6a537d76012431d52bae55b2cca583604276a7fa"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/object_states/overlaid_demo.py",
+      "bytes": 2777,
+      "sha256": "8ab54df3ea574fc61ad59636b416046f1b131a6d288a38568d6dca630939d930"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/object_states/particle_applier_remover_demo.py",
+      "bytes": 7929,
+      "sha256": "3d40e4583d6479bd959406e8a4f86c93eadd15839285560ceee4b3f1fe930916"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/object_states/sample_kinematics_demo.py",
+      "bytes": 5954,
+      "sha256": "ba562d756cd6168412b31ef20cf0540d45dcbeea2d236ec71d2a3634794096b3"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/object_states/slicing_demo.py",
+      "bytes": 2970,
+      "sha256": "c75ad6a094d29f4f9e5dd70a4302ca0dad8cf066ba3f6f7fc176475d2093dc7d"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/object_states/temperature_demo.py",
+      "bytes": 5391,
+      "sha256": "1779239bbb369f5b336bc75ae5ede729b7c06ed146f6ecf165b24e0d53b0646c"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/objects/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/objects/draw_bounding_box.py",
+      "bytes": 3029,
+      "sha256": "e3552a680ac3ec3fcb8de287cff907fb75587f265cb3cfc6a703df44dfef91d3"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/objects/highlight_objects.py",
+      "bytes": 1367,
+      "sha256": "b0677f9e0e9ce36a19a92362d06f3c6771850671bf7addd59c6e8671614f758b"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/objects/import_custom_object.py",
+      "bytes": 5201,
+      "sha256": "711e766dcbedbcf4e891fb44de8ab95b8d30ea6825447a84dfc4f17970f8fc75"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/objects/load_object_selector.py",
+      "bytes": 2439,
+      "sha256": "592d47dae66bfbde6c63ac4ea8e57105422001e5c81b4c1774b843a270095e12"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/objects/visualize_object.py",
+      "bytes": 4624,
+      "sha256": "1f56c73e376dc064e11461fcd037c53a026c7dadf5bd15ea3a284b20749aea64"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/robots/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/robots/all_robots_visualizer.py",
+      "bytes": 2194,
+      "sha256": "389d1805ef1bbedb75db3dda800718bccfd46058ffda958c06f5a8a67bb67073"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/robots/grasping_mode_example.py",
+      "bytes": 4029,
+      "sha256": "db0989e006d0826dd86b6d533a73643bb15e89a0f1346cdc116c91af1354e168"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/robots/import_custom_robot.py",
+      "bytes": 44595,
+      "sha256": "6d9fe8c9b156aac3c8073917a3c63ec28c74293ac6321a9e8a96ad6ac3233f50"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/robots/robot_control_example.py",
+      "bytes": 6270,
+      "sha256": "5ee1ebd6c68f1483f6eaa36157e183334bce60429cd606959f205e1b7ccb5d08"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/scenes/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/scenes/scene_selector.py",
+      "bytes": 2101,
+      "sha256": "54bf38fd82bb4fcdc53d4f2373ee827b87daa1a3cf8cb9a49be31e4f32a5ac8e"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/scenes/scene_tour_demo.py",
+      "bytes": 3926,
+      "sha256": "e07ed2cbd515146b724d0e14c2adb94ca4ac3b5161d7f703fa399d30983091eb"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/scenes/traversability_map_example.py",
+      "bytes": 1389,
+      "sha256": "5e4b8f1b63eeca60dc66d3faaadddcfc9a555cc8a62bad18e74540c78ee00b2e"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/simulator/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/simulator/sim_save_load_example.py",
+      "bytes": 3113,
+      "sha256": "886b9368b0df59c8cf920117e9cb0a120f1e4da6160fd89dac4df2ba04507faa"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/teleoperation/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/teleoperation/robot_teleoperate_demo.py",
+      "bytes": 4882,
+      "sha256": "19adff328ce69fb860bf85ae4a53d27c42ee6494661e13023cbe88c7cb679db4"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/teleoperation/vr_robot_control_demo.py",
+      "bytes": 2766,
+      "sha256": "7cfe163765f68d8a2f7aa80293313bd93a220425852d22eddaf2ce7b863eecda"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/teleoperation/vr_scene_tour_demo.py",
+      "bytes": 2770,
+      "sha256": "217653c5657eb66f04807de594c537fc6bef3f07503fcc7effe0920c2b41e9b5"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/wip/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/wip/curobo_example.py",
+      "bytes": 15210,
+      "sha256": "59a5fe6f0db83be21e0a889f9c9d5cf0446804a423192da89e0b9673ec9355a3"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/wip/folded_unfolded_state_demo.py",
+      "bytes": 5798,
+      "sha256": "3c56bbcf75f47954905878eb22a791d03d5b65fcacbcb193baf41b193cedb6c0"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/wip/heat_source_or_sink_demo.py",
+      "bytes": 3083,
+      "sha256": "7ffd230cc59f2e2ca9450cd74dfd5d8f200bc15da68d12f639c5ea720ce11b6f"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/wip/particle_source_sink_demo.py",
+      "bytes": 4092,
+      "sha256": "064251e16a74f7aa3995944193874738c3959176b007dec7e2a73dba7c36d47f"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/wip/rs_int_primitives_example.py",
+      "bytes": 2857,
+      "sha256": "cf84127859a1cb37384b6bbdc1f23363bd704d022ce5cefb9dbd1e43df1f3ae5"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/wip/solve_behavior_task.py",
+      "bytes": 2025,
+      "sha256": "ed06560e8fd539d3eeea770ad3a42f06d5f114bbfffd0a4ee53542ceec565dc2"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/wip/solve_simple_task.py",
+      "bytes": 2480,
+      "sha256": "d5f09369180af103dc59a952046e00c5dff47d3547b18463a1440a06716efb23"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/wip/view_cloth_configurations.py",
+      "bytes": 4074,
+      "sha256": "b65295b3ff169948d6c6046a7b95b81496223e12ec6d95cc7fe6302e7bbaa6f2"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/kit_file_changes.patch",
+      "bytes": 1359,
+      "sha256": "ce56dba1f9d4076a7673d9dda84c9226e1f0bd58fbfc4f4d2af027f1fe71ca96"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/lazy.py",
+      "bytes": 120,
+      "sha256": "ae6913942a464b0a61805b5b288c92f247047437fec80fbcef7e8fdb001a339c"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/macros.py",
+      "bytes": 11115,
+      "sha256": "5e8ebb1a00fa3e864c5a4984f126442e91b6653f5869977ecddbf4039ea73228"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/maps/__init__.py",
+      "bytes": 240,
+      "sha256": "3d5c56b4f1480d4a7504d5ba5a313dd2a05255912f326dace06f9e8a80e301d1"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/maps/map_base.py",
+      "bytes": 1829,
+      "sha256": "3c1820dd092254ab06c0de1d0c40b603c58cfd2f043f843add13959074ff2b73"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/maps/segmentation_map.py",
+      "bytes": 7702,
+      "sha256": "c8d91e694c171d6cba8aa79c4108bf77eb7ea3289846a3195bef744654531840"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/maps/traversable_map.py",
+      "bytes": 8953,
+      "sha256": "f8c0b826ceefec810f81a9bf8deeeebbef0afb2181e7956b42c2e8b76d65093a"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/materials/omnigibson_vray_mtl.mdl",
+      "bytes": 3481,
+      "sha256": "2e54dddaec6ba25b9ba731788bb9baaeac5e70743fd54099c706d40f0b4d5b3f"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/materials/vray_maps.mdl",
+      "bytes": 27314,
+      "sha256": "279d9e8ded03c2db928033c843b40a04b104f3fd6fc7ccd284aadc6459a2aa1c"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/materials/vray_materials.mdl",
+      "bytes": 5375,
+      "sha256": "eac4af88c7e39cdba091bf2e76c20adc3f9c9cd65d6d044479065537f70de696"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/metrics/__init__.py",
+      "bytes": 219,
+      "sha256": "3a2e7ff0401a671942ae3a00d1e5f2c260d273e2d75a149d228ceb2a2f5d9454"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/metrics/agent_metric.py",
+      "bytes": 2473,
+      "sha256": "f2a627bf2c919598b1989acc422ca15a3a9c5d75d2fc425ca47c76b4ddb7a53d"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/metrics/metric_base.py",
+      "bytes": 4822,
+      "sha256": "593c2ac7e01ef6bc4a8a4a446307f13a50cdd0117a8a61d3d390b730e51f1fe8"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/metrics/task_metric.py",
+      "bytes": 2080,
+      "sha256": "4c65a29ba0647e9a1ee66b00bf30a7b3796e0e13e4e598379b64fec18922767a"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/__init__.py",
+      "bytes": 2936,
+      "sha256": "b8e71475cb1523c45fc528966339f1f83d2013c7d1dacb70720c5839fa16ddbc"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/aabb.py",
+      "bytes": 257,
+      "sha256": "39dca544602deb49a8ba0581bf0a86b3d78530d2b5990ef8eb14a68f72ee6122"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/adjacency.py",
+      "bytes": 9593,
+      "sha256": "dfd78cc59efc08528be08aa2426e010e1212ee8f4ae7316049b97bfa1c4cd75d"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/attached_to.py",
+      "bytes": 25287,
+      "sha256": "8a57e0182ed15af7c2cdbe8ff956c2390124a29f6678d6342975bf3627c659a6"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/burnt.py",
+      "bytes": 1781,
+      "sha256": "356cc866710b0de9dcafffdb8870cc9e2f3b814ec59c5e0e417e8cd079efcd6c"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/cloth_mixin.py",
+      "bytes": 1356,
+      "sha256": "512df1b8dcbf615069557d8653162c0752b5bf05fc24a7dd20945791b2095ff2"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/contact_particles.py",
+      "bytes": 3306,
+      "sha256": "bbfcaa93a7cce5d731b9b4493897e63ea1f56ee5a6348e5f9ac06b6108e07bac"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/contact_subscribed_state_mixin.py",
+      "bytes": 834,
+      "sha256": "316f973568262d73fef384acd3097ddfde430f5e8348c2c7841da5f3b9629c4c"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/contains.py",
+      "bytes": 4932,
+      "sha256": "6f04d1852f03065fb2107af7a04dbc612df680398bad71aebc87189fad03bc95"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/cooked.py",
+      "bytes": 1795,
+      "sha256": "f29e9e20ef89b38ac4923463e50a3178ff7629567227a20c2b15fd2e026bf35c"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/covered.py",
+      "bytes": 6103,
+      "sha256": "e66e2d1c16dfcd4827e04e1bcb3040b93de760d1d935665c6235f0209b900a0c"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/draped.py",
+      "bytes": 2417,
+      "sha256": "83143cf2be1e0baca6d56ef603bd95adb0e19214d5c12ffc8fbb4c4f759a948d"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/factory.py",
+      "bytes": 6024,
+      "sha256": "ef6de750fc042535ba459f47fa83518f9f5883b90c3df07a6b6b3f2aa9f7b587"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/filled.py",
+      "bytes": 3169,
+      "sha256": "c485306e4ce4c64c387e5e1b739c7806374494b226e51f8651bbed6a26e5f698"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/folded.py",
+      "bytes": 7164,
+      "sha256": "bcc14f6a6dc29bef07e9059227687719cfade76bd8b4e542ec5656694580c15a"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/frozen.py",
+      "bytes": 2030,
+      "sha256": "b376d40230b14e0a461fbc3fdd39e1c2a276f0ff1dd263dccfb2f1b52fa6160c"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/heat_source_or_sink.py",
+      "bytes": 12356,
+      "sha256": "e6f3f0d449df0fd870d3d1f66e4ce9a5e45ec78cd6bcc592c73678f01c771693"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/heated.py",
+      "bytes": 1694,
+      "sha256": "754e85cdb8133532e3271b618e56dc54b5d6e776b7e25779afd4baf2ab509436"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/inside.py",
+      "bytes": 13015,
+      "sha256": "30a4365317b5a023bcdc5a6590bff964e34da7dd6a326763529809892d4839b5"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/joint_break_subscribed_state_mixin.py",
+      "bytes": 798,
+      "sha256": "2a5279ef60d4f9fe48780bc79da2cb17c28aa96cac7c981a586318542f64ee7e"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/joint_state.py",
+      "bytes": 793,
+      "sha256": "7dac7da47d6b72648b710290a16a8cbb74e920ec4fcfa98c2ad0354b1b2d63a2"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/kinematics_mixin.py",
+      "bytes": 2400,
+      "sha256": "e75b3720eab25226befc3e8943865f3830fca2ff1bb4dfd82652ba1a073cea50"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/link_based_state_mixin.py",
+      "bytes": 5344,
+      "sha256": "574fc4f19cc9c9020d17365f9c3f5a3c6b9d858a1199478e8e0821835a0c7a79"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/max_temperature.py",
+      "bytes": 2782,
+      "sha256": "b9281dcf17583b2e22aee6f2712c12f476a84d17c477a63ec19f34c795cd2f34"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/next_to.py",
+      "bytes": 2389,
+      "sha256": "13ed9c99897108b448272166ed279d8601b91eb6cbcf7914714869409ae3f564"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/object_state_base.py",
+      "bytes": 17562,
+      "sha256": "88c2ed318eaa7ee6a14df14f8d75e726c9ace505222e12b732331a20202de924"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/on_fire.py",
+      "bytes": 3883,
+      "sha256": "10768f5780ea94ba431e9bdc429aa47d98500707e1a920c712437764d17e3c01"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/on_top.py",
+      "bytes": 2225,
+      "sha256": "341ca02499665b50260ed7d84e3fb84b4a3e93a7bef28cadce0205fad72edc67"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/open_state.py",
+      "bytes": 11292,
+      "sha256": "ec19a0a866ba12631736d99ef57326e1d4f986873ee4d4855ded9c0231e3ff95"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/overlaid.py",
+      "bytes": 3904,
+      "sha256": "143391519735999cb8849ffcb77455f6f20b04fa573ec6ebce20f51f143b10f3"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/particle.py",
+      "bytes": 603,
+      "sha256": "a86949d091b64cf845acd540bb8a95096a89e3872aa1dbf334e837c2e57a01f7"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/particle_modifier.py",
+      "bytes": 79081,
+      "sha256": "0e869ea368ed942e0089022c87e7c9fb3902f2d17a7d0e0d27a213e0cd85370e"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/particle_source_or_sink.py",
+      "bytes": 11729,
+      "sha256": "448e73cf43825af677e48760b9c06f99f1d29117f027b865e67a7190bb849c48"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/pose.py",
+      "bytes": 1290,
+      "sha256": "8c49bfbd0cdcf90509bf301061df8c1c079a81d3e4192410bcd01dc1ec685d6a"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/robot_related_states.py",
+      "bytes": 2659,
+      "sha256": "ae4783f8ddaa8ed78a150d7ebb961c71ba97cae01a9c4c002a36f34832cf8cfe"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/saturated.py",
+      "bytes": 10581,
+      "sha256": "2c3d1cc5b4e10f291acde35ea2905dd9244e062438e46df5565c6381b1bd880a"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/sliceable.py",
+      "bytes": 1178,
+      "sha256": "b68286b39f6c3aa105007406a11dc0f24ccb304169a906281f01477407b65f92"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/slicer_active.py",
+      "bytes": 7411,
+      "sha256": "9333f2980d3ff95b8876f5cf1f0b9e39a70459a4401ddacb99a0ebb9af850d16"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/temperature.py",
+      "bytes": 2152,
+      "sha256": "29b2dcecb1df184303e5622705f3afa8cf6284fdb27b4596fb3d38421761c664"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/tensorized_value_state.py",
+      "bytes": 7741,
+      "sha256": "850545f093edf5355f47e4aff660b12b3ee9f47594aa546ec89a1cb765f0f401"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/toggle.py",
+      "bytes": 10609,
+      "sha256": "a7a88f4a55242816ab930fe5336cfd94b26e2aaf6e2d33aa0239ed47eca2fd3b"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/touching.py",
+      "bytes": 1933,
+      "sha256": "780a0424da21957bc3485802491432e8b17558ac3f5cfff7ba2f959fd35fbe70"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/under.py",
+      "bytes": 2208,
+      "sha256": "1b82dd69b5691375d48e9e8f8affaca4b5ac511f287a29308f3fd61abcac13ad"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/update_state_mixin.py",
+      "bytes": 1765,
+      "sha256": "39e045c2fb362f5a0f2dce71fd1186e4936731001c492240f5a4a4765f3badc1"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/objects/__init__.py",
+      "bytes": 373,
+      "sha256": "4b660b1474f9d4bec18c4f42c37d252399e0b55d06924ebba9223115f85416ad"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/objects/dataset_object.py",
+      "bytes": 23897,
+      "sha256": "bc5c03bfc3cf1207cf1e9fab33276c7bc85ff1604de09eee7eaa934d437cbbeb"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/objects/light_object.py",
+      "bytes": 8711,
+      "sha256": "c902ae9573071e71059fbf62d8e2598e86089e779166a800e32cf3ca162c3629"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/objects/primitive_object.py",
+      "bytes": 18202,
+      "sha256": "f3173c0e4178f3b141a532239d70b37ecedb82ea5362736890236bd5e78464a8"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/objects/usd_object.py",
+      "bytes": 54245,
+      "sha256": "25ada5ff14866e898ed1d6b025f0fec1c5c3acbf16d3631a9e73bb848dda3846"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/omnigibson_6_0_0.kit",
+      "bytes": 1598,
+      "sha256": "fb2bd9b2907b34aba8928fb4f20fb23a0e0fff9103e16e89b3e67620d5bc9515"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/omnigibson_6_0_0_vr.kit",
+      "bytes": 1597,
+      "sha256": "4aa05da74165b80321cdee556e498714a18ea96c1f7d4571da382bb8e710bdee"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/prims/__init__.py",
+      "bytes": 665,
+      "sha256": "f46f37851b137ce05c8669a729e0481f512a2a4a5f7b4c519ec9a91dfe7519bf"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/prims/cloth_prim.py",
+      "bytes": 42592,
+      "sha256": "1ccec4b07d84394d1f08d231cb8db805488f76811398ba8f9918fcbf1eaafe52"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/prims/entity_prim.py",
+      "bytes": 68492,
+      "sha256": "c33bcbc0c984751b630715c64e175d1275a896e143516f4ad359b5343e3ea8f8"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/prims/geom_prim.py",
+      "bytes": 12815,
+      "sha256": "82f38e0e529dace138e286ae840c812c94a7f22a7d1b66f5717f1a5792439d75"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/prims/joint_prim.py",
+      "bytes": 36176,
+      "sha256": "af241ef3e617ee122a04aabd89c822abc7c06f9aa382eeed458c52c259a9d024"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/prims/material_prim.py",
+      "bytes": 28840,
+      "sha256": "cf7497fab0e1025d0388239bc281e8588b42a681a565f4153da2bf7d93419321"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/prims/prim_base.py",
+      "bytes": 11485,
+      "sha256": "30d081a08bd35e2b840fcd822e7958adbcf9a53fc0f349628f3e18198a3043a1"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/prims/rigid_dynamic_prim.py",
+      "bytes": 15473,
+      "sha256": "839a1118c4354ad0d62fcc394796f224972f3e58f120a02a6b4d8e2438f2c17e"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/prims/rigid_kinematic_prim.py",
+      "bytes": 6579,
+      "sha256": "744ef5e66dd339ee75967b5919e7b074f8e300886d45983d143d40165bb42246"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/prims/rigid_prim.py",
+      "bytes": 26850,
+      "sha256": "38be5a38cc1595eea71201c8599578dd5dc9c753dca0f7cb0cdfa9ab94fa3067"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/prims/xform_prim.py",
+      "bytes": 22306,
+      "sha256": "7a52fe6a45346580e945bf922a9152622370f8b78a1476c0cdd56f27e6220005"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/reward_functions/__init__.py",
+      "bytes": 664,
+      "sha256": "250e201e4560748858c031f4aa4f2df60d8bb037be0b08d44ac8a475da8a3b8b"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/reward_functions/collision_reward.py",
+      "bytes": 1731,
+      "sha256": "a9f9d56837b2d100a6c58e06aeb8df7f47fc43f9f54e524c80e21d57db232ca2"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/reward_functions/grasp_reward.py",
+      "bytes": 6864,
+      "sha256": "67fcd7fc24cdd6f3b82240e92c934e41bc69a55c64fbc0fb317197bd5da28255"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/reward_functions/point_goal_reward.py",
+      "bytes": 811,
+      "sha256": "f4c14f64cb1a7cd890f610bf8561df60c258b490dd118a891e19ed3f3c368868"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/reward_functions/potential_reward.py",
+      "bytes": 1683,
+      "sha256": "19adb11c7c55373ebf8e5fe36577ed21fe720446af8543091676e90f8125a2a6"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/reward_functions/reaching_goal_reward.py",
+      "bytes": 1275,
+      "sha256": "0e7c90fc7efb2fdbd3b3e56d5b8767b5dc09185c8edf80a381a6518a52bc72bb"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/reward_functions/reward_function_base.py",
+      "bytes": 3068,
+      "sha256": "133e1111ff361d73fb46fa5b73c3cef1525c20bc542555c920f1df1a474be495"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/robots/__init__.py",
+      "bytes": 346,
+      "sha256": "bf51aca37f2297ffd4bb9fd16e89b526d43f9c8bfc3785b38b7ee49763c9e109"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/robots/definition_schema.py",
+      "bytes": 4345,
+      "sha256": "37167bbb8115918a84b33e316bc859270ac35aeeae27e56ebd3a060f5db61149"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/robots/robot.py",
+      "bytes": 199853,
+      "sha256": "998826feedcf8c28208681a809cbf4500d3da0cbf1f6d07a7384627e09726271"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/scene_graphs/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/scene_graphs/graph_builder.py",
+      "bytes": 13826,
+      "sha256": "40094a74c0fa677bd0839071f9ec4154da0a5e5e6ce55327ee5e7346f36d9fec"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/scenes/__init__.py",
+      "bytes": 439,
+      "sha256": "953e26d6f77369e5e1da19dd0a030916661caf6d81681f88de193806f14ecaf2"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/scenes/interactive_traversable_scene.py",
+      "bytes": 11120,
+      "sha256": "2af023aa7eeef414ffd11c80ad119df658a7a5f24ad8ae8ff3764af0c4b43a38"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/scenes/scene_base.py",
+      "bytes": 50889,
+      "sha256": "16e4a4bda8ef511fa72bb38d86c657f74b2ec0551a2531e814b80e11e59a85ef"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/scenes/static_traversable_scene.py",
+      "bytes": 5753,
+      "sha256": "cd63a1ec514371c28180cfc2e837334bf643b2d23e86db9da56484dbb2c354ee"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/scenes/traversable_scene.py",
+      "bytes": 2905,
+      "sha256": "4d2d7a55d6df9d93c530b590b800c40d253ca9fbb90d5d461129bbc9e9e91fc3"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/sensors/__init__.py",
+      "bytes": 3526,
+      "sha256": "a4be79249a1fb2f7dc2bdf55e3b44755d2fff2fc2ecf28639a9db752f7ec08f9"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/sensors/dropout_sensor_noise.py",
+      "bytes": 2651,
+      "sha256": "e4299170199a083f80e9722a03c2ccb84b1a3fd514127d94927c88748b56e1cf"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/sensors/scan_sensor.py",
+      "bytes": 18845,
+      "sha256": "d3d9f103ae674ba069dfba3efdeddeb4b7d123567094612ebf389100bc888725"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/sensors/sensor_base.py",
+      "bytes": 8434,
+      "sha256": "2d867daa194ea63a111c398a142a74fc344c5071714d25ec2dc01bce5e3ba37a"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/sensors/sensor_noise_base.py",
+      "bytes": 2923,
+      "sha256": "e5e991b58740b181cea7bd1384265a05fed619714c3fcf44658f47b7bf4aa938"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/sensors/vision_sensor.py",
+      "bytes": 53108,
+      "sha256": "7827dbf8045582c2848ba8298105b5c8addf148b8bcafdca53dc5cadc192a9bf"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/simulator.py",
+      "bytes": 91427,
+      "sha256": "bc6b4561aa74ebbb8989f1e654618d966b67da3aab6040e522de69e198e1e35e"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/systems/__init__.py",
+      "bytes": 711,
+      "sha256": "c04416e700fb53436b44578653671c760e0dd8b7129b704d54c29205225343f3"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/systems/macro_particle_system.py",
+      "bytes": 69605,
+      "sha256": "6dec978751f46a4fe06a7b3f060ad4ab50608c489499698488dd038cae3b3b14"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/systems/micro_particle_system.py",
+      "bytes": 71057,
+      "sha256": "d1a7cfa35e623a980dc7ea122dff3c6d175a24d23991ce581487b7db8b87c05f"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/systems/system_base.py",
+      "bytes": 44750,
+      "sha256": "28372303aead6cd73cefa34427c99f2432bf4e7ddc5439a145083b1e16cc5c46"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/tasks/__init__.py",
+      "bytes": 495,
+      "sha256": "2bda31b43c1be2c6adeafe28d26d0d7aa2e46fbd26cd8552f9ca2c2d6bc3700b"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/tasks/behavior_task.py",
+      "bytes": 36232,
+      "sha256": "1a0535830297201af3e54694dc7f225f375b25868fe467293cbcfc9908b53d51"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/tasks/dummy_task.py",
+      "bytes": 989,
+      "sha256": "f70ae434f447cbafd59d1ba064d10b85d647e06a92e9e0739a52757ce359cd4e"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/tasks/grasp_task.py",
+      "bytes": 9675,
+      "sha256": "6805e2679d9521de4628955e0982a3b1ded9a2517a2d840464abb1333b7513d7"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/tasks/point_navigation_task.py",
+      "bytes": 20495,
+      "sha256": "c3b1f5274753cc1b5709717a520dfb6181a0d2ddf1f32e247ea10c58e8365ed8"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/tasks/point_reaching_task.py",
+      "bytes": 6745,
+      "sha256": "0be6d9c23810b276c0cece582389730ce26e51b4cc7f134d44b6c0a7cc82f641"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/tasks/task_base.py",
+      "bytes": 16733,
+      "sha256": "6614585f68aee9c012265a91bd0dc6413bf65961bc9d641cec46dae721a61298"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/termination_conditions/__init__.py",
+      "bytes": 982,
+      "sha256": "9522f9385d53acaf0efef6512d4315c6e62bae182a1444aa2b9e21493479f407"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/termination_conditions/falling.py",
+      "bytes": 1824,
+      "sha256": "1006374d1546930646a302176d5147fbf29c33a16037fabf02b6bb493bf46aa4"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/termination_conditions/grasp_goal.py",
+      "bytes": 597,
+      "sha256": "b48a985fbf5d95e4e46da2eb71f687b36ff539fe5416c3871603ac122090a7b4"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/termination_conditions/max_collision.py",
+      "bytes": 1892,
+      "sha256": "233b5be734de7fab00f3d7ce91e0a6bf78f03a899548cd1c1d80d74e71b84e49"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/termination_conditions/point_goal.py",
+      "bytes": 1779,
+      "sha256": "ebc894d7f06b2db1c4c4cfac333c6bc93c3dcf436f1d910c0bc542e95e006652"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/termination_conditions/predicate_goal.py",
+      "bytes": 1401,
+      "sha256": "af578a68094d065fed64fad240a8ecdb0510365757b61ce0c22df93032c17c15"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/termination_conditions/reaching_goal.py",
+      "bytes": 1111,
+      "sha256": "7268a37c59ae728589ed64181c87abe934c0bd54bf69b0cf0ad9c595243bbf13"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/termination_conditions/termination_condition_base.py",
+      "bytes": 5053,
+      "sha256": "2e4f510fa5b78eedce078fac816c96f7a4deacf79aa270510f4d476c4c917f2b"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/termination_conditions/timeout.py",
+      "bytes": 627,
+      "sha256": "51b618cacbfbf3680dc23a156b0b239d119b59395824b9a3bd5ba79bde6ddcfb"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/transition_rules.py",
+      "bytes": 111332,
+      "sha256": "506be33c3129cf6ce9bcfe89bbac13ff8c5b64a8ca9f39736f0d2350f26014fb"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/asset_conversion_utils.py",
+      "bytes": 112834,
+      "sha256": "572ff2b19253c86eab0e40e7475c02032bee92ea28c750a8635f7393e00353c9"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/asset_utils.py",
+      "bytes": 27027,
+      "sha256": "6fd87f8bc31c89d74691757f779c4d39961702a957dc470d711fb4f0aaac98a5"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/backend_utils.py",
+      "bytes": 5791,
+      "sha256": "5970bdadf4f25d396ce83aaf536ab06f6be0e82eb25a9eb9e146c458e5647216"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/bddl_utils.py",
+      "bytes": 74443,
+      "sha256": "5bb709c1b9e6d5b9b4db8d3253407e6416d43b1e98277aee758c8ca768671d7f"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/coacd_runner.py",
+      "bytes": 586,
+      "sha256": "481d32d0bbdc198bdb8d1de1601249ccd627a0d34d16bf6f7fa976178e6b4d2d"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/config_utils.py",
+      "bytes": 1693,
+      "sha256": "137edcf9dde770e43ecb2071b8967dbbd124478a9b96ff17a1f6d18172b44b9b"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/constants.py",
+      "bytes": 5218,
+      "sha256": "43be6dba26481b31011e487595609ba08318174c6759ec218f8f73eab3e7b915"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/control_utils.py",
+      "bytes": 5602,
+      "sha256": "54a30987100f6a13b9adb7635ded9e51e86335b7f56753bd340293267fc6b1a2"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/data_utils.py",
+      "bytes": 8735,
+      "sha256": "6f443ad6569c1881d7cc4c63717ca2238f0a8e062b4f506d49354d1d31ae541c"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/deprecated_utils.py",
+      "bytes": 60627,
+      "sha256": "7925a9821606fe03ceec779f4aac1b262e8b866e471d8f18ffbdb144232b68b5"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/geometry_utils.py",
+      "bytes": 7433,
+      "sha256": "a692497411295869e216f1d0ddddd9047d7bf30e673cb1580a3ce2817472c7fd"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/git_utils.py",
+      "bytes": 646,
+      "sha256": "4dff9b8b299be20aeaae31646b14a8962435adee73b9b945b1e4ac42b38c623f"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/grasping_planning_utils.py",
+      "bytes": 25957,
+      "sha256": "5d76d0d1b1def3f28062c854b9932e47a04b09fbea40953207f5ad80f652d8ea"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/gym_utils.py",
+      "bytes": 5604,
+      "sha256": "38becc89b3f48afbb52b980e255b29f524494b84af3c0c8c1d9747aa5fff7a6c"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/lazy_import_utils.py",
+      "bytes": 1664,
+      "sha256": "cfb41faecbaa1d3e6b127776db0ccdfbd68ff7d10cdb9b5efaeb6aa07ea61b68"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/motion_planning_utils.py",
+      "bytes": 24655,
+      "sha256": "adaa03e50e3b63ff8f08dd7600a221dcc6a5eff86c94098d831287edeab46970"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/numpy_utils.py",
+      "bytes": 981,
+      "sha256": "01b6dc80eccd141393dc7a8a6d8a4f3e0198096198e8181f25c4e0d45253abe4"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/object_state_utils.py",
+      "bytes": 18883,
+      "sha256": "c71d84fdcc0cdd5269a6317a9e549c430e8f4ce9f0e7a737f5bff5a56e00c873"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/object_utils.py",
+      "bytes": 5297,
+      "sha256": "54e07181c026325a2128d5c1aa88e37744226c28e3d4c54e0b7833ee26861997"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/physx_utils.py",
+      "bytes": 14167,
+      "sha256": "29ea8c18f477b1f0be7c056f5e5d0d6d5629d7352ba3d6bbf78211c97739cb3d"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/processing_utils.py",
+      "bytes": 13565,
+      "sha256": "a9e212330515f390de3b9fce53822f57b7d06636149a5d5e2c14a90b0b4694f8"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/profiling_utils.py",
+      "bytes": 3426,
+      "sha256": "50ab8c1bc515ec8e158a99229949158e45d8258d8e74138fd443065d31bba471"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/pynvml_utils.py",
+      "bytes": 147727,
+      "sha256": "c5772bb9e11cabb340957d369f606576d269141fc4e1d3f7fe25c539032fd316"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/python_utils.py",
+      "bytes": 32874,
+      "sha256": "2d6ba4bc43b07a4e266f3b7048de2cd72efcb39f817acadeafb9488577a88869"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/registry_utils.py",
+      "bytes": 21211,
+      "sha256": "2a41c529749e3b681b8e28295d1f6135584822a2e435bdd6febcffd392102210"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/render_utils.py",
+      "bytes": 2881,
+      "sha256": "653e512a34287a0ad1d6c231b140909251106d920869505dbbddc8dca21da259"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/sampling_utils.py",
+      "bytes": 59514,
+      "sha256": "de521f179916cf1d7cf2f7958662618b2afeffb8a8a328a58f99ad5ee43bc27f"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/sim_utils.py",
+      "bytes": 785,
+      "sha256": "63468b34701737e3c9899bd3f5f8d181730a62af7bcc903092a8e445724d8de8"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/teleop_utils.py",
+      "bytes": 33396,
+      "sha256": "d4893e498d3a61f9686cdc1e2b021fdaf5c65aaf434ab31e4cf73e210321a7c4"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/transform_utils.py",
+      "bytes": 52143,
+      "sha256": "1db705e2fe4fb568d0652c9112d1d8e7e4efe714ed5d7ede3ed4ec9712a2ea78"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/transform_utils_np.py",
+      "bytes": 44889,
+      "sha256": "294e515ce83988032ea6611bc4501cc0fe89e9fb0d653de087d8bc8880643fc1"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/ui_utils.py",
+      "bytes": 50450,
+      "sha256": "a9aecaf38efbb0f62df7edabcc857b88ac7dca78791b2f6bc0fd7e1ca6eb36db"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/urdf_preprocessing.py",
+      "bytes": 11995,
+      "sha256": "4393ad75768af751b96cc8cff39205fad1955e59f975e6079ac2117826ec7416"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/urdfpy_utils.py",
+      "bytes": 132972,
+      "sha256": "074b38831127e0b686089499bd00424a2dbeeb4feb94ba04d61ced060b448238"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/usd_utils.py",
+      "bytes": 129937,
+      "sha256": "19a14c5660d923dc73e0b7e8605dd59f31ad8ecdf6c1cc167786e922bde5556a"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/vision_utils.py",
+      "bytes": 15643,
+      "sha256": "cec15f0388d0657f2465ce7ef316e7476bc0752653b108fb5b3db27882e98ae7"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/pyproject.toml",
+      "bytes": 1102,
+      "sha256": "5892bbd5469f08360d737bac670e4fc04afc412424669cb63fdd6ba8a5011352"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/build_docs.sh",
+      "bytes": 283,
+      "sha256": "b885c7d98e8b5a137d3b53c9e0a8e9459988ad3dc6328cf04112a86d511e2bb0"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/learning/aggregate_lerobot_task_shards.py",
+      "bytes": 10942,
+      "sha256": "7639dc8a5024706449f80a1db1f489a21d096148a0bf7575a2ef49de52cc0f80"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/learning/benchmark.py",
+      "bytes": 10946,
+      "sha256": "ddae694210247c7edb5f9176590827eb6a1a50baf8e17d192f1d9546659908c0"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/learning/download_gcs_rawdata.py",
+      "bytes": 10816,
+      "sha256": "88827a4e7297970202a7d2534ccde2144ae109300140e3490cc4fa793fd494f3"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/learning/download_gcs_rawdata.sbatch.sh",
+      "bytes": 5384,
+      "sha256": "8a48c36cbc53d93d1bc47de6722e4f962f0f53f191fc708ac9d5473b43a102e9"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/learning/generate_gcs_rawdata_manifest.py",
+      "bytes": 5076,
+      "sha256": "2130ff8a8244b1128d0cfed8d1f063da43ab79e2c542e4103e1624042294a740"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/learning/replay_data_sc.sbatch",
+      "bytes": 6630,
+      "sha256": "c66941f82ec62494239801d56cee98e6b5ccdd56cb9e12ca607f1c7ef5c2b551"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/learning/replay_obs.py",
+      "bytes": 9522,
+      "sha256": "c13d768953037e968de12b5f6337d9c392b20b62987a4407854c37bd4858ea27"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/learning/update_lerobot_base_qvel.py",
+      "bytes": 24147,
+      "sha256": "4b3a43770f94187e46a71be4ece74a90881bdcd50407317b9232d7247b749d92"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/learning/upload_to_hf.py",
+      "bytes": 1077,
+      "sha256": "3e477bc147e365e22b9945cde280c72953df876032e15a8244be428c52d08165"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/learning/upload_to_hf.sbatch.sh",
+      "bytes": 751,
+      "sha256": "b6870422e3ec5c1f0985a2b9cbc7a79970ea4179bb86b037f4b5c35e005e1539"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/learning/visualize_lerobot_pointcloud.py",
+      "bytes": 12313,
+      "sha256": "784cf35539052f516ff33ac332f86ae2e4a8f511b2126e1287277e099640447e"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/profiling.css",
+      "bytes": 1049,
+      "sha256": "34d60b27cf49af4b3d0f03f75757a2d14db5fbee9c6327f84cd8e6da13b856fd"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/profiling.html",
+      "bytes": 10617,
+      "sha256": "85eb15ddc031f502cf401dfcb5067fb0953a0a5b14032f22f892315257342338"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/profiling.js",
+      "bytes": 7024,
+      "sha256": "a3dfe734e70ca2fab49ac1572a302699f576bd4d80654a054edd0979912b8a0e"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/profiling.sh",
+      "bytes": 1076,
+      "sha256": "c39199887fbfd328ae82b0a9731210b7b2d026fa0e42b33546267c7d27e8a167"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/sampling/autogenerate_task_custom_list_template.py",
+      "bytes": 19220,
+      "sha256": "008d466022ae995648024b0e7570aeb9576ceb93c5c4328bf527d7466e6cb50a"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/sampling/challenge_instance_qc_gui.py",
+      "bytes": 48119,
+      "sha256": "9af0ff3c3a3281c1ab755eefe6a93158beeb9e3f01a46fe2ad78ef0d04c7e65a"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/sampling/constants.py",
+      "bytes": 218,
+      "sha256": "956700553c3f4144806caa1454f52876acb8e665d37792158e39bfe2129f207c"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/sampling/extract_task_information.py",
+      "bytes": 4086,
+      "sha256": "0ce6a166701792b8355442a0a0e80a956a3809e371dd700c028f727ff374fc67"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/sampling/floor_plan_visualization.py",
+      "bytes": 7762,
+      "sha256": "21de41db104a2acdac9b1e282c05dcf098c482da1d07ee943bea2cdb28be5cd5"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/sampling/multiply_b1k_tasks.py",
+      "bytes": 6459,
+      "sha256": "6f54ebe1c2184df6ed7d924f8eff12d71067bff6370a7532e274dfc7981ff01b"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/sampling/postprocess_sampled_task.py",
+      "bytes": 2328,
+      "sha256": "94ed60b6fbd53b79e3b32c2a32154272823710da91640e06b46def75b51ed12e"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/sampling/sample_b1k_tasks.py",
+      "bytes": 13332,
+      "sha256": "436991e0d204a18f7875fddab4011cc0e19757eb553e61f433eac7c4c4f5f3c4"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/sampling/sample_robot_pose.py",
+      "bytes": 10762,
+      "sha256": "9854221fc073599c442d24e21f7ca2caf1ccaac87eb1f255195587b8145069ee"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/sampling/task_custom_lists.json",
+      "bytes": 59376,
+      "sha256": "2c4f6e5b74ba9ae10d5252ecd3f2c7bdb707bc11e81370ac07c4bb221b34df3f"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/sampling/templates/challenge_instance_qc_gui.html",
+      "bytes": 26473,
+      "sha256": "fadeb56a471af23ae55d177a4347966660e2d66e439f6af1182eef66d1d33364"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/sampling/utils.py",
+      "bytes": 19659,
+      "sha256": "a4b8a75bed8527bb74176a2a1159fd1a2388009e4bf63628a45b824d5e81515a"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/setup.py",
+      "bytes": 2816,
+      "sha256": "59c0c805d26575736e459dca1d1cdb319d881cf599d329ef4e7cfe12277d684e"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/benchmark/benchmark_interactive_scene.py",
+      "bytes": 4423,
+      "sha256": "193ea62aa3f0b72806cb6ed61353d1a8518ec60f96f4bb42b3f51b660ad7fc6e"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/benchmark/benchmark_object_count.py",
+      "bytes": 3246,
+      "sha256": "5b3731162c159a904e71737a931e0962ec4074d9d8b04fb345aa618e0f6d0d1e"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/benchmark/profiling.py",
+      "bytes": 8711,
+      "sha256": "87c8238ed0bd951916bd2d436dc046b75c867d015f1d12d763e34974b0636a9b"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/conftest.py",
+      "bytes": 10723,
+      "sha256": "8b8f9174ccebf7d023ab1ba5546d73ed22511586fcb89ce1dd9fee101d367254"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/requirements-tests.txt",
+      "bytes": 63,
+      "sha256": "6ca61ef6ca0d94b03a53257b34c7c6cfc23416d29cfa5aefa031ec955fc28597"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/test_ag_states.py",
+      "bytes": 12176,
+      "sha256": "445cf0920999b910494c70e2e290c219000fec295e2212ffd3234fad129c7e35"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/test_behavior_task.py",
+      "bytes": 1059,
+      "sha256": "d4798b62da38c9ae916f96b1220ed13e6aae005ec6979b030534074d98d66785"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/test_controllers.py",
+      "bytes": 23728,
+      "sha256": "aa24e826040ebcd9060e7d7deba2f97010687226bb5b65cf6bffd7888ca50120"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/test_curobo.py",
+      "bytes": 20775,
+      "sha256": "202702253a0fb2c2a2e6e5a34a8f0bba2184f0a5062da8b8fe3daac90bbd4982"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/test_data_collection.py",
+      "bytes": 26705,
+      "sha256": "137213d62558f20648294523ec9086779593102703016de75cf14af4230a2411"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/test_dump_load_states.py",
+      "bytes": 2608,
+      "sha256": "f96a739c0db35360727a705007688fe75a9afc6923937f6fb408f02a7d228b2a"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/test_envs.py",
+      "bytes": 2075,
+      "sha256": "ed3557e0f4c1da2fed620f7ddbbfa7ce3809baa47a097572c8817210251e501f"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/test_examples.py",
+      "bytes": 2974,
+      "sha256": "9408bc9c22f00e0d45f6f7b76d3453a2b567082a92ace1330b8ddd3b1feaf166"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/test_multiple_envs.py",
+      "bytes": 21054,
+      "sha256": "3b997b7ff3fd6f34d41c321c9177e0d28933df1dfbb1704fa04b61428323c0e3"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/test_object_removal.py",
+      "bytes": 1766,
+      "sha256": "8689ac7ad9dfa14f38622158dfbd300e7f72e235b8d11dcd5c9540533a91b742"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/test_object_states.py",
+      "bytes": 50982,
+      "sha256": "095ab8866a8a838b7a6510404dfb13da3ffaa42a56f640b5dbadd30b719ff081"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/test_of_example_template.txt",
+      "bytes": 151,
+      "sha256": "7fb4d4a89c02f997563e7b82c7f2226331f065e4ecbdf2dce4aff66704e74598"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/test_primitives.py",
+      "bytes": 6360,
+      "sha256": "2bfc25cae6bdb47233da3b6d1c3177068030220bbdcfa440b935215ec227e005"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/test_robot_states_flatcache.py",
+      "bytes": 17461,
+      "sha256": "b0bbea309f8feeead854f6bd175712f0310fe5aa4c4d494d8dec36feda7539a3"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/test_robot_teleoperation.py",
+      "bytes": 2219,
+      "sha256": "332141d6e0daa89666c4235890e1bfcfb7805d6c6d4ab8608a98e143eb33d4e7"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/test_scene_graph.py",
+      "bytes": 3662,
+      "sha256": "23d440fed2c075deb2ec6403ae9178fa8a8cd027993e10389219de63a406a8d6"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/test_sensors.py",
+      "bytes": 4988,
+      "sha256": "ffe1909d723051a0f17d6f040fa9868fa33598ed1ccf9eb4878ae35c674c6d64"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/test_snapshots.py",
+      "bytes": 6648,
+      "sha256": "92fe9a8c50c70129e430351128d4a1aa849079302b2fc16b8cbb3a3e620b451c"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/test_symbolic_primitives.py",
+      "bytes": 12290,
+      "sha256": "7c452e7575f0d62881ccf9a273228230a09f77aba6ea6557c62bbb99f050c747"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/test_systems.py",
+      "bytes": 1802,
+      "sha256": "66d379bc7e4860b2655c81f13ee4016f4a8ac2359329e26b63965196f7683cdb"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/test_transform_utils.py",
+      "bytes": 19829,
+      "sha256": "9ca3888fe64bc392ac15fa4beae64870e4cef089bb06d158e057790627a5dfa6"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/test_transition_rules.py",
+      "bytes": 58902,
+      "sha256": "53b445d6ed14b01bf63f05527e607cf655c9924164cf11e4ee35201b996ebbf7"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/update_example_tests.py",
+      "bytes": 5002,
+      "sha256": "2f793079e20458ae16f79787f75e342bf71d9d7caa4cf98993169a9d9e1aa9d5"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/utils.py",
+      "bytes": 2420,
+      "sha256": "8fc48be639be04b1f1bba05524e7a74f97d100822d60bb4a7908a4f94024beb2"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/PORT_PROVENANCE.json",
+      "bytes": 5153,
+      "sha256": "7f82230b20ab1aa03e6d71753542ec069389ec3590a98e8a49e227ccfa56eec4"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/docs/assets/OmniGibson_logo.png",
+      "bytes": 72191,
+      "sha256": "415480a53ed07ee3b909b4a3510f0aa44c4f44aa23296713ebc07af5a461ec23"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/.gitignore",
+      "bytes": 35,
+      "sha256": "d26973f530be4bce84d00007380fb5e1c09374306e02e2e39077e82d379d026a"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/ASSEMBLY.md",
+      "bytes": 1317,
+      "sha256": "ac99a16acda5cbedcf3fe9cfadc60b1f6c7fec2436970b83e26f56dc20e9c5e1"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/README.md",
+      "bytes": 8179,
+      "sha256": "cd5874584521041dc0bef28ad81ba616e4a6f18fee0e6eca00c79189efceb560"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/gello/__init__.py",
+      "bytes": 93,
+      "sha256": "a6c9947842afa911c424ad285cd29cd5c2efd26890ac1a3047864fd3b9227d96"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/gello/agents/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/gello/agents/agent.py",
+      "bytes": 530,
+      "sha256": "7534ca52c78155062bc586d842053c04fbbac9fd1db7cf81d71198b68a20f040"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/gello/agents/bimanual_agent.py",
+      "bytes": 12946,
+      "sha256": "6b5d890665efa68ae0597889f93eabb3912d1311d1404267413ed9c6970ec897"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/gello/agents/dynamixel_arm_agent.py",
+      "bytes": 4611,
+      "sha256": "2bc45838659a667b49980372f1cc50734c8cc669488a78728134136c7bf236a9"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/gello/agents/joycon_agent.py",
+      "bytes": 14682,
+      "sha256": "c315364ab0cd266eab1383212537617ef5722321f7bdadea14c1d927d90e827b"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/gello/env.py",
+      "bytes": 1372,
+      "sha256": "f2dbe8c660a99c3725b9c04c39ffeeda89727c95b76485045d4858b39b1464de"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/gello/robots/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/gello/robots/base_robot.py",
+      "bytes": 3678,
+      "sha256": "951a86efbab2ba4e5a7ac616d52ac6b42498ab583dadec78b39bb871ae38347a"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/gello/robots/dynamixel_robot.py",
+      "bytes": 6139,
+      "sha256": "80710cc93317340ed6d2fdeca8914b562a77223d9a0d89d4cd0c39df0d6b258a"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/gello/robots/og_robot.py",
+      "bytes": 49534,
+      "sha256": "67b22a2525447629940b4a5aa2e102b80aa49ffe0cb04d8f2fc735227d83f5ea"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/gello/utils/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/gello/utils/dynamixel_utils.py",
+      "bytes": 22112,
+      "sha256": "0cdfb9d38b5354f01a7783e1c8b6153c22bc287fcb98348a756d09c32682b8ed"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/gello/utils/og_teleop_cfg.py",
+      "bytes": 13549,
+      "sha256": "502dc53a5a5e4d4c68c3ca002f6c94852b08b3faabeb56ec117b1b6d5eca5c00"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/gello/utils/og_teleop_utils.py",
+      "bytes": 57944,
+      "sha256": "b9bed3065c13ed9ac9c4e49439c9a25aff40c273fa47af79aee035cd6f877694"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/gello/utils/qa_utils.py",
+      "bytes": 49024,
+      "sha256": "b4b0a4f2f79f2f525d3ee9fc413049af7c94511f96e36a5cffada4fed9ff1ff8"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/gello/utils/zmq_utils.py",
+      "bytes": 4428,
+      "sha256": "8b60eaeff7db7adece5d9de2d4db7caa48517f29a220687d9141dd7c5a8bf3f0"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/imgs/R1_calibration_L.jpg",
+      "bytes": 2811510,
+      "sha256": "2f8866bda00f7131c51662344a82a859ed78e9987d5284081c6e4a63de1ed185"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/imgs/R1_calibration_R.jpg",
+      "bytes": 2562848,
+      "sha256": "14c4ffdabc83c82ed3200dd756c7aef2ff400fffdc45133399a6445a0a0bfef6"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/imgs/R1_zero_L.jpg",
+      "bytes": 2903243,
+      "sha256": "66a4e50757bc30ba5e13c387148514d4fa9ad8d363625e76f92ea1cf4e494c2d"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/imgs/R1_zero_R.jpg",
+      "bytes": 2873259,
+      "sha256": "7ff518dceb1afc67b6ff7a17a329af8f97b24ceb4cb9aaaa7d967511e721157e"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/imgs/R1pro_calibration_L.jpg",
+      "bytes": 2243588,
+      "sha256": "429323776c014f6d328182ec0f40f87e1b9c46bf029f6304b7300f2384cd9d0a"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/imgs/R1pro_calibration_R.jpg",
+      "bytes": 2000307,
+      "sha256": "8cfb2c489a5e3469a522310f9f4d756358f97d911b8bc79080a9ef557a9383e5"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/imgs/R1pro_zero_L.jpg",
+      "bytes": 2690604,
+      "sha256": "2ef3d298b220af0ef8205dc0640281159497d6550d93227ab038d5d9737c4c35"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/imgs/R1pro_zero_R.jpg",
+      "bytes": 2653982,
+      "sha256": "5ad1b93d2e01ef41cf199a5bf9c5732a0685aca46f13d48cbeaf158212ef281f"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/kill_nodes.sh",
+      "bytes": 28,
+      "sha256": "19d37c761a8da58d3190222c6c0468204eda7a9e98340cae876bfa8c2f0445ce"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/pyproject.toml",
+      "bytes": 1077,
+      "sha256": "2df1cc6451a9a9e01a8ba826a32832e2ec1c934bafc2d6f6d3bab9b5f8b064c7"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/scripts/calibrate_joints.py",
+      "bytes": 6081,
+      "sha256": "0ccf29efff56bcc160f972c64306883ea8eaeae25bdd457be7372777b2807eaf"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/scripts/calibrate_joycons.py",
+      "bytes": 2669,
+      "sha256": "3647a5f431a6dab2c32b35489c733b20d31a1b719866566a35ee19ebd5230379"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/scripts/launch_og.py",
+      "bytes": 1017,
+      "sha256": "9903efe25f93d2ce9e9947ef7eafa15262c068eb57b548bb87e94d2786142009"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/scripts/replay_data.py",
+      "bytes": 14365,
+      "sha256": "0a54c2218ca7e28df0ffddf3c567b27ab279a348f8035ea793ef1f4d271de059"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/scripts/run_joylo.py",
+      "bytes": 6289,
+      "sha256": "284e774473d559528a3649634e6614b1f0bf2f4ea0e88ef2a57f7e74d5c017f3"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/scripts/run_qa_analysis.py",
+      "bytes": 2022,
+      "sha256": "e057c6beb1945d801c744f3323df8aafd5b4d5732bbaa59d1c727873574d4974"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/scripts/scan_and_reboot.py",
+      "bytes": 2405,
+      "sha256": "654c792433ae4451decb5b681639728fd1db21aaf0d3281b6b87577f9b39eab6"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/scripts/test_joints.py",
+      "bytes": 2243,
+      "sha256": "720c7c90d2198095995703615f759c365e464faee9e743b1c2ab1301533172a5"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/setup.py",
+      "bytes": 142,
+      "sha256": "ee43d36dbdca2c39e761d5657308b5d71c479e7a0a49342c7a6638e33a8c5961"
+    },
+    {
+      "path": "third_party/BEHAVIOR-1K-isaac6/setup.sh",
+      "bytes": 20826,
+      "sha256": "49558087ff59f1124a0892a4cfa3963b18f8fc200296ab4444ae0fdd98303c40"
+    },
+    {
       "path": "third_party/BEHAVIOR-1K/OmniGibson/.gitignore",
       "bytes": 1138,
       "sha256": "a4160bcbcdd0ed8389cde6bc007de3c14e1e693296ca10a7f01b5da22dae0042"
@@ -5613,34 +7688,9 @@
       "sha256": "8b8f9174ccebf7d023ab1ba5546d73ed22511586fcb89ce1dd9fee101d367254"
     },
     {
-      "path": "third_party/BEHAVIOR-1K/OmniGibson/tests/data/r1_pro_source_config.yaml",
-      "bytes": 12141,
-      "sha256": "2c7b3542f8c30c507bf7285c9e4ded4d583112bc6e6933845f12a572446a9a9f"
-    },
-    {
       "path": "third_party/BEHAVIOR-1K/OmniGibson/tests/requirements-tests.txt",
       "bytes": 63,
       "sha256": "6ca61ef6ca0d94b03a53257b34c7c6cfc23416d29cfa5aefa031ec955fc28597"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K/OmniGibson/tests/snapshots/golden/robot_in_empty_scene_seg_semantic.npy",
-      "bytes": 3686528,
-      "sha256": "69797c041c86c980f128efaf812c91175737e4286764f7daeca27053864dead9"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K/OmniGibson/tests/snapshots/golden/robot_in_empty_scene_seg_semantic.png",
-      "bytes": 6358,
-      "sha256": "d2cb289613b9dbe95df96183d58de5e227ba178e7b9365a82ba716e8071d74e0"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K/OmniGibson/tests/snapshots/golden/rs_int_with_objects_seg_semantic.npy",
-      "bytes": 3686528,
-      "sha256": "218343c6d39c722ae2c535062c84e25a833779b94a20e710e8da96e8be82b9ba"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K/OmniGibson/tests/snapshots/golden/rs_int_with_objects_seg_semantic.png",
-      "bytes": 20586,
-      "sha256": "995980b432b9c3feeeead23136726cd156663b3fcabc1d1dbd78cd189683cb1a"
     },
     {
       "path": "third_party/BEHAVIOR-1K/OmniGibson/tests/test_ag_states.py",
@@ -11318,36 +13368,6 @@
       "sha256": "f2465afbc16e53eede393290fdf645a88b1175ce2cb3d4a515f1d5e306690887"
     },
     {
-      "path": "third_party/BEHAVIOR-1K/bddl3/bddl.egg-info/PKG-INFO",
-      "bytes": 10321,
-      "sha256": "552c81be167847b27f8be044b0cb0235c084544ba07e2e717f67e4972d78df89"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K/bddl3/bddl.egg-info/SOURCES.txt",
-      "bytes": 66052,
-      "sha256": "13e965cd5986030d945fabd2ddb7d94fc317b6dec8035d4b93f1c5002f544545"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K/bddl3/bddl.egg-info/dependency_links.txt",
-      "bytes": 1,
-      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K/bddl3/bddl.egg-info/not-zip-safe",
-      "bytes": 1,
-      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K/bddl3/bddl.egg-info/requires.txt",
-      "bytes": 48,
-      "sha256": "2997da0d73f42c47369414c45de020e388e0157287967e76ecb37f70507c02f6"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K/bddl3/bddl.egg-info/top_level.txt",
-      "bytes": 5,
-      "sha256": "67f4b4b92627054e15f0bc01e02243c657178151ade97cd708faa3d82a511340"
-    },
-    {
       "path": "third_party/BEHAVIOR-1K/bddl3/docs/.gitignore",
       "bytes": 34,
       "sha256": "aa36aaf2d9a3a5dac634864bc846c74e7eb9312db6f5871205b8c7e817204489"
@@ -11943,36 +13963,6 @@
       "sha256": "5ad1b93d2e01ef41cf199a5bf9c5732a0685aca46f13d48cbeaf158212ef281f"
     },
     {
-      "path": "third_party/BEHAVIOR-1K/joylo/joylo.egg-info/PKG-INFO",
-      "bytes": 9284,
-      "sha256": "fd8d2cf9391ceacdefd6f4a1964ff30e9e366d7e03508b995e98f7c1ca1c2256"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K/joylo/joylo.egg-info/SOURCES.txt",
-      "bytes": 851,
-      "sha256": "dbbbcb8da8bf3a79ff2f1d9add9ee84092add294c849ef6e72bac1fddab155da"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K/joylo/joylo.egg-info/dependency_links.txt",
-      "bytes": 1,
-      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K/joylo/joylo.egg-info/not-zip-safe",
-      "bytes": 1,
-      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K/joylo/joylo.egg-info/requires.txt",
-      "bytes": 223,
-      "sha256": "a9b8f18efbce4abd28baf0aacb3713467f7cfdc283d8a279a76e535cc99199b0"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K/joylo/joylo.egg-info/top_level.txt",
-      "bytes": 19,
-      "sha256": "ca20660d1bd9c569239ce17aa1d441996cdecd7534e36574a03604f6f36f99fe"
-    },
-    {
       "path": "third_party/BEHAVIOR-1K/joylo/kill_nodes.sh",
       "bytes": 28,
       "sha256": "19d37c761a8da58d3190222c6c0468204eda7a9e98340cae876bfa8c2f0445ce"
@@ -12039,1956 +14029,6 @@
     },
     {
       "path": "third_party/BEHAVIOR-1K/setup.sh",
-      "bytes": 20826,
-      "sha256": "49558087ff59f1124a0892a4cfa3963b18f8fc200296ab4444ae0fdd98303c40"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/.gitignore",
-      "bytes": 1138,
-      "sha256": "a4160bcbcdd0ed8389cde6bc007de3c14e1e693296ca10a7f01b5da22dae0042"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/.gitmodules",
-      "bytes": 566,
-      "sha256": "2561c33f66d9c5ce1c766449a2e8f0c32ff451e83243fcd750cb123b2e16f2a5"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/LICENSE",
-      "bytes": 1091,
-      "sha256": "bd06773d35549a0dfb4d6526190c80cea09d54a9e3033e98654999e51efcc0ca"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/MANIFEST.in",
-      "bytes": 80,
-      "sha256": "9cc1475ce5e1d250db6661d91ed5d11351bfeb417f3a47f41639a6cafa0c5307"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/README.md",
-      "bytes": 3280,
-      "sha256": "791ee9b3277122d10e2793a056253445801bea00cdb4bcf9bb6e8b231c0fa288"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/.gitignore",
-      "bytes": 48,
-      "sha256": "499ef327a50c1c183dbd8ae59921b4c32cf18fdccd2f06533c7add3e7fb94f5e"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/__init__.py",
-      "bytes": 7126,
-      "sha256": "a63bba68d3b2498892f85043fb7816419ef4e069565636e6e400d77233484a08"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/action_primitives/action_primitive_set_base.py",
-      "bytes": 3409,
-      "sha256": "9031f5ddec831ad887b11d36f7242da450efaad7984f160c2fd84232a50b43d5"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/action_primitives/curobo.py",
-      "bytes": 50593,
-      "sha256": "7498565094d44b1ac62ff4f850bfa5175a0323b5455e94ba445269dbf542b5dc"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/action_primitives/starter_semantic_action_primitives.py",
-      "bytes": 95133,
-      "sha256": "a749f85b5cb50a3a465eb64399c8181e872d310f77ee2558479267babbb8cd07"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/action_primitives/symbolic_semantic_action_primitives.py",
-      "bytes": 27339,
-      "sha256": "3981841236181d2d03993fdbfa5a8ec165b014e23b16b1d3ef504f3067eb85d1"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/configs/avg_category_specs.json",
-      "bytes": 235556,
-      "sha256": "61ff0d1a571bc1f526de79787944b86475a7b795d7f4133f7fd6e1a1284ea710"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/configs/controllers/dd.yaml",
-      "bytes": 443,
-      "sha256": "0700b48965843dbb822ee95a5cc3ebbb8652fdd1e61be7189a2876a3aa649228"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/configs/controllers/ik.yaml",
-      "bytes": 638,
-      "sha256": "8a34a842a2333798916b2bd69640e7d622179f2bfd69f86cd5b9a0401749d443"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/configs/controllers/joint.yaml",
-      "bytes": 479,
-      "sha256": "1a9666c664abb3ca341f1c93a828a6f96c4493ec1e2ef1917435a87f0b230295"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/configs/controllers/multi_finger_gripper.yaml",
-      "bytes": 582,
-      "sha256": "333c36afe48d15f25a624fd25e395ad7e5c37f41dc0be7b5d0d2b6fbe4661a90"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/configs/controllers/null_gripper.yaml",
-      "bytes": 434,
-      "sha256": "53b08a9469759a2f1d0a98f1105f2d3ae5b4683e964b902a04eaf3bd31b3828a"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/configs/default_cfg.yaml",
-      "bytes": 254,
-      "sha256": "78d9936f9029931e3b7cd790013fb37d0c50d9f061599770edd5ce6d0f5b5758"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/configs/franka_vector_env.yaml",
-      "bytes": 2352,
-      "sha256": "29a1cf44e7280e7c1fee3741124f692fb3810a2da3bbcd99511aec2e404800b5"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/configs/r1_primitives.yaml",
-      "bytes": 3373,
-      "sha256": "58e925d9d3c6bdb69c90c1f6b92e3e78ac49297fe96132da4bddd0a65e2bb75f"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/configs/r1pro_behavior.yaml",
-      "bytes": 3666,
-      "sha256": "dad3b646966e188eccde6a3a26d6bc166a1ec91eb975f9d24defa390e1bd162f"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/configs/r1pro_primitives.yaml",
-      "bytes": 3368,
-      "sha256": "cf676802dcd0326c3c6c57e7daef6988489cbfc7064ffea4fd498c70cbe94ec5"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/configs/robots/fetch.yaml",
-      "bytes": 920,
-      "sha256": "ac57d9684dbf54fd89d10a8754287dcc94fc159ce12eebb0ee44d984733f9df0"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/configs/robots/freight.yaml",
-      "bytes": 563,
-      "sha256": "8c20b55e42fc09a96a7b2c9d13c7fb46b2c5168c2401f611e64d29003c584333"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/configs/robots/husky.yaml",
-      "bytes": 537,
-      "sha256": "4c436ad6c4505a6bccc9ae20c265dd8205ecf86811cebd4ce4912e36835eca42"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/configs/robots/locobot.yaml",
-      "bytes": 563,
-      "sha256": "a6c5899159ca77215f18ffb19e697a4c48749b7a5f6df214e73c9e5d4c6569f0"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/configs/robots/turtlebot.yaml",
-      "bytes": 567,
-      "sha256": "c96d5101ea2196056ee80b6345b20b98504b135de51e62da6ad47b2f2eaae99b"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/configs/sensors/scan.yaml",
-      "bytes": 1043,
-      "sha256": "2688bd0b87c59a257f4b0d552e85fa5d6ddb3cc40ee095cddc37686a782fee70"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/configs/sensors/vision.yaml",
-      "bytes": 597,
-      "sha256": "65835d38b2b4cd9eea732a9da54c65cadac63d6197f9619dce8badca57a4c021"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/configs/tiago_primitives.yaml",
-      "bytes": 3593,
-      "sha256": "782f046bc598e5e881ea07baa84d2f2dd8da838376ad66a4d1d8583c3dc5ce9f"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/configs/turtlebot_nav.yaml",
-      "bytes": 2334,
-      "sha256": "906a1b2f562dc8b529056036f484f94f0cbd831b5bf914f125b427f65b04dca4"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/controllers/__init__.py",
-      "bytes": 2093,
-      "sha256": "f8ec3922108fa0b3bd6d39f3a1875154ccefe0e9e281f17a3a9a7133d0e84f5d"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/controllers/controller_base.py",
-      "bytes": 35161,
-      "sha256": "48dbf51cfcbdd891a3fa0c0c3134fe457c5802e317af94d2b4833e3d1b588e46"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/controllers/controller_view.py",
-      "bytes": 12973,
-      "sha256": "1143de07a8ebd90b759dce784ec5515902151f680ca6c0502232f6a4b2365f3b"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/controllers/dd_controller.py",
-      "bytes": 6619,
-      "sha256": "1481d093fe2bbd580090e46c27159077d13233868160477edde9a6a2ccf0fc7b"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/controllers/holonomic_base_joint_controller.py",
-      "bytes": 9725,
-      "sha256": "e4f80607fb6afec2528ecb430128f4d90a1faf97eaa8a9f9b1e182d537c2ce74"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/controllers/ik_controller.py",
-      "bytes": 24975,
-      "sha256": "058772fe1be145bb950ddec3581f16d8257e55ce1896ce7a067dd604f8c2958e"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/controllers/joint_controller.py",
-      "bytes": 22407,
-      "sha256": "071564563090ac602f4e9c9051d3f1de8b44f14a9fc9c93e583157c792086242"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/controllers/multi_finger_gripper_controller.py",
-      "bytes": 21372,
-      "sha256": "dad60798c9df2a2d0f3a2d1489e6925206de1b8c4ab79586296ae9695a0ab4b3"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/controllers/null_joint_controller.py",
-      "bytes": 5761,
-      "sha256": "0e0d7adadf7841395131d3b8e3e96a9cec82e4d260cef18a2f05f3d6b950bcb2"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/controllers/osc_controller.py",
-      "bytes": 31140,
-      "sha256": "56185912cf0ec9e8232545e36ec45300cfd73d7da3d607b99ff44756d7f17f61"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/envs/__init__.py",
-      "bytes": 1119,
-      "sha256": "7faee418a28618de768fa0ed5f2c81bc3c4646de70e47691c5de01b90791cb03"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/envs/data_wrapper.py",
-      "bytes": 38958,
-      "sha256": "0e70cf95ff3a2b530b819568199ec6d5bcaa39c519b3fbb6722603c6231aa0db"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/envs/env_base.py",
-      "bytes": 33891,
-      "sha256": "ab3e0cefd46a583a8fa9e8ccd42e5cc29590f0b9efddfb0a6f34dab74e4f6c7c"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/envs/env_wrapper.py",
-      "bytes": 3013,
-      "sha256": "52fb65a92cf79f977e24546dd61e717835a44d926dcc1fd7772df53becb681ef"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/envs/hdf5_data_wrapper.py",
-      "bytes": 35849,
-      "sha256": "c143f9fb42d3f92518489efc8be32ad0ebd515cc18968b049ba19de3e255819b"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/envs/lerobot_data_wrapper.py",
-      "bytes": 19714,
-      "sha256": "08a09eaecb1bcff2e9b62581b996f7b4531a74247a808dbe1c9af2650025ef80"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/envs/metrics_wrapper.py",
-      "bytes": 2651,
-      "sha256": "aad26222310c9f1b21847c82a0a659d79d9ebe2883161becf1a77e58008cb729"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/envs/sb3_vec_env.py",
-      "bytes": 5015,
-      "sha256": "2a666058415d43fe1aa1d694ed459bc5e8185ebd900a0a64d47e712dde42f0cf"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/envs/vec_env_base.py",
-      "bytes": 1838,
-      "sha256": "0f4df162e4ba60e1394fbd9c05ac7d12e3c4f35ad4f386e2d6f2f90fc481967f"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/eval/__init__.py",
-      "bytes": 0,
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/eval/eval.py",
-      "bytes": 14004,
-      "sha256": "6134f10adbf0a783800124315eaf0d6ef0731834f3e80fea2d8bd306b903e9b5"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/eval/evaluator.py",
-      "bytes": 46387,
-      "sha256": "8c16bd96980cc50c171044fa8cd8f374d5a6f57aa629eb945456599da8277ec2"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/eval/policies.py",
-      "bytes": 2406,
-      "sha256": "3b2b5f52fb1ae8419b91aefae3664b30025f368b7ab38f17fcc0ce5c3359079f"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/eval/r1pro.yaml",
-      "bytes": 2733,
-      "sha256": "a98fa8a81472adfecfb642778d4d7a01e20131be7f70824e0ae095d665cdbb93"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/eval/utils/__init__.py",
-      "bytes": 0,
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/eval/utils/dataset_utils.py",
-      "bytes": 2755,
-      "sha256": "576e7357ea2de4fd6ae2cda93199a87b4f814e0a3e43ece705ed437be841507a"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/eval/utils/eval_utils.py",
-      "bytes": 8376,
-      "sha256": "659aceb8e8f404cabb00b3697f474b068254e1245c544ffab73c0f64947334d3"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/eval/utils/light_utils.py",
-      "bytes": 4791,
-      "sha256": "f86c061652a854b042da089ac5104c2b8604aba874ee655f8e98bd57956c5ce7"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/eval/utils/network_utils.py",
-      "bytes": 11404,
-      "sha256": "b8db3e5ab85d80c11105993cac2566f28c37fb032da7ff8cd939ce1235a1db42"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/eval/utils/obs_utils.py",
-      "bytes": 24434,
-      "sha256": "e2e976a35900ed5c9523a098791f57d01f610db7b9ca80b49bb17306f8cc6e0b"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/eval/utils/recording_utils.py",
-      "bytes": 12239,
-      "sha256": "90e3df3a580317d5efdfc4db94b54f7c72b4780a4230fe7c476b3249682e88f5"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/eval/utils/score_utils.py",
-      "bytes": 20704,
-      "sha256": "18ae9e9c681a047be90993bd06f0933b73321fbd6636cfad803c97050b8c6654"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/eval/wrappers/__init__.py",
-      "bytes": 150,
-      "sha256": "e1cb29ee9176217cf31fa6fead0fac98b26ed233e460d549a677583326f45d59"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/eval/wrappers/default_wrapper.py",
-      "bytes": 1091,
-      "sha256": "2234291522e6b53857bce406cb78e6909aea9265aa75df97f99ca06b6c18d886"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/eval/wrappers/rgbd_full_res_wrapper.py",
-      "bytes": 1772,
-      "sha256": "85ed8b529c0e6acc7839d0d9a7ac3d3bee0a58a3e13b84d237675c8b4ed9e6ff"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/__init__.py",
-      "bytes": 0,
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/environments/__init__.py",
-      "bytes": 0,
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/environments/behavior_env_demo.py",
-      "bytes": 2314,
-      "sha256": "b6c49002d37670035f94b82f97c052d9a46bd20590fe961f96c700de3ef546bb"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/environments/navigation_env_demo.py",
-      "bytes": 1981,
-      "sha256": "4271cefd5a65aada2fc8ee8f1aa355fcf307b98a7afe6dfce4259a1653527af0"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/environments/vector_env_demo.py",
-      "bytes": 1294,
-      "sha256": "0849203b2bd1f399f63a07bffad55ff56bc1ba104c6e2400c824b42faeb22fd6"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/learning/__init__.py",
-      "bytes": 0,
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/learning/navigation_policy_demo.py",
-      "bytes": 6559,
-      "sha256": "44b89b2914afa27a0576778cde808efa44305f56f43406cb9250ae1a9dc2b43f"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/object_states/__init__.py",
-      "bytes": 0,
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/object_states/attachment_demo.py",
-      "bytes": 2800,
-      "sha256": "7f39f629a1e88866189db82dba854893e30dd4f89bacf3d901b6587a9a7d5b3f"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/object_states/dicing_demo.py",
-      "bytes": 3038,
-      "sha256": "28fd8978590945bdc9816795bbb5cfda4443c303c821e7b71539ca3df11a70f3"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/object_states/heated_state_demo.py",
-      "bytes": 3251,
-      "sha256": "9ac9e4312bc25d00da5031382d95e8e9467a56da294d02965d3eeb5849196f41"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/object_states/object_state_texture_demo.py",
-      "bytes": 5879,
-      "sha256": "179b11e972d683e290a3602f2f2258d86a3c81da9679e74b2f3fc9f5fa7c86a2"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/object_states/onfire_demo.py",
-      "bytes": 3259,
-      "sha256": "ab61957b026a6766dafc758a6a537d76012431d52bae55b2cca583604276a7fa"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/object_states/overlaid_demo.py",
-      "bytes": 2777,
-      "sha256": "8ab54df3ea574fc61ad59636b416046f1b131a6d288a38568d6dca630939d930"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/object_states/particle_applier_remover_demo.py",
-      "bytes": 7929,
-      "sha256": "3d40e4583d6479bd959406e8a4f86c93eadd15839285560ceee4b3f1fe930916"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/object_states/sample_kinematics_demo.py",
-      "bytes": 5954,
-      "sha256": "ba562d756cd6168412b31ef20cf0540d45dcbeea2d236ec71d2a3634794096b3"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/object_states/slicing_demo.py",
-      "bytes": 2970,
-      "sha256": "c75ad6a094d29f4f9e5dd70a4302ca0dad8cf066ba3f6f7fc176475d2093dc7d"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/object_states/temperature_demo.py",
-      "bytes": 5391,
-      "sha256": "1779239bbb369f5b336bc75ae5ede729b7c06ed146f6ecf165b24e0d53b0646c"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/objects/__init__.py",
-      "bytes": 0,
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/objects/draw_bounding_box.py",
-      "bytes": 3029,
-      "sha256": "e3552a680ac3ec3fcb8de287cff907fb75587f265cb3cfc6a703df44dfef91d3"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/objects/highlight_objects.py",
-      "bytes": 1367,
-      "sha256": "b0677f9e0e9ce36a19a92362d06f3c6771850671bf7addd59c6e8671614f758b"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/objects/import_custom_object.py",
-      "bytes": 5201,
-      "sha256": "711e766dcbedbcf4e891fb44de8ab95b8d30ea6825447a84dfc4f17970f8fc75"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/objects/load_object_selector.py",
-      "bytes": 2439,
-      "sha256": "592d47dae66bfbde6c63ac4ea8e57105422001e5c81b4c1774b843a270095e12"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/objects/visualize_object.py",
-      "bytes": 4624,
-      "sha256": "1f56c73e376dc064e11461fcd037c53a026c7dadf5bd15ea3a284b20749aea64"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/robots/__init__.py",
-      "bytes": 0,
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/robots/all_robots_visualizer.py",
-      "bytes": 2194,
-      "sha256": "389d1805ef1bbedb75db3dda800718bccfd46058ffda958c06f5a8a67bb67073"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/robots/grasping_mode_example.py",
-      "bytes": 4029,
-      "sha256": "db0989e006d0826dd86b6d533a73643bb15e89a0f1346cdc116c91af1354e168"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/robots/import_custom_robot.py",
-      "bytes": 44595,
-      "sha256": "6d9fe8c9b156aac3c8073917a3c63ec28c74293ac6321a9e8a96ad6ac3233f50"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/robots/robot_control_example.py",
-      "bytes": 6270,
-      "sha256": "5ee1ebd6c68f1483f6eaa36157e183334bce60429cd606959f205e1b7ccb5d08"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/scenes/__init__.py",
-      "bytes": 0,
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/scenes/scene_selector.py",
-      "bytes": 2101,
-      "sha256": "54bf38fd82bb4fcdc53d4f2373ee827b87daa1a3cf8cb9a49be31e4f32a5ac8e"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/scenes/scene_tour_demo.py",
-      "bytes": 3926,
-      "sha256": "e07ed2cbd515146b724d0e14c2adb94ca4ac3b5161d7f703fa399d30983091eb"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/scenes/traversability_map_example.py",
-      "bytes": 1389,
-      "sha256": "5e4b8f1b63eeca60dc66d3faaadddcfc9a555cc8a62bad18e74540c78ee00b2e"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/simulator/__init__.py",
-      "bytes": 0,
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/simulator/sim_save_load_example.py",
-      "bytes": 3113,
-      "sha256": "886b9368b0df59c8cf920117e9cb0a120f1e4da6160fd89dac4df2ba04507faa"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/teleoperation/__init__.py",
-      "bytes": 0,
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/teleoperation/robot_teleoperate_demo.py",
-      "bytes": 4882,
-      "sha256": "19adff328ce69fb860bf85ae4a53d27c42ee6494661e13023cbe88c7cb679db4"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/teleoperation/vr_robot_control_demo.py",
-      "bytes": 2766,
-      "sha256": "7cfe163765f68d8a2f7aa80293313bd93a220425852d22eddaf2ce7b863eecda"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/teleoperation/vr_scene_tour_demo.py",
-      "bytes": 2770,
-      "sha256": "217653c5657eb66f04807de594c537fc6bef3f07503fcc7effe0920c2b41e9b5"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/wip/__init__.py",
-      "bytes": 0,
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/wip/curobo_example.py",
-      "bytes": 15210,
-      "sha256": "59a5fe6f0db83be21e0a889f9c9d5cf0446804a423192da89e0b9673ec9355a3"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/wip/folded_unfolded_state_demo.py",
-      "bytes": 5798,
-      "sha256": "3c56bbcf75f47954905878eb22a791d03d5b65fcacbcb193baf41b193cedb6c0"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/wip/heat_source_or_sink_demo.py",
-      "bytes": 3083,
-      "sha256": "7ffd230cc59f2e2ca9450cd74dfd5d8f200bc15da68d12f639c5ea720ce11b6f"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/wip/particle_source_sink_demo.py",
-      "bytes": 4092,
-      "sha256": "064251e16a74f7aa3995944193874738c3959176b007dec7e2a73dba7c36d47f"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/wip/rs_int_primitives_example.py",
-      "bytes": 2857,
-      "sha256": "cf84127859a1cb37384b6bbdc1f23363bd704d022ce5cefb9dbd1e43df1f3ae5"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/wip/solve_behavior_task.py",
-      "bytes": 2025,
-      "sha256": "ed06560e8fd539d3eeea770ad3a42f06d5f114bbfffd0a4ee53542ceec565dc2"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/wip/solve_simple_task.py",
-      "bytes": 2480,
-      "sha256": "d5f09369180af103dc59a952046e00c5dff47d3547b18463a1440a06716efb23"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/examples/wip/view_cloth_configurations.py",
-      "bytes": 4074,
-      "sha256": "b65295b3ff169948d6c6046a7b95b81496223e12ec6d95cc7fe6302e7bbaa6f2"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/kit_file_changes.patch",
-      "bytes": 1359,
-      "sha256": "ce56dba1f9d4076a7673d9dda84c9226e1f0bd58fbfc4f4d2af027f1fe71ca96"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/lazy.py",
-      "bytes": 120,
-      "sha256": "ae6913942a464b0a61805b5b288c92f247047437fec80fbcef7e8fdb001a339c"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/macros.py",
-      "bytes": 11115,
-      "sha256": "5e8ebb1a00fa3e864c5a4984f126442e91b6653f5869977ecddbf4039ea73228"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/maps/__init__.py",
-      "bytes": 240,
-      "sha256": "3d5c56b4f1480d4a7504d5ba5a313dd2a05255912f326dace06f9e8a80e301d1"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/maps/map_base.py",
-      "bytes": 1829,
-      "sha256": "3c1820dd092254ab06c0de1d0c40b603c58cfd2f043f843add13959074ff2b73"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/maps/segmentation_map.py",
-      "bytes": 7702,
-      "sha256": "c8d91e694c171d6cba8aa79c4108bf77eb7ea3289846a3195bef744654531840"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/maps/traversable_map.py",
-      "bytes": 8953,
-      "sha256": "f8c0b826ceefec810f81a9bf8deeeebbef0afb2181e7956b42c2e8b76d65093a"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/materials/omnigibson_vray_mtl.mdl",
-      "bytes": 3481,
-      "sha256": "2e54dddaec6ba25b9ba731788bb9baaeac5e70743fd54099c706d40f0b4d5b3f"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/materials/vray_maps.mdl",
-      "bytes": 27314,
-      "sha256": "279d9e8ded03c2db928033c843b40a04b104f3fd6fc7ccd284aadc6459a2aa1c"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/materials/vray_materials.mdl",
-      "bytes": 5375,
-      "sha256": "eac4af88c7e39cdba091bf2e76c20adc3f9c9cd65d6d044479065537f70de696"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/metrics/__init__.py",
-      "bytes": 219,
-      "sha256": "3a2e7ff0401a671942ae3a00d1e5f2c260d273e2d75a149d228ceb2a2f5d9454"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/metrics/agent_metric.py",
-      "bytes": 2473,
-      "sha256": "f2a627bf2c919598b1989acc422ca15a3a9c5d75d2fc425ca47c76b4ddb7a53d"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/metrics/metric_base.py",
-      "bytes": 4822,
-      "sha256": "593c2ac7e01ef6bc4a8a4a446307f13a50cdd0117a8a61d3d390b730e51f1fe8"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/metrics/task_metric.py",
-      "bytes": 2080,
-      "sha256": "4c65a29ba0647e9a1ee66b00bf30a7b3796e0e13e4e598379b64fec18922767a"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/__init__.py",
-      "bytes": 2936,
-      "sha256": "b8e71475cb1523c45fc528966339f1f83d2013c7d1dacb70720c5839fa16ddbc"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/aabb.py",
-      "bytes": 257,
-      "sha256": "39dca544602deb49a8ba0581bf0a86b3d78530d2b5990ef8eb14a68f72ee6122"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/adjacency.py",
-      "bytes": 9593,
-      "sha256": "dfd78cc59efc08528be08aa2426e010e1212ee8f4ae7316049b97bfa1c4cd75d"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/attached_to.py",
-      "bytes": 25287,
-      "sha256": "8a57e0182ed15af7c2cdbe8ff956c2390124a29f6678d6342975bf3627c659a6"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/burnt.py",
-      "bytes": 1781,
-      "sha256": "356cc866710b0de9dcafffdb8870cc9e2f3b814ec59c5e0e417e8cd079efcd6c"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/cloth_mixin.py",
-      "bytes": 1356,
-      "sha256": "512df1b8dcbf615069557d8653162c0752b5bf05fc24a7dd20945791b2095ff2"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/contact_particles.py",
-      "bytes": 3306,
-      "sha256": "bbfcaa93a7cce5d731b9b4493897e63ea1f56ee5a6348e5f9ac06b6108e07bac"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/contact_subscribed_state_mixin.py",
-      "bytes": 834,
-      "sha256": "316f973568262d73fef384acd3097ddfde430f5e8348c2c7841da5f3b9629c4c"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/contains.py",
-      "bytes": 4932,
-      "sha256": "6f04d1852f03065fb2107af7a04dbc612df680398bad71aebc87189fad03bc95"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/cooked.py",
-      "bytes": 1795,
-      "sha256": "f29e9e20ef89b38ac4923463e50a3178ff7629567227a20c2b15fd2e026bf35c"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/covered.py",
-      "bytes": 6103,
-      "sha256": "e66e2d1c16dfcd4827e04e1bcb3040b93de760d1d935665c6235f0209b900a0c"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/draped.py",
-      "bytes": 2417,
-      "sha256": "83143cf2be1e0baca6d56ef603bd95adb0e19214d5c12ffc8fbb4c4f759a948d"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/factory.py",
-      "bytes": 6024,
-      "sha256": "ef6de750fc042535ba459f47fa83518f9f5883b90c3df07a6b6b3f2aa9f7b587"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/filled.py",
-      "bytes": 3169,
-      "sha256": "c485306e4ce4c64c387e5e1b739c7806374494b226e51f8651bbed6a26e5f698"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/folded.py",
-      "bytes": 7164,
-      "sha256": "bcc14f6a6dc29bef07e9059227687719cfade76bd8b4e542ec5656694580c15a"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/frozen.py",
-      "bytes": 2030,
-      "sha256": "b376d40230b14e0a461fbc3fdd39e1c2a276f0ff1dd263dccfb2f1b52fa6160c"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/heat_source_or_sink.py",
-      "bytes": 12356,
-      "sha256": "e6f3f0d449df0fd870d3d1f66e4ce9a5e45ec78cd6bcc592c73678f01c771693"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/heated.py",
-      "bytes": 1694,
-      "sha256": "754e85cdb8133532e3271b618e56dc54b5d6e776b7e25779afd4baf2ab509436"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/inside.py",
-      "bytes": 13015,
-      "sha256": "30a4365317b5a023bcdc5a6590bff964e34da7dd6a326763529809892d4839b5"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/joint_break_subscribed_state_mixin.py",
-      "bytes": 798,
-      "sha256": "2a5279ef60d4f9fe48780bc79da2cb17c28aa96cac7c981a586318542f64ee7e"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/joint_state.py",
-      "bytes": 793,
-      "sha256": "7dac7da47d6b72648b710290a16a8cbb74e920ec4fcfa98c2ad0354b1b2d63a2"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/kinematics_mixin.py",
-      "bytes": 2400,
-      "sha256": "e75b3720eab25226befc3e8943865f3830fca2ff1bb4dfd82652ba1a073cea50"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/link_based_state_mixin.py",
-      "bytes": 5344,
-      "sha256": "574fc4f19cc9c9020d17365f9c3f5a3c6b9d858a1199478e8e0821835a0c7a79"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/max_temperature.py",
-      "bytes": 2782,
-      "sha256": "b9281dcf17583b2e22aee6f2712c12f476a84d17c477a63ec19f34c795cd2f34"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/next_to.py",
-      "bytes": 2389,
-      "sha256": "13ed9c99897108b448272166ed279d8601b91eb6cbcf7914714869409ae3f564"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/object_state_base.py",
-      "bytes": 17562,
-      "sha256": "88c2ed318eaa7ee6a14df14f8d75e726c9ace505222e12b732331a20202de924"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/on_fire.py",
-      "bytes": 3883,
-      "sha256": "10768f5780ea94ba431e9bdc429aa47d98500707e1a920c712437764d17e3c01"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/on_top.py",
-      "bytes": 2225,
-      "sha256": "341ca02499665b50260ed7d84e3fb84b4a3e93a7bef28cadce0205fad72edc67"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/open_state.py",
-      "bytes": 11292,
-      "sha256": "ec19a0a866ba12631736d99ef57326e1d4f986873ee4d4855ded9c0231e3ff95"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/overlaid.py",
-      "bytes": 3904,
-      "sha256": "143391519735999cb8849ffcb77455f6f20b04fa573ec6ebce20f51f143b10f3"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/particle.py",
-      "bytes": 603,
-      "sha256": "a86949d091b64cf845acd540bb8a95096a89e3872aa1dbf334e837c2e57a01f7"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/particle_modifier.py",
-      "bytes": 79081,
-      "sha256": "0e869ea368ed942e0089022c87e7c9fb3902f2d17a7d0e0d27a213e0cd85370e"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/particle_source_or_sink.py",
-      "bytes": 11729,
-      "sha256": "448e73cf43825af677e48760b9c06f99f1d29117f027b865e67a7190bb849c48"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/pose.py",
-      "bytes": 1290,
-      "sha256": "8c49bfbd0cdcf90509bf301061df8c1c079a81d3e4192410bcd01dc1ec685d6a"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/robot_related_states.py",
-      "bytes": 2659,
-      "sha256": "ae4783f8ddaa8ed78a150d7ebb961c71ba97cae01a9c4c002a36f34832cf8cfe"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/saturated.py",
-      "bytes": 10581,
-      "sha256": "2c3d1cc5b4e10f291acde35ea2905dd9244e062438e46df5565c6381b1bd880a"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/sliceable.py",
-      "bytes": 1178,
-      "sha256": "b68286b39f6c3aa105007406a11dc0f24ccb304169a906281f01477407b65f92"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/slicer_active.py",
-      "bytes": 7411,
-      "sha256": "9333f2980d3ff95b8876f5cf1f0b9e39a70459a4401ddacb99a0ebb9af850d16"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/temperature.py",
-      "bytes": 2152,
-      "sha256": "29b2dcecb1df184303e5622705f3afa8cf6284fdb27b4596fb3d38421761c664"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/tensorized_value_state.py",
-      "bytes": 7741,
-      "sha256": "850545f093edf5355f47e4aff660b12b3ee9f47594aa546ec89a1cb765f0f401"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/toggle.py",
-      "bytes": 10609,
-      "sha256": "a7a88f4a55242816ab930fe5336cfd94b26e2aaf6e2d33aa0239ed47eca2fd3b"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/touching.py",
-      "bytes": 1933,
-      "sha256": "780a0424da21957bc3485802491432e8b17558ac3f5cfff7ba2f959fd35fbe70"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/under.py",
-      "bytes": 2208,
-      "sha256": "1b82dd69b5691375d48e9e8f8affaca4b5ac511f287a29308f3fd61abcac13ad"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/object_states/update_state_mixin.py",
-      "bytes": 1765,
-      "sha256": "39e045c2fb362f5a0f2dce71fd1186e4936731001c492240f5a4a4765f3badc1"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/objects/__init__.py",
-      "bytes": 373,
-      "sha256": "4b660b1474f9d4bec18c4f42c37d252399e0b55d06924ebba9223115f85416ad"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/objects/dataset_object.py",
-      "bytes": 23897,
-      "sha256": "bc5c03bfc3cf1207cf1e9fab33276c7bc85ff1604de09eee7eaa934d437cbbeb"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/objects/light_object.py",
-      "bytes": 8711,
-      "sha256": "c902ae9573071e71059fbf62d8e2598e86089e779166a800e32cf3ca162c3629"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/objects/primitive_object.py",
-      "bytes": 18202,
-      "sha256": "f3173c0e4178f3b141a532239d70b37ecedb82ea5362736890236bd5e78464a8"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/objects/usd_object.py",
-      "bytes": 54245,
-      "sha256": "25ada5ff14866e898ed1d6b025f0fec1c5c3acbf16d3631a9e73bb848dda3846"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/omnigibson_6_0_0.kit",
-      "bytes": 1598,
-      "sha256": "fb2bd9b2907b34aba8928fb4f20fb23a0e0fff9103e16e89b3e67620d5bc9515"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/omnigibson_6_0_0_vr.kit",
-      "bytes": 1597,
-      "sha256": "4aa05da74165b80321cdee556e498714a18ea96c1f7d4571da382bb8e710bdee"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/prims/__init__.py",
-      "bytes": 665,
-      "sha256": "f46f37851b137ce05c8669a729e0481f512a2a4a5f7b4c519ec9a91dfe7519bf"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/prims/cloth_prim.py",
-      "bytes": 42592,
-      "sha256": "1ccec4b07d84394d1f08d231cb8db805488f76811398ba8f9918fcbf1eaafe52"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/prims/entity_prim.py",
-      "bytes": 68492,
-      "sha256": "c33bcbc0c984751b630715c64e175d1275a896e143516f4ad359b5343e3ea8f8"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/prims/geom_prim.py",
-      "bytes": 12815,
-      "sha256": "82f38e0e529dace138e286ae840c812c94a7f22a7d1b66f5717f1a5792439d75"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/prims/joint_prim.py",
-      "bytes": 36176,
-      "sha256": "af241ef3e617ee122a04aabd89c822abc7c06f9aa382eeed458c52c259a9d024"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/prims/material_prim.py",
-      "bytes": 28840,
-      "sha256": "cf7497fab0e1025d0388239bc281e8588b42a681a565f4153da2bf7d93419321"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/prims/prim_base.py",
-      "bytes": 11485,
-      "sha256": "30d081a08bd35e2b840fcd822e7958adbcf9a53fc0f349628f3e18198a3043a1"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/prims/rigid_dynamic_prim.py",
-      "bytes": 15473,
-      "sha256": "839a1118c4354ad0d62fcc394796f224972f3e58f120a02a6b4d8e2438f2c17e"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/prims/rigid_kinematic_prim.py",
-      "bytes": 6579,
-      "sha256": "744ef5e66dd339ee75967b5919e7b074f8e300886d45983d143d40165bb42246"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/prims/rigid_prim.py",
-      "bytes": 26850,
-      "sha256": "38be5a38cc1595eea71201c8599578dd5dc9c753dca0f7cb0cdfa9ab94fa3067"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/prims/xform_prim.py",
-      "bytes": 22306,
-      "sha256": "7a52fe6a45346580e945bf922a9152622370f8b78a1476c0cdd56f27e6220005"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/reward_functions/__init__.py",
-      "bytes": 664,
-      "sha256": "250e201e4560748858c031f4aa4f2df60d8bb037be0b08d44ac8a475da8a3b8b"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/reward_functions/collision_reward.py",
-      "bytes": 1731,
-      "sha256": "a9f9d56837b2d100a6c58e06aeb8df7f47fc43f9f54e524c80e21d57db232ca2"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/reward_functions/grasp_reward.py",
-      "bytes": 6864,
-      "sha256": "67fcd7fc24cdd6f3b82240e92c934e41bc69a55c64fbc0fb317197bd5da28255"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/reward_functions/point_goal_reward.py",
-      "bytes": 811,
-      "sha256": "f4c14f64cb1a7cd890f610bf8561df60c258b490dd118a891e19ed3f3c368868"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/reward_functions/potential_reward.py",
-      "bytes": 1683,
-      "sha256": "19adb11c7c55373ebf8e5fe36577ed21fe720446af8543091676e90f8125a2a6"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/reward_functions/reaching_goal_reward.py",
-      "bytes": 1275,
-      "sha256": "0e7c90fc7efb2fdbd3b3e56d5b8767b5dc09185c8edf80a381a6518a52bc72bb"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/reward_functions/reward_function_base.py",
-      "bytes": 3068,
-      "sha256": "133e1111ff361d73fb46fa5b73c3cef1525c20bc542555c920f1df1a474be495"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/robots/__init__.py",
-      "bytes": 346,
-      "sha256": "bf51aca37f2297ffd4bb9fd16e89b526d43f9c8bfc3785b38b7ee49763c9e109"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/robots/definition_schema.py",
-      "bytes": 4345,
-      "sha256": "37167bbb8115918a84b33e316bc859270ac35aeeae27e56ebd3a060f5db61149"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/robots/robot.py",
-      "bytes": 199853,
-      "sha256": "998826feedcf8c28208681a809cbf4500d3da0cbf1f6d07a7384627e09726271"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/scene_graphs/__init__.py",
-      "bytes": 0,
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/scene_graphs/graph_builder.py",
-      "bytes": 13826,
-      "sha256": "40094a74c0fa677bd0839071f9ec4154da0a5e5e6ce55327ee5e7346f36d9fec"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/scenes/__init__.py",
-      "bytes": 439,
-      "sha256": "953e26d6f77369e5e1da19dd0a030916661caf6d81681f88de193806f14ecaf2"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/scenes/interactive_traversable_scene.py",
-      "bytes": 11120,
-      "sha256": "2af023aa7eeef414ffd11c80ad119df658a7a5f24ad8ae8ff3764af0c4b43a38"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/scenes/scene_base.py",
-      "bytes": 50889,
-      "sha256": "16e4a4bda8ef511fa72bb38d86c657f74b2ec0551a2531e814b80e11e59a85ef"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/scenes/static_traversable_scene.py",
-      "bytes": 5753,
-      "sha256": "cd63a1ec514371c28180cfc2e837334bf643b2d23e86db9da56484dbb2c354ee"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/scenes/traversable_scene.py",
-      "bytes": 2905,
-      "sha256": "4d2d7a55d6df9d93c530b590b800c40d253ca9fbb90d5d461129bbc9e9e91fc3"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/sensors/__init__.py",
-      "bytes": 3526,
-      "sha256": "a4be79249a1fb2f7dc2bdf55e3b44755d2fff2fc2ecf28639a9db752f7ec08f9"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/sensors/dropout_sensor_noise.py",
-      "bytes": 2651,
-      "sha256": "e4299170199a083f80e9722a03c2ccb84b1a3fd514127d94927c88748b56e1cf"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/sensors/scan_sensor.py",
-      "bytes": 18845,
-      "sha256": "d3d9f103ae674ba069dfba3efdeddeb4b7d123567094612ebf389100bc888725"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/sensors/sensor_base.py",
-      "bytes": 8434,
-      "sha256": "2d867daa194ea63a111c398a142a74fc344c5071714d25ec2dc01bce5e3ba37a"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/sensors/sensor_noise_base.py",
-      "bytes": 2923,
-      "sha256": "e5e991b58740b181cea7bd1384265a05fed619714c3fcf44658f47b7bf4aa938"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/sensors/vision_sensor.py",
-      "bytes": 53108,
-      "sha256": "7827dbf8045582c2848ba8298105b5c8addf148b8bcafdca53dc5cadc192a9bf"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/simulator.py",
-      "bytes": 91427,
-      "sha256": "bc6b4561aa74ebbb8989f1e654618d966b67da3aab6040e522de69e198e1e35e"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/systems/__init__.py",
-      "bytes": 711,
-      "sha256": "c04416e700fb53436b44578653671c760e0dd8b7129b704d54c29205225343f3"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/systems/macro_particle_system.py",
-      "bytes": 69605,
-      "sha256": "6dec978751f46a4fe06a7b3f060ad4ab50608c489499698488dd038cae3b3b14"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/systems/micro_particle_system.py",
-      "bytes": 71057,
-      "sha256": "d1a7cfa35e623a980dc7ea122dff3c6d175a24d23991ce581487b7db8b87c05f"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/systems/system_base.py",
-      "bytes": 44750,
-      "sha256": "28372303aead6cd73cefa34427c99f2432bf4e7ddc5439a145083b1e16cc5c46"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/tasks/__init__.py",
-      "bytes": 495,
-      "sha256": "2bda31b43c1be2c6adeafe28d26d0d7aa2e46fbd26cd8552f9ca2c2d6bc3700b"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/tasks/behavior_task.py",
-      "bytes": 36232,
-      "sha256": "1a0535830297201af3e54694dc7f225f375b25868fe467293cbcfc9908b53d51"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/tasks/dummy_task.py",
-      "bytes": 989,
-      "sha256": "f70ae434f447cbafd59d1ba064d10b85d647e06a92e9e0739a52757ce359cd4e"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/tasks/grasp_task.py",
-      "bytes": 9675,
-      "sha256": "6805e2679d9521de4628955e0982a3b1ded9a2517a2d840464abb1333b7513d7"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/tasks/point_navigation_task.py",
-      "bytes": 20495,
-      "sha256": "c3b1f5274753cc1b5709717a520dfb6181a0d2ddf1f32e247ea10c58e8365ed8"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/tasks/point_reaching_task.py",
-      "bytes": 6745,
-      "sha256": "0be6d9c23810b276c0cece582389730ce26e51b4cc7f134d44b6c0a7cc82f641"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/tasks/task_base.py",
-      "bytes": 16733,
-      "sha256": "6614585f68aee9c012265a91bd0dc6413bf65961bc9d641cec46dae721a61298"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/termination_conditions/__init__.py",
-      "bytes": 982,
-      "sha256": "9522f9385d53acaf0efef6512d4315c6e62bae182a1444aa2b9e21493479f407"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/termination_conditions/falling.py",
-      "bytes": 1824,
-      "sha256": "1006374d1546930646a302176d5147fbf29c33a16037fabf02b6bb493bf46aa4"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/termination_conditions/grasp_goal.py",
-      "bytes": 597,
-      "sha256": "b48a985fbf5d95e4e46da2eb71f687b36ff539fe5416c3871603ac122090a7b4"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/termination_conditions/max_collision.py",
-      "bytes": 1892,
-      "sha256": "233b5be734de7fab00f3d7ce91e0a6bf78f03a899548cd1c1d80d74e71b84e49"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/termination_conditions/point_goal.py",
-      "bytes": 1779,
-      "sha256": "ebc894d7f06b2db1c4c4cfac333c6bc93c3dcf436f1d910c0bc542e95e006652"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/termination_conditions/predicate_goal.py",
-      "bytes": 1401,
-      "sha256": "af578a68094d065fed64fad240a8ecdb0510365757b61ce0c22df93032c17c15"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/termination_conditions/reaching_goal.py",
-      "bytes": 1111,
-      "sha256": "7268a37c59ae728589ed64181c87abe934c0bd54bf69b0cf0ad9c595243bbf13"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/termination_conditions/termination_condition_base.py",
-      "bytes": 5053,
-      "sha256": "2e4f510fa5b78eedce078fac816c96f7a4deacf79aa270510f4d476c4c917f2b"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/termination_conditions/timeout.py",
-      "bytes": 627,
-      "sha256": "51b618cacbfbf3680dc23a156b0b239d119b59395824b9a3bd5ba79bde6ddcfb"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/transition_rules.py",
-      "bytes": 111332,
-      "sha256": "506be33c3129cf6ce9bcfe89bbac13ff8c5b64a8ca9f39736f0d2350f26014fb"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/__init__.py",
-      "bytes": 0,
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/asset_conversion_utils.py",
-      "bytes": 112834,
-      "sha256": "572ff2b19253c86eab0e40e7475c02032bee92ea28c750a8635f7393e00353c9"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/asset_utils.py",
-      "bytes": 27027,
-      "sha256": "6fd87f8bc31c89d74691757f779c4d39961702a957dc470d711fb4f0aaac98a5"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/backend_utils.py",
-      "bytes": 5791,
-      "sha256": "5970bdadf4f25d396ce83aaf536ab06f6be0e82eb25a9eb9e146c458e5647216"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/bddl_utils.py",
-      "bytes": 74443,
-      "sha256": "5bb709c1b9e6d5b9b4db8d3253407e6416d43b1e98277aee758c8ca768671d7f"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/coacd_runner.py",
-      "bytes": 586,
-      "sha256": "481d32d0bbdc198bdb8d1de1601249ccd627a0d34d16bf6f7fa976178e6b4d2d"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/config_utils.py",
-      "bytes": 1693,
-      "sha256": "137edcf9dde770e43ecb2071b8967dbbd124478a9b96ff17a1f6d18172b44b9b"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/constants.py",
-      "bytes": 5218,
-      "sha256": "43be6dba26481b31011e487595609ba08318174c6759ec218f8f73eab3e7b915"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/control_utils.py",
-      "bytes": 5602,
-      "sha256": "54a30987100f6a13b9adb7635ded9e51e86335b7f56753bd340293267fc6b1a2"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/data_utils.py",
-      "bytes": 8735,
-      "sha256": "6f443ad6569c1881d7cc4c63717ca2238f0a8e062b4f506d49354d1d31ae541c"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/deprecated_utils.py",
-      "bytes": 60627,
-      "sha256": "7925a9821606fe03ceec779f4aac1b262e8b866e471d8f18ffbdb144232b68b5"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/geometry_utils.py",
-      "bytes": 7433,
-      "sha256": "a692497411295869e216f1d0ddddd9047d7bf30e673cb1580a3ce2817472c7fd"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/git_utils.py",
-      "bytes": 646,
-      "sha256": "4dff9b8b299be20aeaae31646b14a8962435adee73b9b945b1e4ac42b38c623f"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/grasping_planning_utils.py",
-      "bytes": 25957,
-      "sha256": "5d76d0d1b1def3f28062c854b9932e47a04b09fbea40953207f5ad80f652d8ea"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/gym_utils.py",
-      "bytes": 5604,
-      "sha256": "38becc89b3f48afbb52b980e255b29f524494b84af3c0c8c1d9747aa5fff7a6c"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/lazy_import_utils.py",
-      "bytes": 1664,
-      "sha256": "cfb41faecbaa1d3e6b127776db0ccdfbd68ff7d10cdb9b5efaeb6aa07ea61b68"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/motion_planning_utils.py",
-      "bytes": 24655,
-      "sha256": "adaa03e50e3b63ff8f08dd7600a221dcc6a5eff86c94098d831287edeab46970"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/numpy_utils.py",
-      "bytes": 981,
-      "sha256": "01b6dc80eccd141393dc7a8a6d8a4f3e0198096198e8181f25c4e0d45253abe4"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/object_state_utils.py",
-      "bytes": 18883,
-      "sha256": "c71d84fdcc0cdd5269a6317a9e549c430e8f4ce9f0e7a737f5bff5a56e00c873"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/object_utils.py",
-      "bytes": 5297,
-      "sha256": "54e07181c026325a2128d5c1aa88e37744226c28e3d4c54e0b7833ee26861997"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/physx_utils.py",
-      "bytes": 14167,
-      "sha256": "29ea8c18f477b1f0be7c056f5e5d0d6d5629d7352ba3d6bbf78211c97739cb3d"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/processing_utils.py",
-      "bytes": 13565,
-      "sha256": "a9e212330515f390de3b9fce53822f57b7d06636149a5d5e2c14a90b0b4694f8"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/profiling_utils.py",
-      "bytes": 3426,
-      "sha256": "50ab8c1bc515ec8e158a99229949158e45d8258d8e74138fd443065d31bba471"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/pynvml_utils.py",
-      "bytes": 147727,
-      "sha256": "c5772bb9e11cabb340957d369f606576d269141fc4e1d3f7fe25c539032fd316"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/python_utils.py",
-      "bytes": 32874,
-      "sha256": "2d6ba4bc43b07a4e266f3b7048de2cd72efcb39f817acadeafb9488577a88869"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/registry_utils.py",
-      "bytes": 21211,
-      "sha256": "2a41c529749e3b681b8e28295d1f6135584822a2e435bdd6febcffd392102210"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/render_utils.py",
-      "bytes": 2881,
-      "sha256": "653e512a34287a0ad1d6c231b140909251106d920869505dbbddc8dca21da259"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/sampling_utils.py",
-      "bytes": 59514,
-      "sha256": "de521f179916cf1d7cf2f7958662618b2afeffb8a8a328a58f99ad5ee43bc27f"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/sim_utils.py",
-      "bytes": 785,
-      "sha256": "63468b34701737e3c9899bd3f5f8d181730a62af7bcc903092a8e445724d8de8"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/teleop_utils.py",
-      "bytes": 33396,
-      "sha256": "d4893e498d3a61f9686cdc1e2b021fdaf5c65aaf434ab31e4cf73e210321a7c4"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/transform_utils.py",
-      "bytes": 52143,
-      "sha256": "1db705e2fe4fb568d0652c9112d1d8e7e4efe714ed5d7ede3ed4ec9712a2ea78"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/transform_utils_np.py",
-      "bytes": 44889,
-      "sha256": "294e515ce83988032ea6611bc4501cc0fe89e9fb0d653de087d8bc8880643fc1"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/ui_utils.py",
-      "bytes": 50450,
-      "sha256": "a9aecaf38efbb0f62df7edabcc857b88ac7dca78791b2f6bc0fd7e1ca6eb36db"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/urdf_preprocessing.py",
-      "bytes": 11995,
-      "sha256": "4393ad75768af751b96cc8cff39205fad1955e59f975e6079ac2117826ec7416"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/urdfpy_utils.py",
-      "bytes": 132972,
-      "sha256": "074b38831127e0b686089499bd00424a2dbeeb4feb94ba04d61ced060b448238"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/usd_utils.py",
-      "bytes": 129937,
-      "sha256": "19a14c5660d923dc73e0b7e8605dd59f31ad8ecdf6c1cc167786e922bde5556a"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson/utils/vision_utils.py",
-      "bytes": 15643,
-      "sha256": "cec15f0388d0657f2465ce7ef316e7476bc0752653b108fb5b3db27882e98ae7"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson.egg-info/PKG-INFO",
-      "bytes": 5718,
-      "sha256": "780332104a830af83b5837bf5dbc18361cb71c0e9c983bb5b2909d13ff4fc3fd"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson.egg-info/SOURCES.txt",
-      "bytes": 11508,
-      "sha256": "af6bab126b7578b0e65b0615284a879445415270c09f4f3a60a96c348c5bb0ab"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson.egg-info/dependency_links.txt",
-      "bytes": 1,
-      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson.egg-info/not-zip-safe",
-      "bytes": 1,
-      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson.egg-info/requires.txt",
-      "bytes": 1164,
-      "sha256": "71c93ea209347ba96cf564f9e704eb17236a3b9475f14822fc4106932ead0a21"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/omnigibson.egg-info/top_level.txt",
-      "bytes": 11,
-      "sha256": "9dd7f953d491d6e8cd45522195d65864db6362587b4208603c7886f13e9c738b"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/pyproject.toml",
-      "bytes": 1102,
-      "sha256": "5892bbd5469f08360d737bac670e4fc04afc412424669cb63fdd6ba8a5011352"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/build_docs.sh",
-      "bytes": 283,
-      "sha256": "b885c7d98e8b5a137d3b53c9e0a8e9459988ad3dc6328cf04112a86d511e2bb0"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/learning/aggregate_lerobot_task_shards.py",
-      "bytes": 10942,
-      "sha256": "7639dc8a5024706449f80a1db1f489a21d096148a0bf7575a2ef49de52cc0f80"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/learning/benchmark.py",
-      "bytes": 10946,
-      "sha256": "ddae694210247c7edb5f9176590827eb6a1a50baf8e17d192f1d9546659908c0"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/learning/download_gcs_rawdata.py",
-      "bytes": 10816,
-      "sha256": "88827a4e7297970202a7d2534ccde2144ae109300140e3490cc4fa793fd494f3"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/learning/download_gcs_rawdata.sbatch.sh",
-      "bytes": 5384,
-      "sha256": "8a48c36cbc53d93d1bc47de6722e4f962f0f53f191fc708ac9d5473b43a102e9"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/learning/generate_gcs_rawdata_manifest.py",
-      "bytes": 5076,
-      "sha256": "2130ff8a8244b1128d0cfed8d1f063da43ab79e2c542e4103e1624042294a740"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/learning/replay_data_sc.sbatch",
-      "bytes": 6630,
-      "sha256": "c66941f82ec62494239801d56cee98e6b5ccdd56cb9e12ca607f1c7ef5c2b551"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/learning/replay_obs.py",
-      "bytes": 9522,
-      "sha256": "c13d768953037e968de12b5f6337d9c392b20b62987a4407854c37bd4858ea27"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/learning/update_lerobot_base_qvel.py",
-      "bytes": 24147,
-      "sha256": "4b3a43770f94187e46a71be4ece74a90881bdcd50407317b9232d7247b749d92"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/learning/upload_to_hf.py",
-      "bytes": 1077,
-      "sha256": "3e477bc147e365e22b9945cde280c72953df876032e15a8244be428c52d08165"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/learning/upload_to_hf.sbatch.sh",
-      "bytes": 751,
-      "sha256": "b6870422e3ec5c1f0985a2b9cbc7a79970ea4179bb86b037f4b5c35e005e1539"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/learning/visualize_lerobot_pointcloud.py",
-      "bytes": 12313,
-      "sha256": "784cf35539052f516ff33ac332f86ae2e4a8f511b2126e1287277e099640447e"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/profiling.css",
-      "bytes": 1049,
-      "sha256": "34d60b27cf49af4b3d0f03f75757a2d14db5fbee9c6327f84cd8e6da13b856fd"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/profiling.html",
-      "bytes": 10617,
-      "sha256": "85eb15ddc031f502cf401dfcb5067fb0953a0a5b14032f22f892315257342338"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/profiling.js",
-      "bytes": 7024,
-      "sha256": "a3dfe734e70ca2fab49ac1572a302699f576bd4d80654a054edd0979912b8a0e"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/profiling.sh",
-      "bytes": 1076,
-      "sha256": "c39199887fbfd328ae82b0a9731210b7b2d026fa0e42b33546267c7d27e8a167"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/sampling/autogenerate_task_custom_list_template.py",
-      "bytes": 19220,
-      "sha256": "008d466022ae995648024b0e7570aeb9576ceb93c5c4328bf527d7466e6cb50a"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/sampling/challenge_instance_qc_gui.py",
-      "bytes": 48119,
-      "sha256": "9af0ff3c3a3281c1ab755eefe6a93158beeb9e3f01a46fe2ad78ef0d04c7e65a"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/sampling/constants.py",
-      "bytes": 218,
-      "sha256": "956700553c3f4144806caa1454f52876acb8e665d37792158e39bfe2129f207c"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/sampling/extract_task_information.py",
-      "bytes": 4086,
-      "sha256": "0ce6a166701792b8355442a0a0e80a956a3809e371dd700c028f727ff374fc67"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/sampling/floor_plan_visualization.py",
-      "bytes": 7762,
-      "sha256": "21de41db104a2acdac9b1e282c05dcf098c482da1d07ee943bea2cdb28be5cd5"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/sampling/multiply_b1k_tasks.py",
-      "bytes": 6459,
-      "sha256": "6f54ebe1c2184df6ed7d924f8eff12d71067bff6370a7532e274dfc7981ff01b"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/sampling/postprocess_sampled_task.py",
-      "bytes": 2328,
-      "sha256": "94ed60b6fbd53b79e3b32c2a32154272823710da91640e06b46def75b51ed12e"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/sampling/sample_b1k_tasks.py",
-      "bytes": 13332,
-      "sha256": "436991e0d204a18f7875fddab4011cc0e19757eb553e61f433eac7c4c4f5f3c4"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/sampling/sample_robot_pose.py",
-      "bytes": 10762,
-      "sha256": "9854221fc073599c442d24e21f7ca2caf1ccaac87eb1f255195587b8145069ee"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/sampling/task_custom_lists.json",
-      "bytes": 59376,
-      "sha256": "2c4f6e5b74ba9ae10d5252ecd3f2c7bdb707bc11e81370ac07c4bb221b34df3f"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/sampling/templates/challenge_instance_qc_gui.html",
-      "bytes": 26473,
-      "sha256": "fadeb56a471af23ae55d177a4347966660e2d66e439f6af1182eef66d1d33364"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/scripts/sampling/utils.py",
-      "bytes": 19659,
-      "sha256": "a4b8a75bed8527bb74176a2a1159fd1a2388009e4bf63628a45b824d5e81515a"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/setup.py",
-      "bytes": 2816,
-      "sha256": "59c0c805d26575736e459dca1d1cdb319d881cf599d329ef4e7cfe12277d684e"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/benchmark/benchmark_interactive_scene.py",
-      "bytes": 4423,
-      "sha256": "193ea62aa3f0b72806cb6ed61353d1a8518ec60f96f4bb42b3f51b660ad7fc6e"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/benchmark/benchmark_object_count.py",
-      "bytes": 3246,
-      "sha256": "5b3731162c159a904e71737a931e0962ec4074d9d8b04fb345aa618e0f6d0d1e"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/benchmark/profiling.py",
-      "bytes": 8711,
-      "sha256": "87c8238ed0bd951916bd2d436dc046b75c867d015f1d12d763e34974b0636a9b"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/conftest.py",
-      "bytes": 10723,
-      "sha256": "8b8f9174ccebf7d023ab1ba5546d73ed22511586fcb89ce1dd9fee101d367254"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/data/r1_pro_source_config.yaml",
-      "bytes": 12141,
-      "sha256": "2c7b3542f8c30c507bf7285c9e4ded4d583112bc6e6933845f12a572446a9a9f"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/requirements-tests.txt",
-      "bytes": 63,
-      "sha256": "6ca61ef6ca0d94b03a53257b34c7c6cfc23416d29cfa5aefa031ec955fc28597"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/snapshots/golden/robot_in_empty_scene_seg_semantic.npy",
-      "bytes": 3686528,
-      "sha256": "69797c041c86c980f128efaf812c91175737e4286764f7daeca27053864dead9"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/snapshots/golden/robot_in_empty_scene_seg_semantic.png",
-      "bytes": 6358,
-      "sha256": "d2cb289613b9dbe95df96183d58de5e227ba178e7b9365a82ba716e8071d74e0"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/snapshots/golden/rs_int_with_objects_seg_semantic.npy",
-      "bytes": 3686528,
-      "sha256": "218343c6d39c722ae2c535062c84e25a833779b94a20e710e8da96e8be82b9ba"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/snapshots/golden/rs_int_with_objects_seg_semantic.png",
-      "bytes": 20586,
-      "sha256": "995980b432b9c3feeeead23136726cd156663b3fcabc1d1dbd78cd189683cb1a"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/test_ag_states.py",
-      "bytes": 12176,
-      "sha256": "445cf0920999b910494c70e2e290c219000fec295e2212ffd3234fad129c7e35"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/test_behavior_task.py",
-      "bytes": 1059,
-      "sha256": "d4798b62da38c9ae916f96b1220ed13e6aae005ec6979b030534074d98d66785"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/test_controllers.py",
-      "bytes": 23728,
-      "sha256": "aa24e826040ebcd9060e7d7deba2f97010687226bb5b65cf6bffd7888ca50120"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/test_curobo.py",
-      "bytes": 20775,
-      "sha256": "202702253a0fb2c2a2e6e5a34a8f0bba2184f0a5062da8b8fe3daac90bbd4982"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/test_data_collection.py",
-      "bytes": 26705,
-      "sha256": "137213d62558f20648294523ec9086779593102703016de75cf14af4230a2411"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/test_dump_load_states.py",
-      "bytes": 2608,
-      "sha256": "f96a739c0db35360727a705007688fe75a9afc6923937f6fb408f02a7d228b2a"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/test_envs.py",
-      "bytes": 2075,
-      "sha256": "ed3557e0f4c1da2fed620f7ddbbfa7ce3809baa47a097572c8817210251e501f"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/test_examples.py",
-      "bytes": 2974,
-      "sha256": "9408bc9c22f00e0d45f6f7b76d3453a2b567082a92ace1330b8ddd3b1feaf166"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/test_multiple_envs.py",
-      "bytes": 21054,
-      "sha256": "3b997b7ff3fd6f34d41c321c9177e0d28933df1dfbb1704fa04b61428323c0e3"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/test_object_removal.py",
-      "bytes": 1766,
-      "sha256": "8689ac7ad9dfa14f38622158dfbd300e7f72e235b8d11dcd5c9540533a91b742"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/test_object_states.py",
-      "bytes": 50982,
-      "sha256": "095ab8866a8a838b7a6510404dfb13da3ffaa42a56f640b5dbadd30b719ff081"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/test_of_example_template.txt",
-      "bytes": 151,
-      "sha256": "7fb4d4a89c02f997563e7b82c7f2226331f065e4ecbdf2dce4aff66704e74598"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/test_primitives.py",
-      "bytes": 6360,
-      "sha256": "2bfc25cae6bdb47233da3b6d1c3177068030220bbdcfa440b935215ec227e005"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/test_robot_states_flatcache.py",
-      "bytes": 17461,
-      "sha256": "b0bbea309f8feeead854f6bd175712f0310fe5aa4c4d494d8dec36feda7539a3"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/test_robot_teleoperation.py",
-      "bytes": 2219,
-      "sha256": "332141d6e0daa89666c4235890e1bfcfb7805d6c6d4ab8608a98e143eb33d4e7"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/test_scene_graph.py",
-      "bytes": 3662,
-      "sha256": "23d440fed2c075deb2ec6403ae9178fa8a8cd027993e10389219de63a406a8d6"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/test_sensors.py",
-      "bytes": 4988,
-      "sha256": "ffe1909d723051a0f17d6f040fa9868fa33598ed1ccf9eb4878ae35c674c6d64"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/test_snapshots.py",
-      "bytes": 6648,
-      "sha256": "92fe9a8c50c70129e430351128d4a1aa849079302b2fc16b8cbb3a3e620b451c"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/test_symbolic_primitives.py",
-      "bytes": 12290,
-      "sha256": "7c452e7575f0d62881ccf9a273228230a09f77aba6ea6557c62bbb99f050c747"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/test_systems.py",
-      "bytes": 1802,
-      "sha256": "66d379bc7e4860b2655c81f13ee4016f4a8ac2359329e26b63965196f7683cdb"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/test_transform_utils.py",
-      "bytes": 19829,
-      "sha256": "9ca3888fe64bc392ac15fa4beae64870e4cef089bb06d158e057790627a5dfa6"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/test_transition_rules.py",
-      "bytes": 58902,
-      "sha256": "53b445d6ed14b01bf63f05527e607cf655c9924164cf11e4ee35201b996ebbf7"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/update_example_tests.py",
-      "bytes": 5002,
-      "sha256": "2f793079e20458ae16f79787f75e342bf71d9d7caa4cf98993169a9d9e1aa9d5"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/OmniGibson/tests/utils.py",
-      "bytes": 2420,
-      "sha256": "8fc48be639be04b1f1bba05524e7a74f97d100822d60bb4a7908a4f94024beb2"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/PORT_PROVENANCE.json",
-      "bytes": 5153,
-      "sha256": "7f82230b20ab1aa03e6d71753542ec069389ec3590a98e8a49e227ccfa56eec4"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/docs/assets/OmniGibson_logo.png",
-      "bytes": 72191,
-      "sha256": "415480a53ed07ee3b909b4a3510f0aa44c4f44aa23296713ebc07af5a461ec23"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/.gitignore",
-      "bytes": 35,
-      "sha256": "d26973f530be4bce84d00007380fb5e1c09374306e02e2e39077e82d379d026a"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/ASSEMBLY.md",
-      "bytes": 1317,
-      "sha256": "ac99a16acda5cbedcf3fe9cfadc60b1f6c7fec2436970b83e26f56dc20e9c5e1"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/README.md",
-      "bytes": 8179,
-      "sha256": "cd5874584521041dc0bef28ad81ba616e4a6f18fee0e6eca00c79189efceb560"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/gello/__init__.py",
-      "bytes": 93,
-      "sha256": "a6c9947842afa911c424ad285cd29cd5c2efd26890ac1a3047864fd3b9227d96"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/gello/agents/__init__.py",
-      "bytes": 0,
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/gello/agents/agent.py",
-      "bytes": 530,
-      "sha256": "7534ca52c78155062bc586d842053c04fbbac9fd1db7cf81d71198b68a20f040"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/gello/agents/bimanual_agent.py",
-      "bytes": 12946,
-      "sha256": "6b5d890665efa68ae0597889f93eabb3912d1311d1404267413ed9c6970ec897"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/gello/agents/dynamixel_arm_agent.py",
-      "bytes": 4611,
-      "sha256": "2bc45838659a667b49980372f1cc50734c8cc669488a78728134136c7bf236a9"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/gello/agents/joycon_agent.py",
-      "bytes": 14682,
-      "sha256": "c315364ab0cd266eab1383212537617ef5722321f7bdadea14c1d927d90e827b"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/gello/env.py",
-      "bytes": 1372,
-      "sha256": "f2dbe8c660a99c3725b9c04c39ffeeda89727c95b76485045d4858b39b1464de"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/gello/robots/__init__.py",
-      "bytes": 0,
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/gello/robots/base_robot.py",
-      "bytes": 3678,
-      "sha256": "951a86efbab2ba4e5a7ac616d52ac6b42498ab583dadec78b39bb871ae38347a"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/gello/robots/dynamixel_robot.py",
-      "bytes": 6139,
-      "sha256": "80710cc93317340ed6d2fdeca8914b562a77223d9a0d89d4cd0c39df0d6b258a"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/gello/robots/og_robot.py",
-      "bytes": 49534,
-      "sha256": "67b22a2525447629940b4a5aa2e102b80aa49ffe0cb04d8f2fc735227d83f5ea"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/gello/utils/__init__.py",
-      "bytes": 0,
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/gello/utils/dynamixel_utils.py",
-      "bytes": 22112,
-      "sha256": "0cdfb9d38b5354f01a7783e1c8b6153c22bc287fcb98348a756d09c32682b8ed"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/gello/utils/og_teleop_cfg.py",
-      "bytes": 13549,
-      "sha256": "502dc53a5a5e4d4c68c3ca002f6c94852b08b3faabeb56ec117b1b6d5eca5c00"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/gello/utils/og_teleop_utils.py",
-      "bytes": 57944,
-      "sha256": "b9bed3065c13ed9ac9c4e49439c9a25aff40c273fa47af79aee035cd6f877694"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/gello/utils/qa_utils.py",
-      "bytes": 49024,
-      "sha256": "b4b0a4f2f79f2f525d3ee9fc413049af7c94511f96e36a5cffada4fed9ff1ff8"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/gello/utils/zmq_utils.py",
-      "bytes": 4428,
-      "sha256": "8b60eaeff7db7adece5d9de2d4db7caa48517f29a220687d9141dd7c5a8bf3f0"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/imgs/R1_calibration_L.jpg",
-      "bytes": 2811510,
-      "sha256": "2f8866bda00f7131c51662344a82a859ed78e9987d5284081c6e4a63de1ed185"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/imgs/R1_calibration_R.jpg",
-      "bytes": 2562848,
-      "sha256": "14c4ffdabc83c82ed3200dd756c7aef2ff400fffdc45133399a6445a0a0bfef6"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/imgs/R1_zero_L.jpg",
-      "bytes": 2903243,
-      "sha256": "66a4e50757bc30ba5e13c387148514d4fa9ad8d363625e76f92ea1cf4e494c2d"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/imgs/R1_zero_R.jpg",
-      "bytes": 2873259,
-      "sha256": "7ff518dceb1afc67b6ff7a17a329af8f97b24ceb4cb9aaaa7d967511e721157e"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/imgs/R1pro_calibration_L.jpg",
-      "bytes": 2243588,
-      "sha256": "429323776c014f6d328182ec0f40f87e1b9c46bf029f6304b7300f2384cd9d0a"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/imgs/R1pro_calibration_R.jpg",
-      "bytes": 2000307,
-      "sha256": "8cfb2c489a5e3469a522310f9f4d756358f97d911b8bc79080a9ef557a9383e5"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/imgs/R1pro_zero_L.jpg",
-      "bytes": 2690604,
-      "sha256": "2ef3d298b220af0ef8205dc0640281159497d6550d93227ab038d5d9737c4c35"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/imgs/R1pro_zero_R.jpg",
-      "bytes": 2653982,
-      "sha256": "5ad1b93d2e01ef41cf199a5bf9c5732a0685aca46f13d48cbeaf158212ef281f"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/joylo.egg-info/PKG-INFO",
-      "bytes": 9284,
-      "sha256": "fd8d2cf9391ceacdefd6f4a1964ff30e9e366d7e03508b995e98f7c1ca1c2256"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/joylo.egg-info/SOURCES.txt",
-      "bytes": 851,
-      "sha256": "dbbbcb8da8bf3a79ff2f1d9add9ee84092add294c849ef6e72bac1fddab155da"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/joylo.egg-info/dependency_links.txt",
-      "bytes": 1,
-      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/joylo.egg-info/not-zip-safe",
-      "bytes": 1,
-      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/joylo.egg-info/requires.txt",
-      "bytes": 223,
-      "sha256": "a9b8f18efbce4abd28baf0aacb3713467f7cfdc283d8a279a76e535cc99199b0"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/joylo.egg-info/top_level.txt",
-      "bytes": 19,
-      "sha256": "ca20660d1bd9c569239ce17aa1d441996cdecd7534e36574a03604f6f36f99fe"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/kill_nodes.sh",
-      "bytes": 28,
-      "sha256": "19d37c761a8da58d3190222c6c0468204eda7a9e98340cae876bfa8c2f0445ce"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/pyproject.toml",
-      "bytes": 1077,
-      "sha256": "2df1cc6451a9a9e01a8ba826a32832e2ec1c934bafc2d6f6d3bab9b5f8b064c7"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/scripts/calibrate_joints.py",
-      "bytes": 6081,
-      "sha256": "0ccf29efff56bcc160f972c64306883ea8eaeae25bdd457be7372777b2807eaf"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/scripts/calibrate_joycons.py",
-      "bytes": 2669,
-      "sha256": "3647a5f431a6dab2c32b35489c733b20d31a1b719866566a35ee19ebd5230379"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/scripts/launch_og.py",
-      "bytes": 1017,
-      "sha256": "9903efe25f93d2ce9e9947ef7eafa15262c068eb57b548bb87e94d2786142009"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/scripts/replay_data.py",
-      "bytes": 14365,
-      "sha256": "0a54c2218ca7e28df0ffddf3c567b27ab279a348f8035ea793ef1f4d271de059"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/scripts/run_joylo.py",
-      "bytes": 6289,
-      "sha256": "284e774473d559528a3649634e6614b1f0bf2f4ea0e88ef2a57f7e74d5c017f3"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/scripts/run_qa_analysis.py",
-      "bytes": 2022,
-      "sha256": "e057c6beb1945d801c744f3323df8aafd5b4d5732bbaa59d1c727873574d4974"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/scripts/scan_and_reboot.py",
-      "bytes": 2405,
-      "sha256": "654c792433ae4451decb5b681639728fd1db21aaf0d3281b6b87577f9b39eab6"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/scripts/test_joints.py",
-      "bytes": 2243,
-      "sha256": "720c7c90d2198095995703615f759c365e464faee9e743b1c2ab1301533172a5"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/joylo/setup.py",
-      "bytes": 142,
-      "sha256": "ee43d36dbdca2c39e761d5657308b5d71c479e7a0a49342c7a6638e33a8c5961"
-    },
-    {
-      "path": "third_party/BEHAVIOR-1K-isaac6/setup.sh",
       "bytes": 20826,
       "sha256": "49558087ff59f1124a0892a4cfa3963b18f8fc200296ab4444ae0fdd98303c40"
     },
@@ -14358,16 +14398,6 @@
       "sha256": "abe19c8081636516740971ce5219929f8c92099c823ee41d12da87f04c33fb0c"
     },
     {
-      "path": "third_party/LiLa-WAM/models/model_runner.py",
-      "bytes": 13538,
-      "sha256": "d00d2e928e26f9bdb86e8fb5a151c1513957b97ca9be646d79f68af283108ffe"
-    },
-    {
-      "path": "third_party/LiLa-WAM/models/vla_model_fm.py",
-      "bytes": 22450,
-      "sha256": "6c7d1effa72c2d52fb2349f0af843231d26f9a26d930e972922acd3e70364659"
-    },
-    {
       "path": "third_party/LiLa-WAM/monitor_eval.py",
       "bytes": 3213,
       "sha256": "896b5b37811c995d2701c8e847f6f12227c9434caac3d3c108cbf09ba89aaf49"
@@ -14521,16 +14551,6 @@
       "path": "third_party/RoboTwin/collect_data.sh",
       "bytes": 371,
       "sha256": "e30a9e687d58fe73544046ff37bdfd6fe866a5ffe413848524612cc19437aa44"
-    },
-    {
-      "path": "third_party/RoboTwin/data/decode_image_bit.py",
-      "bytes": 17675,
-      "sha256": "90df99c52d3f127a09f5960680113f17e8b3e25b2e3cb9117abdeb249d7a337e"
-    },
-    {
-      "path": "third_party/RoboTwin/data/process_stuck.py",
-      "bytes": 893,
-      "sha256": "1b38aff2810ed5e922ba3429f8fbb698b527ec16ca4c35d791b480dd5c907071"
     },
     {
       "path": "third_party/RoboTwin/description/_generate_object_prompt.txt",
@@ -18213,14 +18233,14 @@
       "sha256": "6438608f7ba70cd8b1ab41ae3f0f0fd990f4ec59548e11c456fa7a9a0520663d"
     },
     {
-      "path": "README.md",
-      "bytes": 9773,
-      "sha256": "da526a4a64db487ffd5e31c6ab9bba46cd6708d8f17f5429a0614789cb589cad"
+      "path": "tools/publish_wam_history.py",
+      "bytes": 12950,
+      "sha256": "90f9e6165ff06dff0dfebb4cc848e4dd7123e0ea8a214ee7b6443b104ab0d47e"
     },
     {
-      "path": "environment/release-checks.json",
-      "bytes": 250,
-      "sha256": "be2a0332c27a6628671615525c7875e6a39354c10698478fd249f64941b77e7d"
+      "path": "tools/restore_wam_release.py",
+      "bytes": 3005,
+      "sha256": "814b8a27e46c8bc1b4f6492bcf97796996a7a091a4c0dd50022c30aa940236a8"
     }
   ]
 }

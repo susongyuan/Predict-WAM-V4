@@ -48,17 +48,17 @@ flowchart TD
 
 [历史数据与权重 Release](https://github.com/susongyuan/Predict-WAM-V4/releases/tag/wam-history-artifacts-20261014) 在全部文件上传、远端长度与 SHA256 核验完成前保持 draft。上传中不能将某个类别已完成解释成全部已上传。
 
-各类别是一条 tar 流，分成最多 1.5GiB 的 part；必须下载该类别的全部 part 和对应 manifest。**先验证每个 part 的 SHA256，随后按编号拼接再解包到独立目录**：
+各类别是一条 tar 流，分成最多 512MiB 的 part；必须下载该类别的全部 part 和对应 manifest。**先验证每个 part 的 SHA256，随后按编号拼接再解包到独立目录**：
 
 ```bash
 python tools/restore_wam_release.py --assets /path/to/downloads --category priority-weights --out /path/to/restored
 ```
 
-类别含：关键路径模型、元数据、示教数据、其余检查点、观测与结果、历史源码。完整 `plan.json` 记录纳入和排除范围。解包恢复原相对路径；文件名、hardlink/原SHA和训练契约应保持，不要盲目全局替换历史绝对路径。
+实际进度见 [`publication-status.json`](publication-status.json)。类别含：关键路径模型、元数据、示教数据、其余检查点、观测与结果、历史源码。完整 `plan.json` 记录纳入和排除范围。解包恢复原相对路径；文件名、hardlink/原SHA和训练契约应保持，不要盲目全局替换历史绝对路径。
 
 ## 明确缺口
 
-- 2026-10-04 已按当时授权删除137条旧检查点项，仅保留旧移动任务最终50k；本次不能恢复那些已删除权重。
+- 2026-10-04 已按当时授权删除137条旧检查点项（含软链接），仅保留旧移动任务最终50k；本次不能恢复那些已删除权重。
 - 失败 Precision V3 的四个权重及错误 exec16 队列历史已清理，本次保留可用失败证据，不补造权重或物理结果。
 - 早期 checkpoint 不齐时，只能声称有源码/报告/谱系记录，不能声称每个阶段都能重跑。
 - 报告中的Q、原生谓词、严格比赛成功和辅助事件是不同指标；不得合并成同一成功率曲线。

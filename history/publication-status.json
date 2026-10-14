@@ -1,0 +1,13 @@
+{
+  "status": "bulk_upload_in_progress",
+  "as_of": "2026-10-14",
+  "release_url": "https://github.com/susongyuan/Predict-WAM-V4/releases/tag/wam-history-artifacts-20261014",
+  "release_is_draft_until_verified": true,
+  "source_and_evolution_docs_pushed": true,
+  "logical_selected_bytes": 322541552845,
+  "retained_checkpoints": 120,
+  "generated_hdf5_files": 578,
+  "local_status_file": "/home/user/Robotic/wam-history-release-20261014/status.json",
+  "service": "predict-wam-history-publish-20261014.service",
+  "note": "This file is automatically updated and committed only when all categories and remote SHA256 checks complete. Upstream datasets/assets are referenced by provenance; previously deleted weights are not recoverable."
+}

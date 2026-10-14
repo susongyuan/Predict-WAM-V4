@@ -96,7 +96,9 @@ def main():
    if not exists:
     notes=args.staging/'release-notes.md';notes.write_text('''# WAM 历史代码、数据、权重与结果\n\n原始证据快照发布。各版本/任务索引见仓库 history/EVOLUTION.md。文件按类别切分：同一类别全部 part 按编号拼接后得到 tar；请先核验 manifest 的 SHA256 再解包。\n\n发布过程先使用 draft，全部上传核验后才正式发布。包括失败与未完成记录，历史计划/授权不是现在的运行指令。旧移动任务已删除的权重不能恢复。上游数据/资产仍按来源和原许可证下载。\n''')
     gh('release','create',TAG,'--repo',REPO,'--target','main','--draft','--title','WAM evolution: retained datasets, checkpoints and experiment evidence','--notes-file',str(notes))
-  for cat,rows in inventory['groups'].items():
+  order=['historical-sources','priority-weights','metadata','datasets','remaining-weights','observations-and-results']
+  for cat in order:
+   rows=inventory['groups'][cat]
    manifest_path=args.staging/f'{cat}.manifest.json';compressed=cat in ('metadata','historical-sources');base=args.staging/(cat+('.tar.gz' if compressed else '.tar'))
    if manifest_path.exists():manifest=json.loads(manifest_path.read_text())
    else:
@@ -166,6 +168,12 @@ def main():
   if args.publish:
    gh('release','upload',TAG,str(pp),'--repo',REPO,'--clobber')
    gh('release','edit',TAG,'--repo',REPO,'--draft=false','--latest=false')
+   publication=dict(status='complete',release_url=f'https://github.com/{REPO}/releases/tag/{TAG}',categories=summary,verified_remote_sha256=True,completed_at=time.strftime('%Y-%m-%dT%H:%M:%S%z'),limitations=inventory['external_data_policy'])
+   repo_root=Path(__file__).resolve().parents[1]
+   write_json(repo_root/'history/publication-status.json',publication)
+   subprocess.run(['git','-C',str(repo_root),'add','history/publication-status.json'],check=True)
+   subprocess.run(['git','-C',str(repo_root),'commit','--only','history/publication-status.json','-m','Record completed and SHA256-verified WAM history artifact publication','--quiet'],check=True)
+   subprocess.run(['git','-C',str(repo_root),'push','origin','main'],check=True)
   status(status='complete',release_url=f'https://github.com/{REPO}/releases/tag/{TAG}')
  except BaseException as exc:status(status='failed',error=f'{type(exc).__name__}: {exc}');raise
 
